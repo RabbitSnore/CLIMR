@@ -106,6 +106,10 @@ The original study analyzed the data using a mixed ANOVA, with condition and sce
 
 Another way to extract an effect size from the original paper is to use the means and standard deviations reported and to assume that there were _n_ = 190 observations in each condition (i.e., _N_ = 95 participants, 4 scenarios, 2 conditions). With these values, we can calculate the effect size as _d_ = 0.40, 95% CI [0.19, 0.60].
 
+### Revised effect size
+
+The effect size will be calculated according to the formula described above for the temporal distance effect ($d_{t}$).
+
 ## Temporal distance, Liberman & Trope (1998, Study 1)
 
 Participants are presented with seven activities and asked to describe the activity with an open-ended response. The activities were either situated in the near future or the distant. Then, they completed the "levels of personal agency questionnaire" (i.e., the BIF).
@@ -117,10 +121,6 @@ In the original study, the data for the BIF were analyzed using an independent s
 ### Revised effect size
 
 For this design, we will calculate a standardized mean difference using the method described for the other temporal distance experiment, which in this case is equivalent to a classical Cohen's _d_.
-
-### Revised effect size
-
-The effect size will be calculated according to the formula described above for the temporal distance effect ($d_{t}$).
 
 # Active control
 

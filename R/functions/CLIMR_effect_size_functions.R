@@ -124,9 +124,9 @@ prop_calc <- function(x, y) {
   
 }
 
-### CREATING EMPTY DATA SETS FOR EFFECT SIZES -------------------------
+# CREATING EMPTY DATA SETS FOR EFFECT SIZES ---------------------------
 
-#### The data frame produced by this function is designed to work with the d_calc() function
+## The data frame produced by this function is designed to work with the d_calc() function
 
 empty_smd_data <- function(n) {
   
@@ -142,7 +142,7 @@ empty_smd_data <- function(n) {
   
 }
 
-#### The data frame produced by this function is designed to work with the odds_calc() function
+## The data frame produced by this function is designed to work with the odds_calc() function
 
 empty_lor_data <- function(n) {
   
@@ -157,3 +157,64 @@ empty_lor_data <- function(n) {
   return(out)
   
 }
+
+# CALCULATE EFFECT SIZES FOR EACH LAB ---------------------------------
+
+## Calculate standardized mean difference for each lab
+
+lab_d_calc <- function(data, distance, experiment, cond_1 = "near", cond_2 = "far") {
+  
+  lab_count <- length(unique(data$lab))
+  
+  effect_data <- empty_smd_data(lab_count)
+  
+  for (i in 1:lab_count) {
+    
+    lab_temp <- unique(data$lab)[i]
+    
+    effect_data[i, ] <- d_calc(
+      ID = lab_temp, 
+      x = data$condition[data$lab == lab_temp], 
+      y = data$y[data$lab == lab_temp],
+      cond_1 = cond_1, 
+      cond_2 = cond_2
+    )
+    
+  }
+  
+  effect_data$distance <- distance
+  effect_data$experiment <- experiment
+  
+  return(effect_data)
+  
+}
+
+## Calculate log odds ratio for each lab
+
+lab_lor_calc <- function(data, distance, experiment, cond_1 = "near", cond_2 = "far") {
+  
+  lab_count <- length(unique(data$lab))
+  
+  effect_data <- empty_lor_data(lab_count)
+  
+  for (i in 1:lab_count) {
+    
+    lab_temp <- unique(data$lab)[i]
+    
+    effect_data[i, ] <- odds_calc(
+      ID = lab_temp, 
+      x = data$condition[data$lab == lab_temp], 
+      y = data$y[data$lab == lab_temp],
+      cond_1 = cond_1, 
+      cond_2 = cond_2
+    )
+    
+  }
+  
+  effect_data$distance <- distance
+  effect_data$experiment <- experiment
+  
+  return(effect_data)
+  
+}
+
