@@ -82,7 +82,7 @@ Note that counterintuitively, none of them exceed the overall effect size and th
 For the purposes of intuitive interpretation and ease of meta-analytic combination, it is desirable to have an effect size expressed as a standardized mean difference. Similar to the recommendations of Hedges (2007, Equation 3) and Westfall (2016), the effect size will be calculated by
 
 $$d_{t} = \frac{\mu_1 - \mu_2}{\sigma_{total}}$$
-where $\mu_1$ and $\mu_2$ are the means of each group being compared (i.e., psychologically near vs. psychologically distant), and $\sigma_{total}$ is the standard deviation across all observations. This method of standardization does not attempt to remove variance associated with random effects (e.g., repeated measures across participants). Thus, it is independent of study design and well-suited for comparison across studies. 
+where $\mu_1$ and $\mu_2$ are the means of each group being compared (i.e., psychologically near vs. psychologically distant), and $\sigma_{total}$ is the pooled standard deviation across the groups. This method of standardization does not attempt to remove variance associated with random effects (e.g., repeated measures across participants). Thus, it is independent of study design and well-suited for comparison across studies. 
 
 However, it is important to note that this method of standardization differs from the method of standardization in many of the original studies being replicated. For that reason, it is not always directly comparable to the effect sizes extracted from the original reports described here. In the case of the temporal distance experiment, the most comparable estimate is _d_ = 0.59, 95% CI [0.15, 1.03].
 
@@ -96,23 +96,17 @@ The data in the original study were analyzed using a Mann-Whitney test (and an i
 
 For this design, we will calculate a standardized mean difference using the method described for the temporal distance experiment, which in this case is equivalent to a classical Cohen's _d_.
 
-## Social distance, Amit et al., (2013, Study 2)
+## Temporal distance, Liberman & Trope (1998, Study 1)
 
-Participants are presented with six stimulus people (three socially close and three socially distant), and they select whether to send a text greeting card or a picture greeting card to each one.
+Participants are presented with seven activities and asked to describe the activity with an open-ended response. The activities were either situated in the near future or the distant. Then, they completed the "levels of personal agency questionnaire" (i.e., the BIF).
 
 ### Original effect size
 
-In the original study, the data were analyzed using a paired samples _t_-test. No effect size was reported.
-
-Several methods exist for calculating effect sizes for paired samples comparisons (see, e.g., Dunlap et al., 1996). However, these methods often produce effect size estimates that are not easily comparable to effects from other studies.
-
-Fortunately, the authors courteously provided us with a copy of the data for the original study. From these data, we calculated an effect analogous to the effect size described by the formula above. Specifically, we calculated a log odds ratio measuring the difference in rate of selecting text/picture cards for each stimulus person, _log(OR)_ = 1.58, 95% CI [0.72,	2.45], _OR_ = 4.85, 95% CI [2.05,	11.59]. We then converted this log odds ratio to _d_ = 0.93, 95% CI [0.42, 1.44] (see below).
+In the original study, the data for the BIF were analyzed using an independent samples _t_-test. No effect size was reported. Coverting from the reported test statistics, the effect size was _d_ = 0.90, 95% CI [0.17 , 1.63].
 
 ### Revised effect size
 
-The effect size will be calculated as a log odds ratio measuring the difference in rate of selecting text/picture cards for each stimulus person. We will also convert the log odds ratio to an odds ratio, for ease of interpretation. For comparison to the other effect sizes in this project, we will convert the log odds ratio using the following formula (see Hasselblad & Hedges, 1995): 
-
-$$d_{t} = log(OR)\frac{\sqrt{3}}{\pi}$$
+For this design, we will calculate a standardized mean difference using the method described for the other temporal distance experiment, which in this case is equivalent to a classical Cohen's _d_.
 
 ## Likelihood distance, Wakslak et al. (2006, Study 1)
 
