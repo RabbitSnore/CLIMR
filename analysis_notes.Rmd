@@ -1,0 +1,151 @@
+---
+title: "Construal Level International Multilab Replication (CLIMR) Project: Notes on the Analysis Plan"
+author: "CLIMR Team"
+date: "`r Sys.Date()`"
+output:
+  html_document:
+    theme: darkly
+    toc: yes
+    toc_float: yes
+  pdf_document:
+    toc: yes
+knit: (function(input_file, encoding) {
+    rmarkdown::render(input_file, encoding = encoding, output_dir = "./reports/")
+  })
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(tidyverse)
+library(metafor)
+library(lme4)
+library(simr)
+library(ggbeeswarm)
+library(ggstance)
+
+```
+
+# Overview of analysis plan
+
+This document introduces background on the analysis plan for the CLIMR project.
+
+For each replicated experiment, we will analyze the data with the following approach.
+
+## Presence of the predicted effect
+
+First, we will assess whether the estimated effect is significantly greater than 0. We will calculate a meta-analytic effect size estimate and corresponding 95% confidence interval for the effect of interest. If the CI includes only positive values and excludes 0, we will conclude that there is support for the existence of an effect.
+
+We will calculate effect sizes and sampling variances for each lab's replication of the experiment. The method of effect size calculation is described below. We will then synthesize those estimates using a random effects meta-analysis.
+
+## Heterogeneity
+
+Second, we will assess the presence and magnitude of heterogeneity in the estimated effect sizes across contributing labs.
+
+We will assess heterogeneity across labs using three methods: a $Q$ test, $I^2$, and $\tau$. The $Q$ test will be used to assess whether the variation in effect sizes exceeds what would be expected by random sampling error. To draw this inference, we will use a significance criterion of .05. We will use $I^2$ and $\tau$ to quantify this potential heterogeneity.
+
+## Unstandardized effects
+
+Third, to assist with interpretation, we will provide unstandardized effect estimates. For effects estimated with _d_, we will back-transform the standardized effect sizes and CI bounds into unstandardized mean differences. For effect estimated using log odds ratios (i.e., social distance; see below), we will instead calculate the overall difference in proportions between the near and distant conditions across all the data and construct a 95% confidence interval for that difference. Thus, we will be able to make statements about the size of the effects in the raw units of the dependent variables.
+
+## Assessment of overall effect
+
+Additionally, we will assess whether the overall effect across the experiments is significantly greater than zero. We will conduct a meta-analysis of the effect sizes of all the replicated experiments from the contributing labs. If the 95% confidence interval for the meta-analytic effect contains only positive values and excludes 0, we will conclude there is overall support for an effect consistent with the predictions of Construal Level Theory.
+
+We will use a multi-level meta-analysis to assess the overall effect, with random variance components estimated for contributing labs and for the four experiments.
+
+We will also assess the heterogeneity of the overall effect(s) using a $Q$ test, $I^2$ (overall, across labs, and across experiments), and $\sigma$ (across labs and across experiments).
+
+# Designs
+
+In the designs for all four experiments we are replicating, the comparison of interest is between the near and distant conditions (or trials).
+
+## Temporal distance, Liberman et al. (2002, Study 1)
+
+Participants categorize objects in four scenarios (within-subjects), which are either placed in the near future or distant future (between-subjects).
+
+### Original effect size
+
+The data in the original study were analyzed with four _t_-tests, one for each of the four scenarios, followed by an additional _t_-test of each participants' average across the four scenarios. No effect sizes were reported. Converting from the test statistics reported for the overall effect, the original effect size estimate is _d_ = 0.83, 95% CI [0.38 , 1.29]. 
+
+The effect sizes for the individual scenarios, converted from their test statistics, are as follows:
+
+1. _d_ = 0.56 [0.11, 1.00]
+2. _d_ = 0.26 [-0.17, 0.70] 
+3. _d_ = 0.69 [0.24, 1.14]
+4. _d_ = 0.83 [0.38, 1.28]
+
+Note that counterintuitively, none of them exceed the overall effect size and that the overall effect size is in fact slightly greater than the largest individual effect. The average of the individual effects is _d_ = 0.59 -- noticably smaller than the overall effect size. The overall effect size is larger because it is standardized using the standard deviation of participants' _average_ value on the response variable.
+
+### Revised effect size
+
+For the purposes of intuitive interpretation and ease of meta-analytic combination, it is desirable to have an effect size expressed as a standardized mean difference. Similar to the recommendations of Hedges (2007, Equation 3) and Westfall (2016), the effect size will be calculated by
+
+$$d_{t} = \frac{\mu_1 - \mu_2}{\sigma_{total}}$$
+where $\mu_1$ and $\mu_2$ are the means of each group being compared (i.e., psychologically near vs. psychologically distant), and $\sigma_{total}$ is the standard deviation across all observations. This method of standardization does not attempt to remove variance associated with random effects (e.g., repeated measures across participants). Thus, it is independent of study design and well-suited for comparison across studies. 
+
+However, it is important to note that this method of standardization differs from the method of standardization in many of the original studies being replicated. For that reason, it is not always directly comparable to the effect sizes extracted from the original reports described here. In the case of the temporal distance experiment, the most comparable estimate is _d_ = 0.59, 95% CI [0.15, 1.03].
+
+## Spatial distance, Henderson et al. (2006, Study 1)
+
+Participants segment a video into meaningful action units. They are assigned to imagine the actions depicted in the video as occuring nearby or far away.
+
+### Effect size
+
+The data in the original study were analyzed using a Mann-Whitney test (and an independent samples _t_-test, reported in a footnote). No effect size was reported. It is possible to calculate a classic _d_ effect size for these data. Using data from the Soderberg et al. meta-analysis, the original estimated effect is _d_ = 0.53, 95% CI [0.09, 0.97].
+
+For this design, we will calculate a standardized mean difference using the method described for the temporal distance experiment, which in this case is equivalent to a classical Cohen's _d_.
+
+## Social distance, Amit et al., (2013, Study 2)
+
+Participants are presented with six stimulus people (three socially close and three socially distant), and they select whether to send a text greeting card or a picture greeting card to each one.
+
+### Original effect size
+
+In the original study, the data were analyzed using a paired samples _t_-test. No effect size was reported.
+
+Several methods exist for calculating effect sizes for paired samples comparisons (see, e.g., Dunlap et al., 1996). However, these methods often produce effect size estimates that are not easily comparable to effects from other studies.
+
+Fortunately, the authors courteously provided us with a copy of the data for the original study. From these data, we calculated an effect analogous to the effect size described by the formula above. Specifically, we calculated a log odds ratio measuring the difference in rate of selecting text/picture cards for each stimulus person, _log(OR)_ = 1.58, 95% CI [0.72,	2.45], _OR_ = 4.85, 95% CI [2.05,	11.59]. We then converted this log odds ratio to _d_ = 0.93, 95% CI [0.42, 1.44] (see below).
+
+### Revised effect size
+
+The effect size will be calculated as a log odds ratio measuring the difference in rate of selecting text/picture cards for each stimulus person. We will also convert the log odds ratio to an odds ratio, for ease of interpretation. For comparison to the other effect sizes in this project, we will convert the log odds ratio using the following formula (see Hasselblad & Hedges, 1995): 
+
+$$d_{t} = log(OR)\frac{\sqrt{3}}{\pi}$$
+
+## Likelihood distance, Wakslak et al. (2006, Study 1)
+
+Participants categorize objects in four scenarios (within-subjects), which are either very likely to occur or unlikely to occur (between-subjects).
+
+### Original effect size
+
+The original study analyzed the data using a mixed ANOVA, with condition and scenarios as between and within factors respectively. For the comparison of interest, the original study reports an effect size of $\eta^2_{p}$ = .049. To the best of our knowledge, there is no precise method of converting $\eta^2_{p}$ to _d_, but if we treat this this estimate as $\eta^2$ (rather than partial) and use the group sizes provided in the data from Soderberg et al., this estimate converts to approximately _d_ = 0.44, 95% CI [0.03, 0.86]. 
+
+Another way to extract an effect size from the original paper is to use the means and standard deviations reported and to assume that there were _n_ = 190 observations in each condition (i.e., _N_ = 95 participants, 4 scenarios, 2 conditions). With these values, we can calculate the effect size as _d_ = 0.40, 95% CI [0.19, 0.60].
+
+### Revised effect size
+
+The effect size will be calculated according to the formula described above for the temporal distance effect ($d_{t}$).
+
+# Active control
+
+As an active control, we will replicate Tversky and Kahneman (1981), Study 10. All participants will provide active control data.
+
+In the original study by Tversky and Kahneman (1981), participants imagined a decision scenario in which they were to buy two items, one cheap (\$15) and one costly (\$125). Participants were assigned to one of two conditions. In one condition, the cheap item could be purchased for \$5 less at a different branch located 20 minutes away. In the other condition the costly item could be purchased for $5 less at the different branch. In other words, the total cost for the two items was the same across conditions. Participants were more likely to decide to go to the other store when the cheap item was on sale (68%) than when the costly item was on sale (29%, _OR_ = 4.96, 95% CI [2.55, 9.90], _LOR_ = 1.60, 95% CI [0.94, 2.29]).
+
+We will calculate effect size for the active control as a log odds ratio and will analyze it using the same strategy as the primary analyses.
+
+# Comprehension checks
+
+We will include comprehension checks for the psychological distance manipulations. To supplement the main results, we will conduct analyses with the same approach described above but excluding data representing comprehension check failures.
+
+For comprehension checks pertaining to specific stimuli (e.g., recognizing the time described in each of the four scenarios used in the temporal distance manipulation), we will exclude observations for which participants failed to respond correctly (but include observations from that same participant where they responded correctly). For comprehension checks pertaining to the stimuli generally (e.g., recognizing format of the cards presented in the social distance task), we will exclude data at the participant level.
+
+In the manuscript, we will include a full report of the analyses with these data excluded if any of these conditions are met:
+
+* If any of the 95% confidence intervals for the supplemental analyses (i.e., those excluding comprehension check failures) include or exclude zero, in a way that is inconsistent with the primary analyses (e.g., the supplemental analysis CI for temporal distance excludes zero but the primary analysis CI does not).
+
+* If any of the 95% CIs for the supplemental analyses exclude the point estimates of the primary analyses.
+
+If none of these conditions are met, we will store the analyses in supplemental material and briefly mention them in the main text, with a link to a document more fully reporting these results.
