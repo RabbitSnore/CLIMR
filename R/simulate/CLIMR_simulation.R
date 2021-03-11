@@ -6,7 +6,7 @@
 
 # Set up environment --------------------------------------------------
 
-packages_simulation <- c("tidyverse", "lme4", "simr")
+packages_simulation <- c("dplyr", "lme4", "simr")
 
 lapply(packages_simulation, library, character.only = TRUE)
 
@@ -15,7 +15,7 @@ set.seed(1040)
 # Shared Attributes ---------------------------------------------------
 
 ### NOTE
-# These attributes are shared between simulations for convenience. They are not intented to be realistic or to reflect our beliefs about the likely outcome of the replications. The values specified throughout this document are basically arbitrary. They are designed to test the code and analytic strategy, not to model any theory or empirical results.
+# These attributes are shared between simulations for convenience. They are not intended to be realistic or to reflect our beliefs about the likely outcome of the replications. The values specified throughout this document are basically arbitrary. They are designed to test the code and analytic strategy, not to model any theory or empirical results.
 ###
 
 # Effect and basic design specification
