@@ -107,7 +107,7 @@ effects_control <- lab_lor_calc(
 
 ### Comprehension check failures removed
 
-effects_control_comp <- lab_d_calc(
+effects_control_comp <- lab_lor_calc(
   data = filter(data_control, comp_check == 0), 
   distance = "active_control", 
   experiment = "Tversky & Kahneman (1981, Study 10)",
@@ -117,5 +117,20 @@ effects_control_comp <- lab_d_calc(
 
 # Export effect size data ---------------------------------------------
 
+## Combine all data
 
+effects_complete <- bind_rows(
+  effects_temporal,
+  effects_spatial,
+  effects_likelihood,
+  effects_temporal_2
+)
 
+### Comprehension check failures removed
+
+effects_complete_comp <- bind_rows(
+  effects_temporal_comp,
+  effects_spatial_comp,
+  effects_likelihood_comp,
+  effects_temporal_2_comp
+)

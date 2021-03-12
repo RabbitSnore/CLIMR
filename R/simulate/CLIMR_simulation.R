@@ -305,3 +305,10 @@ levels(data_control$condition) <- c("expensive", "cheap")
 
 contrasts(data_control$condition) <- contr.sum(2)
 
+## Adding comprehension check
+
+# For this variable, 0 indicates passing the check
+# and 1 indicates failing the check.
+# The data are set this way to facilitate easier analysis.
+
+data_control$comp_check <- sample(c(0, 1), nrow(data_control), replace = TRUE, prob = c(.95, .05))
