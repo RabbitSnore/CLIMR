@@ -8,7 +8,7 @@
 
 ## Calculate standardized mean difference, sampling variance, and 95% confidence intervals
 
-### Note that this function is designed to compute a mean difference standardized by the standard deviation pooled across all observations, and it will ignore any dependence of observations.
+### Note that this function is designed to compute a mean difference standardized by the standard deviation pooled across the conditions, and it will ignore any dependence of observations.
 ### This approach is consistent with the recommendations of Jake Westfall in the documentation for the PANGEA power calculation tool, as well as in discussions of computing generalized standardized mean differences.
 ### One key advantage of this approach is that it is highly general and produces effect sizes that are easy to compare to other standardized effect sizes. However, it does not account for the correlation of errors between observations that, e.g., come from the same person. But this is on purpose.
 

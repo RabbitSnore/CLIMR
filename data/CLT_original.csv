@@ -1,0 +1,5 @@
+study,d,ci_lower,ci_upper
+temporal,0.83,0.38,1.29
+spatial,0.53,0.09,0.97
+likelihood,0.44,0.03,0.86
+temporal_2,0.9,0.17,1.63
