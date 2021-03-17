@@ -39,3 +39,9 @@ reports/*.html
 
 # R Environment Variables
 .Renviron
+
+# Plots
+/plots/*.png
+/plots/*.svg
+plots/*.png
+plots/*.svg

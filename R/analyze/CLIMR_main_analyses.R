@@ -205,12 +205,7 @@ I2_complete_comp <- I2_mv(meta_complete_comp, effects_complete_comp)
 
 # Arboretum plot ------------------------------------------------------
 
-arboretum <- plot_grid(
-  forest_temporal, forest_spatial, forest_likelihood, forest_temporal_2,
-  align = "h",
-  rel_heights = 1,
-  nrow = 1
-)
+arboretum <- arboretum_plot(list(forest_temporal, forest_spatial, forest_likelihood, forest_temporal_2))
 
 ## Save plot
 

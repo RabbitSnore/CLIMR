@@ -17,13 +17,6 @@ knit: (function(input_file, encoding) {
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 
-library(tidyverse)
-library(metafor)
-library(lme4)
-library(simr)
-library(ggbeeswarm)
-library(ggstance)
-
 ```
 
 # Overview of analysis plan

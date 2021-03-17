@@ -6,62 +6,62 @@
 
 # FOREST PLOT ---------------------------------------------------------
 
-## Internal function for creating forest plot data
-
-forest_data <- function(replication_data, meta_analysis, org_d, org_ci_lower, org_ci_upper) {
-  
-  # Set up original and meta-analytic estimates
-  
-  forest_estimates <- data.frame(
-    ID       = c("Replication", "Original"),
-    d        = c(meta_analysis$beta[[1]], org_d),
-    var      = c(NA, NA),
-    ci_lower = c(meta_analysis$ci.lb, org_ci_lower),
-    ci_upper = c(meta_analysis$ci.ub, org_ci_upper)
-  )
-  
-  # Bind the original and meta-analytic estimates to the calculated effects from each lab
-  
-  replication_data$ID <- as.character(replication_data$ID)
-  
-  forest_estimates <- bind_rows(forest_estimates, replication_data)
-  
-  # Set up the effect IDs with the proper order for the forest plot
-  
-  forest_estimates$ID <- factor(forest_estimates$ID, 
-                                levels = c(
-                                  "Original",  
-                                  "Replication", 
-                                  as.character(arrange(replication_data, d)$ID)
-                                )
-  )
-  
-  # Set up an indicator for whether the estimate is from the meta-analysis, the original, or a replication
-  
-  forest_estimates <- forest_estimates %>% 
-    mutate(
-      estim = as.factor(
-        case_when(
-          ID == "Replication" ~ "meta",
-          ID == "Original" ~ "original",
-          !is.na(ID) ~ "study"
-        ))
-    )
-  
-  return(forest_estimates)
-  
-}
-
 ## Forest plot for standardized mean difference
 
-forest_plot <- function(replication_data, meta_analysis, org_d, org_ci_lower, org_ci_upper, title, study_color = "black", boundary_pad = 0.20, breaks = 0.50) {
+forest_plot <- function(replication_data, meta_analysis, org_d, org_ci_lower, org_ci_upper, title, study_color = "black", boundary_pad = 0.25, multiple = .50) {
+  
+  ## Internal function for creating forest plot data
+  
+  forest_data <- function(replication_data, meta_analysis, org_d, org_ci_lower, org_ci_upper) {
+    
+    # Set up original and meta-analytic estimates
+    
+    forest_estimates <- data.frame(
+      ID       = c("Replication", "Original"),
+      d        = c(meta_analysis$beta[[1]], org_d),
+      var      = c(NA, NA),
+      ci_lower = c(meta_analysis$ci.lb, org_ci_lower),
+      ci_upper = c(meta_analysis$ci.ub, org_ci_upper)
+    )
+    
+    # Bind the original and meta-analytic estimates to the calculated effects from each lab
+    
+    replication_data$ID <- as.character(replication_data$ID)
+    
+    forest_estimates <- bind_rows(forest_estimates, replication_data)
+    
+    # Set up the effect IDs with the proper order for the forest plot
+    
+    forest_estimates$ID <- factor(forest_estimates$ID, 
+                                  levels = c(
+                                    "Original",  
+                                    "Replication", 
+                                    as.character(arrange(replication_data, d)$ID)
+                                  )
+    )
+    
+    # Set up an indicator for whether the estimate is from the meta-analysis, the original, or a replication
+    
+    forest_estimates <- forest_estimates %>% 
+      mutate(
+        estim = as.factor(
+          case_when(
+            ID == "Replication" ~ "meta",
+            ID == "Original" ~ "original",
+            !is.na(ID) ~ "study"
+          ))
+      )
+    
+    return(forest_estimates)
+    
+  }
   
   forest_estimates <- forest_data(replication_data, meta_analysis, org_d, org_ci_lower, org_ci_upper)
   
   # Set up plot boundaries
   
-  effect_max <- round(max(forest_estimates$ci_upper, na.rm = TRUE), 1) + boundary_pad
-  effect_min <- round(min(forest_estimates$ci_lower, na.rm = TRUE), 1) - boundary_pad
+  effect_max <- round(max(forest_estimates$ci_upper, na.rm = TRUE) / multiple) * multiple
+  effect_min <- round(min(forest_estimates$ci_lower, na.rm = TRUE) / multiple) * multiple
   
   # Draw forest plot
   
@@ -104,11 +104,11 @@ forest_plot <- function(replication_data, meta_analysis, org_d, org_ci_lower, or
       yintercept = 2.5
     ) +
     scale_x_continuous(
-      breaks = sort(c(0, seq(effect_min, effect_max, breaks))),
-      labels = format(sort(paste(c(0, seq(effect_min, effect_max, breaks)))), nsmall = 2)
+      breaks = sort(c(0, seq(effect_min, effect_max, multiple))),
+      labels = format(sort(c(0, seq(effect_min, effect_max, multiple))), nsmall = 2)
     ) +
     coord_cartesian(
-      xlim = c(effect_min, effect_max)
+      xlim = c(effect_min - boundary_pad, effect_max + boundary_pad)
     ) +
     labs(
       title = title,
@@ -135,7 +135,7 @@ forest_plot <- function(replication_data, meta_analysis, org_d, org_ci_lower, or
 
 ## Forest plot for log odds ratio
 
-forest_plot_lor <- function(replication_data, meta_analysis, org_lor, org_ci_lower, org_ci_upper, title, study_color = "black", boundary_pad = 0.20, breaks = 0.50) {
+forest_plot_lor <- function(replication_data, meta_analysis, org_lor, org_ci_lower, org_ci_upper, title, study_color = "black", boundary_pad = 0.25, multiple = 0.50) {
   
   # Set up original and meta-analytic estimates
   
@@ -177,8 +177,8 @@ forest_plot_lor <- function(replication_data, meta_analysis, org_lor, org_ci_low
   
   # Set up plot boundaries
   
-  effect_max <- round(max(forest_estimates$ci_upper, na.rm = TRUE), 1) + boundary_pad
-  effect_min <- round(min(forest_estimates$ci_lower, na.rm = TRUE), 1) - boundary_pad
+  effect_max <- round(max(forest_estimates$ci_upper, na.rm = TRUE) / multiple) * multiple
+  effect_min <- round(min(forest_estimates$ci_lower, na.rm = TRUE) / multiple) * multiple
   
   # Draw forest plot
   
@@ -221,11 +221,11 @@ forest_plot_lor <- function(replication_data, meta_analysis, org_lor, org_ci_low
       yintercept = 2.5
     ) +
     scale_x_continuous(
-      breaks = sort(c(0, seq(effect_min, effect_max, breaks))),
-      labels = sort(paste(c(0, seq(effect_min, effect_max, breaks))))
+      breaks = sort(c(0, seq(effect_min, effect_max, multiple))),
+      labels = format(sort(c(0, seq(effect_min, effect_max, multiple))), nsmall = 2)
     ) +
     coord_cartesian(
-      xlim = c(effect_min, effect_max)
+      xlim = c(effect_min - boundary_pad, effect_max + boundary_pad)
     ) +
     labs(
       title = title,
@@ -250,11 +250,68 @@ forest_plot_lor <- function(replication_data, meta_analysis, org_lor, org_ci_low
   
 }
 
+# ABORETUM: MULTIPLE FORESTS ------------------------------------------
+
+## A figure combining forest plots for the four experiments
+
+arboretum_plot <- function(plot_list, boundary_pad = .25, multiple = .50, rows = 1) {
+  
+  ci_max <- 0
+  ci_min <- 0
+  
+  for (i in 1:length(plot_list)) { 
+    
+    if (max(plot_list[[i]]$data$ci_upper, na.rm = TRUE) > ci_max) {
+      
+      ci_max <- max(plot_list[[i]]$data$ci_upper, na.rm = TRUE)
+      
+      }
+    
+    if (min(plot_list[[i]]$data$ci_lower, na.rm = TRUE) < ci_min) {
+      
+      ci_min <- min(plot_list[[i]]$data$ci_lower, na.rm = TRUE)
+      
+      }
+    
+    }
+  
+  # Set up shared axis boundaries
+  
+  effect_max <- round(ci_max / multiple) * multiple
+  effect_min <- round(ci_min / multiple) * multiple
+  
+  for (i in 1:length(plot_list)) {
+    
+    # Set up shared x-axis scaling
+    
+    plot_list[[i]] <- plot_list[[i]] +
+      scale_x_continuous(
+        breaks = sort(c(0, seq(effect_min, effect_max, multiple))),
+        labels = format(sort(c(0, seq(effect_min, effect_max, multiple))), nsmall = 2)
+      ) +
+      coord_cartesian(
+        xlim = c(effect_min - boundary_pad, effect_max + boundary_pad)
+      )
+    
+  }
+  
+  arbor <- 
+  plot_grid(
+    plotlist = plot_list,
+    align = "h",
+    rel_heights = 1,
+    nrow = rows
+  )
+  
+  return(arbor)
+  
+}
+
 # MAIN FIGURE: BEESWARM -----------------------------------------------
 
 ## Main figure
 
-climr_swarm <- function(meta_temporal, meta_spatial, meta_likelihood, meta_temporal_2, complete, original, study_colors, titles, boundary_pad = .05, breaks = .50) {
+climr_swarm <- function(meta_temporal, meta_spatial, meta_likelihood, meta_temporal_2, complete, original, study_colors, titles, boundary_pad = .25, multiple = .50) {
   
   ## Internal function to set up estimate data frame
   
@@ -315,8 +372,8 @@ climr_swarm <- function(meta_temporal, meta_spatial, meta_likelihood, meta_tempo
 
   # Set up plot boundaries
   
-  effect_max <- round(max(c(complete$d, estimates_climr$ci_upper), na.rm = TRUE), 1) + boundary_pad
-  effect_min <- round(min(c(complete$d, estimates_climr$ci_lower), na.rm = TRUE), 1) - boundary_pad
+  effect_max <- round(max(c(complete$d, estimates_climr$ci_upper), na.rm = TRUE) / multiple) * multiple
+  effect_min <- round(min(c(complete$d, estimates_climr$ci_lower), na.rm = TRUE) / multiple) * multiple
   
   # Draw figure
   
@@ -384,11 +441,11 @@ climr_swarm <- function(meta_temporal, meta_spatial, meta_likelihood, meta_tempo
       values = c(16, 15)
     ) +
     scale_x_continuous(
-      breaks = sort(c(0, seq(effect_min, effect_max, breaks))),
-      labels = format(sort(c(0, seq(effect_min, effect_max, breaks))), nsmall = 2)
+      breaks = sort(c(0, seq(effect_min, effect_max, multiple))),
+      labels = format(sort(c(0, seq(effect_min, effect_max, multiple))), nsmall = 2)
     ) +
     coord_cartesian(
-      xlim = c(effect_min, effect_max)
+      xlim = c(effect_min - boundary_pad, effect_max + boundary_pad)
     ) +
     labs(
       shape = "",
