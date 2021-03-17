@@ -6,7 +6,7 @@
 
 # Set up environment --------------------------------------------------
 
-packages_meta <- c("metafor", "ggplot2", "ggbeeswarm", "ggstance", "cowplot")
+packages_meta <- c("metafor")
 
 lapply(packages_meta, library, character.only = TRUE)
 
