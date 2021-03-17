@@ -30,7 +30,6 @@ liberman_2002_color  <- "#37392E"
 liberman_1998_color  <- "#B9E28C"
 henderson_2006_color <- "#A47C79"
 wakslak_2006_color   <- "#19647E"
-tversky_1981_color   <- "#96BDC6"
 
 study_colors <- c(liberman_2002_color,
                   liberman_1998_color,
