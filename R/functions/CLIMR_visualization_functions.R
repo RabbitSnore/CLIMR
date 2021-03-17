@@ -252,9 +252,11 @@ forest_plot_lor <- function(replication_data, meta_analysis, org_lor, org_ci_low
 
 # ABORETUM: MULTIPLE FORESTS ------------------------------------------
 
-## A figure combining forest plots for the four experiments
+## A figure combining forest plots for the four experiments, with a shared x-axis scale
 
 arboretum_plot <- function(plot_list, boundary_pad = .25, multiple = .50, rows = 1) {
+  
+  require(cowplot)
   
   ci_max <- 0
   ci_min <- 0
@@ -294,6 +296,8 @@ arboretum_plot <- function(plot_list, boundary_pad = .25, multiple = .50, rows =
       )
     
   }
+  
+  # Combine plots into a one
   
   arbor <- 
   plot_grid(
