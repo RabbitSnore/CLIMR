@@ -15,7 +15,7 @@ poisson_calc <- function(ID, x, y, cond_1, cond_2) {
   # y is a vector of dependent variable values
   # cond_1 and cond_2 are values for the conditions being compared
   
-  x <- factor(x, levels = c("cond_1", "cond_2"))
+  x <- factor(x, levels = c(cond_1, cond_2))
   
   poisson_model <- glm(y ~ x, family = poisson(link = "log"))
   
@@ -23,9 +23,9 @@ poisson_calc <- function(ID, x, y, cond_1, cond_2) {
   
   var <- summary(poisson_model)$coefficients[2, 2]^2
   
-  ci_upper <- d + sqrt(var) * qnorm(.975)
+  ci_upper <- b + sqrt(var) * qnorm(.975)
   
-  ci_lower <- d - sqrt(var) * qnorm(.975)
+  ci_lower <- b - sqrt(var) * qnorm(.975)
   
   out <- data.frame(ID = ID, b = b, var = var, ci_lower = ci_lower, ci_upper = ci_upper)
   
