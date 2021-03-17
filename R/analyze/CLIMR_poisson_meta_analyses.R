@@ -124,4 +124,4 @@ meta_poisson_complete_comp <- rma.mv(
   random = ~ 1|ID,
   data = poisson_complete_comp)
 
-I2_poisson_complete_comp <- I2_mv(meta_poissoncomplete_comp, poisson_complete_comp)
+I2_poisson_complete_comp <- I2_mv(meta_poisson_complete_comp, poisson_complete_comp)
