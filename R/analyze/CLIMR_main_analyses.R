@@ -13,6 +13,7 @@ lapply(packages_meta, library, character.only = TRUE)
 ## Load functions
 
 source("./R/functions/CLIMR_visualization_functions.R")
+source("./R/functions/CLIMR_meta_analytic_functions.R")
 
 ## Load data
 
@@ -26,16 +27,15 @@ original <- read.csv("./data/CLT_original.csv")
 ## Study colors
 
 liberman_2002_color  <- "#37392E"
+liberman_1998_color  <- "#B9E28C"
 henderson_2006_color <- "#A47C79"
 wakslak_2006_color   <- "#19647E"
-liberman_1998_color  <- "#B9E28C"
 tversky_1981_color   <- "#96BDC6"
 
 study_colors <- c(liberman_2002_color,
+                  liberman_1998_color,
                   henderson_2006_color,
-                  wakslak_2006_color,  
-                  liberman_1998_color, 
-                  tversky_1981_color)
+                  wakslak_2006_color)
 
 # Meta-analysis and forest plot for each experiment -------------------
 
@@ -66,6 +66,34 @@ forest_temporal <- forest_plot(
   title            = "Liberman et al. (2002, Study 1)", 
   study_color      = liberman_2002_color
   )
+
+## Liberman & Trope (1998, Study 1): Temporal Distance ----------------
+
+### Primary meta-analysis
+
+meta_temporal_2 <- rma(
+  yi = d, 
+  vi = var, 
+  data = effects_temporal_2)
+
+### Comprehension check meta-analysis
+
+meta_temporal_2_comp <- rma(
+  yi = d, 
+  vi = var, 
+  data = effects_temporal_2_comp)
+
+### Forest plot
+
+forest_temporal_2 <- forest_plot(
+  replication_data = effects_temporal_2, 
+  meta_analysis    = meta_temporal_2,
+  org_d            = original$d[original$study == "temporal_2"],
+  org_ci_lower     = original$ci_lower[original$study == "temporal_2"], 
+  org_ci_upper     = original$ci_upper[original$study == "temporal_2"], 
+  title            = "Liberman & Trope (1998, Study 1)", 
+  study_color      = liberman_1998_color
+)
 
 ## Henderson et al. (2006, Study 1): Spatial Distance -----------------
 
@@ -123,34 +151,6 @@ forest_likelihood <- forest_plot(
   study_color      = wakslak_2006_color
 )
 
-## Liberman & Trope (1998, Study 1): Temporal Distance ----------------
-
-### Primary meta-analysis
-
-meta_temporal_2 <- rma(
-  yi = d, 
-  vi = var, 
-  data = effects_temporal_2)
-
-### Comprehension check meta-analysis
-
-meta_temporal_2_comp <- rma(
-  yi = d, 
-  vi = var, 
-  data = effects_temporal_2_comp)
-
-### Forest plot
-
-forest_temporal_2 <- forest_plot(
-  replication_data = effects_temporal_2, 
-  meta_analysis    = meta_temporal_2,
-  org_d            = original$d[original$study == "temporal_2"],
-  org_ci_lower     = original$ci_lower[original$study == "temporal_2"], 
-  org_ci_upper     = original$ci_upper[original$study == "temporal_2"], 
-  title            = "Liberman & Trope (1998, Study 1)", 
-  study_color      = liberman_1998_color
-)
-
 ## Tversky & Kahneman (1981, Study 10): Active Control ----------------
 
 ### Primary meta-analysis
@@ -205,7 +205,7 @@ I2_complete_comp <- I2_mv(meta_complete_comp, effects_complete_comp)
 
 # Arboretum plot ------------------------------------------------------
 
-arboretum <- arboretum_plot(list(forest_temporal, forest_spatial, forest_likelihood, forest_temporal_2))
+arboretum <- arboretum_plot(list(forest_temporal, forest_temporal_2, forest_spatial, forest_likelihood))
 
 ## Save plot
 
@@ -222,7 +222,7 @@ climr_figure <- climr_swarm(
   complete        = effects_complete, 
   original        = original, 
   study_colors    = study_colors, 
-  titles          = c("Liberman et al. (2002, Study 1)", "Henderson et al. (2006, Study 1)", "Wakslak et al. (2006, Study 1)", "Liberman & Trope (1998, Study 1)")
+  titles          = c("Liberman et al. (2002, Study 1)", "Liberman & Trope (1998, Study 1)", "Henderson et al. (2006, Study 1)", "Wakslak et al. (2006, Study 1)")
   )
 
 ## Save plot

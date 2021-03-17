@@ -365,10 +365,10 @@ climr_swarm <- function(meta_temporal, meta_spatial, meta_likelihood, meta_tempo
   estimates_climr$distance <- c(rep("temporal", 2), rep("spatial", 2), rep("likelihood", 2), rep("temporal_2", 2))
   
   estimates_climr$distance <- factor(estimates_climr$distance, 
-                                   levels = rev(c("temporal", "spatial", "likelihood", "temporal_2")))
+                                   levels = rev(c("temporal","temporal_2", "spatial", "likelihood")))
   
   complete$distance <- factor(complete$distance, 
-                                 levels = rev(c("temporal", "spatial", "likelihood", "temporal_2")))
+                                 levels = rev(c("temporal", "temporal_2", "spatial", "likelihood")))
 
   # Set up plot boundaries
   
