@@ -134,3 +134,18 @@ effects_complete_comp <- bind_rows(
   effects_likelihood_comp,
   effects_temporal_2_comp
 )
+
+## Join with modality data
+
+effects_temporal <- effects_temporal %>% 
+  left_join(modality_data, by = "ID")
+
+effects_temporal_2 <- effects_temporal_2 %>% 
+  left_join(modality_data, by = "ID")
+
+effects_spatial <- effects_spatial %>% 
+  left_join(modality_data, by = "ID")
+
+effects_likelihood <- effects_likelihood %>% 
+  left_join(modality_data, by = "ID")
+

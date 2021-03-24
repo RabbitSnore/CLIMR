@@ -312,3 +312,12 @@ contrasts(data_control$condition) <- contr.sum(2)
 # The data are set this way to facilitate easier analysis.
 
 data_control$comp_check <- sample(c(0, 1), nrow(data_control), replace = TRUE, prob = c(.95, .05))
+
+# In-person vs. Online Moderator --------------------------------------
+
+## This will create a roughly even split of labs collecting online and in person.
+
+modality_data <- data.frame(
+  ID = 1:labs,
+  modality = sample(c("in-person", "online"), labs, replace = TRUE)
+)

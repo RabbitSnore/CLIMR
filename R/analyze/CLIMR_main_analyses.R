@@ -229,3 +229,41 @@ climr_figure <- climr_swarm(
 
 save_plot("./plots/climr_main_figure.png", climr_figure, base_asp = 1.6, base_height = 5)
 save_plot("./plots/climr_main_figure.svg", climr_figure, base_asp = 1.6, base_height = 5)
+
+# Planned moderator analysis ------------------------------------------
+
+## Modality
+
+### Liberman et al. (2002, Study 1): Temporal Distance ----------------
+
+meta_temporal_mod <- rma(
+  yi = d, 
+  vi = var,
+  mods = ~ modality,
+  data = effects_temporal)
+
+### Liberman & Trope (1998, Study 1): Temporal Distance ---------------
+
+meta_temporal_2_mod <- rma(
+  yi = d, 
+  vi = var, 
+  mods = ~ modality,
+  data = effects_temporal_2)
+
+### Henderson et al. (2006, Study 1): Spatial Distance ----------------
+
+meta_spatial_mod <- rma(
+  yi = d, 
+  vi = var, 
+  mods = ~ modality,
+  data = effects_spatial)
+
+### Wakslak et al. (2006, Study 1): Likelihood Distance ---------------
+
+meta_likelihood_mod <- rma(
+  yi = d, 
+  vi = var, 
+  mods = ~ modality,
+  data = effects_likelihood)
+
+
