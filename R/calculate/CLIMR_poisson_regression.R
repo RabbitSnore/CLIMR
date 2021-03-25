@@ -25,7 +25,7 @@ source("./R/functions/CLIMR_poisson_functions.R")
 
 ### Primary effect sizes
 
-poisson_temporal <- lab_poisson_calc(
+poisson_temporal <- lab_pois_mm_calc(
   data = data_temporal, 
   distance = "temporal", 
   experiment = "Liberman et al. (2002, Study 1)"
@@ -33,7 +33,7 @@ poisson_temporal <- lab_poisson_calc(
 
 ### Comprehension check failures removed
 
-poisson_temporal_comp <- lab_poisson_calc(
+poisson_temporal_comp <- lab_pois_mm_calc(
   data = filter(data_temporal, comp_check == 0), 
   distance = "temporal", 
   experiment = "Liberman et al. (2002, Study 1)"
@@ -61,7 +61,7 @@ poisson_spatial_comp <- lab_poisson_calc(
 
 ### Primary effect sizes
 
-poisson_likelihood <- lab_poisson_calc(
+poisson_likelihood <- lab_pois_mm_calc(
   data = data_likelihood, 
   distance = "likelihood", 
   experiment = "Wakslak et al. (2006, Study 1)"
@@ -69,7 +69,7 @@ poisson_likelihood <- lab_poisson_calc(
 
 ### Comprehension check failures removed
 
-poisson_likelihood_comp <- lab_poisson_calc(
+poisson_likelihood_comp <- lab_pois_mm_calc(
   data = filter(data_likelihood, comp_check == 0), 
   distance = "likelihood", 
   experiment = "Wakslak et al. (2006, Study 1)"
