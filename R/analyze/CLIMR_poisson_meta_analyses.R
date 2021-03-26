@@ -6,10 +6,6 @@
 
 # Set up environment --------------------------------------------------
 
-packages_meta <- c("metafor")
-
-lapply(packages_meta, library, character.only = TRUE)
-
 ## Load functions
 
 source("./R/functions/CLIMR_poisson_functions.R")

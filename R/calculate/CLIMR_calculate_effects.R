@@ -6,10 +6,6 @@
 
 # Set up environment --------------------------------------------------
 
-packages_calc <- c("dplyr")
-
-lapply(packages_calc, library, character.only = TRUE)
-
 ## Load general functions
 
 source("./R/functions/CLIMR_effect_size_functions.R")

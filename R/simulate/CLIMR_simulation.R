@@ -6,10 +6,6 @@
 
 # Set up environment --------------------------------------------------
 
-packages_simulation <- c("dplyr", "lme4", "simr")
-
-lapply(packages_simulation, library, character.only = TRUE)
-
 set.seed(1040)
 
 # Shared Attributes ---------------------------------------------------

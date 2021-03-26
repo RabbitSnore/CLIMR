@@ -17,15 +17,6 @@ knit: (function(input_file, encoding) {
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 
-# Simulate (replace with data importation) ----------------------------
-
-source("./R/simulate/CLIMR_simulation.R")
-
-# Calculate effect sizes and conduct meta-analyses --------------------
-
-source("./R/calculate/CLIMR_poisson_regression.R")
-source("./R/analyze/CLIMR_poisson_meta_analyses.R")
-
 ```
 
 # Meta-Analytic Models
