@@ -37,6 +37,14 @@ effects_temporal_comp <- lab_d_calc(
 
 ## Henderson et al. (2006, Study 1): Spatial Distance -----------------
 
+### Removal of outliers
+
+total_cases_spatial <- nrow(data_spatial)
+
+data_spatial <- mad_removal(data_spatial)
+
+excluded_cases_spatial <- total_cases_spatial - nrow(data_spatial)
+
 ### Primary effect sizes
 
 effects_spatial <- lab_d_calc(

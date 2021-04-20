@@ -49,3 +49,5 @@ plots/*.svg
 # Notes
 /notes/*
 /notes/
+
+/data/lab_coordinates.csv

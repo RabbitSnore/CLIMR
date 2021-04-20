@@ -12,7 +12,7 @@
 
 ### Packages required by the Many Legal Labs project
 
-dependencies <- c("dplyr", "tidyr", "stringr", "metafor", "lme4", "ggplot2", "cowplot", "rmarkdown", "ggbeeswarm", "ggstance", "simr")
+dependencies <- c("dplyr", "tidyr", "stringr", "metafor", "lme4", "ggplot2", "cowplot", "rmarkdown", "ggbeeswarm", "ggstance", "simr", "viridis", "leaflet")
 
 ### Check whether packages are installed locally and get list of what needs to be installed
 
