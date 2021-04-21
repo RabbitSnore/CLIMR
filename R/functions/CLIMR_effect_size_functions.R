@@ -221,7 +221,7 @@ lab_lor_calc <- function(data, distance, experiment, cond_1 = "near", cond_2 = "
 # OUTLIER REMOVAL BASED ON MEDIAN ABSOLUTE DEVIATION ------------------
 
 ## Given a data frame with a variable y, this function returns a data frame with rows removed for cases that exceed the upper and lower bound based on median absolute deviations. 
-## By default, this function uses 2.5 MADs as a cutoff.
+## By default, this function uses 3.0 MADs as a cutoff.
 
 mad_removal <- function(data, cutoff = 3.0, constant = 1/qnorm(.75)) {
   
