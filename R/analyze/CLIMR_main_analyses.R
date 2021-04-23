@@ -44,12 +44,24 @@ meta_temporal <- rma(
   vi = var, 
   data = effects_temporal)
 
+bt_temporal <- diff_calc(
+  y        = data_temporal$y, 
+  d        = meta_temporal$beta[[1]], 
+  ci_lower = meta_temporal$ci.lb[[1]], 
+  ci_upper = meta_temporal$ci.ub[[1]])
+
 ### Comprehension check meta-analysis
 
 meta_temporal_comp <- rma(
   yi = d, 
   vi = var, 
   data = effects_temporal_comp)
+
+bt_temporal_comp <- diff_calc(
+  y        = filter(data_temporal, comp_check == 0)$y, 
+  d        = meta_temporal_comp$beta[[1]], 
+  ci_lower = meta_temporal_comp$ci.lb[[1]], 
+  ci_upper = meta_temporal_comp$ci.ub[[1]])
 
 ### Forest plot
 
@@ -72,12 +84,24 @@ meta_temporal_2 <- rma(
   vi = var, 
   data = effects_temporal_2)
 
+bt_temporal_2 <- diff_calc(
+  y        = data_temporal_2$y, 
+  d        = meta_temporal_2$beta[[1]], 
+  ci_lower = meta_temporal_2$ci.lb[[1]], 
+  ci_upper = meta_temporal_2$ci.ub[[1]])
+
 ### Comprehension check meta-analysis
 
 meta_temporal_2_comp <- rma(
   yi = d, 
   vi = var, 
   data = effects_temporal_2_comp)
+
+bt_temporal_2_comp <- diff_calc(
+  y        = filter(data_temporal_2, comp_check == 0)$y, 
+  d        = meta_temporal_2_comp$beta[[1]], 
+  ci_lower = meta_temporal_2_comp$ci.lb[[1]], 
+  ci_upper = meta_temporal_2_comp$ci.ub[[1]])
 
 ### Forest plot
 
@@ -100,12 +124,24 @@ meta_spatial <- rma(
   vi = var, 
   data = effects_spatial)
 
+bt_spatial <- diff_calc(
+  y        = data_spatial$y, 
+  d        = meta_spatial$beta[[1]], 
+  ci_lower = meta_spatial$ci.lb[[1]], 
+  ci_upper = meta_spatial$ci.ub[[1]])
+
 ### Comprehension check meta-analysis
 
 meta_spatial_comp <- rma(
   yi = d, 
   vi = var, 
   data = effects_spatial_comp)
+
+bt_spatial_comp <- diff_calc(
+  y        = filter(data_spatial, comp_check == 0)$y, 
+  d        = meta_spatial_comp$beta[[1]], 
+  ci_lower = meta_spatial_comp$ci.lb[[1]], 
+  ci_upper = meta_spatial_comp$ci.ub[[1]])
 
 ### Forest plot
 
@@ -128,12 +164,24 @@ meta_likelihood <- rma(
   vi = var, 
   data = effects_likelihood)
 
+bt_likelihood <- diff_calc(
+  y        = data_likelihood$y, 
+  d        = meta_likelihood$beta[[1]], 
+  ci_lower = meta_likelihood$ci.lb[[1]], 
+  ci_upper = meta_likelihood$ci.ub[[1]])
+
 ### Comprehension check meta-analysis
 
 meta_likelihood_comp <- rma(
   yi = d, 
   vi = var, 
   data = effects_likelihood_comp)
+
+bt_likelihood_comp <- diff_calc(
+  y        = filter(data_likelihood, comp_check == 0)$y, 
+  d        = meta_likelihood_comp$beta[[1]], 
+  ci_lower = meta_likelihood_comp$ci.lb[[1]], 
+  ci_upper = meta_likelihood_comp$ci.ub[[1]])
 
 ### Forest plot
 
