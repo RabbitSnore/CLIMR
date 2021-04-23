@@ -15,7 +15,7 @@ poisson_calc <- function(ID, x, y, cond_1, cond_2) {
   # y is a vector of dependent variable values
   # cond_1 and cond_2 are values for the conditions being compared
   
-  x <- factor(x, levels = c(cond_1, cond_2))
+  x <- factor(x, levels = c(cond_2, cond_1))
   
   poisson_model <- glm(y ~ x, family = poisson(link = "log"))
   
@@ -47,7 +47,7 @@ pois_mm_calc <- function(ID, sub, stimulus, x, y, cond_1, cond_2) {
   # y is a vector of dependent variable values
   # cond_1 and cond_2 are values for the conditions being compared
   
-  x <- factor(x, levels = c(cond_1, cond_2))
+  x <- factor(x, levels = c(cond_2, cond_1))
   
   poisson_model <- glmer(y ~ x + (1|sub) + (1|stimulus), family = poisson(link = "log"))
   
