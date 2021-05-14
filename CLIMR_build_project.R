@@ -4,7 +4,35 @@
 
 #######################################################################
 
-# Running this script will build the CLIMR Project. It will check if the necessary packages are installed, and if they are not, it will install them. It will then execute all necessary R scripts and build the reports of results.
+# Running this script will build the CLIMR Project. It will check if the 
+# necessary packages are installed, and if they are not, it will install them. 
+# It will then execute all necessary R scripts and build the reports of results.
+
+# Build parameters ----------------------------------------------------
+
+## Simulation mode
+
+# When this parameter is set to TRUE, data for the project are simulated, rather
+# than loaded from files. This should be set to TRUE for diagnostic purposes and
+# for review.
+
+simulation_mode <- TRUE
+
+## Read and write data
+
+# When this parameter is set to TRUE, the "export version" of the data will be
+# loaded. For users reproducing the reported analyses, this parameter should be 
+# set to TRUE. Only set this to FALSE if you are loading raw data or are
+# simulating data.
+
+read_precleaned <- FALSE
+
+# This parameter controls whether the "export version" of the data should be
+# produced after loading and cleaning the raw data. Generally, this parameter
+# will only be useful for the main CLIMR team when creating the first build of
+# the project. Only set this to TRUE if you know what you are doing.
+
+write_data      <- FALSE
 
 # Set up environment --------------------------------------------------
 
@@ -54,9 +82,21 @@ climr_report <- function(input) {
 
 # R Scripts -----------------------------------------------------------
 
-## Simulation # TO BE REPLACED WITH DATA IMPORTATION AND CLEANING
+## Simulation
 
-source("./R/simulate/CLIMR_simulation.R")
+if (simulation_mode == TRUE) {
+  
+  source("./R/simulate/CLIMR_simulation.R")
+  
+}
+
+## Data importation
+
+if (simulation_mode == FALSE) {
+  
+  source("./R/import/CLIMR_data_importation")
+  
+}
 
 ## Effect calculation
 

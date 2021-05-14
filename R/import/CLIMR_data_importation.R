@@ -10,40 +10,52 @@
 # from the survey platform. If you are reproducing the results, you probably do
 # not need to use this code.
 
-## Get file names, lab information, and paths
-
-file_names <- list.files("./data/raw/")
-
-### Parse file names
-
-parsed <- str_match(file_names, "climr_(.*)_(.*).csv") %>% 
-  as.data.frame() %>% 
-  rename(
-    file_name = V1,
-    lab       = V2,
-    mode      = V3
-  )
-
-### Get file paths
-
-parsed$file_paths <- paste("./data/raw/", file_names, sep = "")
-
-## Load data
-
-raw_list <- lapply(parsed$file_paths, read.csv)
-
-### Link lab identifier
-
-for (i in 1:length(raw_list)) {
+if (read_precleaned == FALSE) {
   
-  raw_list[[i]]$lab  <- parsed$lab[i]
-  raw_list[[i]]$mode <- parsed$mode[i]
+  ## Get file names, lab information, and paths
+  
+  file_names <- list.files("./data/raw/")
+  
+  ### Parse file names
+  
+  parsed <- str_match(file_names, "climr_(.*)_(.*).csv") %>% 
+    as.data.frame() %>% 
+    rename(
+      file_name = V1,
+      lab       = V2,
+      mode      = V3
+    )
+  
+  ### Get file paths
+  
+  parsed$file_paths <- paste("./data/raw/", file_names, sep = "")
+  
+  ## Load data
+  
+  raw_list <- lapply(parsed$file_paths, read.csv)
+  
+  ### Link lab identifier
+  
+  for (i in 1:length(raw_list)) {
+    
+    raw_list[[i]]$lab  <- parsed$lab[i]
+    raw_list[[i]]$mode <- parsed$mode[i]
+    
+  }
+  
+  ### Bind all data
+  
+  raw <- bind_rows(raw_list)
   
 }
 
-### Bind all data
+# Import pre-cleaned data ---------------------------------------------
 
-raw <- bind_rows(raw_list)
+if (read_precleaned == TRUE) {
+  
+  raw <- read.csv("./data/climr_complete_data.csv") # Replace with direct OSF download
+  
+}
 
 # Basic cleaning ------------------------------------------------------
 
@@ -149,7 +161,7 @@ temporal_cat <- temporal_raw %>%
 
 ## Adding comprehension checks
 
-temporal_cc <- temporal_raw %>% 
+data_temporal <- temporal_raw %>% 
   
   select(lab, mode, sub, starts_with("t1_cc_")) %>% 
   
@@ -196,7 +208,7 @@ temporal_2_bif <- temporal_2_raw %>%
 
 ## Adding comprehension checks
 
-temporal_2_cc <- temporal_2_raw %>% 
+data_temporal_2 <- temporal_2_raw %>% 
   
   select(sub, condition = group, t2_cc) %>% 
   
@@ -215,7 +227,7 @@ temporal_2_cc <- temporal_2_raw %>%
 
 # Cleaning - Henderson et al (2006, Study 1) --------------------------
 
-spatial_cc <- spatial_raw %>% 
+data_spatial <- spatial_raw %>% 
   
   select(lab, mode, sub, condition = group, starts_with("sp_cc_"), y = space_bar) %>% # replace with actual space bar variable 
   
@@ -234,7 +246,7 @@ spatial_cc <- spatial_raw %>%
 
 ## Calculate number of used categories
 
-likelihood_cat <- likelihood_raw %>% 
+data_likelihood <- likelihood_raw %>% 
   
   select(lab, mode, sub, condition = group, starts_with("li_c_")    , starts_with("li_d_")) %>% 
   
