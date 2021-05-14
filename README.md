@@ -11,3 +11,9 @@ source("CLIMR_build_project.R")
 ```
 
 Running this script will install all necessary packages and build the project, including all effect size calculations, meta-analytic models, data visualizations, and reports.
+
+Additionally, `CLIMR_build_project.R` includes parameters that control its operations (e.g., whether to run a simulation or load data files). These parameters must be changed manually, and they should only be changed if you know what you are doing.
+
+## IMPORTANT NOTE
+
+Currently, the project is configured so that it will simulate data by default, rather than load real data. No actual data have been collected. When data collection for the project is complete, the code will be updated to import the publicly available data set by default.
