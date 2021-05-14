@@ -50,4 +50,6 @@ plots/*.svg
 /notes/*
 /notes/
 
+/data/*
 /data/lab_coordinates.csv
+/data/climr_test_data.csv

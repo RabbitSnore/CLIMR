@@ -266,7 +266,7 @@ climr_figure <- climr_swarm(
   complete        = effects_complete, 
   original        = original, 
   study_colors    = study_colors, 
-  titles          = c("Liberman et al. (2002, Study 1)", "Liberman & Trope (1998, Study 1)", "Henderson et al. (2006, Study 1)", "Wakslak et al. (2006, Study 1)")
+  titles          = c("Liberman et al. (2002, Exp. 1)", "Liberman & Trope (1998, Exp. 1)", "Henderson et al. (2006, Exp. 1)", "Wakslak et al. (2006, Exp. 1)")
   )
 
 ## Save plot
