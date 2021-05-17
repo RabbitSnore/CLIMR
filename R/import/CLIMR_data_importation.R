@@ -23,7 +23,7 @@ if (read_precleaned == FALSE) {
     rename(
       file_name = V1,
       lab       = V2,
-      mode      = V3
+      modality  = V3
     )
   
   ### Get file paths
@@ -38,8 +38,8 @@ if (read_precleaned == FALSE) {
   
   for (i in 1:length(raw_list)) {
     
-    raw_list[[i]]$lab  <- parsed$lab[i]
-    raw_list[[i]]$mode <- parsed$mode[i]
+    raw_list[[i]]$lab      <- parsed$lab[i]
+    raw_list[[i]]$modality <- parsed$modality[i]
     
   }
   
@@ -76,7 +76,7 @@ temporal_raw <- raw %>%
   select(
     experiment,
     lab,
-    mode,
+    modality,
     sub,
     group,
     starts_with("t1")
@@ -89,7 +89,7 @@ temporal_2_raw <- raw %>%
   select(
     experiment,
     lab,
-    mode,
+    modality,
     sub,
     group,
     starts_with("t2")
@@ -102,7 +102,7 @@ spatial_raw <- raw %>%
   select(
     experiment,
     lab,
-    mode,
+    modality,
     sub,
     group,
     starts_with("sp")
@@ -115,7 +115,7 @@ likelihood_raw <- raw %>%
   select(
     experiment,
     lab,
-    mode,
+    modality,
     sub,
     group,
     starts_with("li")
@@ -163,7 +163,7 @@ temporal_cat <- temporal_raw %>%
 
 data_temporal <- temporal_raw %>% 
   
-  select(lab, mode, sub, starts_with("t1_cc_")) %>% 
+  select(lab, modality, sub, starts_with("t1_cc_")) %>% 
   
   pivot_longer(
     cols          = starts_with("t1_cc_"),
@@ -189,7 +189,7 @@ data_temporal <- temporal_raw %>%
 
 temporal_2_bif <- temporal_2_raw %>% 
   
-  select(lab, mode, sub, condition = group, starts_with("t2_c_bif"), starts_with("t2_d_bif")) %>% 
+  select(lab, modality, sub, condition = group, starts_with("t2_c_bif"), starts_with("t2_d_bif")) %>% 
   
   mutate(
     across(starts_with("t2_c_bif"), as.numeric),
@@ -204,7 +204,7 @@ temporal_2_bif <- temporal_2_raw %>%
     )
   ) %>% 
   
-  select(lab, mode, sub, condition, y)
+  select(lab, modality, sub, condition, y)
 
 ## Adding comprehension checks
 
@@ -229,7 +229,7 @@ data_temporal_2 <- temporal_2_raw %>%
 
 data_spatial <- spatial_raw %>% 
   
-  select(lab, mode, sub, condition = group, starts_with("sp_cc_"), y = space_bar) %>% # replace with actual space bar variable 
+  select(lab, modality, sub, condition = group, starts_with("sp_cc_"), y = space_bar) %>% # replace with actual space bar variable 
   
   mutate(
     comp_check = case_when(
@@ -248,7 +248,7 @@ data_spatial <- spatial_raw %>%
 
 data_likelihood <- likelihood_raw %>% 
   
-  select(lab, mode, sub, condition = group, starts_with("li_c_")    , starts_with("li_d_")) %>% 
+  select(lab, modality, sub, condition = group, starts_with("li_c_")    , starts_with("li_d_")) %>% 
   
   pivot_longer(
     cols          = starts_with("li_"),
@@ -264,7 +264,7 @@ data_likelihood <- likelihood_raw %>%
     )
   ) %>% 
   
-  group_by(lab, mode, sub, stimulus, condition) %>% 
+  group_by(lab, modality, sub, stimulus, condition) %>% 
   
   summarise(
     y = sum(objects, na.rm = TRUE)
@@ -274,7 +274,7 @@ data_likelihood <- likelihood_raw %>%
 
 likeihood_cc <- likelihood_raw %>% 
   
-  select(lab, mode, sub, starts_with("li_cc_")) %>% 
+  select(lab, modality, sub, starts_with("li_cc_")) %>% 
   
   pivot_longer(
     cols          = starts_with("li_cc_"),

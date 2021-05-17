@@ -141,6 +141,8 @@ effects_complete_comp <- bind_rows(
 
 ## Join with modality data
 
+### Full data
+
 effects_temporal <- effects_temporal %>% 
   left_join(modality_data, by = "ID")
 
@@ -153,3 +155,16 @@ effects_spatial <- effects_spatial %>%
 effects_likelihood <- effects_likelihood %>% 
   left_join(modality_data, by = "ID")
 
+### Comprehension check failures remove
+
+effects_temporal_comp <- effects_temporal_comp %>% 
+  left_join(modality_data, by = "ID")
+
+effects_temporal_2_comp <- effects_temporal_2_comp %>% 
+  left_join(modality_data, by = "ID")
+
+effects_spatial_comp <- effects_spatial_comp %>% 
+  left_join(modality_data, by = "ID")
+
+effects_likelihood_comp <- effects_likelihood_comp %>% 
+  left_join(modality_data, by = "ID")

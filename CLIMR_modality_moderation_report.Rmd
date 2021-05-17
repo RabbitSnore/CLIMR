@@ -1,0 +1,82 @@
+---
+title: "CLIMR Supplemental Analysis Report: Online vs. In-Lab Modality"
+author: "CLIMR Team"
+date: "`r Sys.Date()`"
+output:
+  html_document:
+    theme: darkly
+    toc: yes
+    toc_float: yes
+  pdf_document:
+    toc: yes
+knit: (function(input_file, encoding) {
+    rmarkdown::render(input_file, encoding = encoding, output_dir = "./reports/")
+  })
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+```
+
+# Meta-Analytic Models
+
+## Liberman et al (2002, Study 1)
+
+```{r}
+meta_temporal_mode_Q$QM
+meta_temporal_mode_Q$QMp
+```
+
+```{r}
+meta_temporal_mode
+```
+
+```{r}
+meta_temporal_comp_mode
+```
+
+## Liberman & Trope (1998, Study 1)
+
+```{r}
+meta_temporal_2_mode_Q$QM
+meta_temporal_2_mode_Q$QMp
+```
+
+```{r}
+meta_temporal_2_mode
+```
+
+```{r}
+meta_temporal_2_comp_mode
+```
+
+## Henderson et al. (2006, Study 1)
+
+```{r}
+meta_spatial_mode_Q$QM
+meta_spatial_mode_Q$QMp
+```
+
+```{r}
+meta_spatial_mode
+```
+
+```{r}
+meta_spatial_comp_mode
+```
+
+## Wakslak et al. (2006, Study 1)
+
+```{r}
+meta_likelihood_mode_Q$QM
+meta_likelihood_mode_Q$QMp
+```
+
+```{r}
+meta_likelihood_mode
+```
+
+```{r}
+meta_likelihood_comp_mode
+```
