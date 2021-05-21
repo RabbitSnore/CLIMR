@@ -35,6 +35,14 @@ effects_temporal_comp <- lab_d_calc(
   experiment = "Liberman et al. (2002, Study 1)"
 )
 
+### Manipulation checks
+
+effects_temporal_mc <- lab_mc_calc(
+  data = data_temporal, 
+  distance = "temporal", 
+  experiment = "Liberman et al. (2002, Study 1)"
+)
+
 ## Henderson et al. (2006, Study 1): Spatial Distance -----------------
 
 ### Removal of outliers
@@ -61,6 +69,14 @@ effects_spatial_comp <- lab_d_calc(
   experiment = "Henderson et al. (2006, Study 1)"
 )
 
+### Manipulation checks
+
+effects_spatial_mc <- lab_mc_calc(
+  data = data_spatial, 
+  distance = "spatial", 
+  experiment = "Henderson et al. (2006, Study 1)"
+)
+
 ## Wakslak et al. (2006, Study 1): Likelihood Distance ----------------
 
 ### Primary effect sizes
@@ -79,6 +95,14 @@ effects_likelihood_comp <- lab_d_calc(
   experiment = "Wakslak et al. (2006, Study 1)"
 )
 
+### Primary effect sizes
+
+effects_likelihood_mc <- lab_mc_calc(
+  data = data_likelihood, 
+  distance = "likelihood", 
+  experiment = "Wakslak et al. (2006, Study 1)"
+)
+
 ## Liberman & Trope (1998, Study 1): Temporal Distance ----------------
 
 ### Primary effect sizes
@@ -93,6 +117,14 @@ effects_temporal_2 <- lab_d_calc(
 
 effects_temporal_2_comp <- lab_d_calc(
   data = filter(data_temporal_2, comp_check == 0), 
+  distance = "temporal_2", 
+  experiment = "Liberman & Trope (1998, Study 1)"
+)
+
+### Manipulation checks
+
+effects_temporal_2_mc <- lab_mc_calc(
+  data = data_temporal_2, 
   distance = "temporal_2", 
   experiment = "Liberman & Trope (1998, Study 1)"
 )
@@ -155,7 +187,7 @@ effects_spatial <- effects_spatial %>%
 effects_likelihood <- effects_likelihood %>% 
   left_join(modality_data, by = "ID")
 
-### Comprehension check failures remove
+### Comprehension check failures removed
 
 effects_temporal_comp <- effects_temporal_comp %>% 
   left_join(modality_data, by = "ID")

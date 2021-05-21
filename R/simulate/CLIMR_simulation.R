@@ -92,6 +92,12 @@ contrasts(data_temporal$condition) <- contr.sum(2)
 
 data_temporal$comp_check <- sample(c(0, 1), nrow(data_temporal), replace = TRUE, prob = c(.95, .05))
 
+## Adding manipulation check
+
+model_mc_temporal <- makeGlmer(mc ~ condition + (1|lab) + (1|lab:sub) + (1 + condition|stimulus), family = poisson(link = "log"), fixef = fixed, VarCorr = temporal_variances, data = str_temporal)
+
+data_temporal$mc <- getData(model_mc_temporal)$mc
+
 # Henderson et al. (2006, Study 1): Spatial Distance ------------------
 
 ## 2 (between)
@@ -141,6 +147,12 @@ contrasts(data_spatial$condition) <- contr.sum(2)
 # The data are set this way to facilitate easier analysis.
 
 data_spatial$comp_check <- sample(c(0, 1), nrow(data_spatial), replace = TRUE, prob = c(.95, .05))
+
+## Adding manipulation check
+
+model_mc_spatial <- makeGlmer(mc ~ condition + (1|lab), family = poisson(link = "log"), fixef = fixed, VarCorr = spatial_variances, data = str_spatial)
+
+data_spatial$mc <- getData(model_mc_spatial)$mc
 
 # Wakslak et al. (2006, Study 1): Likelihood Distance -----------------
 
@@ -206,6 +218,12 @@ contrasts(data_likelihood$condition) <- contr.sum(2)
 
 data_likelihood$comp_check <- sample(c(0, 1), nrow(data_likelihood), replace = TRUE, prob = c(.95, .05))
 
+## Adding manipulation check
+
+model_mc_likelihood <- makeGlmer(mc ~ condition + (1|lab) + (1|lab:sub) + (1 + condition|stimulus), family = poisson(link = "log"), fixef = fixed, VarCorr = likelihood_variances, data = str_likelihood)
+
+data_likelihood$mc <- getData(model_mc_likelihood)$mc
+
 # Liberman & Trope (1998, Study 1): Temporal Distance -----------------
 
 ## 2 (between)
@@ -250,6 +268,12 @@ contrasts(data_temporal_2$condition) <- contr.sum(2)
 # The data are set this way to facilitate easier analysis.
 
 data_temporal_2$comp_check <- sample(c(0, 1), nrow(data_temporal_2), replace = TRUE, prob = c(.95, .05))
+
+## Adding manipulation check
+
+model_mc_temporal_2 <- makeGlmer(mc ~ condition + (1|lab), family = poisson(link = "log"), fixef = fixed, VarCorr = temporal_2_variances, data = str_temporal_2)
+
+data_temporal_2$mc <- getData(model_mc_temporal_2)$mc
 
 # Tversky & Kahneman (1981, Study 10): Active Control -----------------
 
@@ -315,5 +339,5 @@ data_control$comp_check <- sample(c(0, 1), nrow(data_control), replace = TRUE, p
 
 modality_data <- data.frame(
   ID = 1:labs,
-  modality = sample(c("in-person", "online"), labs, replace = TRUE)
+  modality = sample(c("lab", "online"), labs, replace = TRUE)
 )

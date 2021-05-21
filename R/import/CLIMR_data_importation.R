@@ -32,11 +32,29 @@ if (read_precleaned == FALSE) {
   
   ## Load data
   
-  raw_list <- lapply(parsed$file_paths, read.csv)
+  raw_list      <- lapply(parsed$file_paths, read.csv)
+  
+  if (codebook_base == TRUE) {
+    
+    variable_text <- raw_list[[1]] %>% 
+      slice(1) %>% 
+      t() %>% 
+      as.data.frame() %>% 
+      rename(
+        variable_text = V1
+      ) %>% 
+      mutate(
+        variable_name = rownames(.)
+      )
+    
+  }
   
   ### Link lab identifier
   
   for (i in 1:length(raw_list)) {
+    
+    raw_list[[i]]          <- raw_list[[i]] %>%
+      slice(-1, -2)
     
     raw_list[[i]]$lab      <- parsed$lab[i]
     raw_list[[i]]$modality <- parsed$modality[i]
@@ -80,7 +98,8 @@ temporal_raw <- raw %>%
     sub,
     group,
     starts_with("t1")
-  )
+  ) %>% 
+  type_convert()
 
 ### Liberman et al (1998, Study 1)
 
@@ -93,7 +112,8 @@ temporal_2_raw <- raw %>%
     sub,
     group,
     starts_with("t2")
-  )
+  ) %>% 
+  type_convert()
 
 ### Henderson et al (2006, Study 1)
 
@@ -105,8 +125,10 @@ spatial_raw <- raw %>%
     modality,
     sub,
     group,
-    starts_with("sp")
-  )
+    starts_with("sp"),
+    space_counter
+  ) %>% 
+  type_convert()
 
 ### Wakslak et al (2006, Study 1)
 
@@ -119,7 +141,8 @@ likelihood_raw <- raw %>%
     sub,
     group,
     starts_with("li")
-  )
+  ) %>% 
+  type_convert()
 
 # Data exportation ----------------------------------------------------
 
@@ -127,7 +150,29 @@ if (write_data == TRUE) {
   
   raw_complete <- bind_rows(temporal_raw, temporal_2_raw, spatial_raw, likelihood_raw)
   
-  write.csv(raw_complete, "./data/climr_complete_data.csv")
+  write.csv(raw_complete, "./data/climr_complete_data.csv", row.names = FALSE)
+
+}
+
+if (codebook_base == TRUE) {
+  
+  if (!exists("raw_complete")) {
+    
+    raw_complete <- bind_rows(temporal_raw, temporal_2_raw, spatial_raw, likelihood_raw)
+    
+  }
+  
+  class_raw <- data.frame(
+    variable_name = colnames(raw_complete),
+    variable_type = unlist(lapply(raw_complete, class))
+  )
+    
+  codebook <- variable_text %>% 
+    filter(variable_name %in% colnames(raw_complete)) %>% 
+    select(variable_name, variable_text) %>% 
+    left_join(class_raw, by = "variable_name")
+  
+  write.csv(codebook, "./data/climr_codebook.csv", row.names = FALSE)
   
 }
 
@@ -141,23 +186,31 @@ temporal_cat <- temporal_raw %>%
   
   pivot_longer(
     cols          = starts_with("t1_"),
-    names_to      = c("group", "stimulus", "category"),
+    names_to      = c("group", "stimulus", "object"),
     names_pattern = "t1_(.)_(.*)_(.*)",
-    values_to     = "objects"
-  ) %>% 
-  
-  mutate(
-    objects = case_when(
-      objects != "" ~ 1,
-      objects == "" ~ 0
-      )
+    values_to     = "cats"
   ) %>% 
   
   group_by(sub, stimulus, condition) %>% 
   
   summarise(
-    y = sum(objects, na.rm = TRUE)
+    y = max(cats, na.rm = TRUE)
   ) 
+
+## Manipulation checks
+
+temporal_mc <- temporal_raw %>%
+  
+  select(lab, sub, condition = group, starts_with("t1_mc_temp")) %>% 
+  
+  pivot_longer(
+    cols          = starts_with("t1_mc_temp"),
+    names_pattern = "t1_mc_(.*)_(\\d)\\.?\\d?",
+    names_to      = c("distance", "scenario"),
+    values_to     = "mc"
+  ) %>% 
+  
+  filter(complete.cases(mc))
 
 ## Adding comprehension checks
 
@@ -225,11 +278,28 @@ data_temporal_2 <- temporal_2_raw %>%
   
   left_join(temporal_2_bif, by = "sub")
 
+## Manipulation checks
+
+temporal_2_mc <- temporal_2_raw %>% 
+  
+  select(lab, modality, sub, condition = group, starts_with("t2_mc_temp")) %>% 
+  
+  pivot_longer(
+    cols          = starts_with("t2_mc_"),
+    names_pattern = "t2_mc_temp_(bif\\d\\d?)\\..",
+    names_to      = "item",
+    values_to     = "mc"
+  ) %>% 
+  
+  filter(complete.cases(mc))
+
 # Cleaning - Henderson et al (2006, Study 1) --------------------------
+
+# TO ADD: parse array into number of spacebar presses
 
 data_spatial <- spatial_raw %>% 
   
-  select(lab, modality, sub, condition = group, starts_with("sp_cc_"), y = space_bar) %>% # replace with actual space bar variable 
+  select(lab, modality, sub, condition = group, starts_with("sp_cc_"), y = segments) %>% # replace with actual space bar variable 
   
   mutate(
     comp_check = case_when(
@@ -242,37 +312,59 @@ data_spatial <- spatial_raw %>%
   
   select(-starts_with("sp_cc_"))
 
+## Manipulation checks
+
+spatial_mc <- spatial_raw %>%
+  
+  select(lab, sub, condition = group, sp_mc_c_spat, sp_mc_d_spat) %>% 
+  
+  pivot_longer(
+    cols          = starts_with("sp_mc"),
+    names_to      = "distance",
+    values_to     = "mc"
+  ) %>% 
+  
+  filter(complete.cases(mc))
+
 # Cleaning - Wakslak et al (2006, Study 1) ----------------------------
 
 ## Calculate number of used categories
 
-data_likelihood <- likelihood_raw %>% 
+likelihood_cat <- likelihood_raw %>% 
   
-  select(lab, modality, sub, condition = group, starts_with("li_c_")    , starts_with("li_d_")) %>% 
+  select(lab, modality, sub, condition = group, starts_with("li_c_"), starts_with("li_d_")) %>% 
   
   pivot_longer(
     cols          = starts_with("li_"),
-    names_to      = c("group", "stimulus", "category"),
+    names_to      = c("group", "stimulus", "object"),
     names_pattern = "li_(.)_(.*)_(.*)",
-    values_to     = "objects"
+    values_to     = "cats"
   ) %>% 
-  
-  mutate(
-    objects = case_when(
-      objects != "" ~ 1,
-      objects == "" ~ 0
-    )
-  ) %>% 
-  
+
   group_by(lab, modality, sub, stimulus, condition) %>% 
   
   summarise(
-    y = sum(objects, na.rm = TRUE)
+    y = sum(cats, na.rm = TRUE)
   )
+
+## Manipulation checks
+
+likelihood_mc <- likelihood_raw %>%
+  
+  select(lab, sub, condition = group, starts_with("li_mc_c_lik"), starts_with("li_mc_d_lik")) %>% 
+  
+  pivot_longer(
+    cols          = starts_with("li_mc"),
+    names_pattern = "li_mc_._(.*)_(\\d)\\.?\\d?",
+    names_to      = c("distance", "scenario"),
+    values_to     = "mc"
+  ) %>% 
+  
+  filter(complete.cases(mc))
 
 ## Adding comprehension checks
 
-likeihood_cc <- likelihood_raw %>% 
+data_likelihood <- likelihood_raw %>% 
   
   select(lab, modality, sub, starts_with("li_cc_")) %>% 
   
@@ -283,7 +375,7 @@ likeihood_cc <- likelihood_raw %>%
     values_to     = "comp_check"
   ) %>% 
   
-  left_join(likelihood_cat, by = c("lab", "sub", "stimulus")) %>% 
+  left_join(likelihood_cat, by = c("lab", "modality", "sub", "stimulus")) %>% 
   
   mutate(
     comp_check = case_when(

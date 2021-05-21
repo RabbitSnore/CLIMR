@@ -34,13 +34,22 @@ read_precleaned <- FALSE
 
 write_data      <- FALSE
 
+## Codebook base
+
+# When this parameter is set to TRUE, it creates the basic structure for the
+# data codebook, using the variable names and question text from the online
+# survey. This parameter is intended for use by the CLIMR team. It is not likely
+# a user reproducing the analyses will need to change this.
+
+codebook_base <- FALSE
+
 # Set up environment --------------------------------------------------
 
 ## Check and install necessary packages for the project
 
 ### Packages required by the Many Legal Labs project
 
-dependencies <- c("dplyr", "tidyr", "stringr", "metafor", "lme4", "ggplot2", "cowplot", "rmarkdown", "ggbeeswarm", "ggstance", "simr", "viridis", "leaflet")
+dependencies <- c("dplyr", "tidyr", "stringr", "readr", "metafor", "lme4", "ggplot2", "cowplot", "rmarkdown", "ggbeeswarm", "ggstance", "simr", "viridis", "leaflet")
 
 ### Check whether packages are installed locally and get list of what needs to be installed
 
@@ -108,10 +117,18 @@ source("./R/analyze/CLIMR_main_analyses.R")
 
 ## Supplementary analyses
 
+### Manipulation check
+
+source("./R/analyze/CLIMR_manipulation_checks.R")
+
 ### Poisson regression approach
 
 source("./R/calculate/CLIMR_poisson_regression.R")
 source("./R/analyze/CLIMR_poisson_meta_analyses.R")
+
+### Modality moderation
+
+source("./R/analyze/CLIMR_modality_moderation.R")
 
 # Reports -------------------------------------------------------------
 
@@ -124,6 +141,10 @@ climr_report("CLIMR_main_analysis_report.Rmd")
 ### Comprehension check report
 
 climr_report("CLIMR_comprehension_check_supplement.Rmd")
+
+### Manipulation check
+
+climr_report("CLIMR_manipulation_check_supplement.Rmd")
 
 ### Poisson regression approach report
 

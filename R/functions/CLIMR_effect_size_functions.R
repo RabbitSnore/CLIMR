@@ -218,6 +218,35 @@ lab_lor_calc <- function(data, distance, experiment, cond_1 = "near", cond_2 = "
   
 }
 
+## Calculate standardized mean difference for manipulation checks
+
+lab_mc_calc <- function(data, distance, experiment, cond_1 = "near", cond_2 = "far") {
+  
+  lab_count <- length(unique(data$lab))
+  
+  effect_data <- empty_smd_data(lab_count)
+  
+  for (i in 1:lab_count) {
+    
+    lab_temp <- unique(data$lab)[i]
+    
+    effect_data[i, ] <- d_calc(
+      ID = lab_temp, 
+      x = data$condition[data$lab == lab_temp], 
+      y = data$mc[data$lab == lab_temp],
+      cond_1 = cond_1, 
+      cond_2 = cond_2
+    )
+    
+  }
+  
+  effect_data$distance <- distance
+  effect_data$experiment <- experiment
+  
+  return(effect_data)
+  
+}
+
 # OUTLIER REMOVAL BASED ON MEDIAN ABSOLUTE DEVIATION ------------------
 
 ## Given a data frame with a variable y, this function returns a data frame with rows removed for cases that exceed the upper and lower bound based on median absolute deviations. 

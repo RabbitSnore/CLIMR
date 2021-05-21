@@ -22,7 +22,7 @@ meta_temporal_mode <- rma(
 
 ### Comprehension check meta-analysis
 
-meta_temporal_comp_mode <- rma(
+meta_temporal_mode <- rma(
   yi = d, 
   vi = var, 
   mods = ~ modality - 1,
