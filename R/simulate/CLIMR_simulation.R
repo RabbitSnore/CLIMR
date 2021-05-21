@@ -96,7 +96,13 @@ data_temporal$comp_check <- sample(c(0, 1), nrow(data_temporal), replace = TRUE,
 
 model_mc_temporal <- makeGlmer(mc ~ condition + (1|lab) + (1|lab:sub) + (1 + condition|stimulus), family = poisson(link = "log"), fixef = fixed, VarCorr = temporal_variances, data = str_temporal)
 
-data_temporal$mc <- getData(model_mc_temporal)$mc
+temporal_mc <- getData(model_mc_temporal)
+
+temporal_mc$condition <- as.factor(temporal_mc$condition)
+
+levels(temporal_mc$condition) <- c("near", "far")
+
+contrasts(temporal_mc$condition) <- contr.sum(2)
 
 # Henderson et al. (2006, Study 1): Spatial Distance ------------------
 
@@ -152,7 +158,13 @@ data_spatial$comp_check <- sample(c(0, 1), nrow(data_spatial), replace = TRUE, p
 
 model_mc_spatial <- makeGlmer(mc ~ condition + (1|lab), family = poisson(link = "log"), fixef = fixed, VarCorr = spatial_variances, data = str_spatial)
 
-data_spatial$mc <- getData(model_mc_spatial)$mc
+spatial_mc <- getData(model_mc_spatial)
+
+spatial_mc$condition <- as.factor(spatial_mc$condition)
+
+levels(spatial_mc$condition) <- c("near", "far")
+
+contrasts(spatial_mc$condition) <- contr.sum(2)
 
 # Wakslak et al. (2006, Study 1): Likelihood Distance -----------------
 
@@ -222,7 +234,13 @@ data_likelihood$comp_check <- sample(c(0, 1), nrow(data_likelihood), replace = T
 
 model_mc_likelihood <- makeGlmer(mc ~ condition + (1|lab) + (1|lab:sub) + (1 + condition|stimulus), family = poisson(link = "log"), fixef = fixed, VarCorr = likelihood_variances, data = str_likelihood)
 
-data_likelihood$mc <- getData(model_mc_likelihood)$mc
+likelihood_mc <- getData(model_mc_likelihood)
+
+likelihood_mc$condition <- as.factor(likelihood_mc$condition)
+
+levels(likelihood_mc$condition) <- c("near", "far")
+
+contrasts(likelihood_mc$condition) <- contr.sum(2)
 
 # Liberman & Trope (1998, Study 1): Temporal Distance -----------------
 
@@ -273,7 +291,13 @@ data_temporal_2$comp_check <- sample(c(0, 1), nrow(data_temporal_2), replace = T
 
 model_mc_temporal_2 <- makeGlmer(mc ~ condition + (1|lab), family = poisson(link = "log"), fixef = fixed, VarCorr = temporal_2_variances, data = str_temporal_2)
 
-data_temporal_2$mc <- getData(model_mc_temporal_2)$mc
+temporal_2_mc <- getData(model_mc_temporal_2)
+
+temporal_2_mc$condition <- as.factor(temporal_2_mc$condition)
+
+levels(temporal_2_mc$condition) <- c("near", "far")
+
+contrasts(temporal_2_mc$condition) <- contr.sum(2)
 
 # Tversky & Kahneman (1981, Study 10): Active Control -----------------
 

@@ -38,7 +38,7 @@ effects_temporal_comp <- lab_d_calc(
 ### Manipulation checks
 
 effects_temporal_mc <- lab_mc_calc(
-  data = data_temporal, 
+  data = temporal_mc, 
   distance = "temporal", 
   experiment = "Liberman et al. (2002, Study 1)"
 )
@@ -72,7 +72,7 @@ effects_spatial_comp <- lab_d_calc(
 ### Manipulation checks
 
 effects_spatial_mc <- lab_mc_calc(
-  data = data_spatial, 
+  data = spatial_mc, 
   distance = "spatial", 
   experiment = "Henderson et al. (2006, Study 1)"
 )
@@ -95,10 +95,10 @@ effects_likelihood_comp <- lab_d_calc(
   experiment = "Wakslak et al. (2006, Study 1)"
 )
 
-### Primary effect sizes
+### Manipulation checks
 
 effects_likelihood_mc <- lab_mc_calc(
-  data = data_likelihood, 
+  data = likelihood_mc, 
   distance = "likelihood", 
   experiment = "Wakslak et al. (2006, Study 1)"
 )
@@ -124,7 +124,7 @@ effects_temporal_2_comp <- lab_d_calc(
 ### Manipulation checks
 
 effects_temporal_2_mc <- lab_mc_calc(
-  data = data_temporal_2, 
+  data = temporal_2_mc, 
   distance = "temporal_2", 
   experiment = "Liberman & Trope (1998, Study 1)"
 )
