@@ -83,6 +83,9 @@ raw <- raw %>%
   rename(
     sub            = ResponseId,
     total_duration = Duration..in.seconds.
+  ) %>% 
+  mutate (
+    lab = paste(lab, modality, sep = "_")
   )
 
 ## Separate variables by experiment
@@ -194,7 +197,11 @@ temporal_cat <- temporal_raw %>%
   group_by(sub, stimulus, condition) %>% 
   
   summarise(
-    y = max(cats, na.rm = TRUE)
+    y = max(cats, na.rm = TRUE),
+    y = case_when(
+       is.infinite(y) ~ NA_real_,
+      !is.infinite(y) ~ y
+    )
   ) 
 
 ## Manipulation checks
@@ -263,14 +270,23 @@ temporal_2_bif <- temporal_2_raw %>%
 
 data_temporal_2 <- temporal_2_raw %>% 
   
-  select(sub, condition = group, t2_cc) %>% 
+  select(sub, condition = group, starts_with("t2_compcheck")) %>% 
+  
+  pivot_longer(
+    cols      = starts_with("t2_compcheck"),
+    names_to  = "block",
+    values_to = "comp_check"
+  ) %>% 
+  
+  filter(complete.cases(comp_check)) %>% 
   
   mutate(
     comp_check = case_when(
-      condition == "close"   & t2_cc == "2" ~ 0,
-      condition == "close"   & t2_cc != "2" ~ 1,
-      condition == "distant" & t2_cc == "1" ~ 0,
-      condition == "distant" & t2_cc != "1" ~ 1
+      comp_check == "1" & condition == "distant" ~ 0,
+      comp_check == "2" & condition == "close"   ~ 0,
+      comp_check == "1" & condition == "close"   ~ 1,
+      comp_check == "2" & condition == "distant" ~ 1,
+      comp_check == "3" | comp_check == "4"      ~ 1
     )
   ) %>% 
   
@@ -398,3 +414,4 @@ data_likelihood <- likelihood_raw %>%
       condition == "distant" & comp_check == "2" ~ 0
     )
   )
+

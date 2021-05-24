@@ -103,7 +103,7 @@ if (simulation_mode == TRUE) {
 
 if (simulation_mode == FALSE) {
   
-  source("./R/import/CLIMR_data_importation")
+  source("./R/import/CLIMR_data_importation.R")
   
 }
 

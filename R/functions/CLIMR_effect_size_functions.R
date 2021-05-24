@@ -21,9 +21,9 @@ d_calc <- function(ID, x, y, cond_1, cond_2) {
   
   m_diff <- mean(y[x == cond_1], na.rm = TRUE) - mean(y[x == cond_2], na.rm = TRUE)
   
-  n_1 <- sum(!is.na(y[x == cond_1])) 
+  n_1 <- sum(!is.na(y[x == cond_1]), na.rm = TRUE) 
   
-  n_2 <- sum(!is.na(y[x == cond_2]))
+  n_2 <- sum(!is.na(y[x == cond_2]), na.rm = TRUE)
   
   df <- n_1 + n_2 - 2
   
@@ -162,7 +162,7 @@ empty_lor_data <- function(n) {
 
 ## Calculate standardized mean difference for each lab
 
-lab_d_calc <- function(data, distance, experiment, cond_1 = "near", cond_2 = "far") {
+lab_d_calc <- function(data, distance, experiment, cond_1 = "close", cond_2 = "distant") {
   
   lab_count <- length(unique(data$lab))
   
@@ -182,7 +182,7 @@ lab_d_calc <- function(data, distance, experiment, cond_1 = "near", cond_2 = "fa
     
   }
   
-  effect_data$distance <- distance
+  effect_data$distance   <- distance
   effect_data$experiment <- experiment
   
   return(effect_data)
