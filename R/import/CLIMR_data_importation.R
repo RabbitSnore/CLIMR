@@ -295,11 +295,24 @@ temporal_2_mc <- temporal_2_raw %>%
 
 # Cleaning - Henderson et al (2006, Study 1) --------------------------
 
-# TO ADD: parse array into number of spacebar presses
+## Extract number of spacebar presses
 
-data_spatial <- spatial_raw %>% 
+spatial_seg <- spatial_raw %>% 
   
-  select(lab, modality, sub, condition = group, starts_with("sp_cc_"), y = segments) %>% # replace with actual space bar variable 
+  mutate(
+    segments = case_when(
+      is.na(space_counter) ~ NA_integer_,
+     !is.na(space_counter) ~ str_match_all(space_counter, "\\d*\\.\\d*") %>% sapply(length)
+    )
+  ) %>% 
+  
+  select(-space_counter)
+
+## Adding comprehension checks
+
+data_spatial <- spatial_seg %>% 
+  
+  select(lab, modality, sub, condition = group, starts_with("sp_cc_"), y = segments) %>%
   
   mutate(
     comp_check = case_when(

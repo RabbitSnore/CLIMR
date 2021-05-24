@@ -41,7 +41,7 @@ write_data      <- FALSE
 # survey. This parameter is intended for use by the CLIMR team. It is not likely
 # a user reproducing the analyses will need to change this.
 
-codebook_base <- FALSE
+codebook_base   <- FALSE
 
 # Set up environment --------------------------------------------------
 
