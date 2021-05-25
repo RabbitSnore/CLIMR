@@ -152,4 +152,4 @@ climr_report("CLIMR_poisson_regression_supplement.Rmd")
 
 ### Moderator report
 
-climr_report("CLIMR_modality_moderation_report.Rmd")
+climr_report("CLIMR_modality_moderation_supplement.Rmd")
