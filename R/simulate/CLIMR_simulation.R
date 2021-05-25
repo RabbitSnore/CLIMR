@@ -22,7 +22,7 @@ fixed <- c(0, -.475)
 
 ## Conditions
 
-condition <- c("near", "far")
+condition <- c("close", "distant")
 
 ## Sample sizes
 
@@ -59,7 +59,7 @@ condition_temporal <- sample(condition, total_subs_temporal, replace = TRUE)
 str_temporal <- data.frame(lab = lab_temporal, sub = sub_temporal, stimulus = stimulus_temporal) %>% 
   left_join(data.frame(sub = 1:total_subs_temporal, condition = condition_temporal), by = "sub")
 
-levels(str_temporal$condition) <- c("near", "far")
+levels(str_temporal$condition) <- c("close", "distant")
 
 ## Model simulation
 
@@ -80,7 +80,7 @@ data_temporal <- getData(model_temporal)
 
 data_temporal$condition <- as.factor(data_temporal$condition)
 
-levels(data_temporal$condition) <- c("near", "far")
+levels(data_temporal$condition) <- c("close", "distant")
 
 contrasts(data_temporal$condition) <- contr.sum(2)
 
@@ -100,7 +100,7 @@ temporal_mc <- getData(model_mc_temporal)
 
 temporal_mc$condition <- as.factor(temporal_mc$condition)
 
-levels(temporal_mc$condition) <- c("near", "far")
+levels(temporal_mc$condition) <- c("close", "distant")
 
 contrasts(temporal_mc$condition) <- contr.sum(2)
 
@@ -122,7 +122,7 @@ condition_spatial <- sample(condition, total_subs_spatial, replace = TRUE)
 
 str_spatial <- data.frame(lab = lab_spatial, sub = sub_spatial, condition = condition_spatial)
 
-levels(str_spatial$condition) <- c("near", "far")
+levels(str_spatial$condition) <- c("close", "distant")
 
 ## Model simulation
 
@@ -142,7 +142,7 @@ data_spatial <- getData(model_spatial)
 
 data_spatial$condition <- as.factor(data_spatial$condition)
 
-levels(data_spatial$condition) <- c("near", "far")
+levels(data_spatial$condition) <- c("close", "distant")
 
 contrasts(data_spatial$condition) <- contr.sum(2)
 
@@ -162,7 +162,7 @@ spatial_mc <- getData(model_mc_spatial)
 
 spatial_mc$condition <- as.factor(spatial_mc$condition)
 
-levels(spatial_mc$condition) <- c("near", "far")
+levels(spatial_mc$condition) <- c("close", "distant")
 
 contrasts(spatial_mc$condition) <- contr.sum(2)
 
@@ -197,7 +197,7 @@ condition_likelihood <- sample(condition, total_subs_likelihood, replace = TRUE)
 str_likelihood <- data.frame(lab = lab_likelihood, sub = sub_likelihood, stimulus = stimulus_likelihood) %>% 
   left_join(data.frame(sub = (total_subs_temporal + total_subs_spatial + 1):max(sub_likelihood), condition = condition_likelihood), by = "sub")
 
-levels(str_likelihood$condition) <- c("near", "far")
+levels(str_likelihood$condition) <- c("close", "distant")
 
 ## Model simulation
 
@@ -218,7 +218,7 @@ data_likelihood <- getData(model_likelihood)
 
 data_likelihood$condition <- as.factor(data_likelihood$condition)
 
-levels(data_likelihood$condition) <- c("near", "far")
+levels(data_likelihood$condition) <- c("close", "distant")
 
 contrasts(data_likelihood$condition) <- contr.sum(2)
 
@@ -238,7 +238,7 @@ likelihood_mc <- getData(model_mc_likelihood)
 
 likelihood_mc$condition <- as.factor(likelihood_mc$condition)
 
-levels(likelihood_mc$condition) <- c("near", "far")
+levels(likelihood_mc$condition) <- c("close", "distant")
 
 contrasts(likelihood_mc$condition) <- contr.sum(2)
 
@@ -260,7 +260,7 @@ condition_temporal_2 <- sample(condition, total_subs_temporal_2, replace = TRUE)
 
 str_temporal_2 <- data.frame(lab = lab_temporal_2, sub = sub_temporal_2, condition = condition_temporal_2)
 
-levels(str_temporal_2$condition) <- c("near", "far")
+levels(str_temporal_2$condition) <- c("close", "distant")
 
 ## Model simulation
 
@@ -275,7 +275,7 @@ data_temporal_2 <- getData(model_temporal_2)
 
 data_temporal_2$condition <- as.factor(data_temporal_2$condition)
 
-levels(data_temporal_2$condition) <- c("near", "far")
+levels(data_temporal_2$condition) <- c("close", "distant")
 
 contrasts(data_temporal_2$condition) <- contr.sum(2)
 
@@ -295,7 +295,7 @@ temporal_2_mc <- getData(model_mc_temporal_2)
 
 temporal_2_mc$condition <- as.factor(temporal_2_mc$condition)
 
-levels(temporal_2_mc$condition) <- c("near", "far")
+levels(temporal_2_mc$condition) <- c("close", "distant")
 
 contrasts(temporal_2_mc$condition) <- contr.sum(2)
 
@@ -348,14 +348,6 @@ data_control$condition <- as.factor(data_control$condition)
 levels(data_control$condition) <- c("expensive", "cheap")
 
 contrasts(data_control$condition) <- contr.sum(2)
-
-## Adding comprehension check
-
-# For this variable, 0 indicates passing the check
-# and 1 indicates failing the check.
-# The data are set this way to facilitate easier analysis.
-
-data_control$comp_check <- sample(c(0, 1), nrow(data_control), replace = TRUE, prob = c(.95, .05))
 
 # In-person vs. Online Moderator --------------------------------------
 

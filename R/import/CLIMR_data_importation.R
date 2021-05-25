@@ -104,7 +104,7 @@ temporal_raw <- raw %>%
   ) %>% 
   type_convert()
 
-### Liberman et al (1998, Study 1)
+### Liberman & Trope (1998, Study 1)
 
 temporal_2_raw <- raw %>% 
   filter(experiment == "temporal_2") %>% 
@@ -144,6 +144,18 @@ likelihood_raw <- raw %>%
     sub,
     group,
     starts_with("li")
+  ) %>% 
+  type_convert()
+
+### Tversky & Kahneman (1981, Study 10)
+
+control_raw <- raw %>% 
+  select(
+    experiment,
+    lab,
+    modality,
+    sub,
+    starts_with("ac_")
   ) %>% 
   type_convert()
 
@@ -415,3 +427,21 @@ data_likelihood <- likelihood_raw %>%
     )
   )
 
+## Tversky & Kahneman (1981, Study 10) --------------------------------
+
+data_control <- control_raw %>% 
+  
+  pivot_longer(
+    cols      = starts_with("ac_"),
+    names_to  = "condition",
+    values_to = "y"
+  ) %>% 
+  
+  mutate(
+    condition = case_when(
+      condition == "ac_cond1" ~ "cheap",
+      condition == "ac_cond2" ~ "expensive",
+    )
+  ) %>% 
+  
+  filter(complete.cases(y))

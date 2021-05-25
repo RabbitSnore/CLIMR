@@ -141,16 +141,6 @@ effects_control <- lab_lor_calc(
   cond_2 = "cheap"
 )
 
-### Comprehension check failures removed
-
-effects_control_comp <- lab_lor_calc(
-  data = filter(data_control, comp_check == 0), 
-  distance = "active_control", 
-  experiment = "Tversky & Kahneman (1981, Study 10)",
-  cond_1 = "expensive", 
-  cond_2 = "cheap"
-)
-
 # Export effect size data ---------------------------------------------
 
 ## Combine all data

@@ -85,7 +85,7 @@ empty_pois_data <- function(n) {
 
 # FIT POISSON REGRESSIONS FOR EACH LAB --------------------------------
 
-lab_poisson_calc <- function(data, distance, experiment, cond_1 = "near", cond_2 = "far") {
+lab_poisson_calc <- function(data, distance, experiment, cond_1 = "close", cond_2 = "distant") {
   
   lab_count <- length(unique(data$lab))
   
@@ -114,7 +114,7 @@ lab_poisson_calc <- function(data, distance, experiment, cond_1 = "near", cond_2
 
 # FIT MIXED EFFECTS POISSON REGRESSIONS FOR EACH LAB ------------------
 
-lab_pois_mm_calc <- function(data, distance, experiment, cond_1 = "near", cond_2 = "far") {
+lab_pois_mm_calc <- function(data, distance, experiment, cond_1 = "close", cond_2 = "distant") {
   
   lab_count <- length(unique(data$lab))
   

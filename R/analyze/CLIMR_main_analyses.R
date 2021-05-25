@@ -204,13 +204,6 @@ meta_control <- rma(
   vi = var, 
   data = effects_control)
 
-### Comprehension check meta-analysis
-
-meta_control_comp <- rma(
-  yi = log_odds, 
-  vi = var, 
-  data = effects_control_comp)
-
 ### Forest plot
 
 forest_control <- forest_plot_lor(

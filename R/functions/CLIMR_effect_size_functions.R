@@ -191,7 +191,7 @@ lab_d_calc <- function(data, distance, experiment, cond_1 = "close", cond_2 = "d
 
 ## Calculate log odds ratio for each lab
 
-lab_lor_calc <- function(data, distance, experiment, cond_1 = "near", cond_2 = "far") {
+lab_lor_calc <- function(data, distance, experiment, cond_1 = "close", cond_2 = "distant") {
   
   lab_count <- length(unique(data$lab))
   
@@ -220,7 +220,7 @@ lab_lor_calc <- function(data, distance, experiment, cond_1 = "near", cond_2 = "
 
 ## Calculate standardized mean difference for manipulation checks
 
-lab_mc_calc <- function(data, distance, experiment, cond_1 = "near", cond_2 = "far") {
+lab_mc_calc <- function(data, distance, experiment, cond_1 = "close", cond_2 = "distant") {
   
   lab_count <- length(unique(data$lab))
   
