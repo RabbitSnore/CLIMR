@@ -253,7 +253,9 @@ data_temporal <- temporal_raw %>%
       condition == "distant" & comp_check == "1" ~ 1,
       condition == "distant" & comp_check == "2" ~ 0,
     )
-  )
+  ) %>% 
+  
+  filter(complete.cases(y))
 
 # Cleaning - Liberman et al (1998, Study 1) ---------------------------
 
@@ -304,7 +306,9 @@ data_temporal_2 <- temporal_2_raw %>%
   
   select(sub, comp_check) %>% 
   
-  left_join(temporal_2_bif, by = "sub")
+  left_join(temporal_2_bif, by = "sub") %>% 
+  
+  filter(complete.cases(y))
 
 ## Manipulation checks
 
@@ -344,14 +348,16 @@ data_spatial <- spatial_seg %>%
   
   mutate(
     comp_check = case_when(
-      condition == "close"   & sp_cc_1 == "1" & sp_cc_2 == "2" ~ 0,
-      condition == "close"   & sp_cc_1 != "1" | sp_cc_2 != "2" ~ 1,
-      condition == "distant" & sp_cc_1 == "1" & sp_cc_2 == "1" ~ 0,
-      condition == "distant" & sp_cc_1 != "1" | sp_cc_2 != "1" ~ 1
+      condition == "close"   & (sp_cc_1 == "1" & sp_cc_2 == "2") ~ 0,
+      condition == "close"   & (sp_cc_1 != "1" | sp_cc_2 != "2") ~ 1,
+      condition == "distant" & (sp_cc_1 == "1" & sp_cc_2 == "1") ~ 0,
+      condition == "distant" & (sp_cc_1 != "1" | sp_cc_2 != "1") ~ 1
     )
   ) %>% 
   
-  select(-starts_with("sp_cc_"))
+  select(-starts_with("sp_cc_")) %>% 
+  
+  filter(complete.cases(y))
 
 ## Manipulation checks
 
@@ -425,7 +431,9 @@ data_likelihood <- likelihood_raw %>%
       condition == "distant" & comp_check == "1" ~ 1,
       condition == "distant" & comp_check == "2" ~ 0
     )
-  )
+  ) %>% 
+  
+  filter(complete.cases(y))
 
 ## Tversky & Kahneman (1981, Study 10) --------------------------------
 
@@ -445,3 +453,4 @@ data_control <- control_raw %>%
   ) %>% 
   
   filter(complete.cases(y))
+

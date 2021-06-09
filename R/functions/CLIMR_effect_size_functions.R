@@ -185,6 +185,8 @@ lab_d_calc <- function(data, distance, experiment, cond_1 = "close", cond_2 = "d
   effect_data$distance   <- distance
   effect_data$experiment <- experiment
   
+  effect_data <- extract(effect_data, ID, "modality", ".*_(.*)", remove = FALSE)
+  
   return(effect_data)
   
 }
