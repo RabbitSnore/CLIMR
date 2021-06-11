@@ -163,6 +163,32 @@ effects_complete_comp <- bind_rows(
 
 if (simulation_mode == TRUE) {
   
+  # Remove dummy modality column
+  
+  effects_temporal   <- effects_temporal %>% 
+    select(-modality)
+  
+  effects_temporal_2 <- effects_temporal_2 %>% 
+    select(-modality)
+  
+  effects_spatial    <- effects_spatial %>% 
+    select(-modality)
+  
+  effects_likelihood <- effects_likelihood %>% 
+    select(-modality)
+  
+  effects_temporal_comp   <- effects_temporal_comp %>% 
+    select(-modality)
+  
+  effects_temporal_2_comp <- effects_temporal_2_comp %>% 
+    select(-modality)
+  
+  effects_spatial_comp    <- effects_spatial_comp %>% 
+    select(-modality)
+  
+  effects_likelihood_comp <- effects_likelihood_comp %>% 
+    select(-modality)
+  
   ## Join with modality data
   
   ### Full data
