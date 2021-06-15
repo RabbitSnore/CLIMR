@@ -11,6 +11,10 @@ Henderson, M. D., Fujita, K., Trope, Y., & Liberman, N. (2006). Transcending the
 
 Wakslak, C. J., Trope, Y., Liberman, N., & Alony, R. (2006). Seeing the forest when entry is unlikely: probability and the mental representation of events. *Journal of Experimental Psychology: General, 135*(4), 641-653. Experiment 1.   
 
+## Compendium Structure
+
+The CLIMR project compendium comprises two main parts, one hosted on the Open Science Framework (OSF; https://osf.io/ra3dp/) and one hosted on GitHub (https://github.com/RabbitSnore/CLIMR). The OSF repository for CLIMR contains the materials, methods, and data (once data are collected). The GitHub repository contains the code necessary to execute and reproduce the statistical analyses for the project.
+
 ## (Re-)Building the Project
 
 If you want to reproduce the analyses and output for the CLIMR project, the most straightforward way to do this is to clone this repository into an R Project in R Studio. [This webpage](https://resources.github.com/whitepapers/github-and-rstudio/) has information about how to clone repositories in R Studio. Once you have cloned the repository, open the project in R Studio, and run the following code:
