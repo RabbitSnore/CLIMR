@@ -124,6 +124,24 @@ prop_calc <- function(x, y) {
   
 }
 
+# STANDARDIZED MEAN DIFFEENCE FROM LOG ODDS RATIO
+
+## Calculate a d-like statistic, given a log odds ratio and confidence interval bounds
+
+d_lor_calc <- function(lor, ci_lower, ci_upper) {
+  
+  d <- lor * (sqrt(3) / pi)
+  
+  ci_upper_d <- ci_upper * (sqrt(3) / pi)
+  
+  ci_lower_d <- ci_lower * (sqrt(3) / pi)
+  
+  out <- data.frame(d = d, ci_lower = ci_lower_d, ci_upper = ci_upper_d)
+  
+  return(out)
+  
+}
+
 # CREATING EMPTY DATA SETS FOR EFFECT SIZES ---------------------------
 
 ## The data frame produced by this function is designed to work with the d_calc() function

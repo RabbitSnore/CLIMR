@@ -1,0 +1,42 @@
+---
+title: "Construal Level International Multilab Replication (CLIMR) Project: Validation Pretest Report"
+author: "CLIMR Team"
+date: "`r Sys.Date()`"
+output:
+  html_document:
+    theme: darkly
+    toc: yes
+    toc_float: yes
+  pdf_document:
+    toc: yes
+knit: (function(input_file, encoding) {
+    rmarkdown::render(input_file, encoding = encoding)
+  })
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+source("./R/validation/CLIMR-validation_data_importation.R")
+source("./R/validation/CLIMR-validation_effect_calculation.R")
+
+```
+
+# Categorization Task
+
+```{r}
+effect_temporal
+```
+
+# Segmentation Task
+
+```{r}
+effect_spatial
+```
+
+# Behavior Identification Form
+
+```{r}
+effect_temporal_2
+```
+

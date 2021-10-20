@@ -216,6 +216,12 @@ forest_control <- forest_plot_lor(
   study_color      = tversky_1981_color
 )
 
+### Standardized Mean Difference
+
+### Standardized mean difference
+
+d_control <- d_lor_calc(meta_control$beta[[1]], meta_control$ci.lb, meta_control$ci.ub)
+
 ## Full data ----------------------------------------------------------
 
 ### Primary meta-analysis

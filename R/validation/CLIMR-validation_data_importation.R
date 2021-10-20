@@ -37,8 +37,9 @@ lapply(dependencies, library, character.only = TRUE)
 
 # Import data ---------------------------------------------
 
-raw <- read.csv("./data/validation/climr_validation_data.csv") # Replace with direct OSF download
-
+raw <- read.csv("./data/validation/climr_validation_data.csv") %>%  # Replace with direct OSF download
+  slice(-1, -2)
+  
 # Basic cleaning ------------------------------------------------------
 
 ## Rename variables
