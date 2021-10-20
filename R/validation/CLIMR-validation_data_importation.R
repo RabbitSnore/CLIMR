@@ -228,3 +228,15 @@ data_spatial <- spatial_seg %>%
   select(-starts_with("sp_cc_")) %>% 
   
   filter(complete.cases(y))
+
+# Comprehension check failure removal (for robustness checks) ------------------
+
+data_temporal_cc <- data_temporal %>% 
+  filter(comp_check == 0)
+
+data_temporal_2_cc <- data_temporal_2 %>% 
+  filter(comp_check == 0)
+
+data_spatial_cc <- data_spatial %>% 
+  filter(comp_check == 0)
+

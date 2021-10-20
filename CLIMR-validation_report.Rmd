@@ -10,7 +10,7 @@ output:
   pdf_document:
     toc: yes
 knit: (function(input_file, encoding) {
-    rmarkdown::render(input_file, encoding = encoding)
+    rmarkdown::render(input_file, encoding = encoding, output_dir = "./reports/")
   })
 ---
 
@@ -18,7 +18,7 @@ knit: (function(input_file, encoding) {
 knitr::opts_chunk$set(echo = TRUE)
 
 source("./R/validation/CLIMR-validation_data_importation.R")
-source("./R/validation/CLIMR-validation_effect_calculation.R")
+source("./R/validation/CLIMR-validation_effect_calculations.R")
 
 ```
 
@@ -40,3 +40,22 @@ effect_spatial
 effect_temporal_2
 ```
 
+# Robustness Checks
+
+## Categorization Task
+
+```{r}
+effect_temporal_cc
+```
+
+## Segmentation Task
+
+```{r}
+effect_spatial_cc
+```
+
+## Behavior Identification Form
+
+```{r}
+effect_temporal_2_cc
+```
