@@ -19,6 +19,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 source("./R/validation/CLIMR-validation_data_importation.R")
 source("./R/validation/CLIMR-validation_effect_calculations.R")
+source("./R/validation/CLIMR-validation_data_visualization.R")
 
 ```
 
@@ -28,16 +29,28 @@ source("./R/validation/CLIMR-validation_effect_calculations.R")
 effect_temporal
 ```
 
+```{r}
+temporal_hist
+```
+
 # Segmentation Task
 
 ```{r}
 effect_spatial
 ```
 
+```{r}
+spatial_hist
+```
+
 # Behavior Identification Form
 
 ```{r}
 effect_temporal_2
+```
+
+```{r}
+temporal_2_hist
 ```
 
 # Robustness Checks
