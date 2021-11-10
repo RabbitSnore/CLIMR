@@ -10,7 +10,7 @@
 
 ### Packages required by the Many Legal Labs project
 
-dependencies <- c("dplyr", "tidyr", "stringr", "readr", "metafor", "lme4", "ggplot2", "cowplot", "rmarkdown", "ggbeeswarm", "ggstance", "simr", "viridis", "leaflet")
+dependencies <- c("dplyr", "tidyr", "stringr", "readr", "metafor", "lme4", "ggplot2", "cowplot", "rmarkdown", "ggbeeswarm", "ggstance", "simr", "viridis", "leaflet", "osfr")
 
 ### Check whether packages are installed locally and get list of what needs to be installed
 
@@ -28,27 +28,42 @@ if (length(installation_list) > 0) {
 
 lapply(dependencies, library, character.only = TRUE)
 
+# Import data ------------------------------------------------------------------
 
-# Load raw data -------------------------------------------------------
+## Create necessary directories and download data from OSF
 
-# This section of code is designed for use with the raw data downloaded directly
-# from the survey platform. If you are reproducing the results, you probably do
-# not need to use this code.
+# The data stored on OSF have been cleaned to rename variables and to remove
+# unnecessary metadata from Qualtrics, as well as Prolific IDs.
+# No participants have been removed from this data set.
 
-# Import data ---------------------------------------------
-
-raw <- read.csv("./data/validation/climr_validation_data.csv") %>%  # Replace with direct OSF download
-  slice(-1, -2)
+if (!dir.exists("./data/validation/")) {
   
-# Basic cleaning ------------------------------------------------------
+  dir.create("./data/validation/")
+  
+}
+
+if (!file.exists(".data/validation/climr_validation_data")) {
+  
+  osf_retrieve_file("https://osf.io/79vfq/") %>% 
+  osf_download(path = "./data/validation/",
+               conflicts = "overwrite")
+  
+}
+
+raw <- read.csv("./data/validation/climr_validation_data.csv")
+
+# Basic cleaning ---------------------------------------------------------------
 
 ## Rename variables
-
-raw <- raw %>% 
-  rename(
-    sub            = ResponseId,
-    total_duration = Duration..in.seconds.
-  )
+#
+# This code was used with the raw data downloaded from Qualtrics, but it is not
+# needed with the version of the data stored on OSF.
+#
+# raw <- raw %>% 
+#   rename(
+#     sub            = ResponseId,
+#     total_duration = Duration..in.seconds.
+#   )
 
 ## Separate variables by experiment
 
