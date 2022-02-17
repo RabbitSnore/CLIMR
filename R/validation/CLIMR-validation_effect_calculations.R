@@ -10,7 +10,7 @@
 
 source("./R/functions/CLIMR_effect_size_functions.R")
 
-# Calculate each lab's effect sizes --------------------------------------------
+# Calculate each study's effect sizes ------------------------------------------
 
 ## Liberman et al. (2002, Study 1): Temporal Distance, Categorization ----------
 
