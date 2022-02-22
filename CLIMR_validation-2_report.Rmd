@@ -20,6 +20,13 @@ knitr::opts_chunk$set(echo = TRUE)
 source("./R/validation/CLIMR-validation-2_data_importation.R")
 source("./R/validation/CLIMR-validation-2_effect_calculations.R")
 
+# Summary
+
+source("./R/validation/CLIMR-validation_data_importation.R")
+source("./R/validation/CLIMR-validation_effect_calculations.R")
+source("./R/validation/CLIMR-validation_data_visualization.R")
+source("./R/validation/CLIMR-validation-studies_summary.R")
+
 ```
 
 # Krüger et al. (2014) Study 4, close replication
@@ -56,5 +63,16 @@ effect_bridge
 
 ```{r}
 effect_bridge_bif
+```
+
+# Summary of Validations Studies
+
+```{r}
+validation_plot_data
+```
+
+
+```{r, fig.height = 6, fig.width = 10}
+validation_plot
 ```
 
