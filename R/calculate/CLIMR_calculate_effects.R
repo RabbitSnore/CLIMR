@@ -89,18 +89,6 @@ effects_likelihood_comp <- lab_d_calc(
   experiment = "Likelihood Distance (Conceptual Replication)"
 )
 
-## Tversky & Kahneman (1981, Study 10): Active Control ----------------
-
-### Primary effect sizes
-
-effects_control <- lab_lor_calc(
-  data       = data_control, 
-  distance   = "active_control", 
-  experiment = "Tversky & Kahneman (1981, Study 10)",
-  cond_1     = "expensive", 
-  cond_2     = "cheap"
-)
-
 # Export effect size data ---------------------------------------------
 
 ## Combine all data

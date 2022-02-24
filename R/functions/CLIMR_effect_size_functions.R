@@ -1,10 +1,10 @@
-#######################################################################
+################################################################################
 
 # CLIMR -- General Effect Size Functions
 
-#######################################################################
+################################################################################
 
-# STANDARDIZED MEAN DIFFERENCE ----------------------------------------
+# STANDARDIZED MEAN DIFFERENCE -------------------------------------------------
 
 ## Calculate standardized mean difference, sampling variance, and 95% confidence intervals
 
@@ -47,7 +47,7 @@ d_calc <- function(ID, x, y, cond_1, cond_2) {
   
 }
 
-# LOG ODDS RATIO ------------------------------------------------------
+# LOG ODDS RATIO ---------------------------------------------------------------
 
 ## Calculate logs odds ratio, sampling variance, and 95% confidence intervals
 
@@ -77,7 +77,7 @@ odds_calc <- function(ID, x, y, cond_1, cond_2) {
   
 }
 
-# UNSTANDARDIZED MEAN DIFFERENCE --------------------------------------
+# UNSTANDARDIZED MEAN DIFFERENCE -----------------------------------------------
 
 ## Back-transform standardized mean difference to raw difference
 
@@ -97,7 +97,7 @@ diff_calc <- function(y, d, ci_lower, ci_upper) {
   
 }
 
-# DIFFERENCE IN PROPORTIONS -------------------------------------------
+# DIFFERENCE IN PROPORTIONS ----------------------------------------------------
 
 ## Calculate the raw difference in proportions, with 95% confidence intervals
 
@@ -142,7 +142,7 @@ d_lor_calc <- function(lor, ci_lower, ci_upper) {
   
 }
 
-# CREATING EMPTY DATA SETS FOR EFFECT SIZES ---------------------------
+# CREATING EMPTY DATA SETS FOR EFFECT SIZES ------------------------------------
 
 ## The data frame produced by this function is designed to work with the d_calc() function
 
@@ -176,7 +176,7 @@ empty_lor_data <- function(n) {
   
 }
 
-# CALCULATE EFFECT SIZES FOR EACH LAB ---------------------------------
+# CALCULATE EFFECT SIZES FOR EACH LAB ------------------------------------------
 
 ## Calculate standardized mean difference for each lab
 
@@ -267,7 +267,7 @@ lab_mc_calc <- function(data, distance, experiment, cond_1 = "close", cond_2 = "
   
 }
 
-# OUTLIER REMOVAL BASED ON MEDIAN ABSOLUTE DEVIATION ------------------
+# OUTLIER REMOVAL BASED ON MEDIAN ABSOLUTE DEVIATION ---------------------------
 
 ## Given a data frame with a variable y, this function returns a data frame with rows removed for cases that exceed the upper and lower bound based on median absolute deviations. 
 ## By default, this function uses 3.0 MADs as a cutoff.

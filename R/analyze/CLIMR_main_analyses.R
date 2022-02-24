@@ -22,20 +22,19 @@ original <- read.csv("./data/CLT_original.csv")
 
 ## Study colors
 
-liberman_2002_color  <- "#37392E"
-liberman_1998_color  <- "#B9E28C"
-henderson_2006_color <- "#A47C79"
-wakslak_2006_color   <- "#19647E"
-tversky_1981_color   <- "#96BDC6"
+liberman_1998_color  <- "#37392E"
+fujita_2006_color    <- "#B9E28C"
+social_color         <- "#A47C79"
+likelihood_color     <- "#19647E"
 
-study_colors <- c(liberman_2002_color,
-                  liberman_1998_color,
-                  henderson_2006_color,
-                  wakslak_2006_color)
+study_colors <- c(liberman_1998_color,
+                  fujita_2006_color,
+                  social_color,
+                  likelihood_color)
 
 # Meta-analysis and forest plot for each experiment -------------------
 
-## Liberman et al. (2002, Study 1): Temporal Distance -----------------
+## Liberman et al. (1998, Study 1): Temporal Distance --------------------------
 
 ### Primary meta-analysis
 
@@ -71,51 +70,12 @@ forest_temporal <- forest_plot(
   org_d            = original$d[original$study == "temporal"],
   org_ci_lower     = original$ci_lower[original$study == "temporal"], 
   org_ci_upper     = original$ci_upper[original$study == "temporal"], 
-  title            = "Liberman et al. (2002, Study 1)", 
-  study_color      = liberman_2002_color
+  title            = "Liberman et al. (1998, Study 1)", 
+  study_color      = liberman_1998_color
   )
 
-## Liberman & Trope (1998, Study 1): Temporal Distance ----------------
 
-### Primary meta-analysis
-
-meta_temporal_2 <- rma(
-  yi = d, 
-  vi = var, 
-  data = effects_temporal_2)
-
-bt_temporal_2 <- diff_calc(
-  y        = data_temporal_2$y, 
-  d        = meta_temporal_2$beta[[1]], 
-  ci_lower = meta_temporal_2$ci.lb[[1]], 
-  ci_upper = meta_temporal_2$ci.ub[[1]])
-
-### Comprehension check meta-analysis
-
-meta_temporal_2_comp <- rma(
-  yi = d, 
-  vi = var, 
-  data = effects_temporal_2_comp)
-
-bt_temporal_2_comp <- diff_calc(
-  y        = filter(data_temporal_2, comp_check == 0)$y, 
-  d        = meta_temporal_2_comp$beta[[1]], 
-  ci_lower = meta_temporal_2_comp$ci.lb[[1]], 
-  ci_upper = meta_temporal_2_comp$ci.ub[[1]])
-
-### Forest plot
-
-forest_temporal_2 <- forest_plot(
-  replication_data = effects_temporal_2, 
-  meta_analysis    = meta_temporal_2,
-  org_d            = original$d[original$study == "temporal_2"],
-  org_ci_lower     = original$ci_lower[original$study == "temporal_2"], 
-  org_ci_upper     = original$ci_upper[original$study == "temporal_2"], 
-  title            = "Liberman & Trope (1998, Study 1)", 
-  study_color      = liberman_1998_color
-)
-
-## Henderson et al. (2006, Study 1): Spatial Distance -----------------
+## Fujita et al. (2006, Study 1): Spatial Distance --------------------------
 
 ### Primary meta-analysis
 
@@ -151,11 +111,51 @@ forest_spatial <- forest_plot(
   org_d            = original$d[original$study == "spatial"],
   org_ci_lower     = original$ci_lower[original$study == "spatial"], 
   org_ci_upper     = original$ci_upper[original$study == "spatial"], 
-  title            = "Henderson et al. (2006, Study 1)", 
-  study_color      = henderson_2006_color
+  title            = "Fujita et al. (2006, Study 1)", 
+  study_color      = fujita_2006_color
 )
 
-## Wakslak et al. (2006, Study 1): Likelihood Distance ----------------
+## Social Distance (Conceptual Replication) ------------------------------------
+
+### Primary meta-analysis
+
+meta_social <- rma(
+  yi = d, 
+  vi = var, 
+  data = effects_social)
+
+bt_social <- diff_calc(
+  y        = data_social$y, 
+  d        = meta_social$beta[[1]], 
+  ci_lower = meta_social$ci.lb[[1]], 
+  ci_upper = meta_social$ci.ub[[1]])
+
+### Comprehension check meta-analysis
+
+meta_social_comp <- rma(
+  yi = d, 
+  vi = var, 
+  data = effects_social_comp)
+
+bt_social_comp <- diff_calc(
+  y        = filter(data_social, comp_check == 0)$y, 
+  d        = meta_social_comp$beta[[1]], 
+  ci_lower = meta_social_comp$ci.lb[[1]], 
+  ci_upper = meta_social_comp$ci.ub[[1]])
+
+### Forest plot
+
+forest_social <- forest_plot(
+  replication_data = effects_social, 
+  meta_analysis    = meta_social,
+  org_d            = original$d[original$study == "social"],
+  org_ci_lower     = original$ci_lower[original$study == "social"], 
+  org_ci_upper     = original$ci_upper[original$study == "social"], 
+  title            = "Social Distance (Conceptual Replication)", 
+  study_color      = social_color
+)
+
+## Likelihood Distance (Conceptual Replication) --------------------------------
 
 ### Primary meta-analysis
 
@@ -191,36 +191,9 @@ forest_likelihood <- forest_plot(
   org_d            = original$d[original$study == "likelihood"],
   org_ci_lower     = original$ci_lower[original$study == "likelihood"], 
   org_ci_upper     = original$ci_upper[original$study == "likelihood"], 
-  title            = "Wakslak et al. (2006, Study 1)", 
-  study_color      = wakslak_2006_color
+  title            = "Likelihood Distance (Conceptual Replication)", 
+  study_color      = likelihood_color
 )
-
-## Tversky & Kahneman (1981, Study 10): Active Control ----------------
-
-### Primary meta-analysis
-
-meta_control <- rma(
-  yi = log_odds, 
-  vi = var, 
-  data = effects_control)
-
-### Forest plot
-
-forest_control <- forest_plot_lor(
-  replication_data = effects_control,
-  meta_analysis    = meta_temporal,
-  org_lor          = original$lor[original$study == "control"],
-  org_ci_lower     = original$ci_lower[original$study == "control"],
-  org_ci_upper     = original$ci_upper[original$study == "control"],
-  title            = "Tversky & Kahneman (1981, Study 10)",
-  study_color      = tversky_1981_color
-)
-
-### Standardized Mean Difference
-
-### Standardized mean difference
-
-d_control <- d_lor_calc(meta_control$beta[[1]], meta_control$ci.lb, meta_control$ci.ub)
 
 ## Full data ----------------------------------------------------------
 
@@ -273,27 +246,19 @@ climr_figure <- climr_swarm(
 save_plot("./plots/climr_main_figure.png", climr_figure, base_asp = 1.6, base_height = 5)
 save_plot("./plots/climr_main_figure.svg", climr_figure, base_asp = 1.6, base_height = 5)
 
-# Planned moderator analysis ------------------------------------------
+# Planned moderator analysis ---------------------------------------------------
 
 ## Modality
 
-### Liberman et al. (2002, Study 1): Temporal Distance ----------------
+### Liberman & Trope (1998, Study 1): Temporal Distance ------------------------
 
 meta_temporal_mod <- rma(
   yi = d, 
-  vi = var,
+  vi = var, 
   mods = ~ modality,
   data = effects_temporal)
 
-### Liberman & Trope (1998, Study 1): Temporal Distance ---------------
-
-meta_temporal_2_mod <- rma(
-  yi = d, 
-  vi = var, 
-  mods = ~ modality,
-  data = effects_temporal_2)
-
-### Henderson et al. (2006, Study 1): Spatial Distance ----------------
+### Fujita et al. (2006, Study 1): Spatial Distance ----------------------------
 
 meta_spatial_mod <- rma(
   yi = d, 
@@ -301,7 +266,15 @@ meta_spatial_mod <- rma(
   mods = ~ modality,
   data = effects_spatial)
 
-### Wakslak et al. (2006, Study 1): Likelihood Distance ---------------
+### Liberman et al. (2002, Study 1): Temporal Distance -------------------------
+
+meta_social_mod <- rma(
+  yi = d, 
+  vi = var,
+  mods = ~ modality,
+  data = effects_social)
+
+### Wakslak et al. (2006, Study 1): Likelihood Distance ------------------------
 
 meta_likelihood_mod <- rma(
   yi = d, 
