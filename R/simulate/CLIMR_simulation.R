@@ -1,14 +1,14 @@
-#######################################################################
+################################################################################
 
 # CLIMR -- Data Simulation
 
-#######################################################################
+################################################################################
 
-# Set up environment --------------------------------------------------
+# Set up environment -----------------------------------------------------------
 
 set.seed(1040)
 
-# Shared Attributes ---------------------------------------------------
+# Shared Attributes ------------------------------------------------------------
 
 ### NOTE
 # These attributes are shared between simulations for convenience. They are not intended to be realistic or to reflect our beliefs about the likely outcome of the replications. The values specified throughout this document are basically arbitrary. They are designed to test the code and analytic strategy, not to model any theory or empirical results.
@@ -30,7 +30,7 @@ subs <- 25 # Participants per experiment
 
 labs <- 99 # The number of contributing laboratories
 
-# Liberman et al. (2002, Study 1): Temporal Distance ------------------
+# Liberman et al. (2002, Study 1): Temporal Distance ---------------------------
 
 ## Design: 2 (between) x 4 (within)
 

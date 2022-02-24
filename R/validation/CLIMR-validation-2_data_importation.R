@@ -46,7 +46,7 @@ if (!dir.exists("./data/validation/")) {
 
 if (!file.exists("./data/validation/fruit-close_validation_data.csv")) {
   
-  osf_retrieve_file("") %>% 
+  osf_retrieve_file("https://osf.io/937vg/") %>% 
     osf_download(path = "./data/validation/",
                  conflicts = "overwrite")
   
@@ -64,7 +64,7 @@ if (!dir.exists("./data/validation/")) {
 
 if (!file.exists("./data/validation/fruit-modified_validation_data.csv")) {
   
-  osf_retrieve_file("") %>% 
+  osf_retrieve_file("https://osf.io/dsv8k/") %>% 
     osf_download(path = "./data/validation/",
                  conflicts = "overwrite")
   
@@ -82,7 +82,7 @@ if (!dir.exists("./data/validation/")) {
 
 if (!file.exists("./data/validation/bridge_validation_data.csv")) {
   
-  osf_retrieve_file("") %>% 
+  osf_retrieve_file("https://osf.io/9fhka/") %>% 
     osf_download(path = "./data/validation/",
                  conflicts = "overwrite")
   
