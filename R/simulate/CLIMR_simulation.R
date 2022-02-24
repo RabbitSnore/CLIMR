@@ -11,7 +11,11 @@ set.seed(1040)
 # Shared Attributes ------------------------------------------------------------
 
 ### NOTE
-# These attributes are shared between simulations for convenience. They are not intended to be realistic or to reflect our beliefs about the likely outcome of the replications. The values specified throughout this document are basically arbitrary. They are designed to test the code and analytic strategy, not to model any theory or empirical results.
+# These attributes are shared between simulations for convenience. They are not 
+# intended to be realistic or to reflect our beliefs about the likely outcome of
+# the replications. The values specified throughout this document are basically 
+# arbitrary. They are designed to test the code and analytic strategy, not to 
+# model any theory or empirical results.
 ###
 
 # Effect and basic design specification
@@ -30,49 +34,32 @@ subs <- 25 # Participants per experiment
 
 labs <- 99 # The number of contributing laboratories
 
-# Liberman et al. (2002, Study 1): Temporal Distance ---------------------------
+# Liberman & Trope (1998, Study 1): Temporal Distance --------------------------
 
-## Design: 2 (between) x 4 (within)
+## 2 (between)
 
-## Random effects
-
-temporal_scenarios <- 4
-
-### Variances
-
-temporal_variances <- list(.30, .05, .05, .05, .05)
+temporal_variances <- .05
 
 ## Data structure
 
 total_subs_temporal <- subs*labs
 
-obs_per_lab_temporal <- subs*temporal_scenarios
+sub_temporal <- paste("temporal_", 1:total_subs_temporal, sep = "")
 
-sub_temporal <- sort(rep(1:total_subs_temporal, temporal_scenarios))
-
-lab_temporal <- sort(rep(1:labs, obs_per_lab_temporal))
-
-stimulus_temporal <- rep(1:temporal_scenarios, total_subs_temporal)
+lab_temporal <- sort(rep(1:labs, subs))
 
 condition_temporal <- sample(condition, total_subs_temporal, replace = TRUE)
 
-str_temporal <- data.frame(lab = lab_temporal, sub = sub_temporal, stimulus = stimulus_temporal) %>% 
-  left_join(data.frame(sub = 1:total_subs_temporal, condition = condition_temporal), by = "sub")
+str_temporal <- data.frame(lab = lab_temporal, sub = sub_temporal, condition = condition_temporal)
 
 levels(str_temporal$condition) <- c("close", "distant")
 
 ## Model simulation
 
 # The data are simulated from a Poisson distribution,
-# because object categorization is a count variable and
-# there is some evidence that the measure tends to be
-# positively skewed.
-#
-# This simulation is somewhat unrealistic, as it produces
-# zeroes as valid values for the response variable.
-# But this does not affect the usefulness of the simulation.
+# because BIF scores are discrete values from  0 to 13, 19, or 25.
 
-model_temporal <- makeGlmer(y ~ condition + (1|lab) + (1|lab:sub) + (1 + condition|stimulus), family = poisson(link = "log"), fixef = fixed, VarCorr = temporal_variances, data = str_temporal)
+model_temporal <- makeGlmer(y ~ condition + (1|lab), family = poisson(link = "log"), fixef = fixed, VarCorr = temporal_variances, data = str_temporal)
 
 ## Data simulation
 
@@ -92,19 +79,7 @@ contrasts(data_temporal$condition) <- contr.sum(2)
 
 data_temporal$comp_check <- sample(c(0, 1), nrow(data_temporal), replace = TRUE, prob = c(.95, .05))
 
-## Adding manipulation check
-
-model_mc_temporal <- makeGlmer(mc ~ condition + (1|lab) + (1|lab:sub) + (1 + condition|stimulus), family = poisson(link = "log"), fixef = fixed, VarCorr = temporal_variances, data = str_temporal)
-
-temporal_mc <- getData(model_mc_temporal)
-
-temporal_mc$condition <- as.factor(temporal_mc$condition)
-
-levels(temporal_mc$condition) <- c("close", "distant")
-
-contrasts(temporal_mc$condition) <- contr.sum(2)
-
-# Henderson et al. (2006, Study 1): Spatial Distance ------------------
+# Fujita et al. (2006, Study 1): Spatial Distance ------------------------------
 
 ## 2 (between)
 
@@ -114,7 +89,7 @@ spatial_variances <- .05
 
 total_subs_spatial <- subs*labs
 
-sub_spatial <- rep((total_subs_temporal + 1):(total_subs_spatial + total_subs_temporal))
+sub_spatial <- paste("spatial_", 1:total_subs_spatial, sep = "")
 
 lab_spatial <- sort(rep(1:labs, subs))
 
@@ -127,12 +102,7 @@ levels(str_spatial$condition) <- c("close", "distant")
 ## Model simulation
 
 # The data are simulated from a Poisson distribution,
-# because segmentation is a count variable.
-#
-# This simulation is somewhat unrealistic, as it produces
-# zeroes as valid values for the response variable,
-# and it is not clear whether segmentation data tends to be skewed.
-# But this does not affect the usefulness of the simulation.
+# because BIF scores are discrete values from  0 to 13, 19, or 25.
 
 model_spatial <- makeGlmer(y ~ condition + (1|lab), family = poisson(link = "log"), fixef = fixed, VarCorr = spatial_variances, data = str_spatial)
 
@@ -154,63 +124,77 @@ contrasts(data_spatial$condition) <- contr.sum(2)
 
 data_spatial$comp_check <- sample(c(0, 1), nrow(data_spatial), replace = TRUE, prob = c(.95, .05))
 
-## Adding manipulation check
+# Social Distance (Conceptual Replication) -------------------------------------
 
-model_mc_spatial <- makeGlmer(mc ~ condition + (1|lab), family = poisson(link = "log"), fixef = fixed, VarCorr = spatial_variances, data = str_spatial)
+## 2 (between)
 
-spatial_mc <- getData(model_mc_spatial)
+social_variances <- .05
 
-spatial_mc$condition <- as.factor(spatial_mc$condition)
+## Data structure
 
-levels(spatial_mc$condition) <- c("close", "distant")
+total_subs_social <- subs*labs
 
-contrasts(spatial_mc$condition) <- contr.sum(2)
+sub_social <- paste("social_", 1:total_subs_social, sep = "")
 
-# Wakslak et al. (2006, Study 1): Likelihood Distance -----------------
+lab_social <- sort(rep(1:labs, subs))
 
-## 2 (between) x 4 (within)
+condition_social <- sample(condition, total_subs_social, replace = TRUE)
 
-# Effect and design specification
+str_social <- data.frame(lab = lab_social, sub = sub_social, condition = condition_social)
 
-## Random effects
+levels(str_social$condition) <- c("close", "distant")
 
-likelihood_scenarios <- 4
+## Model simulation
 
-### Variances
+# The data are simulated from a Poisson distribution,
+# because BIF scores are discrete values from  0 to 13, 19, or 25.
 
-likelihood_variances <- list(.30, .05, .05, .05, .05)
+model_social <- makeGlmer(y ~ condition + (1|lab), family = poisson(link = "log"), fixef = fixed, VarCorr = social_variances, data = str_social)
+
+## Data simulation
+
+data_social <- getData(model_social)
+
+data_social$condition <- as.factor(data_social$condition)
+
+levels(data_social$condition) <- c("close", "distant")
+
+contrasts(data_social$condition) <- contr.sum(2)
+
+## Adding comprehension check
+
+# For this variable, 0 indicates passing the check
+# and 1 indicates failing the check.
+# The data are set this way to facilitate easier analysis.
+
+data_social$comp_check <- sample(c(0, 1), nrow(data_social), replace = TRUE, prob = c(.95, .05))
+
+# Likelihood Distance (Conceptual Replication) ---------------------------------
+
+## 2 (between)
+
+likelihood_variances <- .05
 
 ## Data structure
 
 total_subs_likelihood <- subs*labs
 
-obs_per_lab_likelihood <- subs*likelihood_scenarios
+sub_likelihood <- paste("likelihood_", 1:total_subs_likelihood, sep = "")
 
-sub_likelihood <- sort(rep((total_subs_temporal + total_subs_spatial + 1):(total_subs_likelihood + total_subs_temporal + total_subs_spatial), likelihood_scenarios))
-
-lab_likelihood <- sort(rep(1:labs, obs_per_lab_likelihood))
-
-stimulus_likelihood <- rep(1:likelihood_scenarios, total_subs_likelihood)
+lab_likelihood <- sort(rep(1:labs, subs))
 
 condition_likelihood <- sample(condition, total_subs_likelihood, replace = TRUE)
 
-str_likelihood <- data.frame(lab = lab_likelihood, sub = sub_likelihood, stimulus = stimulus_likelihood) %>% 
-  left_join(data.frame(sub = (total_subs_temporal + total_subs_spatial + 1):max(sub_likelihood), condition = condition_likelihood), by = "sub")
+str_likelihood <- data.frame(lab = lab_likelihood, sub = sub_likelihood, condition = condition_likelihood)
 
 levels(str_likelihood$condition) <- c("close", "distant")
 
 ## Model simulation
 
 # The data are simulated from a Poisson distribution,
-# because object categorization is a count variable and
-# there is some evidence that the measure tends to be
-# positively skewed.
-#
-# This simulation is somewhat unrealistic, as it produces
-# zeroes as valid values for the response variable.
-# But this does not affect the usefulness of the simulation.
+# because BIF scores are discrete values from  0 to 13, 19, or 25.
 
-model_likelihood <- makeGlmer(y ~ condition + (1|lab) + (1|lab:sub) + (1 + condition|stimulus), family = poisson(link = "log"), fixef = fixed, VarCorr = likelihood_variances, data = str_likelihood)
+model_likelihood <- makeGlmer(y ~ condition + (1|lab), family = poisson(link = "log"), fixef = fixed, VarCorr = likelihood_variances, data = str_likelihood)
 
 ## Data simulation
 
@@ -230,76 +214,7 @@ contrasts(data_likelihood$condition) <- contr.sum(2)
 
 data_likelihood$comp_check <- sample(c(0, 1), nrow(data_likelihood), replace = TRUE, prob = c(.95, .05))
 
-## Adding manipulation check
-
-model_mc_likelihood <- makeGlmer(mc ~ condition + (1|lab) + (1|lab:sub) + (1 + condition|stimulus), family = poisson(link = "log"), fixef = fixed, VarCorr = likelihood_variances, data = str_likelihood)
-
-likelihood_mc <- getData(model_mc_likelihood)
-
-likelihood_mc$condition <- as.factor(likelihood_mc$condition)
-
-levels(likelihood_mc$condition) <- c("close", "distant")
-
-contrasts(likelihood_mc$condition) <- contr.sum(2)
-
-# Liberman & Trope (1998, Study 1): Temporal Distance -----------------
-
-## 2 (between)
-
-temporal_2_variances <- .05
-
-## Data structure
-
-total_subs_temporal_2 <- subs*labs
-
-sub_temporal_2 <- rep((total_subs_temporal + total_subs_spatial + total_subs_likelihood + 1):(total_subs_temporal_2 + total_subs_temporal + total_subs_spatial + total_subs_likelihood))
-
-lab_temporal_2 <- sort(rep(1:labs, subs))
-
-condition_temporal_2 <- sample(condition, total_subs_temporal_2, replace = TRUE)
-
-str_temporal_2 <- data.frame(lab = lab_temporal_2, sub = sub_temporal_2, condition = condition_temporal_2)
-
-levels(str_temporal_2$condition) <- c("close", "distant")
-
-## Model simulation
-
-# The data are simulated from a Poisson distribution,
-# because BIF scores are discrete values from  0 to 19.
-
-model_temporal_2 <- makeGlmer(y ~ condition + (1|lab), family = poisson(link = "log"), fixef = fixed, VarCorr = temporal_2_variances, data = str_temporal_2)
-
-## Data simulation
-
-data_temporal_2 <- getData(model_temporal_2)
-
-data_temporal_2$condition <- as.factor(data_temporal_2$condition)
-
-levels(data_temporal_2$condition) <- c("close", "distant")
-
-contrasts(data_temporal_2$condition) <- contr.sum(2)
-
-## Adding comprehension check
-
-# For this variable, 0 indicates passing the check
-# and 1 indicates failing the check.
-# The data are set this way to facilitate easier analysis.
-
-data_temporal_2$comp_check <- sample(c(0, 1), nrow(data_temporal_2), replace = TRUE, prob = c(.95, .05))
-
-## Adding manipulation check
-
-model_mc_temporal_2 <- makeGlmer(mc ~ condition + (1|lab), family = poisson(link = "log"), fixef = fixed, VarCorr = temporal_2_variances, data = str_temporal_2)
-
-temporal_2_mc <- getData(model_mc_temporal_2)
-
-temporal_2_mc$condition <- as.factor(temporal_2_mc$condition)
-
-levels(temporal_2_mc$condition) <- c("close", "distant")
-
-contrasts(temporal_2_mc$condition) <- contr.sum(2)
-
-# Tversky & Kahneman (1981, Study 10): Active Control -----------------
+# Tversky & Kahneman (1981, Study 10): Active Control --------------------------
 
 ## 2 (between)
 
@@ -349,7 +264,7 @@ levels(data_control$condition) <- c("expensive", "cheap")
 
 contrasts(data_control$condition) <- contr.sum(2)
 
-# In-person vs. Online Moderator --------------------------------------
+# In-person vs. Online Moderator -----------------------------------------------
 
 ## This will create a roughly even split of labs collecting online and in person.
 
