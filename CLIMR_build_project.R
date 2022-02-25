@@ -1,14 +1,14 @@
-#######################################################################
+################################################################################
 
 # CLIMR -- Central Build Script (The Elder Brain)
 
-#######################################################################
+################################################################################
 
 # Running this script will build the CLIMR Project. It will check if the 
 # necessary packages are installed, and if they are not, it will install them. 
 # It will then execute all necessary R scripts and build the reports of results.
 
-# Build parameters ----------------------------------------------------
+# Build parameters -------------------------------------------------------------
 
 ## Simulation mode
 
@@ -43,7 +43,7 @@ write_data      <- FALSE
 
 codebook_base   <- FALSE
 
-# Set up environment --------------------------------------------------
+# Set up environment -----------------------------------------------------------
 
 ## Check and install necessary packages for the project
 
@@ -89,7 +89,7 @@ climr_report <- function(input) {
   
 }
 
-# R Scripts -----------------------------------------------------------
+# R Scripts --------------------------------------------------------------------
 
 ## Simulation
 
@@ -119,7 +119,8 @@ source("./R/analyze/CLIMR_main_analyses.R")
 
 ### Manipulation check
 
-source("./R/analyze/CLIMR_manipulation_checks.R")
+# DEFUNCT
+# source("./R/analyze/CLIMR_manipulation_checks.R")
 
 ### Poisson regression approach
 
@@ -130,7 +131,7 @@ source("./R/analyze/CLIMR_poisson_meta_analyses.R")
 
 source("./R/analyze/CLIMR_modality_moderation.R")
 
-# Reports -------------------------------------------------------------
+# Reports ----------------------------------------------------------------------
 
 ## Main project report
 
@@ -144,7 +145,8 @@ climr_report("CLIMR_comprehension_check_supplement.Rmd")
 
 ### Manipulation check
 
-climr_report("CLIMR_manipulation_check_supplement.Rmd")
+# DEFUNCT
+# climr_report("CLIMR_manipulation_check_supplement.Rmd")
 
 ### Poisson regression approach report
 

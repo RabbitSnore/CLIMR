@@ -195,7 +195,7 @@ forest_likelihood <- forest_plot(
   study_color      = likelihood_color
 )
 
-## Full data ----------------------------------------------------------
+## Full data -------------------------------------------------------------------
 
 ### Primary meta-analysis
 
@@ -219,26 +219,26 @@ meta_complete_comp <- rma.mv(
 
 I2_complete_comp <- I2_mv(meta_complete_comp, effects_complete_comp)
 
-# Arboretum plot ------------------------------------------------------
+# Arboretum plot ---------------------------------------------------------------
 
-arboretum <- arboretum_plot(list(forest_temporal, forest_temporal_2, forest_spatial, forest_likelihood))
+arboretum <- arboretum_plot(list(forest_temporal, forest_spatial, forest_social, forest_likelihood))
 
 ## Save plot
 
 save_plot("./plots/climr_arboretum.png", arboretum, base_height = 12, base_width = 18)
 save_plot("./plots/climr_arboretum.svg", arboretum, base_height = 12, base_width = 18)
 
-# Main results: Beeswarm plot -----------------------------------------
+# Main results: Beeswarm plot --------------------------------------------------
 
 climr_figure <- climr_swarm(
   meta_temporal   = meta_temporal, 
   meta_spatial    = meta_spatial, 
+  meta_social     = meta_social,
   meta_likelihood = meta_likelihood, 
-  meta_temporal_2 = meta_temporal_2, 
   complete        = effects_complete, 
   original        = original, 
   study_colors    = study_colors, 
-  titles          = c("Liberman et al. (2002, Exp. 1)", "Liberman & Trope (1998, Exp. 1)", "Henderson et al. (2006, Exp. 1)", "Wakslak et al. (2006, Exp. 1)")
+  titles          = c("Liberman et al. (1998, Exp. 1)", "Fujita et al. (2006, Exp. 1)", "Social Distance (Conceptual Replication", "Likelihood Distance (Conceptual Replication")
   )
 
 ## Save plot
@@ -266,7 +266,7 @@ meta_spatial_mod <- rma(
   mods = ~ modality,
   data = effects_spatial)
 
-### Liberman et al. (2002, Study 1): Temporal Distance -------------------------
+### Social Distance (Conceptual Replication) -----------------------------------
 
 meta_social_mod <- rma(
   yi = d, 
@@ -274,7 +274,7 @@ meta_social_mod <- rma(
   mods = ~ modality,
   data = effects_social)
 
-### Wakslak et al. (2006, Study 1): Likelihood Distance ------------------------
+### Likelihood Distance (Conceptual Replication) -------------------------------
 
 meta_likelihood_mod <- rma(
   yi = d, 

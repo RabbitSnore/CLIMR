@@ -1,15 +1,12 @@
 # Construal Level International Multi-lab Replication (CLIMR) Project
 
-This project entails multi-lab collaborative replications of four studies on Construal Level Theory (CLT):
+This project entails multi-lab collaborative replications of studies on Construal Level Theory (CLT):
 
-Liberman, N., Sagristano, M. D., & Trope, Y. (2002). The effect of temporal distance on level of mental construal. *Journal of Experimental Social Psychology, 38*(6), 523-534. Experiment 1. 
+Liberman, N., & Trope, Y. (1998). The role of feasibility and desirability considerations in near and distant future decisions: A test of temporal construal theory. _Journal of Personality and Social Psychology, 75_(1), 5-18. Experiment 1. 
 
-Liberman, N., & Trope, Y. (1998). The role of feasibility and desirability considerations in near and distant future decisions: A test of temporal construal theory. *Journal of personality and social psychology, 75*(1), 5-18. Experiment 1. 
+Fujita, K., Henderson, M., Eng, J., Trope, Y., & Liberman, N. (2006). Spatial distance and mental construal of social events. _Psychological Science, 14_, 278-282. Experiment 1.
 
-
-Henderson, M. D., Fujita, K., Trope, Y., & Liberman, N. (2006). Transcending the "here": the effect of spatial distance on social judgment. *Journal of Personality and Social Psychology, 91*(5), 845-856. Experiment 1. 
-
-Wakslak, C. J., Trope, Y., Liberman, N., & Alony, R. (2006). Seeing the forest when entry is unlikely: probability and the mental representation of events. *Journal of Experimental Psychology: General, 135*(4), 641-653. Experiment 1.   
+In addition to close replications of these two studies, this project also entails two conceptual replications relevant to social and likelihood distance.
 
 ## Compendium Structure
 

@@ -116,9 +116,9 @@ forest_plot <- function(replication_data, meta_analysis, org_d, org_ci_lower, or
       y     = ""
     ) +
     guides(
-      shape = FALSE,
-      group = FALSE,
-      size  = FALSE
+      shape = "none",
+      group = "none",
+      size  = "none"
     ) +
     theme_classic() +
     theme(
@@ -233,9 +233,9 @@ forest_plot_lor <- function(replication_data, meta_analysis, org_lor, org_ci_low
       y     = ""
     ) +
     guides(
-      shape = FALSE,
-      group = FALSE,
-      size  = FALSE
+      shape = "none",
+      group = "none",
+      size  = "none"
     ) +
     theme_classic() +
     theme(
@@ -315,7 +315,7 @@ arboretum_plot <- function(plot_list, boundary_pad = .25, multiple = .50, rows =
 
 ## Main figure
 
-climr_swarm <- function(meta_temporal, meta_spatial, meta_likelihood, meta_temporal_2, complete, original, study_colors, titles, boundary_pad = .25, multiple = .50) {
+climr_swarm <- function(meta_temporal, meta_spatial, meta_social, meta_likelihood, complete, original, study_colors, titles, boundary_pad = .25, multiple = .50) {
   
   ## Internal function to set up estimate data frame
   
@@ -348,6 +348,12 @@ climr_swarm <- function(meta_temporal, meta_spatial, meta_likelihood, meta_tempo
     org_d            = original$d[original$study == "spatial"],
     org_ci_lower     = original$ci_lower[original$study == "spatial"], 
     org_ci_upper     = original$ci_upper[original$study == "spatial"])
+
+  estimates_social <- estimate_data(
+    meta_analysis    = meta_social,
+    org_d            = original$d[original$study == "social"],
+    org_ci_lower     = original$ci_lower[original$study == "social"], 
+    org_ci_upper     = original$ci_upper[original$study == "social"])
   
   estimates_likelihood <- estimate_data(
     meta_analysis    = meta_likelihood,
@@ -355,24 +361,17 @@ climr_swarm <- function(meta_temporal, meta_spatial, meta_likelihood, meta_tempo
     org_ci_lower     = original$ci_lower[original$study == "likelihood"], 
     org_ci_upper     = original$ci_upper[original$study == "likelihood"])
   
-  estimates_temporal_2 <- estimate_data(
-    meta_analysis    = meta_temporal_2,
-    org_d            = original$d[original$study == "temporal_2"],
-    org_ci_lower     = original$ci_lower[original$study == "temporal_2"], 
-    org_ci_upper     = original$ci_upper[original$study == "temporal_2"])
-  
-  
-  estimates_climr <- rbind(estimates_temporal, estimates_spatial, estimates_likelihood, estimates_temporal_2)
+  estimates_climr <- rbind(estimates_temporal, estimates_spatial, estimates_social, estimates_likelihood)
   
   estimates_climr$ID <- factor(estimates_climr$ID, levels = c("Replication", "Original"))
   
-  estimates_climr$distance <- c(rep("temporal", 2), rep("spatial", 2), rep("likelihood", 2), rep("temporal_2", 2))
+  estimates_climr$distance <- c(rep("temporal", 2), rep("spatial", 2), rep("social", 2), rep("likelihood", 2))
   
   estimates_climr$distance <- factor(estimates_climr$distance, 
-                                   levels = rev(c("temporal","temporal_2", "spatial", "likelihood")))
+                                   levels = rev(c("temporal","spatial", "social", "likelihood")))
   
   complete$distance <- factor(complete$distance, 
-                                 levels = rev(c("temporal", "temporal_2", "spatial", "likelihood")))
+                                 levels = rev(c("temporal", "spatial", "social", "likelihood")))
 
   # Set up plot boundaries
   
@@ -457,10 +456,10 @@ climr_swarm <- function(meta_temporal, meta_spatial, meta_likelihood, meta_tempo
       x = expression(paste("Effect size (", italic("d"), ")", sep = ""))
     ) +
     guides(
-      group = FALSE,
-      size = FALSE,
-      color = FALSE,
-      alpha = FALSE
+      group = "none",
+      size  = "none",
+      color = "none",
+      alpha = "none"
     ) +
     theme_classic() +
     theme(
