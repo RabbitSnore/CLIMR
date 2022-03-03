@@ -1,10 +1,10 @@
-#######################################################################
+################################################################################
 
 # CLIMR -- Data Importation and Cleaning
 
-#######################################################################
+################################################################################
 
-# Load raw data -------------------------------------------------------
+# Load raw data ----------------------------------------------------------------
 
 # This section of code is designed for use with the raw data downloaded directly
 # from the survey platform. If you are reproducing the results, you probably do
@@ -67,7 +67,7 @@ if (read_precleaned == FALSE) {
   
 }
 
-# Import pre-cleaned data ---------------------------------------------
+# Import pre-cleaned data ------------------------------------------------------
 
 if (read_precleaned == TRUE) {
   
@@ -75,7 +75,7 @@ if (read_precleaned == TRUE) {
   
 }
 
-# Basic cleaning ------------------------------------------------------
+# Basic cleaning ---------------------------------------------------------------
 
 ## Rename variables
 
@@ -159,7 +159,7 @@ control_raw <- raw %>%
   ) %>% 
   type_convert()
 
-# Data exportation ----------------------------------------------------
+# Data exportation -------------------------------------------------------------
 
 if (write_data == TRUE) {
   
@@ -191,7 +191,7 @@ if (codebook_base == TRUE) {
   
 }
 
-# Cleaning - Liberman et al (2002, Study 1) ---------------------------
+# Cleaning - Liberman et al (2002, Study 1) ------------------------------------
 
 ## Calculate number of used categories
 
