@@ -126,7 +126,9 @@ ggplot(exclusion_long,
          fill = group
        )) +
   facet_wrap(~ distance, nrow = 1) +
-  geom_col() +
+  geom_col(
+    width = .40
+  ) +
   geom_text(
     inherit.aes = FALSE,
     aes(
