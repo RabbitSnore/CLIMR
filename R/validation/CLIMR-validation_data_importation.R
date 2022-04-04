@@ -42,7 +42,7 @@ if (!dir.exists("./data/validation/")) {
   
 }
 
-if (!file.exists(".data/validation/climr_validation_data")) {
+if (!file.exists(".data/validation/CLIMR_validation_data.csv")) {
   
   osf_retrieve_file("https://osf.io/79vfq/") %>% 
   osf_download(path = "./data/validation/",
@@ -50,7 +50,7 @@ if (!file.exists(".data/validation/climr_validation_data")) {
   
 }
 
-raw <- read.csv("./data/validation/climr_validation_data.csv")
+raw <- read.csv("./data/validation/CLIMR_validation_data.csv")
 
 # Basic cleaning ---------------------------------------------------------------
 
