@@ -46,6 +46,7 @@ reports/*
 /plots/*.svg
 plots/*.png
 plots/*.svg
+plots/*
 
 # Notes
 /notes/*

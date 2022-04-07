@@ -166,15 +166,15 @@ ggplot(exclusion_long,
 
 ## Export figure
 
-if (!dir.exists("./reports/figures/")) {
+if (!dir.exists("./plots/")) {
   
-  dir.create("./reports/figures/")
+  dir.create("./plots/")
   
 }
 
-save_plot("./reports/figures/study-selection.png",  selection_plot, base_height = 6, base_width = 10)
-save_plot("./reports/figures/study-selection.tiff", selection_plot, base_height = 6, base_width = 10)
-save_plot("./reports/figures/study-selection.jpg",  selection_plot, base_height = 6, base_width = 10)
+save_plot("./plots/study-selection.png",  selection_plot, base_height = 6, base_width = 10)
+save_plot("./plots/study-selection.tiff", selection_plot, base_height = 6, base_width = 10)
+save_plot("./plots/study-selection.jpg",  selection_plot, base_height = 6, base_width = 10)
 
 
 
