@@ -119,6 +119,9 @@ exclusion_long$distance <- ordered(exclusion_long$distance,
 
 # Data visualization -----------------------------------------------------------
 
+## Create figure
+
+selection_plot <- 
 ggplot(exclusion_long,
        aes(
          x = value,
@@ -161,7 +164,17 @@ ggplot(exclusion_long,
   ) +
   theme_classic()
 
+## Export figure
 
+if (!dir.exists("./reports/figures/")) {
+  
+  dir.create("./reports/figures/")
+  
+}
+
+save_plot("./reports/figures/study-selection.png",  selection_plot, base_height = 6, base_width = 10)
+save_plot("./reports/figures/study-selection.tiff", selection_plot, base_height = 6, base_width = 10)
+save_plot("./reports/figures/study-selection.jpg",  selection_plot, base_height = 6, base_width = 10)
 
 
 
