@@ -4,12 +4,6 @@
 
 ################################################################################
 
-# Set up environment -----------------------------------------------------------
-
-## Load general functions
-
-source("./R/functions/CLIMR_effect_size_functions.R")
-
 # Main analyses ----------------------------------------------------------------
 
 t_01 <- t.test(act_rel$relevance_1,  mu = 0, alternative = "greater")
