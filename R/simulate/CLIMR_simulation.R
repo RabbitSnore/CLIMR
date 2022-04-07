@@ -57,7 +57,7 @@ levels(str_temporal$condition) <- c("close", "distant")
 ## Model simulation
 
 # The data are simulated from a Poisson distribution,
-# because BIF scores are discrete values from  0 to 13, 19, or 25.
+# because BIF scores are discrete values.
 
 model_temporal <- makeGlmer(y ~ condition + (1|lab), family = poisson(link = "log"), fixef = fixed, VarCorr = temporal_variances, data = str_temporal)
 
@@ -102,7 +102,7 @@ levels(str_spatial$condition) <- c("close", "distant")
 ## Model simulation
 
 # The data are simulated from a Poisson distribution,
-# because BIF scores are discrete values from  0 to 13, 19, or 25.
+# because BIF scores are discrete values.
 
 model_spatial <- makeGlmer(y ~ condition + (1|lab), family = poisson(link = "log"), fixef = fixed, VarCorr = spatial_variances, data = str_spatial)
 
@@ -147,7 +147,7 @@ levels(str_social$condition) <- c("close", "distant")
 ## Model simulation
 
 # The data are simulated from a Poisson distribution,
-# because BIF scores are discrete values from  0 to 13, 19, or 25.
+# because BIF scores are discrete values.
 
 model_social <- makeGlmer(y ~ condition + (1|lab), family = poisson(link = "log"), fixef = fixed, VarCorr = social_variances, data = str_social)
 
@@ -192,7 +192,7 @@ levels(str_likelihood$condition) <- c("close", "distant")
 ## Model simulation
 
 # The data are simulated from a Poisson distribution,
-# because BIF scores are discrete values from  0 to 13, 19, or 25.
+# because BIF scores are discrete values.
 
 model_likelihood <- makeGlmer(y ~ condition + (1|lab), family = poisson(link = "log"), fixef = fixed, VarCorr = likelihood_variances, data = str_likelihood)
 

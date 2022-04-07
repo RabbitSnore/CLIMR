@@ -124,8 +124,9 @@ source("./R/analyze/CLIMR_main_analyses.R")
 
 ### Poisson regression approach
 
-source("./R/calculate/CLIMR_poisson_regression.R")
-source("./R/analyze/CLIMR_poisson_meta_analyses.R")
+# DEFUNCT
+# source("./R/calculate/CLIMR_poisson_regression.R")
+# source("./R/analyze/CLIMR_poisson_meta_analyses.R")
 
 ### Modality moderation
 
@@ -150,7 +151,8 @@ climr_report("CLIMR_comprehension_check_supplement.Rmd")
 
 ### Poisson regression approach report
 
-climr_report("CLIMR_poisson_regression_supplement.Rmd")
+# DEFUNCT
+# climr_report("CLIMR_poisson_regression_supplement.Rmd")
 
 ### Moderator report
 
