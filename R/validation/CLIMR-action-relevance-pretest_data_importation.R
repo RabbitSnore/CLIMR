@@ -44,7 +44,7 @@ if (!dir.exists("./data/validation/")) {
 
 if (!file.exists(".data/validation/CLIMR_action-relevance-pretest.csv")) {
   
-  osf_retrieve_file("") %>% 
+  osf_retrieve_file("https://osf.io/umztp/") %>% 
     osf_download(path = "./data/validation/",
                  conflicts = "overwrite")
   
