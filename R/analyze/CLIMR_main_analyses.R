@@ -1,10 +1,10 @@
-#######################################################################
+################################################################################
 
 # CLIMR -- Meta-Analytic Models
 
-#######################################################################
+################################################################################
 
-# Set up environment --------------------------------------------------
+# Set up environment -----------------------------------------------------------
 
 ## Load functions
 
@@ -32,7 +32,7 @@ study_colors <- c(liberman_1998_color,
                   social_color,
                   likelihood_color)
 
-# Meta-analysis and forest plot for each experiment -------------------
+# Meta-analysis and forest plot for each experiment ----------------------------
 
 ## Liberman et al. (1998, Study 1): Temporal Distance --------------------------
 
@@ -151,7 +151,7 @@ forest_social <- forest_plot(
   org_d            = original$d[original$study == "social"],
   org_ci_lower     = original$ci_lower[original$study == "social"], 
   org_ci_upper     = original$ci_upper[original$study == "social"], 
-  title            = "Social Distance (Conceptual Replication)", 
+  title            = "Social Distance (Paradigmatic Replication)", 
   study_color      = social_color
 )
 
@@ -191,7 +191,7 @@ forest_likelihood <- forest_plot(
   org_d            = original$d[original$study == "likelihood"],
   org_ci_lower     = original$ci_lower[original$study == "likelihood"], 
   org_ci_upper     = original$ci_upper[original$study == "likelihood"], 
-  title            = "Likelihood Distance (Conceptual Replication)", 
+  title            = "Likelihood Distance (Paradigmatic Replication)", 
   study_color      = likelihood_color
 )
 
@@ -238,7 +238,7 @@ climr_figure <- climr_swarm(
   complete        = effects_complete, 
   original        = original, 
   study_colors    = study_colors, 
-  titles          = c("Liberman et al. (1998, Exp. 1)", "Fujita et al. (2006, Exp. 1)", "Social Distance (Conceptual Replication)", "Likelihood Distance (Conceptual Replication)")
+  titles          = c("Liberman et al. (1998, Exp. 1)", "Fujita et al. (2006, Exp. 1)", "Social Distance (Paradigmatic Replication)", "Likelihood Distance (Paradigmatic Replication)")
   )
 
 ## Save plot
@@ -266,7 +266,7 @@ meta_spatial_mod <- rma(
   mods = ~ modality,
   data = effects_spatial)
 
-### Social Distance (Conceptual Replication) -----------------------------------
+### Social Distance (Paradigmatic Replication) ---------------------------------
 
 meta_social_mod <- rma(
   yi = d, 
@@ -274,7 +274,7 @@ meta_social_mod <- rma(
   mods = ~ modality,
   data = effects_social)
 
-### Likelihood Distance (Conceptual Replication) -------------------------------
+### Likelihood Distance (Paradigmatic Replication) -----------------------------
 
 meta_likelihood_mod <- rma(
   yi = d, 

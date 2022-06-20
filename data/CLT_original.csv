@@ -1,6 +1,5 @@
 study,d,ci_lower,ci_upper,lor
-temporal,0.83,0.38,1.29,
-spatial,0.53,0.09,0.97,
-likelihood,0.44,0.03,0.86,
-temporal_2,0.9,0.17,1.63,
-control,,0.94,2.29,1.6
+temporal,0.92,0.18,1.66,
+spatial,0.55,0.06,1.03,
+social,0.467,0.33,0.61,
+likelihood,0.5,0.31,0.68,
