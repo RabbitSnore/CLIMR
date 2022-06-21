@@ -6,7 +6,7 @@ Liberman, N., & Trope, Y. (1998). The role of feasibility and desirability consi
 
 Fujita, K., Henderson, M., Eng, J., Trope, Y., & Liberman, N. (2006). Spatial distance and mental construal of social events. _Psychological Science, 14_, 278-282. Experiment 1.
 
-In addition to close replications of these two studies, this project also entails two conceptual replications relevant to social and likelihood distance.
+In addition to close replications of these two studies, this project also entails two paradigmatic replications relevant to social and likelihood distance.
 
 ## Compendium Structure
 
