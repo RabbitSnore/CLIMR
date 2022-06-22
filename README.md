@@ -10,7 +10,7 @@ In addition to close replications of these two studies, this project also entail
 
 ## Compendium Structure
 
-The CLIMR project compendium comprises two main parts, one hosted on the Open Science Framework (OSF; https://osf.io/ra3dp/) and one hosted on GitHub (https://github.com/RabbitSnore/CLIMR). The OSF repository for CLIMR contains the materials, methods, and data (once data are collected). The GitHub repository contains the code necessary to execute and reproduce the statistical analyses for the project.
+The CLIMR project compendium comprises two main parts, one hosted on the Open Science Framework (OSF; https://osf.io/ra3dp/) and one hosted on GitHub (https://github.com/RabbitSnore/CLIMR). The OSF repository for CLIMR contains the materials, methods, and data (when data are collected). The GitHub repository contains the code necessary to execute and reproduce the statistical analyses for the project.
 
 ## (Re-)Building the Project
 
