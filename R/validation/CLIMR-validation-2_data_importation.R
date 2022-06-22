@@ -1,10 +1,10 @@
-#######################################################################
+################################################################################
 
 # CLIMR -- Data Importation and Cleaning, Validation 2
 
-#######################################################################
+################################################################################
 
-# Set up environment --------------------------------------------------
+# Set up environment -----------------------------------------------------------
 
 ## Check and install necessary packages for the project
 
@@ -36,17 +36,17 @@ lapply(dependencies, library, character.only = TRUE)
 # unnecessary metadata from Qualtrics, as well as Prolific IDs.
 # No participants have been removed from this data set.
 
-### Krüger et al. (2014) Study 4, close replication
-
 if (!dir.exists("./data/validation/")) {
   
   dir.create("./data/validation/")
   
 }
 
+### Krüger et al. (2014) Study 4, close replication
+
 if (!file.exists("./data/validation/fruit-close_validation_data.csv")) {
   
-  osf_retrieve_file("https://osf.io/937vg/") %>% 
+  osf_retrieve_file("62176cc52538b80332264c50") %>% 
     osf_download(path = "./data/validation/",
                  conflicts = "overwrite")
   
@@ -56,15 +56,9 @@ fruit_close <- read.csv("./data/validation/fruit-close_validation_data.csv")
 
 ### Krüger et al. (2014) Study 4, modified replication
 
-if (!dir.exists("./data/validation/")) {
-  
-  dir.create("./data/validation/")
-  
-}
-
 if (!file.exists("./data/validation/fruit-modified_validation_data.csv")) {
   
-  osf_retrieve_file("https://osf.io/dsv8k/") %>% 
+  osf_retrieve_file("62176cc77f411202a9fa17d3") %>% 
     osf_download(path = "./data/validation/",
                  conflicts = "overwrite")
   
@@ -74,15 +68,9 @@ fruit_modified <- read.csv("./data/validation/fruit-modified_validation_data.csv
 
 ### Krüger et al. (2014) Study 1, validation 
 
-if (!dir.exists("./data/validation/")) {
-  
-  dir.create("./data/validation/")
-  
-}
-
 if (!file.exists("./data/validation/bridge_validation_data.csv")) {
   
-  osf_retrieve_file("https://osf.io/9fhka/") %>% 
+  osf_retrieve_file("62176cc6b702cd0270fc4b30") %>% 
     osf_download(path = "./data/validation/",
                  conflicts = "overwrite")
   

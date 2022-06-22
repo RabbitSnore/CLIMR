@@ -42,15 +42,16 @@ if (!dir.exists("./data/validation/")) {
   
 }
 
-if (!file.exists(".data/validation/CLIMR_validation_data.csv")) {
+if (!file.exists("/data/validation/climr_validation_data.csv")) {
   
-  osf_retrieve_file("https://osf.io/79vfq/") %>% 
+  osf_retrieve_file("618a53742730b700d75ce0e3") %>% 
   osf_download(path = "./data/validation/",
-               conflicts = "overwrite")
+               conflicts = "overwrite",
+               recurse = TRUE)
   
 }
 
-raw <- read.csv("./data/validation/CLIMR_validation_data.csv")
+raw <- read.csv("./data/validation/climr_validation_data.csv")
 
 # Basic cleaning ---------------------------------------------------------------
 
