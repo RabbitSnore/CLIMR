@@ -1,10 +1,10 @@
-#######################################################################
+################################################################################
 
 # CLIMR -- Modality moderator Analyses
 
-#######################################################################
+################################################################################
 
-## Liberman et al. (2002, Study 1): Temporal Distance -----------------
+## Liberman et al. (2002, Study 1): Temporal Distance --------------------------
 
 ### Modality moderator meta-analysis
 
@@ -28,31 +28,7 @@ meta_temporal_mode <- rma(
   mods = ~ modality - 1,
   data = effects_temporal_comp)
 
-## Liberman & Trope (1998, Study 1): Temporal Distance ----------------
-
-### Modality moderator meta-analysis
-
-meta_temporal_2_mode_Q <- rma(
-  yi = d, 
-  vi = var, 
-  mods = ~ modality,
-  data = effects_temporal_2)
-
-meta_temporal_2_mode <- rma(
-  yi = d, 
-  vi = var, 
-  mods = ~ modality - 1,
-  data = effects_temporal_2)
-
-### Comprehension check meta-analysis
-
-meta_temporal_2_comp_mode <- rma(
-  yi = d, 
-  vi = var, 
-  mods = ~ modality - 1,
-  data = effects_temporal_2_comp)
-
-## Henderson et al. (2006, Study 1): Spatial Distance -----------------
+## Fujita et al. (2006, Study 1): Spatial Distance -----------------------------
 
 ### Modality moderator meta-analysis
 
@@ -76,7 +52,31 @@ meta_spatial_comp_mode <- rma(
   mods = ~ modality - 1,
   data = effects_spatial_comp)
 
-## Wakslak et al. (2006, Study 1): Likelihood Distance ----------------
+## Social Distance (Conceptual Replication) ------------------------------------
+
+### Modality moderator meta-analysis
+
+meta_social_mode_Q <- rma(
+  yi = d, 
+  vi = var, 
+  mods = ~ modality,
+  data = effects_social)
+
+meta_social_mode <- rma(
+  yi = d, 
+  vi = var, 
+  mods = ~ modality - 1,
+  data = effects_social)
+
+### Comprehension check meta-analysis
+
+meta_social_comp_mode <- rma(
+  yi = d, 
+  vi = var, 
+  mods = ~ modality - 1,
+  data = effects_social_comp)
+
+## Likelihood Distance (Conceptual Replication) --------------------------------
 
 ### Modality moderator meta-analysis
 

@@ -1,0 +1,78 @@
+---
+title: "Construal Level International Multilab Replication (CLIMR) Project: Interval Estimate Validation Report"
+author: "CLIMR Team"
+date: "`r Sys.Date()`"
+output:
+  html_document:
+    theme: darkly
+    toc: yes
+    toc_float: yes
+  pdf_document:
+    toc: yes
+knit: (function(input_file, encoding) {
+    rmarkdown::render(input_file, encoding = encoding, output_dir = "./reports/")
+  })
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+source("./R/validation/CLIMR-validation-2_data_importation.R")
+source("./R/validation/CLIMR-validation-2_effect_calculations.R")
+
+# Summary
+
+source("./R/validation/CLIMR-validation_data_importation.R")
+source("./R/validation/CLIMR-validation_effect_calculations.R")
+source("./R/validation/CLIMR-validation_data_visualization.R")
+source("./R/validation/CLIMR-validation-studies_summary.R")
+
+```
+
+# Krüger et al. (2014) Study 4, close replication
+
+```{r}
+effect_fruit_close
+```
+
+## BIF Effect
+
+```{r}
+effect_fruit_close_bif
+```
+
+# Krüger et al. (2014) Study 4, modified replication
+
+```{r}
+effect_fruit_modified
+```
+
+## BIF Effect
+
+```{r}
+effect_fruit_modified_bif
+```
+
+# Krüger et al. (2014) Study 1, validation
+
+```{r}
+effect_bridge
+```
+
+## BIF Effect
+
+```{r}
+effect_bridge_bif
+```
+
+# Summary of Validations Studies
+
+```{r}
+validation_plot_data
+```
+
+
+```{r, fig.height = 6, fig.width = 10}
+validation_plot
+```
+

@@ -1,14 +1,14 @@
-#######################################################################
+################################################################################
 
 # CLIMR -- Data Importation and Cleaning, Validation Pretest
 
-#######################################################################
+################################################################################
 
-# Set up environment --------------------------------------------------
+# Set up environment -----------------------------------------------------------
 
 ## Check and install necessary packages for the project
 
-### Packages required by the Many Legal Labs project
+### Packages required by the CLIMR project
 
 dependencies <- c("dplyr", "tidyr", "stringr", "readr", "metafor", "lme4", "ggplot2", "cowplot", "rmarkdown", "ggbeeswarm", "ggstance", "simr", "viridis", "leaflet", "osfr")
 
@@ -42,7 +42,7 @@ if (!dir.exists("./data/validation/")) {
   
 }
 
-if (!file.exists(".data/validation/climr_validation_data")) {
+if (!file.exists(".data/validation/CLIMR_validation_data.csv")) {
   
   osf_retrieve_file("https://osf.io/79vfq/") %>% 
   osf_download(path = "./data/validation/",
@@ -50,7 +50,7 @@ if (!file.exists(".data/validation/climr_validation_data")) {
   
 }
 
-raw <- read.csv("./data/validation/climr_validation_data.csv")
+raw <- read.csv("./data/validation/CLIMR_validation_data.csv")
 
 # Basic cleaning ---------------------------------------------------------------
 
