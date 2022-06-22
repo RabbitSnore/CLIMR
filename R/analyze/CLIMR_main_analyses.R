@@ -70,7 +70,7 @@ forest_temporal <- forest_plot(
   org_d            = original$d[original$study == "temporal"],
   org_ci_lower     = original$ci_lower[original$study == "temporal"], 
   org_ci_upper     = original$ci_upper[original$study == "temporal"], 
-  title            = "Liberman et al. (1998, Study 1)", 
+  title            = "Temporal (Liberman et al., 1998, Exp 1)", 
   study_color      = liberman_1998_color
   )
 
@@ -111,7 +111,7 @@ forest_spatial <- forest_plot(
   org_d            = original$d[original$study == "spatial"],
   org_ci_lower     = original$ci_lower[original$study == "spatial"], 
   org_ci_upper     = original$ci_upper[original$study == "spatial"], 
-  title            = "Fujita et al. (2006, Study 1)", 
+  title            = "Spatial (Fujita et al., 2006, Exp 1)", 
   study_color      = fujita_2006_color
 )
 
@@ -151,7 +151,7 @@ forest_social <- forest_plot(
   org_d            = original$d[original$study == "social"],
   org_ci_lower     = original$ci_lower[original$study == "social"], 
   org_ci_upper     = original$ci_upper[original$study == "social"], 
-  title            = "Social Distance (Paradigmatic Replication)", 
+  title            = "Social (paradigmatic replication)", 
   study_color      = social_color
 )
 
@@ -191,7 +191,7 @@ forest_likelihood <- forest_plot(
   org_d            = original$d[original$study == "likelihood"],
   org_ci_lower     = original$ci_lower[original$study == "likelihood"], 
   org_ci_upper     = original$ci_upper[original$study == "likelihood"], 
-  title            = "Likelihood Distance (Paradigmatic Replication)", 
+  title            = "Likelihood (paradigmatic replication)", 
   study_color      = likelihood_color
 )
 
