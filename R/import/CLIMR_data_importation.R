@@ -178,7 +178,7 @@ if (codebook_base == TRUE) {
   
 }
 
-# Cleaning - Liberman et al (1998, Study 1) ------------------------------------
+# Cleaning - Liberman & Trope (1998, Study 1) ----------------------------------
 
 ## Calculate BIF scores
 

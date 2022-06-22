@@ -17,7 +17,7 @@ source("./R/functions/CLIMR_effect_size_functions.R")
 
 # Calculate each lab's effect sizes --------------------------------------------
 
-## Liberman et al. (1998, Study 1): Temporal Distance --------------------------
+## Liberman & Trope (1998, Study 1): Temporal Distance -------------------------
 
 ### Primary effect sizes
 
@@ -35,7 +35,7 @@ effects_temporal_comp <- lab_d_calc(
   experiment = "Liberman & Trope (1998, Study 1)"
 )
 
-## Henderson et al. (2006, Study 1): Spatial Distance --------------------------
+## Fujita et al. (2006, Study 1): Spatial Distance -----------------------------
 
 ### Primary effect sizes
 
@@ -53,7 +53,7 @@ effects_spatial_comp <- lab_d_calc(
   experiment = "Fujita et al. (2006, Study 1)"
 )
 
-## Social Distance (Conceptual Replication) ------------------------------------
+## Social Distance (Paradigmatic Replication) ----------------------------------
 
 ### Primary effect sizes
 
@@ -71,7 +71,7 @@ effects_social_comp <- lab_d_calc(
   experiment = "Social Distance (Conceptual Replication)"
 )
 
-## Likelihood Distance (Conceptual Replication) --------------------------------
+## Likelihood Distance (Paradigmatic Replication) ------------------------------
 
 ### Primary effect sizes
 
@@ -89,7 +89,7 @@ effects_likelihood_comp <- lab_d_calc(
   experiment = "Likelihood Distance (Conceptual Replication)"
 )
 
-# Export effect size data ---------------------------------------------
+# Export effect size data ------------------------------------------------------
 
 ## Combine all data
 

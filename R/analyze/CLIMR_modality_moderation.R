@@ -4,7 +4,7 @@
 
 ################################################################################
 
-## Liberman et al. (2002, Study 1): Temporal Distance --------------------------
+## Liberman & Trope (1998, Study 1): Temporal Distance -------------------------
 
 ### Modality moderator meta-analysis
 
@@ -52,7 +52,7 @@ meta_spatial_comp_mode <- rma(
   mods = ~ modality - 1,
   data = effects_spatial_comp)
 
-## Social Distance (Conceptual Replication) ------------------------------------
+## Social Distance (Paradigmatic Replication) ----------------------------------
 
 ### Modality moderator meta-analysis
 
@@ -76,7 +76,7 @@ meta_social_comp_mode <- rma(
   mods = ~ modality - 1,
   data = effects_social_comp)
 
-## Likelihood Distance (Conceptual Replication) --------------------------------
+## Likelihood Distance (Paradigmatic Replication) ------------------------------
 
 ### Modality moderator meta-analysis
 

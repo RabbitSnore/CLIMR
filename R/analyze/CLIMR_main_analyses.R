@@ -34,7 +34,7 @@ study_colors <- c(liberman_1998_color,
 
 # Meta-analysis and forest plot for each experiment ----------------------------
 
-## Liberman et al. (1998, Study 1): Temporal Distance --------------------------
+## Liberman & Trope (1998, Study 1): Temporal Distance -------------------------
 
 ### Primary meta-analysis
 
@@ -70,12 +70,12 @@ forest_temporal <- forest_plot(
   org_d            = original$d[original$study == "temporal"],
   org_ci_lower     = original$ci_lower[original$study == "temporal"], 
   org_ci_upper     = original$ci_upper[original$study == "temporal"], 
-  title            = "Temporal (Liberman et al., 1998, Exp 1)", 
+  title            = "Temporal (Liberman & Trope, 1998, Exp 1)", 
   study_color      = liberman_1998_color
   )
 
 
-## Fujita et al. (2006, Study 1): Spatial Distance --------------------------
+## Fujita et al. (2006, Study 1): Spatial Distance -----------------------------
 
 ### Primary meta-analysis
 
@@ -238,7 +238,7 @@ climr_figure <- climr_swarm(
   complete        = effects_complete, 
   original        = original, 
   study_colors    = study_colors, 
-  titles          = c("Temporal (Liberman et al., 1998, Exp 1)", "Spatial (Fujita et al., 2006, Exp 1)", "Social (paradigmatic replication)", "Likelihood (paradigmatic replication)")
+  titles          = c("Temporal (Liberman & Trope, 1998, Exp 1)", "Spatial (Fujita et al., 2006, Exp 1)", "Social (paradigmatic replication)", "Likelihood (paradigmatic replication)")
 )
 
 ## Save plot

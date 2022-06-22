@@ -124,7 +124,7 @@ contrasts(data_spatial$condition) <- contr.sum(2)
 
 data_spatial$comp_check <- sample(c(0, 1), nrow(data_spatial), replace = TRUE, prob = c(.95, .05))
 
-# Social Distance (Conceptual Replication) -------------------------------------
+# Social Distance (Paradigmatic Replication) -----------------------------------
 
 ## 2 (between)
 
@@ -169,7 +169,7 @@ contrasts(data_social$condition) <- contr.sum(2)
 
 data_social$comp_check <- sample(c(0, 1), nrow(data_social), replace = TRUE, prob = c(.95, .05))
 
-# Likelihood Distance (Conceptual Replication) ---------------------------------
+# Likelihood Distance (Paradigmatic Replication) -------------------------------
 
 ## 2 (between)
 
