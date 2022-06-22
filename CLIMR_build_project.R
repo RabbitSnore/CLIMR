@@ -47,7 +47,7 @@ codebook_base   <- FALSE
 
 ## Check and install necessary packages for the project
 
-### Packages required by the Many Legal Labs project
+### Packages required by the CLIMR project
 
 dependencies <- c("dplyr", "tidyr", "stringr", "readr", "metafor", "lme4", "ggplot2", "cowplot", "rmarkdown", "ggbeeswarm", "ggstance", "simr", "viridis", "leaflet")
 
