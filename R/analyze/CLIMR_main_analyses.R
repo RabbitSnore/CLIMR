@@ -238,8 +238,8 @@ climr_figure <- climr_swarm(
   complete        = effects_complete, 
   original        = original, 
   study_colors    = study_colors, 
-  titles          = c("Liberman et al. (1998, Exp. 1)", "Fujita et al. (2006, Exp. 1)", "Social Distance (Paradigmatic Replication)", "Likelihood Distance (Paradigmatic Replication)")
-  )
+  titles          = c("Temporal (Liberman et al., 1998, Exp 1)", "Spatial (Fujita et al., 2006, Exp 1)", "Social (paradigmatic replication)", "Likelihood (paradigmatic replication)")
+)
 
 ## Save plot
 
