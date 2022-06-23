@@ -52,6 +52,8 @@ plots/*
 /notes/*
 /notes/
 
-/data/*
+/data/validation/*
+/data/raw/*
 /data/lab_coordinates.csv
 /data/climr_test_data.csv
+/data/climr_codebook.csv
