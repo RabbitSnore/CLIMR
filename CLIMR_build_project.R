@@ -79,7 +79,7 @@ climr_report <- function(input) {
   
   render(
     input = input,
-    output_format = "html_document",
+    output_format = c("html_document", "github_document"),
     output_dir = "./reports/",
     clean = TRUE,
     envir = globalenv(),

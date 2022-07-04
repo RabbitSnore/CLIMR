@@ -7,6 +7,7 @@ output:
     theme: darkly
     toc: yes
     toc_float: yes
+    keep_md: true
   pdf_document:
     toc: yes
 knit: (function(input_file, encoding) {
