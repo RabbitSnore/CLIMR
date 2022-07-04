@@ -100,7 +100,7 @@ temporal <- raw %>%
     modality,
     sub,
     group,
-    starts_with("tp_")
+    starts_with("t_")
   ) %>% 
   type_convert()
 
@@ -128,7 +128,7 @@ social <- raw %>%
     modality,
     sub,
     group,
-    starts_with("so_")
+    starts_with("s_")
   ) %>% 
   type_convert()
 
@@ -142,11 +142,16 @@ likelihood_raw <- raw %>%
     modality,
     sub,
     group,
-    starts_with("li_")
+    starts_with("l_")
   ) %>% 
   type_convert()
 
 # Data exportation -------------------------------------------------------------
+
+# This section of code exports the complete data and codebook base. If you are
+# reproducing the analyses, you probably don't need this code, since the
+# complete data should be packaged with the compendium or will be automatically
+# downloaded. This code is primarily for use by the CLIMR team.
 
 if (write_data == TRUE) {
   
