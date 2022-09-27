@@ -46,7 +46,7 @@ if (!dir.exists("./data/validation/")) {
 
 if (!file.exists(".data/validation/climr_validation_data")) {
   
-  osf_retrieve_file("https://osf.io/79vfq/") %>% 
+  osf_retrieve_file("618a53742730b700d75ce0e3") %>% 
     osf_download(path = "./data/validation/",
                  conflicts = "overwrite")
   
@@ -58,7 +58,7 @@ raw <- read.csv("./data/validation/climr_validation_data.csv")
 
 if (!file.exists(".data/validation/BIF Study Data.csv")) {
   
-  osf_retrieve_file("https://osf.io/zy3tn/") %>% 
+  osf_retrieve_file("5eb0a19469d3e10137de8ec2") %>% 
     osf_download(path = "./data/validation/",
                  conflicts = "overwrite")
   
@@ -72,7 +72,7 @@ sanchez_raw <- read.csv("./data/validation/BIF Study Data.csv")
 
 if (!file.exists(".data/validation/replication_data.csv")) {
   
-  osf_retrieve_file("https://osf.io/uvt74/") %>% 
+  osf_retrieve_file("60919fa36801ab03712ab695") %>% 
     osf_download(path = "./data/validation/",
                  conflicts = "overwrite")
   
