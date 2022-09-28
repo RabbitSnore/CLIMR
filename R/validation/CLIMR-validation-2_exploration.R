@@ -118,38 +118,38 @@ grinfeld_2c_rep_bif <- grinfeld_2c_rep %>%
 
 # CLIMR spillover data is now in CLIMR-validation_exploration.R
 
-# ## Krüger et al. (2014) Study 4, close replication
-# 
-# polycor_fruit_close <- psych::polychoric(select(fruit_close, starts_with("bif"), -bif_total))
-# 
-# fruit_close_efa_1 <- psych::fa(r = polycor_fruit_close[[1]], nfactors = 1, n.obs = nrow(fruit_close), fm = "ml")
-# 
-# fruit_close_parallel <- psych::fa.parallel(polycor_fruit_close[[1]], n.obs = nrow(fruit_close), fm = "ml")
-# 
-# fruit_close_alpha <- psych::alpha(polycor_fruit_close[[1]], n.obs = nrow(fruit_close))
-# fruit_close_omega <- psych::omega(polycor_fruit_close[[1]], n.obs = nrow(fruit_close), fm = "ml")
-# 
-# ## Krüger et al. (2014) Study 4, modified replication
-# 
-# polycor_fruit_modified <- psych::polychoric(select(fruit_modified, starts_with("bif"), -bif_total))
-# 
-# fruit_modified_efa_1 <- psych::fa(r = polycor_fruit_modified[[1]], nfactors = 1, n.obs = nrow(fruit_modified), fm = "ml")
-# 
-# fruit_modified_parallel <- psych::fa.parallel(polycor_fruit_modified[[1]], n.obs = nrow(fruit_modified), fm = "ml")
-# 
-# fruit_modified_alpha <- psych::alpha(polycor_fruit_modified[[1]], n.obs = nrow(fruit_modified))
-# fruit_modified_omega <- psych::omega(polycor_fruit_modified[[1]], n.obs = nrow(fruit_modified), fm = "ml")
-# 
-# ## Krüger et al. (2014) Study 1, validation
-# 
-# polycor_bridges <- psych::polychoric(select(bridges, starts_with("bif"), -bif_total))
-# 
-# bridges_efa_1 <- psych::fa(r = polycor_bridges[[1]], nfactors = 1, n.obs = nrow(bridges), fm = "ml")
-# 
-# bridges_parallel <- psych::fa.parallel(polycor_bridges[[1]], n.obs = nrow(bridges), fm = "ml")
-# 
-# bridges_alpha <- psych::alpha(polycor_bridges[[1]], n.obs = nrow(bridges))
-# bridges_omega <- psych::omega(polycor_bridges[[1]], n.obs = nrow(bridges), fm = "ml")
+## Krüger et al. (2014) Study 4, close replication
+
+polycor_fruit_close <- psych::polychoric(select(fruit_close, starts_with("bif"), -bif_total))
+
+fruit_close_efa_1 <- psych::fa(r = polycor_fruit_close[[1]], nfactors = 1, n.obs = nrow(fruit_close), fm = "ml")
+
+fruit_close_parallel <- psych::fa.parallel(polycor_fruit_close[[1]], n.obs = nrow(fruit_close), fm = "ml")
+
+fruit_close_alpha <- psych::alpha(polycor_fruit_close[[1]], n.obs = nrow(fruit_close))
+fruit_close_omega <- psych::omega(polycor_fruit_close[[1]], n.obs = nrow(fruit_close), fm = "ml")
+
+## Krüger et al. (2014) Study 4, modified replication
+
+polycor_fruit_modified <- psych::polychoric(select(fruit_modified, starts_with("bif"), -bif_total))
+
+fruit_modified_efa_1 <- psych::fa(r = polycor_fruit_modified[[1]], nfactors = 1, n.obs = nrow(fruit_modified), fm = "ml")
+
+fruit_modified_parallel <- psych::fa.parallel(polycor_fruit_modified[[1]], n.obs = nrow(fruit_modified), fm = "ml")
+
+fruit_modified_alpha <- psych::alpha(polycor_fruit_modified[[1]], n.obs = nrow(fruit_modified))
+fruit_modified_omega <- psych::omega(polycor_fruit_modified[[1]], n.obs = nrow(fruit_modified), fm = "ml")
+
+## Krüger et al. (2014) Study 1, validation
+
+polycor_bridges <- psych::polychoric(select(bridges, starts_with("bif"), -bif_total))
+
+bridges_efa_1 <- psych::fa(r = polycor_bridges[[1]], nfactors = 1, n.obs = nrow(bridges), fm = "ml")
+
+bridges_parallel <- psych::fa.parallel(polycor_bridges[[1]], n.obs = nrow(bridges), fm = "ml")
+
+bridges_alpha <- psych::alpha(polycor_bridges[[1]], n.obs = nrow(bridges))
+bridges_omega <- psych::omega(polycor_bridges[[1]], n.obs = nrow(bridges), fm = "ml")
 
 ## Grinfeld et al, Study 2B
 
