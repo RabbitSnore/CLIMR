@@ -44,7 +44,7 @@ if (!dir.exists("./data/validation/")) {
   
 }
 
-if (!file.exists(".data/validation/climr_validation_data")) {
+if (!file.exists(".data/validation/climr_validation_data.csv")) {
   
   osf_retrieve_file("618a53742730b700d75ce0e3") %>% 
     osf_download(path = "./data/validation/",
@@ -53,6 +53,44 @@ if (!file.exists(".data/validation/climr_validation_data")) {
 }
 
 raw <- read.csv("./data/validation/climr_validation_data.csv")
+
+# Download the validation spillover data if it is not already downloaded
+
+if (!file.exists("./data/validation/bridge_validation_data.csv")) {
+  
+  osf_retrieve_file("62176cc6b702cd0270fc4b30") %>% 
+    osf_download(path = "./data/validation/",
+                 conflicts = "overwrite")
+  
+}
+
+bridge <- read.csv("./data/validation/bridge_validation_data.csv")
+
+if (!file.exists("./data/validation/fruit-close_validation_data.csv")) {
+  
+  osf_retrieve_file("62176cc52538b80332264c50") %>% 
+    osf_download(path = "./data/validation/",
+                 conflicts = "overwrite")
+  
+}
+
+fruit_close <- read.csv("./data/validation/fruit-close_validation_data.csv")
+
+if (!file.exists("./data/validation/fruit-modified_validation_data.csv")) {
+  
+  osf_retrieve_file("62176cc77f411202a9fa17d3") %>% 
+    osf_download(path = "./data/validation/",
+                 conflicts = "overwrite")
+  
+}
+
+fruit_mod <- read.csv("./data/validation/fruit-modified_validation_data.csv")
+
+spillover <- bind_rows(
+  select(bridge, sub, starts_with("bif")),
+  select(fruit_close, sub, starts_with("bif")),
+  select(fruit_mod, sub, starts_with("bif"))
+)
 
 # Download the Sánchez et al data from OSF if it is not already downloaded.
 
@@ -191,6 +229,44 @@ climr_network_graph_1 <-
   qgraph(getmatrix(network_fit_1, "omega"),
          layout = "spring")
 
+
+## CLIMR (Spillover)
+
+polycor_spill <- psych::polychoric(select(spillover, starts_with("bif")))
+
+spill_efa_1 <- psych::fa(r = polycor_spill[[1]], nfactors = 1, n.obs = nrow(spillover), fm = "ml")
+
+spill_parallel <- psych::fa.parallel(polycor_spill[[1]], n.obs = nrow(spillover), fm = "ml")
+
+spill_alpha <- psych::alpha(polycor_spill[[1]], n.obs = nrow(spillover))
+spill_omega <- psych::omega(polycor_spill[[1]], n.obs = nrow(spillover), fm = "ml")
+
+### Network modeling
+
+network_model_spill_1 <- varcov(data = select(spillover, starts_with("bif")),
+                                # ordered = TRUE,
+                                type = "ggm",
+                                missing = "pairwise")
+
+network_model_pruned_spill_1 <- network_model_spill_1 %>% 
+  prune(alpha = 0.001, recursive = TRUE)
+
+network_model_final_spill_1 <- network_model_pruned_spill_1 %>% 
+  stepup(
+    alpha = 0.001
+  )
+
+network_fit_spill_1 <- 
+  network_model_final_spill_1 %>% 
+  runmodel()
+
+spill_net_par <- parameters(network_fit_spill_1)
+
+spill_net_fit <- fit(network_fit_spill_1)
+
+spill_network_graph_1 <- 
+  qgraph(getmatrix(network_fit_spill_1, "omega"),
+         layout = "spring")
 
 ## Sánchez et al
 
