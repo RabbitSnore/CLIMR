@@ -1,0 +1,119 @@
+---
+title: "Construal Level International Multilab Replication (CLIMR) Project: Examination of Behavior Identification Form (BIF) Item Behavior"
+author: "CLIMR Team"
+date: "`r Sys.Date()`"
+output:
+  html_document:
+    theme: darkly
+    toc: yes
+    toc_float: yes
+    keep_md: true
+  pdf_document:
+    toc: yes
+knit: (function(input_file, encoding) {
+    rmarkdown::render(input_file, encoding = encoding, output_dir = "./reports/")
+  })
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+source("./R/validation/CLIMR-validation_data_importation.R")
+source("./R/validation/CLIMR-validation_exploration.R")
+source("./R/validation/CLIMR-validation-2_exploration.R")
+
+```
+
+# Behavior Identification Form (BIF) - Distance Manipulation by Item Interaction
+
+Reviewers have expressed concern that some items of the BIF might entail actions that inherently involve events that are more psychologically distant or less psychologically distant (and perhaps therefore more or less difficult to imagine happening), and these differences in items might cause manipulations of psychological distance to work differently for different items. Stated differently, if this occurs, there would be an interaction between a psychological distance manipulation and the items on the BIF.
+
+If we are concerned about how a direct manipulation of psychological distance might interact with the distances inherent in the actions described in the BIF items, we can model this interaction as random slopes in a mixed effects model predicting BIF responses. This set of slopes would allow the effect of a distance manipulation to vary across items. If there is considerable variance in these slopes, the problem is plausible. If there is little or no variation, the problem is less plausible.
+
+We have several data sets that can provide information about the plausibility of this concern. We can examine data from the following sources:
+
+- The CLIMR validation experiment for the BIF, which attempted a direct manipulation of abstraction
+- Sánchez, Coleman, & Ledgerwood (2021), which attempted to manipulate temporal distance
+- Grinfeld et al (2021), experiments 2b, 2c, and the replication of 2c, which attempted to manipulate hypotheticality
+
+## CLIMR
+
+```{r}
+anova(log_model_climr, log_model_climr_rs)
+```
+
+This likelihood ratio test indicates that adding random slopes for BIF items by abstraction condition does not offer a significant improvement to the model.
+
+```{r}
+summary(log_model_climr_rs)
+```
+
+And indeed, we can see that the variance of the random slopes is quite small, suggesting that the BIF items operated similarly.
+
+Directly examining the random slopes, we can indeed see substantial similarity across the estimated coefficients for each item.
+
+```{r}
+coef(log_model_climr_rs)$item
+```
+
+
+## Sánchez et al (2021)
+
+```{r}
+anova(log_model_sanchez, log_model_sanchez_rs)
+```
+
+This likelihood ratio test indicated that adding random slopes for BIF items for the temporal distance manipulation significantly improved the model.
+
+```{r}
+summary(log_model_sanchez_rs)
+```
+
+However, we still see that there is relatively little variation in random slopes.
+
+We can examine the estimated random slopes directly:
+
+```{r}
+coef(log_model_sanchez_rs)$item
+```
+
+Although there is certainly some variation, it is not so extensive that it obscures the apparent effect of the distance manipulation. Note there are there only two items for which the distance manipulation is estimated to have a negative effect (i.e., opposite the predicted direction), and these slopes are estimated to be quite small.
+
+## Grinfeld et al (2021)
+
+```{r}
+anova(log_model_grinfeld_2b, log_model_grinfeld_2b_rs)
+anova(log_model_grinfeld_2c, log_model_grinfeld_2c_rs)
+anova(log_model_grinfeld_2c_rep, log_model_grinfeld_2c_rep_rs)
+```
+
+Each of these likelihood ratio tests indicates that adding random slopes for each BIF item for the psychologicla distance conditions did not significantly improve the model, in each of these experiments from Grinfeld et al (2021).
+
+```{r}
+summary(log_model_grinfeld_2b_rs)
+summary(log_model_grinfeld_2c_rs)
+summary(log_model_grinfeld_2c_rep_rs)
+```
+
+Unsurprisingly given the results above, we see very little variation in random slopes across these three experiments.
+
+When we examine the specific estimated random slopes, we can see that the estimates accordingly cluster tightly around the overall estimated effect of the manipulation. Where the effect is estimated close to zero, the random slopes are tightly distributed near zero, and where the estimated effect is positive, the random slopes are all positive with little variation. Again, it appears that BIF items did not substantially interact with these manipulations.
+
+```{r}
+coef(log_model_grinfeld_2b_rs)$item
+```
+
+```{r}
+coef(log_model_grinfeld_2c_rs)$item
+```
+
+```{r}
+coef(log_model_grinfeld_2c_rep_rs)$item
+```
+
+# Summary
+
+In short, there is little evidence to suggest that psychological distance manipulations produce widely different effects across different BIF items. The variation may not be nil, but across many experiments, estimated random slopes suggest that the BIF items function generally quite similarly in response to a manipulation.
+
+
+

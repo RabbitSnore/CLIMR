@@ -1,12 +1,12 @@
-#######################################################################
+################################################################################
 
 # CLIMR -- Validation Pretest, Exploration and Comparison with External Data
 
-#######################################################################
+################################################################################
 
 # This script assumes you have already run CLIMR-validation_data_importation.R
 
-# Set up environment --------------------------------------------------
+# Set up environment -----------------------------------------------------------
 
 ## Check and install necessary packages for the project
 
@@ -44,9 +44,9 @@ if (!dir.exists("./data/validation/")) {
   
 }
 
-if (!file.exists(".data/validation/climr_validation_data")) {
+if (!file.exists(".data/validation/climr_validation_data.csv")) {
   
-  osf_retrieve_file("https://osf.io/79vfq/") %>% 
+  osf_retrieve_file("618a53742730b700d75ce0e3") %>% 
     osf_download(path = "./data/validation/",
                  conflicts = "overwrite")
   
@@ -58,7 +58,7 @@ raw <- read.csv("./data/validation/climr_validation_data.csv")
 
 if (!file.exists(".data/validation/BIF Study Data.csv")) {
   
-  osf_retrieve_file("https://osf.io/zy3tn/") %>% 
+  osf_retrieve_file("5eb0a19469d3e10137de8ec2") %>% 
     osf_download(path = "./data/validation/",
                  conflicts = "overwrite")
   
@@ -72,7 +72,7 @@ sanchez_raw <- read.csv("./data/validation/BIF Study Data.csv")
 
 if (!file.exists(".data/validation/replication_data.csv")) {
   
-  osf_retrieve_file("https://osf.io/uvt74/") %>% 
+  osf_retrieve_file("60919fa36801ab03712ab695") %>% 
     osf_download(path = "./data/validation/",
                  conflicts = "overwrite")
   
@@ -164,6 +164,8 @@ climr_omega <- psych::omega(polycor_climr[[1]], n.obs = nrow(bif_wide), fm = "ml
 
 log_model_climr <- glmer(bif_response ~ group + (1|sub) + (1|item), family = binomial(link = "logit"), data = bif_long)
 
+log_model_climr_rs <- glmer(bif_response ~ group + (1|sub) + (1 + group|item), family = binomial(link = "logit"), data = bif_long)
+
 ### Network modeling
 
 network_model_climr_1 <- varcov(data = select(bif_wide, starts_with("bif")),
@@ -191,7 +193,6 @@ climr_network_graph_1 <-
   qgraph(getmatrix(network_fit_1, "omega"),
          layout = "spring")
 
-
 ## Sánchez et al
 
 polycor_sanchez <- psych::polychoric(select(sanchez, starts_with("BIF"), -BIF_Total))
@@ -204,6 +205,8 @@ sanchez_alpha <- psych::alpha(polycor_sanchez[[1]], n.obs = nrow(sanchez))
 sanchez_omega <- psych::omega(polycor_sanchez[[1]], n.obs = nrow(sanchez), fm = "ml")
 
 log_model_sanchez <- glmer(bif_response ~ as.factor(Distance_condition) + (1|ID) + (1|item), family = binomial(link = "logit"), data = sanchez_long)
+
+log_model_sanchez_rs <- glmer(bif_response ~ as.factor(Distance_condition) + (1|ID) + (1 + as.factor(Distance_condition)|item), family = binomial(link = "logit"), data = sanchez_long)
 
 ### Network modeling
 
