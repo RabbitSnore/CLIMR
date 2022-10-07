@@ -69,7 +69,7 @@ This likelihood ratio test indicated that adding random slopes for BIF items for
 summary(log_model_sanchez_rs)
 ```
 
-However, we still see that three is relatively little variation in random slopes.
+However, we still see that there is relatively little variation in random slopes.
 
 We can examine the estimated random slopes directly:
 
