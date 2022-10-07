@@ -42,7 +42,7 @@ if (!dir.exists(".data/validation/grinfeld/")) {
 
 if (!file.exists(".data/validation/grinfeld/study2B.csv")) {
   
-  osf_retrieve_file("https://osf.io/4c2yj/") %>% 
+  osf_retrieve_file("6042607a035cf704b8c84d42") %>% 
     osf_download(path = "./data/validation/grinfeld/",
                  conflicts = "overwrite")
   
