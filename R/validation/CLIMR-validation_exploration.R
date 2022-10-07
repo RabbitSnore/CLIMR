@@ -164,6 +164,8 @@ climr_omega <- psych::omega(polycor_climr[[1]], n.obs = nrow(bif_wide), fm = "ml
 
 log_model_climr <- glmer(bif_response ~ group + (1|sub) + (1|item), family = binomial(link = "logit"), data = bif_long)
 
+log_model_climr_rs <- glmer(bif_response ~ group + (1|sub) + (1 + group|item), family = binomial(link = "logit"), data = bif_long)
+
 ### Network modeling
 
 network_model_climr_1 <- varcov(data = select(bif_wide, starts_with("bif")),
@@ -203,6 +205,8 @@ sanchez_alpha <- psych::alpha(polycor_sanchez[[1]], n.obs = nrow(sanchez))
 sanchez_omega <- psych::omega(polycor_sanchez[[1]], n.obs = nrow(sanchez), fm = "ml")
 
 log_model_sanchez <- glmer(bif_response ~ as.factor(Distance_condition) + (1|ID) + (1|item), family = binomial(link = "logit"), data = sanchez_long)
+
+log_model_sanchez_rs <- glmer(bif_response ~ as.factor(Distance_condition) + (1|ID) + (1 + as.factor(Distance_condition)|item), family = binomial(link = "logit"), data = sanchez_long)
 
 ### Network modeling
 
