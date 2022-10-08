@@ -87,7 +87,7 @@ anova(log_model_grinfeld_2c, log_model_grinfeld_2c_rs)
 anova(log_model_grinfeld_2c_rep, log_model_grinfeld_2c_rep_rs)
 ```
 
-Each of these likelihood ratio tests indicates that adding random slopes for each BIF item for the psychologicla distance conditions did not significantly improve the model, in each of these experiments from Grinfeld et al (2021).
+Each of these likelihood ratio tests indicates that adding random slopes for each BIF item for the psychological distance conditions did not significantly improve the model, in each of these experiments from Grinfeld et al (2021).
 
 ```{r}
 summary(log_model_grinfeld_2b_rs)
