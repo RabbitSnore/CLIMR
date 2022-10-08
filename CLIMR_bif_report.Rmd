@@ -56,7 +56,6 @@ Directly examining the random slopes, we can indeed see substantial similarity a
 coef(log_model_climr_rs)$item
 ```
 
-
 ## Sánchez et al (2021)
 
 ```{r}
