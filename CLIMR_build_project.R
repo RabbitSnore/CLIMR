@@ -49,7 +49,7 @@ codebook_base   <- FALSE
 
 ### Packages required by the CLIMR project
 
-dependencies <- c("dplyr", "tidyr", "stringr", "readr", "metafor", "lme4", "ggplot2", "cowplot", "rmarkdown", "ggbeeswarm", "ggstance", "simr", "viridis", "leaflet")
+dependencies <- c("dplyr", "tidyr", "stringr", "readr", "metafor", "lme4", "ggplot2", "cowplot", "rmarkdown", "ggbeeswarm", "ggstance", "simr", "viridis", "leaflet", "osfr")
 
 ### Check whether packages are installed locally and get list of what needs to be installed
 
@@ -79,7 +79,17 @@ climr_report <- function(input) {
   
   render(
     input = input,
-    output_format = c("html_document", "github_document"),
+    output_format = c("html_document"),
+    output_dir = "./reports/",
+    clean = TRUE,
+    envir = globalenv(),
+    run_pandoc = TRUE,
+    quiet = FALSE
+  )
+  
+  render(
+    input = input,
+    output_format = c("github_document"),
     output_dir = "./reports/",
     clean = TRUE,
     envir = globalenv(),

@@ -36,11 +36,11 @@ selection <- read.csv("./data/study-exclusion-data.csv")
 
 exclusion_table <- 
 selection %>% 
+  filter(exclusion_fine != 2 | is.na(exclusion_fine)) %>% 
   group_by(distance) %>% 
   summarise(
     N                                              = n(),
     validation                                     = sum(exclusion_fine == 1, na.rm = TRUE),
-    not_direct                                     = sum(exclusion_fine == 2, na.rm = TRUE),
     perceptual                                     = sum(exclusion_fine == 3, na.rm = TRUE),
     previous_replication                           = sum(exclusion_fine == 4, na.rm = TRUE),
     design                                         = sum(exclusion_fine == 5, na.rm = TRUE),
@@ -50,26 +50,24 @@ selection %>%
     included                                       = sum(included, na.rm = TRUE),
     "Studies screened for eligibility"             = N,
     "Measure failed validation"                    = N - validation,
-    "Measure not direct assessment of abstraction" = N - validation - not_direct,
-    "Perceptual measure"                           = N - validation - not_direct - perceptual,
-    "Previous unsuccessful replication"            = N - validation - not_direct - perceptual - previous_replication,
-    "Design issues or retracted"                   = N - validation - not_direct - perceptual - previous_replication - design,
-    "Logistical issues"                            = N - validation - not_direct - perceptual - previous_replication - design - logistical,
-    "Study unpublished or unavailable"             = N - validation - not_direct - perceptual - previous_replication - design - logistical - unavailable,
-    "Original effect inconsistent with theory"     = N - validation - not_direct - perceptual - previous_replication - design - logistical - unavailable - against_theory,
-    "Potentially suitable"                         = N - validation - not_direct - perceptual - previous_replication - design - logistical - unavailable - against_theory
+    "Perceptual measure"                           = N - validation - perceptual,
+    "Previous unsuccessful replication"            = N - validation - perceptual - previous_replication,
+    "Design issues or retracted"                   = N - validation - perceptual - previous_replication - design,
+    "Logistical issues"                            = N - validation - perceptual - previous_replication - design - logistical,
+    "Study unpublished or unavailable"             = N - validation - perceptual - previous_replication - design - logistical - unavailable,
+    "Original effect inconsistent with theory"     = N - validation - perceptual - previous_replication - design - logistical - unavailable - against_theory,
+    "Potentially suitable"                         = N - validation - perceptual - previous_replication - design - logistical - unavailable - against_theory
   )
 
 exclusion_long <- exclusion_table %>% 
   pivot_longer(
-    cols = names(.[, 12:21]),
+    cols = names(.[, 11:19]),
     names_to = "criterion",
     values_to = "value"
   ) %>% 
   mutate(
     excluded = case_when(                        
-      criterion == "Measure failed validation"                    ~ validation,                   
-      criterion == "Measure not direct assessment of abstraction" ~ not_direct,
+      criterion == "Measure failed validation"                    ~ validation, 
       criterion == "Perceptual measure"                           ~ perceptual,                          
       criterion == "Previous unsuccessful replication"            ~ previous_replication,           
       criterion == "Design issues or retracted"                   ~ design,                  
@@ -99,7 +97,6 @@ exclusion_long$criterion <- ordered(exclusion_long$criterion,
                                      levels = rev(c(
                                        "Studies screened for eligibility",                           
                                        "Measure failed validation",                   
-                                       "Measure not direct assessment of abstraction",
                                        "Perceptual measure",                          
                                        "Previous unsuccessful replication",           
                                        "Design issues or retracted",                  
@@ -116,6 +113,9 @@ exclusion_long$distance <- ordered(exclusion_long$distance,
                                      "Social",
                                      "Likelihood"
                                    ))
+
+exclusion_long <- exclusion_long %>% 
+  filter(!is.na(value))
 
 # Data visualization -----------------------------------------------------------
 
