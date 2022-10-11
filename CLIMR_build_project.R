@@ -132,6 +132,10 @@ source("./R/analyze/CLIMR_main_analyses.R")
 
 source("./R/analyze/CLIMR_modality_moderation.R")
 
+### Smallest effect of interest
+
+source("./R/analyze/CLIMR_seoi.R")
+
 # Reports ----------------------------------------------------------------------
 
 ## Main project report
@@ -157,3 +161,8 @@ climr_report("CLIMR_comprehension_check_supplement.Rmd")
 ### Moderator report
 
 climr_report("CLIMR_modality_moderation_supplement.Rmd")
+
+### Smallest effect of interest
+
+climr_report("CLIMR_seoi_report.Rmd")
+

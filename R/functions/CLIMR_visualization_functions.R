@@ -1,10 +1,10 @@
-#######################################################################
+################################################################################
 
 # CLIMR -- Data Visualization Functions
 
-#######################################################################
+################################################################################
 
-# FOREST PLOT ---------------------------------------------------------
+# FOREST PLOT ------------------------------------------------------------------
 
 ## Forest plot for standardized mean difference
 
@@ -250,7 +250,7 @@ forest_plot_lor <- function(replication_data, meta_analysis, org_lor, org_ci_low
   
 }
 
-# ABORETUM: MULTIPLE FORESTS ------------------------------------------
+# ABORETUM: MULTIPLE FORESTS ---------------------------------------------------
 
 ## A figure combining forest plots for the four experiments, with a shared x-axis scale
 
@@ -311,7 +311,7 @@ arboretum_plot <- function(plot_list, boundary_pad = .25, multiple = .50, rows =
   
 }
 
-# MAIN FIGURE: BEESWARM -----------------------------------------------
+# MAIN FIGURE: BEESWARM --------------------------------------------------------
 
 ## Main figure
 
@@ -473,3 +473,138 @@ climr_swarm <- function(meta_temporal, meta_spatial, meta_social, meta_likelihoo
   
 }
 
+seoi_swarm <- function(meta_temporal, meta_spatial, meta_social, meta_likelihood, complete, study_colors, titles, boundary_pad = .25, multiple = .10) {
+  
+  ## Internal function to set up estimate data frame
+  
+  estimate_data <- function(meta_analysis) {
+    
+    # Set up original and meta-analytic estimates
+    
+    estimates <- data.frame(
+      d        = c(meta_analysis$beta[[1]]),
+      var      = c(NA),
+      ci_lower = c(meta_analysis$ci.lb),
+      ci_upper = c(meta_analysis$ci.ub)
+    )
+    
+    return(estimates)
+    
+  }
+  
+  # Set up data for plotting
+  
+  estimates_temporal <- estimate_data(meta_temporal)
+  
+  estimates_spatial <- estimate_data(meta_spatial)
+  
+  estimates_social <- estimate_data(meta_social)
+  
+  estimates_likelihood <- estimate_data(meta_likelihood)
+  
+  estimates_climr <- rbind(estimates_temporal, estimates_spatial, estimates_social, estimates_likelihood)
+  
+  estimates_climr$distance <- c("temporal", "spatial", "social", "likelihood")
+  
+  estimates_climr$distance <- factor(estimates_climr$distance, 
+                                     levels = rev(c("temporal","spatial", "social", "likelihood")))
+  
+  complete$distance <- factor(complete$distance, 
+                              levels = rev(c("temporal", "spatial", "social", "likelihood")))
+  
+  # Set up plot boundaries
+  
+  effect_max <- round(max(c(complete$d, estimates_climr$ci_upper), na.rm = TRUE) / multiple) * multiple
+  effect_min <- round(min(c(complete$d, estimates_climr$ci_lower), na.rm = TRUE) / multiple) * multiple
+  
+  # Draw figure
+  
+  climr_fig <- 
+    ggplot(complete,
+           aes(
+             x = d,
+             y = distance,
+             color = distance
+           )
+    ) +
+    geom_vline(
+      xintercept = 0,
+      linetype = "longdash"
+    ) +
+    geom_quasirandom(
+      width = .20,
+      groupOnX = FALSE,
+      alpha = .40,
+      aes(
+        shape = sample
+      ),
+      dodge.width = .75
+    ) +
+    # scale_size_continuous(
+    #   range = c(.25, 2)
+    # ) +
+    geom_errorbarh(
+      data = estimates_climr,
+      inherit.aes = FALSE,
+      aes(
+        y = distance,
+        xmax = ci_upper,
+        xmin = ci_lower,
+        color = distance
+      ),
+      height = .25,
+      size = 1
+    ) +
+    geom_point(
+      data = estimates_climr,
+      inherit.aes = FALSE,
+      aes(
+        y = distance,
+        x = d,
+        color = distance),
+      size = 3
+    ) +
+    # scale_alpha_manual(
+    #   values = c(1, .66)
+    # ) +
+    scale_color_manual(
+      values = rev(study_colors)
+    ) +
+    scale_fill_manual(
+      values = c("#ffffff", "#252525")
+    ) +
+    scale_y_discrete(
+      labels = rev(titles)
+    ) +
+    # scale_shape_manual(
+    #   values = c(16, 15)
+    # ) +
+    scale_x_continuous(
+      breaks = sort(c(0, seq(effect_min, effect_max, multiple))),
+      labels = format(sort(c(0, seq(effect_min, effect_max, multiple))), nsmall = 2)
+    ) +
+    coord_cartesian(
+      xlim = c(effect_min - boundary_pad, effect_max + boundary_pad)
+    ) +
+    labs(
+      shape = "",
+      y = "",
+      x = expression(paste("Smallest effect size of interest (", italic("d"), ")", sep = ""))
+    ) +
+    guides(
+      group = "none",
+      size  = "none",
+      color = "none",
+      alpha = "none"
+    ) +
+    theme_classic() +
+    theme(
+      axis.text = element_text(color = "black"),
+      legend.position = "bottom",
+      legend.background = element_rect( 
+        size = 0.5,
+        linetype = "solid",
+        color= "black")
+    )
+  
+}

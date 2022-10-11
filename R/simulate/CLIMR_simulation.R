@@ -222,3 +222,31 @@ modality_data <- data.frame(
   ID = 1:labs,
   modality = sample(c("lab", "online"), labs, replace = TRUE)
 )
+
+# SEOI data --------------------------------------------------------------------
+
+seoi_contr_n <- 200
+seoi_clt_n   <- 20
+seoi_total_n <- seoi_contr_n + seoi_clt_n
+
+seoi_complete <- data.frame(
+  d = c(rnbinom(seoi_contr_n, 10, .3)/100, rnbinom(seoi_clt_n, 10, .3)/100,
+        rnbinom(seoi_contr_n, 10, .3)/100, rnbinom(seoi_clt_n, 10, .3)/100,
+        rnbinom(seoi_contr_n, 10, .3)/100, rnbinom(seoi_clt_n, 10, .3)/100,
+        rnbinom(seoi_contr_n, 10, .3)/100, rnbinom(seoi_clt_n, 10, .3)/100),
+  distance = c(
+    rep("temporal", seoi_total_n), 
+    rep("spatial", seoi_total_n), 
+    rep("social", seoi_total_n), 
+    rep("likelihood", seoi_total_n)),  
+  sample = c(
+    rep("Contributor", seoi_contr_n),
+    rep("Expert", seoi_clt_n),
+    rep("Contributor", seoi_contr_n),
+    rep("Expert", seoi_clt_n),
+    rep("Contributor", seoi_contr_n),
+    rep("Expert", seoi_clt_n),
+    rep("Contributor", seoi_contr_n),
+    rep("Expert", seoi_clt_n)
+  )
+)

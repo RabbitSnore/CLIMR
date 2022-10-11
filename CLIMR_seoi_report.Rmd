@@ -1,5 +1,5 @@
 ---
-title: "Construal Level International Multilab Replication (CLIMR) Project: Main Analysis Report"
+title: "Construal Level International Multilab Replication (CLIMR) Project: Smallest Effect Size of Interest (SEOI) Report"
 author: "CLIMR Team"
 date: "`r Sys.Date()`"
 output:
@@ -18,58 +18,34 @@ knit: (function(input_file, encoding) {
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-# Main Figure
+## Primary SEOI Visualization
 
 ```{r, fig.asp = 1/1.6, fig.width = 5 * 2}
-climr_figure
+climr_seoi_figure
 ```
 
-
-# Meta-Analytic Models
+# Frequencies and Proportions of Excluded SEOI Estimates
 
 ## Liberman & Trope (1998, Study 1)
 
 ```{r}
-meta_temporal
-```
-
-```{r}
-bt_temporal
+seoi_temporal
 ```
 
 ## Fujita et al. (2006, Study 1)
 
 ```{r}
-meta_spatial
+seoi_spatial
 ```
+
+## Social Distance (Conceptual Replication)
 
 ```{r}
-bt_spatial
+seoi_social
 ```
 
-## Social Distance (Paradigmatic Replication)
+## Likelihood Distance (Conceptual Replication)
 
 ```{r}
-meta_social
-```
-
-```{r}
-bt_social
-```
-
-
-## Likelihood Distance (Paradigmatic Replication)
-
-```{r}
-meta_likelihood
-```
-
-```{r}
-bt_likelihood
-```
-
-# Arboretum
-
-```{r, fig.height = 12, fig.width = 18}
-arboretum
+seoi_likelihood
 ```

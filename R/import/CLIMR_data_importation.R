@@ -69,9 +69,19 @@ if (read_precleaned == FALSE) {
 
 # Import pre-cleaned data ------------------------------------------------------
 
+## Main data
+
 if (read_precleaned == TRUE) {
   
   raw <- read.csv("./data/climr_complete_data.csv") # Replace with direct OSF download
+  
+}
+
+## SEOI data
+
+if (read_precleaned == TRUE) {
+  
+  seoi_complete <- read.csv("./data/climr_seoi_data.csv") # Replace with direct OSF download
   
 }
 
