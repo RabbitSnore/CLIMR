@@ -120,6 +120,39 @@ bif_23_smd <- smd_calc(bif_sep$bif_23_a_valence_sep, bif_sep$bif_23_c_valence_se
 bif_24_smd <- smd_calc(bif_sep$bif_24_a_valence_sep, bif_sep$bif_24_c_valence_sep)
 bif_25_smd <- smd_calc(bif_sep$bif_25_a_valence_sep, bif_sep$bif_25_c_valence_sep)
 
+bif_d <- bind_rows(
+  bif_01_smd,
+  bif_02_smd,
+  bif_03_smd,
+  bif_04_smd,
+  bif_05_smd,
+  bif_06_smd,
+  bif_07_smd,
+  bif_08_smd,
+  bif_09_smd,
+  bif_10_smd,
+  bif_11_smd,
+  bif_12_smd,
+  bif_13_smd,
+  bif_14_smd,
+  bif_15_smd,
+  bif_16_smd,
+  bif_17_smd,
+  bif_18_smd,
+  bif_19_smd,
+  bif_20_smd,
+  bif_21_smd,
+  bif_22_smd,
+  bif_23_smd,
+  bif_24_smd,
+  bif_25_smd
+)
+
+bif_d$item <- paste("bif_", str_pad(1:25, 2, pad = 0), sep = "")
+
+bif_d <- bif_d %>% 
+  select(item, everything())
+
 ## Difference across all items
 
 bif_scale_smd <- smd_calc(bif_sep_long_a$bif, bif_sep_long_c$bif)
