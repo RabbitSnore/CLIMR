@@ -78,6 +78,11 @@ bif_d <- read.csv("./data/validation/climr_bif-valence_separate.csv")
 yan_exp_3_long <- yan_exp_3_long %>% 
   left_join(bif_d, by = "item")
 
+yan_exp_3_long$mani_mode <- as.factor(yan_exp_3_long$mani_mode)
+yan_exp_3_long$mani_social <- as.factor(yan_exp_3_long$mani_social)
+
+yan_exp_3_long$d_mc <- scale(yan_exp_3_long$d, scale = FALSE)
+
 # Exploratory analyses ---------------------------------------------------------
 
 # Social distance manipulation, random slopes
@@ -91,9 +96,9 @@ lrt_rs <- anova(model_soc, model_rs, test = "LRT")
 
 # Valence, separate ratings
 
-model_val      <- glmer(bif ~ mani_social + d + (1|id) + (1|item), 
+model_val      <- glmer(bif ~ mani_social + d_mc + (1|id) + (1|item), 
                         data = yan_exp_3_long, family = binomial())
-model_val_int  <- glmer(bif ~ mani_social * d + (1|id) + (1|item), 
+model_val_int  <- glmer(bif ~ mani_social * d_mc + (1|id) + (1|item), 
                         data = yan_exp_3_long, family = binomial())
 
 lrt_val <- anova(model_soc, model_val, model_val_int, test = "LRT")
