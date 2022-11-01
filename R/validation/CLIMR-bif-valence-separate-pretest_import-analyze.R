@@ -156,3 +156,7 @@ bif_d <- bif_d %>%
 ## Difference across all items
 
 bif_scale_smd <- smd_calc(bif_sep_long_a$bif, bif_sep_long_c$bif)
+
+# Export data ------------------------------------------------------------------
+
+write.csv(bif_d, "./data/validation/climr_bif-valence_separate.csv", row.names = FALSE)
