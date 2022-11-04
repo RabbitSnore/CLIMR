@@ -1,0 +1,104 @@
+---
+title: "Construal Level International Multilab Replication (CLIMR) Project: Pretest of Valence Differences in BIF Item Response Options"
+author: "CLIMR Team"
+date: "`r Sys.Date()`"
+output:
+  html_document:
+    theme: darkly
+    toc: yes
+    toc_float: yes
+    keep_md: true
+  pdf_document:
+    toc: yes
+knit: (function(input_file, encoding) {
+    rmarkdown::render(input_file, encoding = encoding, output_dir = "./reports/")
+  })
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+source("./R/validation/CLIMR-bif-valence-separate-pretest_import-analyze.R")
+source("./R/validation/CLIMR-bif-valence-exploration.R")
+
+```
+
+# Overview
+
+The documentation for this pretest is provided here: https://osf.io/g6d5v
+
+# Separate Judgments of Item Response Options
+
+When judged separately, the response options for each item are generally rated
+such that the abstract option is more positively valenced than the concrete
+option.
+
+```{r}
+bif_d %>% 
+  knitr::kable()
+```
+
+Combining across the items, the valence difference in response options appears
+to be non-trivial.
+
+```{r}
+bif_scale_smd
+```
+
+# Examination of the Effects of Valence Differences on Response Patterns
+
+To assess the extent to which these valence differences might influence people's
+responses to the BIF items, especially in an situation in which there is a
+plausible motvation to provide more positive responses under some conditions, we
+examined the data from Yan et al (2016, Experiment 3, 10.1093/jcr/ucw045). In
+this experiment, participants were provided with a description of a socially
+close or socially distant target and asked to complete the BIF. It is plausible
+that people would want to provide more positive responses for a socially close
+target, not for any reason related to construal level but for motivational
+reasons.
+
+The authors of this experiment graciously provided the original data, which we
+used to fit models in which we predicted BIF responses using the social distance
+manipulation and the BIF valence differences.
+
+As a first look, we fit models predicting BIF responses from the distance
+manipulation and tested whether adding random slopes for the items improved the
+fit of the model. If there is substantial variance in the random slopes, that
+would be an indication that there may extraneous influences (e.g., valence) on
+the BIF responses. However, a likelihood ratio test indicates that there is no
+significant improvement to the model offered by adding random slopes.
+
+```{r}
+lrt_rs
+```
+
+Next, we can examine the effect of adding the valence difference for each item
+as a predictor in the model and also test if adding an interaction between
+valence and the distance manipulation improves the model.
+
+We see below that a series of LRTs indicates that adding valence does not offer
+significant improvement to the model, nor does adding the interaction term.
+
+```{r}
+lrt_val
+```
+
+It can nevertheless be informative to examine the detailed model output.
+
+As can be seen below, if the valence differences (as measured by the separate
+judgments) had any influence on the responses to the BIF in this experiment,
+those differences were minimal. Moreover, controlling for the valence 
+differences did not meaningfully change the estimate of the effect of social
+distance, suggesting that those effects were non-redundant.
+
+```{r}
+summary(model_soc)
+```
+
+```{r}
+summary(model_val)
+```
+
+```{r}
+summary(model_val_int)
+```

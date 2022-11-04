@@ -18,6 +18,8 @@ knit: (function(input_file, encoding) {
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+# **THESE RESULTS ARE SIMULATED. DO NOT INTERPRET.**
+
 # Main Figure
 
 ```{r, fig.asp = 1/1.6, fig.width = 5 * 2}

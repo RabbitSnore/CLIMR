@@ -62,12 +62,33 @@ smd_calc <- function(x1, x2) {
 
 # Import data ------------------------------------------------------------------
 
-raw <- read.csv("./data/validation/climr_bif-valence-separate-pretest-data_raw.csv") %>% 
-  slice(-1, -2) %>% 
-  type_convert()
+# Cleaning from raw data
 
-raw <- raw %>% 
-  select(id = ResponseId, finished = Finished, starts_with("bif"))
+# raw <- read.csv("./data/validation/climr_bif-valence-separate-pretest-data_raw.csv") %>% 
+#   slice(-1, -2) %>% 
+#   type_convert()
+# 
+# raw <- raw %>% 
+#   select(id = ResponseId, finished = Finished, starts_with("bif"))
+# 
+# write.csv(raw, "./data/validation/climr_bif-valence-separate-pretest-data.csv", row.names = FALSE)
+
+if (!dir.exists("./data/validation/")) {
+  
+  dir.create("./data/validation/")
+  
+}
+
+if (!file.exists("/data/validation/validation/climr_bif-valence-separate-pretest-data.csv")) {
+  
+  osf_retrieve_file("6364d0f3a3a1dd06f19c1d04") %>% 
+    osf_download(path = "./data/validation/",
+                 conflicts = "overwrite",
+                 recurse = TRUE)
+  
+}
+
+raw <- read.csv("./data/validation/climr_bif-valence-separate-pretest-data.csv")
 
 bif_sep <- raw %>% 
   filter(finished == 1)
