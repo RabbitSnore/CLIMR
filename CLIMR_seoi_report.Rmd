@@ -22,8 +22,8 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # Primary SEOI Visualization
 
-```{r, fig.asp = 1/1.6, fig.width = 5 * 2}
-climr_seoi_figure
+```{r}
+knitr::include_graphics("./plots/climr_seoi_figure.png")
 ```
 
 # Frequencies and Proportions of Excluded SEOI Estimates

@@ -46,10 +46,10 @@ codebook_base   <- FALSE
 ## Validation reports
 
 # When this parameter is set to TRUE, it knits the pretesting and validation
-# reports. This is set to FALSE by default, as its main use is by the main
+# reports. This is set to FALSE by default, as its primary use is by the main
 # CLIMR team.
 
-validation_reports <- FALSE
+validation_reports <- TRUE
 
 # Set up environment -----------------------------------------------------------
 
@@ -87,7 +87,7 @@ climr_report <- function(input) {
   
   render(
     input = input,
-    output_format = c("github_document"),
+    output_format = github_document(html_preview = FALSE),
     output_dir = "./reports/",
     clean = TRUE,
     envir = globalenv(),
@@ -125,17 +125,6 @@ source("./R/analyze/CLIMR_main_analyses.R")
 
 ## Supplementary analyses
 
-### Manipulation check
-
-# DEFUNCT
-# source("./R/analyze/CLIMR_manipulation_checks.R")
-
-### Poisson regression approach
-
-# DEFUNCT
-# source("./R/calculate/CLIMR_poisson_regression.R")
-# source("./R/analyze/CLIMR_poisson_meta_analyses.R")
-
 ### Modality moderation
 
 source("./R/analyze/CLIMR_modality_moderation.R")
@@ -155,16 +144,6 @@ climr_report("CLIMR_main_analysis_report.Rmd")
 ### Comprehension check report
 
 climr_report("CLIMR_comprehension_check_supplement.Rmd")
-
-### Manipulation check
-
-# DEFUNCT
-# climr_report("CLIMR_manipulation_check_supplement.Rmd")
-
-### Poisson regression approach report
-
-# DEFUNCT
-# climr_report("CLIMR_poisson_regression_supplement.Rmd")
 
 ### Moderator report
 

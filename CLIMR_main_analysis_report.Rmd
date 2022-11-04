@@ -4,20 +4,21 @@ author: "CLIMR Team"
 date: "`r Sys.Date()`"
 output: github_document
 knit: (function(input_file, encoding) {
-    rmarkdown::render(input_file, output_format = c("github_document"), encoding = encoding, output_dir = "./reports/")
+    rmarkdown::render(input_file, github_document(html_preview = FALSE), encoding = encoding, output_dir = "./reports/")
   })
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+
 ```
 
 # **THESE RESULTS ARE SIMULATED. DO NOT INTERPRET.**
 
 # Main Figure
 
-```{r, fig.asp = 1/1.6, fig.width = 5 * 2}
-climr_figure
+```{r}
+knitr::include_graphics("./plots/climr_main_figure.png")
 ```
 
 
@@ -66,6 +67,6 @@ bt_likelihood
 
 # Arboretum
 
-```{r, fig.height = 12, fig.width = 18}
-arboretum
+```{r}
+knitr::include_graphics("./plots/climr_arboretum.png")
 ```

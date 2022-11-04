@@ -110,4 +110,7 @@ ggplot(validation_plot_data,
   ) +
   theme_classic()
 
+## Save plot
 
+cowplot::save_plot("./plots/climr_validation_plot.png", validation_plot, base_height = 6, base_width = 10)
+cowplot::save_plot("./plots/climr_validation_plot.svg", validation_plot, base_height = 6, base_width = 10)

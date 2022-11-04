@@ -9,10 +9,10 @@ CLIMR Team
 # Primary SEOI Visualization
 
 ``` r
-climr_seoi_figure
+knitr::include_graphics("./plots/climr_seoi_figure.png")
 ```
 
-![](C:/Projects/CLIMR/reports/CLIMR_seoi_report_files/figure-gfm/unnamed-chunk-1-1.png)<!-- -->
+![](./plots/climr_seoi_figure.png)<!-- -->
 
 # Frequencies and Proportions of Excluded SEOI Estimates
 

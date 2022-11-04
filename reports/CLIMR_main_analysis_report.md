@@ -9,10 +9,10 @@ CLIMR Team
 # Main Figure
 
 ``` r
-climr_figure
+knitr::include_graphics("./plots/climr_main_figure.png")
 ```
 
-![](C:/Projects/CLIMR/reports/CLIMR_main_analysis_report_files/figure-gfm/unnamed-chunk-1-1.png)<!-- -->
+![](./plots/climr_main_figure.png)<!-- -->
 
 # Meta-Analytic Models
 
@@ -147,7 +147,7 @@ bt_likelihood
 # Arboretum
 
 ``` r
-arboretum
+knitr::include_graphics("./plots/climr_arboretum.png")
 ```
 
-![](C:/Projects/CLIMR/reports/CLIMR_main_analysis_report_files/figure-gfm/unnamed-chunk-10-1.png)<!-- -->
+![](./plots/climr_arboretum.png)<!-- -->

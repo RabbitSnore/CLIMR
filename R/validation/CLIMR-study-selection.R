@@ -172,9 +172,9 @@ if (!dir.exists("./plots/")) {
   
 }
 
-save_plot("./plots/study-selection.png",  selection_plot, base_height = 6, base_width = 10)
-save_plot("./plots/study-selection.tiff", selection_plot, base_height = 6, base_width = 10)
-save_plot("./plots/study-selection.jpg",  selection_plot, base_height = 6, base_width = 10)
+save_plot("./plots/climr_study-selection.png",  selection_plot, base_height = 6, base_width = 10)
+save_plot("./plots/climr_study-selection.tiff", selection_plot, base_height = 6, base_width = 10)
+save_plot("./plots/climr_study-selection.jpg",  selection_plot, base_height = 6, base_width = 10)
 
 
 
