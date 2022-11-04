@@ -43,6 +43,14 @@ write_data      <- FALSE
 
 codebook_base   <- FALSE
 
+## Validation reports
+
+# When this parameter is set to TRUE, it knits the pretesting and validation
+# reports. This is set to FALSE by default, as its main use is by the main
+# CLIMR team.
+
+validation_reports <- FALSE
+
 # Set up environment -----------------------------------------------------------
 
 ## Check and install necessary packages for the project
@@ -166,3 +174,13 @@ climr_report("CLIMR_modality_moderation_supplement.Rmd")
 
 climr_report("CLIMR_seoi_report.Rmd")
 
+## Validation and pretest reports
+
+if (validation_reports == TRUE) {
+  
+  climr_report("CLIMR_bif_report.Rmd")
+  climr_report("CLIMR_validation_report.Rmd")
+  climr_report("CLIMR_validation-2_report.Rmd")
+  climr_report("CLIMR_bif-valence-pretest_report.Rmd")
+  
+}
