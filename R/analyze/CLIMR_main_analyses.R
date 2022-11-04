@@ -225,8 +225,10 @@ arboretum <- arboretum_plot(list(forest_temporal, forest_spatial, forest_social,
 
 ## Save plot
 
-save_plot("./plots/climr_arboretum.png", arboretum, base_height = 12, base_width = 18)
-save_plot("./plots/climr_arboretum.svg", arboretum, base_height = 12, base_width = 18)
+save_plot("./figures/climr_arboretum.png", arboretum, base_height = 12, base_width = 18)
+save_plot("./figures/climr_arboretum.svg", arboretum, base_height = 12, base_width = 18)
+
+save_plot("./reports/figures/climr_arboretum.png", arboretum, base_height = 12, base_width = 18)
 
 # Main results: Beeswarm plot --------------------------------------------------
 
@@ -243,8 +245,10 @@ climr_figure <- climr_swarm(
 
 ## Save plot
 
-save_plot("./plots/climr_main_figure.png", climr_figure, base_asp = 1.6, base_height = 5)
-save_plot("./plots/climr_main_figure.svg", climr_figure, base_asp = 1.6, base_height = 5)
+save_plot("./figures/climr_main_figure.png", climr_figure, base_asp = 1.6, base_height = 5)
+save_plot("./figures/climr_main_figure.svg", climr_figure, base_asp = 1.6, base_height = 5)
+
+save_plot("./reports/figures/climr_main_figure.png", climr_figure, base_asp = 1.6, base_height = 5)
 
 # Planned moderator analysis ---------------------------------------------------
 

@@ -18,7 +18,7 @@ knitr::opts_chunk$set(echo = TRUE)
 # Main Figure
 
 ```{r}
-knitr::include_graphics("./plots/climr_main_figure.png")
+knitr::include_graphics("./figures/climr_main_figure.png")
 ```
 
 
@@ -68,5 +68,5 @@ bt_likelihood
 # Arboretum
 
 ```{r}
-knitr::include_graphics("./plots/climr_arboretum.png")
+knitr::include_graphics("./figures/climr_arboretum.png")
 ```

@@ -133,6 +133,20 @@ source("./R/analyze/CLIMR_modality_moderation.R")
 
 source("./R/analyze/CLIMR_seoi.R")
 
+### Validations and pretests
+
+if (validation_reports == TRUE) {
+  
+  source("./R/validation/CLIMR-validation_data_importation.R")
+  source("./R/validation/CLIMR-validation-2_data_importation.R")
+  source("./R/validation/CLIMR-validation_effect_calculations.R")
+  source("./R/validation/CLIMR-validation-2_effect_calculations.R")
+  source("./R/validation/CLIMR-validation_exploration.R")
+  source("./R/validation/CLIMR-validation-2_exploration.R")
+  source("./R/validation/CLIMR-validation_data_visualization.R")
+  source("./R/validation/CLIMR-validation-studies_summary.R")
+}
+
 # Reports ----------------------------------------------------------------------
 
 ## Main project report

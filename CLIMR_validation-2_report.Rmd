@@ -18,16 +18,6 @@ knit: (function(input_file, encoding) {
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 
-source("./R/validation/CLIMR-validation-2_data_importation.R")
-source("./R/validation/CLIMR-validation-2_effect_calculations.R")
-
-# Summary
-
-source("./R/validation/CLIMR-validation_data_importation.R")
-source("./R/validation/CLIMR-validation_effect_calculations.R")
-source("./R/validation/CLIMR-validation_data_visualization.R")
-source("./R/validation/CLIMR-validation-studies_summary.R")
-
 ```
 
 # Krüger et al. (2014) Study 4, close replication
@@ -74,6 +64,6 @@ validation_plot_data
 
 
 ```{r}
-knitr::include_graphics("./plots/climr_validation_plot.png")
+knitr::include_graphics("./figures/climr_validation_plot.png")
 ```
 

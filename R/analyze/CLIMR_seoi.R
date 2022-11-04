@@ -74,5 +74,7 @@ climr_seoi_figure <- seoi_swarm(
 
 ## Save plot
 
-save_plot("./plots/climr_seoi_figure.png", climr_seoi_figure, base_asp = 1.6, base_height = 5)
-save_plot("./plots/climr_seoi_figure.svg", climr_seoi_figure, base_asp = 1.6, base_height = 5)
+save_plot("./figures/climr_seoi_figure.png", climr_seoi_figure, base_asp = 1.6, base_height = 5)
+save_plot("./figures/climr_seoi_figure.svg", climr_seoi_figure, base_asp = 1.6, base_height = 5)
+
+save_plot("./reports/figures/climr_seoi_figure.png", climr_seoi_figure, base_asp = 1.6, base_height = 5)

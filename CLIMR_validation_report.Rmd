@@ -18,10 +18,6 @@ knit: (function(input_file, encoding) {
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 
-source("./R/validation/CLIMR-validation_data_importation.R")
-source("./R/validation/CLIMR-validation_effect_calculations.R")
-source("./R/validation/CLIMR-validation_data_visualization.R")
-
 ```
 
 # Categorization Task
@@ -31,7 +27,7 @@ effect_temporal
 ```
 
 ```{r}
-temporal_hist
+knitr::include_graphics("./figures/climr_validation-temporal-hist.png")
 ```
 
 # Segmentation Task
@@ -41,7 +37,7 @@ effect_spatial
 ```
 
 ```{r}
-spatial_hist
+knitr::include_graphics("./figures/climr_validation-spatial-hist.png")
 ```
 
 # Behavior Identification Form
@@ -51,7 +47,7 @@ effect_temporal_2
 ```
 
 ```{r}
-temporal_2_hist
+knitr::include_graphics("./figures/climr_validation-temporal-2-hist.png")
 ```
 
 # Robustness Checks

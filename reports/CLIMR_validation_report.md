@@ -10,14 +10,14 @@ CLIMR Team
 effect_temporal
 ```
 
-    ##   ID          d         var   ci_lower ci_upper
-    ## 1  1 0.08676957 0.003846699 -0.0349298 0.208469
+    ##               ID          d         var   ci_lower ci_upper
+    ## 1 Categorization 0.08676957 0.003846699 -0.0349298 0.208469
 
 ``` r
-temporal_hist
+knitr::include_graphics("./figures/climr_validation-temporal-hist.png")
 ```
 
-![](C:/Projects/CLIMR/reports/CLIMR_validation_report_files/figure-gfm/unnamed-chunk-2-1.png)<!-- -->
+![](./figures/climr_validation-temporal-hist.png)<!-- -->
 
 # Segmentation Task
 
@@ -25,14 +25,14 @@ temporal_hist
 effect_spatial
 ```
 
-    ##   ID          d        var   ci_lower  ci_upper
-    ## 1  1 0.06592508 0.00992195 -0.1298945 0.2617447
+    ##             ID          d        var   ci_lower  ci_upper
+    ## 1 Segmentation 0.06592508 0.00992195 -0.1298945 0.2617447
 
 ``` r
-spatial_hist
+knitr::include_graphics("./figures/climr_validation-spatial-hist.png")
 ```
 
-![](C:/Projects/CLIMR/reports/CLIMR_validation_report_files/figure-gfm/unnamed-chunk-4-1.png)<!-- -->
+![](./figures/climr_validation-spatial-hist.png)<!-- -->
 
 # Behavior Identification Form
 
@@ -40,14 +40,14 @@ spatial_hist
 effect_temporal_2
 ```
 
-    ##   ID        d       var ci_lower ci_upper
-    ## 1  1 1.418843 0.0118982 1.204436  1.63325
+    ##    ID        d       var ci_lower ci_upper
+    ## 1 BIF 1.418843 0.0118982 1.204436  1.63325
 
 ``` r
-temporal_2_hist
+knitr::include_graphics("./figures/climr_validation-temporal-2-hist.png")
 ```
 
-![](C:/Projects/CLIMR/reports/CLIMR_validation_report_files/figure-gfm/unnamed-chunk-6-1.png)<!-- -->
+![](./figures/climr_validation-temporal-2-hist.png)<!-- -->
 
 # Robustness Checks
 

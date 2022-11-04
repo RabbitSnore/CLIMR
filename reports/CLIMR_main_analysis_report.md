@@ -9,10 +9,10 @@ CLIMR Team
 # Main Figure
 
 ``` r
-knitr::include_graphics("./plots/climr_main_figure.png")
+knitr::include_graphics("./figures/climr_main_figure.png")
 ```
 
-![](./plots/climr_main_figure.png)<!-- -->
+![](./figures/climr_main_figure.png)<!-- -->
 
 # Meta-Analytic Models
 
@@ -147,7 +147,7 @@ bt_likelihood
 # Arboretum
 
 ``` r
-knitr::include_graphics("./plots/climr_arboretum.png")
+knitr::include_graphics("./figures/climr_arboretum.png")
 ```
 
-![](./plots/climr_arboretum.png)<!-- -->
+![](./figures/climr_arboretum.png)<!-- -->

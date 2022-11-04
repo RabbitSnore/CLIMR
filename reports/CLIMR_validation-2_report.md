@@ -74,7 +74,7 @@ validation_plot_data
     ## 7  Spillover Effect (BIF) -0.01850364 0.007171503 -0.1844826 0.1474754
 
 ``` r
-knitr::include_graphics("./plots/climr_validation_plot.png")
+knitr::include_graphics("./figures/climr_validation_plot.png")
 ```
 
-![](./plots/climr_validation_plot.png)<!-- -->
+![](./figures/climr_validation_plot.png)<!-- -->

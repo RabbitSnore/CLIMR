@@ -45,3 +45,13 @@ temporal_2_hist <-
     binwidth = 3
   ) +
   theme_classic()
+
+## Save plots
+
+cowplot::save_plot("./figures/climr_validation-temporal-hist.png", temporal_hist, base_height = 5, base_width = 10)
+cowplot::save_plot("./figures/climr_validation-spatial-hist.png", temporal_hist, base_height = 5, base_width = 10)
+cowplot::save_plot("./figures/climr_validation-temporal-2-hist.png", temporal_2_hist, base_height = 5, base_width = 10)
+
+cowplot::save_plot("./reports/figures/climr_validation-temporal-hist.png", temporal_hist, base_height = 5, base_width = 10)
+cowplot::save_plot("./reports/figures/climr_validation-spatial-hist.png", temporal_hist, base_height = 5, base_width = 10)
+cowplot::save_plot("./reports/figures/climr_validation-temporal-2-hist.png", temporal_2_hist, base_height = 5, base_width = 10)

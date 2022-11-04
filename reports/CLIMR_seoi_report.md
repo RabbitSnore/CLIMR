@@ -9,10 +9,10 @@ CLIMR Team
 # Primary SEOI Visualization
 
 ``` r
-knitr::include_graphics("./plots/climr_seoi_figure.png")
+knitr::include_graphics("./figures/climr_seoi_figure.png")
 ```
 
-![](./plots/climr_seoi_figure.png)<!-- -->
+![](./figures/climr_seoi_figure.png)<!-- -->
 
 # Frequencies and Proportions of Excluded SEOI Estimates
 
