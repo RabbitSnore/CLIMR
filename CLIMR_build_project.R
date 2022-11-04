@@ -49,7 +49,7 @@ codebook_base   <- FALSE
 # reports. This is set to FALSE by default, as its primary use is by the main
 # CLIMR team.
 
-validation_reports <- TRUE
+validation_reports <- FALSE
 
 # Set up environment -----------------------------------------------------------
 
