@@ -113,3 +113,32 @@ model_val_rel_int  <- glmer(bif ~ mani_social * d_rel_mc + (1|id) + (1|item),
 
 lrt_val_rel <- anova(model_soc, model_val_rel, model_val_rel_int, test = "LRT")
 
+# Visualization
+
+bif_valence_scatter <- 
+bif_d_rel %>% 
+  select(everything(), d_rel = d) %>% 
+  left_join(select(bif_d_sep, item, d_sep = d), by = "item") %>% 
+  ggplot(
+    aes(
+      x = d_sep,
+      y = d_rel
+    )
+  ) +
+  geom_point() +
+  scale_x_continuous(
+    limits = c(-0.50, 2.50),
+    breaks = seq(-0.50, 2.50, 0.50)
+  ) +
+  scale_y_continuous(
+    limits = c(-0.50, 2.50),
+    breaks = seq(-0.50, 2.50, 0.50)
+  ) +
+  labs(
+    x = "Response option valence difference (separate ratings)",
+    y = "Response option valence difference (relative ratings)"
+  ) +
+  theme_classic()
+
+cowplot::save_plot("./figures/climr_bif-valence-scatter.png", bif_valence_scatter, base_height = 7, base_width = 7)
+cowplot::save_plot("./reports/figures/climr_bif-valence-scatter.png", bif_valence_scatter, base_height = 7, base_width = 7)

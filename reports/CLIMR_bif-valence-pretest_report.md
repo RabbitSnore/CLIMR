@@ -111,7 +111,7 @@ bif_scale_smd_rel
 There is a strong correspondence between the separate and relative
 judgments.
 
-![](C:/Projects/CLIMR/reports/CLIMR_bif-valence-pretest_report_files/figure-gfm/unnamed-chunk-20-1.png)<!-- -->
+![](./figures/climr_bif-valence-scatter.png)<!-- -->
 
 Item 13, which concerns voting, appeared to have discrepant results in
 the two judgment modes. This may be because the abstract option

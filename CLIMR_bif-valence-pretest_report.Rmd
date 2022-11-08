@@ -56,17 +56,7 @@ bif_scale_smd_rel
 There is a strong correspondence between the separate and relative judgments.
 
 ```{r, echo = FALSE}
-bif_d_rel %>% 
-  select(everything(), d_rel = d) %>% 
-  left_join(select(bif_d_sep, item, d_sep = d), by = "item") %>% 
-  ggplot(
-    aes(
-      x = d_sep,
-      y = d_rel
-    )
-  ) +
-  geom_point() +
-  theme_classic()
+knitr::include_graphics("./figures/climr_bif-valence-scatter.png")
 ```
 
 Item 13, which concerns voting, appeared to have discrepant results in the two
