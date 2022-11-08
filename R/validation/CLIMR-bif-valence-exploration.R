@@ -4,8 +4,6 @@
 
 ################################################################################
 
-# This script assumes you have already run CLIMR-validation_data_importation.R
-
 # Set up environment -----------------------------------------------------------
 
 ## Check and install necessary packages for the project
@@ -73,15 +71,18 @@ yan_exp_3_long <- yan_exp_3 %>%
     )
   )
 
-bif_d <- read.csv("./data/validation/climr_bif-valence_separate.csv")
+bif_d_sep <- read.csv("./data/validation/climr_bif-valence_separate.csv")
+bif_d_rel <- read.csv("./data/validation/climr_bif-valence_relative.csv")
 
 yan_exp_3_long <- yan_exp_3_long %>% 
-  left_join(bif_d, by = "item")
+  left_join(select(bif_d_sep, item, d_sep = d), by = "item") %>% 
+  left_join(select(bif_d_rel, item, d_rel = d), by = "item")
 
 yan_exp_3_long$mani_mode <- as.factor(yan_exp_3_long$mani_mode)
 yan_exp_3_long$mani_social <- as.factor(yan_exp_3_long$mani_social)
 
-yan_exp_3_long$d_mc <- scale(yan_exp_3_long$d, scale = FALSE)
+yan_exp_3_long$d_sep_mc <- scale(yan_exp_3_long$d_sep, scale = FALSE)
+yan_exp_3_long$d_rel_mc <- scale(yan_exp_3_long$d_rel, scale = FALSE)
 
 # Exploratory analyses ---------------------------------------------------------
 
@@ -96,9 +97,19 @@ lrt_rs <- anova(model_soc, model_rs, test = "LRT")
 
 # Valence, separate ratings
 
-model_val      <- glmer(bif ~ mani_social + d_mc + (1|id) + (1|item), 
-                        data = yan_exp_3_long, family = binomial())
-model_val_int  <- glmer(bif ~ mani_social * d_mc + (1|id) + (1|item), 
-                        data = yan_exp_3_long, family = binomial())
+model_val_sep      <- glmer(bif ~ mani_social + d_sep_mc + (1|id) + (1|item), 
+                            data = yan_exp_3_long, family = binomial())
+model_val_sep_int  <- glmer(bif ~ mani_social * d_sep_mc + (1|id) + (1|item), 
+                            data = yan_exp_3_long, family = binomial())
 
-lrt_val <- anova(model_soc, model_val, model_val_int, test = "LRT")
+lrt_val_sep <- anova(model_soc, model_val_sep, model_val_sep_int, test = "LRT")
+
+# Valence, relative ratings
+
+model_val_rel      <- glmer(bif ~ mani_social + d_rel_mc + (1|id) + (1|item), 
+                            data = yan_exp_3_long, family = binomial())
+model_val_rel_int  <- glmer(bif ~ mani_social * d_rel_mc + (1|id) + (1|item), 
+                            data = yan_exp_3_long, family = binomial())
+
+lrt_val_rel <- anova(model_soc, model_val_rel, model_val_rel_int, test = "LRT")
+

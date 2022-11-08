@@ -1,6 +1,6 @@
 ################################################################################
 
-# CLIMR -- Data Importation and Cleaning, BIF Valence Pretest
+# CLIMR -- Data Importation and Cleaning, BIF Valence Pretest, Separate
 
 ################################################################################
 
@@ -171,13 +171,13 @@ bif_d <- bind_rows(
 
 bif_d$item <- paste("bif_", str_pad(1:25, 2, pad = 0), sep = "")
 
-bif_d <- bif_d %>% 
+bif_d_sep <- bif_d %>% 
   select(item, everything())
 
 ## Difference across all items
 
-bif_scale_smd <- smd_calc(bif_sep_long_a$bif, bif_sep_long_c$bif)
+bif_scale_smd_sep <- smd_calc(bif_sep_long_a$bif, bif_sep_long_c$bif)
 
 # Export data ------------------------------------------------------------------
 
-write.csv(bif_d, "./data/validation/climr_bif-valence_separate.csv", row.names = FALSE)
+write.csv(bif_d_sep, "./data/validation/climr_bif-valence_separate.csv", row.names = FALSE)

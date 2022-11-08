@@ -145,6 +145,9 @@ if (validation_reports == TRUE) {
   source("./R/validation/CLIMR-validation-2_exploration.R")
   source("./R/validation/CLIMR-validation_data_visualization.R")
   source("./R/validation/CLIMR-validation-studies_summary.R")
+  source("./R/validation/CLIMR-bif-valence-separate-pretest_import-analyze.R")
+  source("./R/validation/CLIMR-bif-valence-relative-pretest_import-analyze.R")
+  source("./R/validation/CLIMR-bif-valence-exploration.R")
 }
 
 # Reports ----------------------------------------------------------------------

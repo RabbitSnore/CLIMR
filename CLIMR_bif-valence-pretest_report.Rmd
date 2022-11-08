@@ -11,9 +11,6 @@ knit: (function(input_file, encoding) {
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 
-source("./R/validation/CLIMR-bif-valence-separate-pretest_import-analyze.R")
-source("./R/validation/CLIMR-bif-valence-exploration.R")
-
 ```
 
 # Overview
@@ -27,7 +24,7 @@ such that the abstract option is more positively valenced than the concrete
 option.
 
 ```{r}
-bif_d %>% 
+bif_d_sep %>% 
   knitr::kable()
 ```
 
@@ -35,8 +32,46 @@ Combining across the items, the valence difference in response options appears
 to be non-trivial.
 
 ```{r}
-bif_scale_smd
+bif_scale_smd_sep
 ```
+
+# Relative Judgments of Item Response Options
+
+When judged relatively, the response options for each item are again generally
+rated such that the abstract option is more positively valenced than the
+concrete option.
+
+```{r}
+bif_d_rel %>% 
+  knitr::kable()
+```
+
+Combining across the items, the valence difference across items appears to be
+slightly larger for relative judgments than for separate judgments.
+
+```{r}
+bif_scale_smd_rel
+```
+
+There is a strong correspondence between the separate and relative judgments.
+
+```{r, echo = FALSE}
+bif_d_rel %>% 
+  select(everything(), d_rel = d) %>% 
+  left_join(select(bif_d_sep, item, d_sep = d), by = "item") %>% 
+  ggplot(
+    aes(
+      x = d_sep,
+      y = d_rel
+    )
+  ) +
+  geom_point() +
+  theme_classic()
+```
+
+Item 13, which concerns voting, appeared to have discrepant results in the two
+judgment modes. This may be because the abstract option ("influencing an
+election") could come across as nefarious when viewed in isolation.
 
 # Examination of the Effects of Valence Differences on Response Patterns
 
@@ -73,7 +108,7 @@ We see below that a series of LRTs indicates that adding valence does not offer
 significant improvement to the model, nor does adding the interaction term.
 
 ```{r}
-lrt_val
+lrt_val_sep
 ```
 
 It can nevertheless be informative to examine the detailed model output.
@@ -89,9 +124,40 @@ summary(model_soc)
 ```
 
 ```{r}
-summary(model_val)
+summary(model_val_sep)
 ```
 
 ```{r}
-summary(model_val_int)
+summary(model_val_sep_int)
 ```
+
+We can take a similar approach with the relative judgments. Below, we see that
+adding the valence differences measured with relative judgments offered
+significant improvement to the model, though the interaction between social
+distance and the valence differences was again nonsignificant.
+
+```{r}
+lrt_val_rel
+```
+
+We can also examine the detailed model output. Here, we see that the valence
+difference measured with relative judgments are highly predictive of responses
+to the BIF items. However, controlling for this effect does not appear to alter
+the effect for social distance.
+
+```{r}
+summary(model_val_rel)
+```
+
+```{r}
+summary(model_val_rel_int)
+```
+
+In summary, it appears that in a situation in which it is plausible that people
+would be motivated to describe a person's actions positively, the valence
+differences in the BIF item response options (when assessed through a relative
+judgment) is a strong predictor of BIF item responses. However, this effect
+appears to be non-redundant with potential effects of psychological distance,
+and importantly, there is no evidence from these data that these variables
+interact.
+
