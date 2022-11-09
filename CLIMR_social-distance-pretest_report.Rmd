@@ -31,3 +31,9 @@ knitr::include_graphics("./figures/climr_social-distance-pretest-histogram.png")
 close_cor_mat
 ```
 
+# Effects of Social Distance on Other Variables
+
+```{r}
+supplement_d
+```
+

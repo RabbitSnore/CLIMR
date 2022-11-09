@@ -41,9 +41,9 @@ source("./R/functions/CLIMR_effect_size_functions.R")
 #   type_convert()
 # 
 # raw <- raw %>%
-#   select(id = ResponseId, 
+#   select(id = ResponseId,
 #          Finished, Age, Gender,
-#          Close_rating, Similar, Likeable, Warm, Competent, Skilled, Conventional, Eccentric, Immune,
+#          Close_rating, Similar, Familiar, Likeable, Warm, Competent, Skilled, Conventional, Eccentric, Immune,
 #          starts_with("q_"), Distance, age_pipe, name_pipe)
 # 
 # colnames(raw) <- tolower(colnames(raw))
@@ -91,7 +91,20 @@ ggplot(soc_dist,
   ) +
   theme_classic()
 
-close_cor_mat <- cor(select(soc_dist, close_rating, warm, competent, likeable, skilled, conventional, eccentric, immune))
+close_cor_mat <- cor(select(soc_dist, close_rating, similar, familiar, warm, competent, likeable, skilled, conventional, eccentric, immune))
+
+# Additional Measures
+
+similar_d      <- d_calc("Similar", soc_dist$distance, soc_dist$similar, "Close", "Distant")
+familiar_d     <- d_calc("Familiar", soc_dist$distance, soc_dist$familiar, "Close", "Distant")
+warm_d         <- d_calc("Warm", soc_dist$distance, soc_dist$warm, "Close", "Distant")
+competent_d    <- d_calc("Competent", soc_dist$distance, soc_dist$competent, "Close", "Distant")
+likeable_d     <- d_calc("Likeable", soc_dist$distance, soc_dist$likeable, "Close", "Distant")
+skilled_d      <- d_calc("Skilled", soc_dist$distance, soc_dist$skilled, "Close", "Distant")
+conventional_d <- d_calc("Conventional", soc_dist$distance, soc_dist$conventional, "Close", "Distant")
+eccentric_d    <- d_calc("Eccentric", soc_dist$distance, soc_dist$eccentric, "Close", "Distant")
+
+supplement_d <- rbind(similar_d, familiar_d, warm_d, competent_d, likeable_d, skilled_d, conventional_d, eccentric_d)
 
 # Immune system
 
