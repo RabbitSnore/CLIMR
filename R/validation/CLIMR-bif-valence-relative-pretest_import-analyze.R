@@ -73,7 +73,7 @@ if (!dir.exists("./data/validation/")) {
   
 }
 
-if (!file.exists("/data/validation/validation/climr_bif-valence-relative-pretest-data.csv")) {
+if (!file.exists("./data/validation/validation/climr_bif-valence-relative-pretest-data.csv")) {
   
   osf_retrieve_file("636a537b4a18c602898e8476") %>% 
     osf_download(path = "./data/validation/",

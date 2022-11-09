@@ -1,0 +1,33 @@
+---
+title: "Construal Level International Multilab Replication (CLIMR) Project: Pretest of Social distance Manipulation"
+author: "CLIMR Team"
+date: "`r Sys.Date()`"
+output: github_document
+knit: (function(input_file, encoding) {
+    rmarkdown::render(input_file, github_document(html_preview = FALSE), encoding = encoding, output_dir = "./reports/")
+  })
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+```
+
+# Overview
+
+The documentation for this pretest is provided here: https://osf.io/ahyvj/
+
+# Effect of Social Distance Manipulation on Ratings of Closeness
+
+```{r}
+distance_d
+```
+
+```{r}
+knitr::include_graphics("./figures/climr_social-distance-pretest-histogram.png")
+```
+
+```{r}
+close_cor_mat
+```
+

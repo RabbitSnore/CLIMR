@@ -148,6 +148,7 @@ if (validation_reports == TRUE) {
   source("./R/validation/CLIMR-bif-valence-separate-pretest_import-analyze.R")
   source("./R/validation/CLIMR-bif-valence-relative-pretest_import-analyze.R")
   source("./R/validation/CLIMR-bif-valence-exploration.R")
+  source("./R/validation/CLIMR-social-distance-pretest.R")
 }
 
 # Reports ----------------------------------------------------------------------
@@ -178,5 +179,6 @@ if (validation_reports == TRUE) {
   climr_report("CLIMR_validation_report.Rmd")
   climr_report("CLIMR_validation-2_report.Rmd")
   climr_report("CLIMR_bif-valence-pretest_report.Rmd")
+  climr_report("CLIMR_social-distance-pretest_report.Rmd")
   
 }
