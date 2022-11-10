@@ -37,3 +37,13 @@ close_cor_mat
 supplement_d
 ```
 
+# Effects of Social Distance on Process Variables
+
+```{r}
+process_cor
+```
+
+```{r}
+process_d
+```
+

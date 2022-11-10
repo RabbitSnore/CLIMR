@@ -2,7 +2,7 @@ Construal Level International Multilab Replication (CLIMR) Project:
 Pretest of Social distance Manipulation
 ================
 CLIMR Team
-2022-11-09
+2022-11-10
 
 # Overview
 
@@ -55,3 +55,28 @@ supplement_d
     ## 6      Skilled 0.6327340 0.01400507 0.39984011 0.8656279
     ## 7 Conventional 0.3849556 0.01358198 0.15560658 0.6143047
     ## 8    Eccentric 0.3154763 0.01350032 0.08681773 0.5441349
+
+# Effects of Social Distance on Process Variables
+
+``` r
+process_cor
+```
+
+    ##              close_rating q_difficult    q_clear q_detailed    q_vague     q_real
+    ## close_rating    1.0000000  -0.2969455  0.3367946  0.3825411 -0.3699263  0.2291956
+    ## q_difficult    -0.2969455   1.0000000 -0.6669431 -0.6122062  0.6838678 -0.5953060
+    ## q_clear         0.3367946  -0.6669431  1.0000000  0.7673690 -0.6878542  0.6582154
+    ## q_detailed      0.3825411  -0.6122062  0.7673690  1.0000000 -0.7442712  0.5658119
+    ## q_vague        -0.3699263   0.6838678 -0.6878542 -0.7442712  1.0000000 -0.4367884
+    ## q_real          0.2291956  -0.5953060  0.6582154  0.5658119 -0.4367884  1.0000000
+
+``` r
+process_d
+```
+
+    ##          ID          d        var   ci_lower   ci_upper
+    ## 1 Difficult -0.5363727 0.01381604 -0.7676896 -0.3050559
+    ## 2     Clear  0.5696060 0.01387771  0.3377734  0.8014386
+    ## 3  Detailed  0.6650961 0.01407554  0.4316170  0.8985752
+    ## 4     Vague -0.7414190 0.01425565 -0.9763871 -0.5064508
+    ## 5      Real  0.3507433 0.01353974  0.1217511  0.5797356

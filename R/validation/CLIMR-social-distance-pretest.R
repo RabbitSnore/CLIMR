@@ -106,6 +106,18 @@ eccentric_d    <- d_calc("Eccentric", soc_dist$distance, soc_dist$eccentric, "Cl
 
 supplement_d <- rbind(similar_d, familiar_d, warm_d, competent_d, likeable_d, skilled_d, conventional_d, eccentric_d)
 
+# Process items
+
+process_cor <- cor(select(soc_dist, close_rating, starts_with("q_")))
+
+difficult_d  <- d_calc("Difficult", soc_dist$distance, soc_dist$q_difficult, "Close", "Distant")
+clear_d     <- d_calc("Clear", soc_dist$distance, soc_dist$q_clear, "Close", "Distant")
+detailed_d  <- d_calc("Detailed", soc_dist$distance, soc_dist$q_detailed, "Close", "Distant")
+vague_d     <- d_calc("Vague", soc_dist$distance, soc_dist$q_vague, "Close", "Distant")
+real_d      <- d_calc("Real", soc_dist$distance, soc_dist$q_real, "Close", "Distant")
+
+process_d <- rbind(difficult_d, clear_d, detailed_d, vague_d, real_d)
+
 # Immune system
 
 immune_d <- d_calc("Immunity", soc_dist$distance, soc_dist$immune, "Close", "Distant")
