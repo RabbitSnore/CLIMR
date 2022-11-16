@@ -135,6 +135,11 @@ source("./R/analyze/CLIMR_seoi.R")
 
 ### Validations and pretests
 
+# The BIF response option valence difference data is needed for the robustness
+# checks, but the rest of the validation analyses are not needed for the main
+# results
+source("./R/validation/CLIMR-bif-valence-relative-pretest_import-analyze.R")
+
 if (validation_reports == TRUE) {
   
   source("./R/validation/CLIMR-validation_data_importation.R")
@@ -146,10 +151,15 @@ if (validation_reports == TRUE) {
   source("./R/validation/CLIMR-validation_data_visualization.R")
   source("./R/validation/CLIMR-validation-studies_summary.R")
   source("./R/validation/CLIMR-bif-valence-separate-pretest_import-analyze.R")
-  source("./R/validation/CLIMR-bif-valence-relative-pretest_import-analyze.R")
+  
   source("./R/validation/CLIMR-bif-valence-exploration.R")
   source("./R/validation/CLIMR-social-distance-pretest.R")
+  
 }
+
+### Response option valence differences
+
+# ADD SOURCE HERE
 
 # Reports ----------------------------------------------------------------------
 

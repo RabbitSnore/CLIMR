@@ -250,3 +250,89 @@ seoi_complete <- data.frame(
     rep("Expert", seoi_clt_n)
   )
 )
+
+# Raw BIF data simulation ------------------------------------------------------
+
+# Temporal
+
+bif_columns_temporal <- matrix(
+  rep(NA, 25 * nrow(str_temporal)),
+  nrow = nrow(str_temporal)) %>% 
+  as.data.frame()
+
+colnames(bif_columns_temporal) <- paste("bif_", str_pad(1:25, width = 2, pad = "0"), sep = "")
+
+bif_temporal_long <- bind_cols(str_temporal, bif_columns_temporal) %>% 
+  pivot_longer(
+    cols      = starts_with("bif"),
+    names_to  = "item",
+    values_to = "bif"
+  ) %>% 
+  select(-bif)
+
+model_bif_temporal <- makeGlmer(bif ~ condition + (1|lab:sub) + (1|lab) + (1|item) , family = binomial(link = "logit"), fixef = fixed, VarCorr = list(.01, .05, .01), data = bif_temporal_long)
+
+data_bif_temporal <- getData(model_bif_temporal)
+
+# Spatial
+
+bif_columns_spatial <- matrix(
+  rep(NA, 25 * nrow(str_spatial)),
+  nrow = nrow(str_spatial)) %>% 
+  as.data.frame()
+
+colnames(bif_columns_spatial) <- paste("bif_", str_pad(1:25, width = 2, pad = "0"), sep = "")
+
+bif_spatial_long <- bind_cols(str_spatial, bif_columns_spatial) %>% 
+  pivot_longer(
+    cols      = starts_with("bif"),
+    names_to  = "item",
+    values_to = "bif"
+  ) %>% 
+  select(-bif)
+
+model_bif_spatial <- makeGlmer(bif ~ condition + (1|lab:sub) + (1|lab) + (1|item) , family = binomial(link = "logit"), fixef = fixed, VarCorr = list(.01, .05, .01), data = bif_spatial_long)
+
+data_bif_spatial <- getData(model_bif_spatial)
+
+# Social
+
+bif_columns_social <- matrix(
+  rep(NA, 25 * nrow(str_social)),
+  nrow = nrow(str_social)) %>% 
+  as.data.frame()
+
+colnames(bif_columns_social) <- paste("bif_", str_pad(1:25, width = 2, pad = "0"), sep = "")
+
+bif_social_long <- bind_cols(str_social, bif_columns_social) %>% 
+  pivot_longer(
+    cols      = starts_with("bif"),
+    names_to  = "item",
+    values_to = "bif"
+  ) %>% 
+  select(-bif)
+
+model_bif_social <- makeGlmer(bif ~ condition + (1|lab:sub) + (1|lab) + (1|item) , family = binomial(link = "logit"), fixef = fixed, VarCorr = list(.01, .05, .01), data = bif_social_long)
+
+data_bif_social <- getData(model_bif_social)
+
+# Likelihood
+
+bif_columns_likelihood <- matrix(
+  rep(NA, 25 * nrow(str_likelihood)),
+  nrow = nrow(str_likelihood)) %>% 
+  as.data.frame()
+
+colnames(bif_columns_likelihood) <- paste("bif_", str_pad(1:25, width = 2, pad = "0"), sep = "")
+
+bif_likelihood_long <- bind_cols(str_likelihood, bif_columns_likelihood) %>% 
+  pivot_longer(
+    cols      = starts_with("bif"),
+    names_to  = "item",
+    values_to = "bif"
+  ) %>% 
+  select(-bif)
+
+model_bif_likelihood <- makeGlmer(bif ~ condition + (1|lab:sub) + (1|lab) + (1|item) , family = binomial(link = "logit"), fixef = fixed, VarCorr = list(.01, .05, .01), data = bif_likelihood_long)
+
+data_bif_likelihood <- getData(model_bif_likelihood)
