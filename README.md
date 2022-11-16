@@ -5,11 +5,11 @@ Construal Level Theory (CLT):
 
 Liberman, N., & Trope, Y. (1998). The role of feasibility and desirability
 considerations in near and distant future decisions: A test of temporal
-construal theory. _Journal of Personality and Social Psychology, 75_(1), 5-18.
+construal theory. *Journal of Personality and Social Psychology, 75*(1), 5-18.
 Experiment 1.
 
 Fujita, K., Henderson, M., Eng, J., Trope, Y., & Liberman, N. (2006). Spatial
-distance and mental construal of social events. _Psychological Science, 14_,
+distance and mental construal of social events. *Psychological Science, 14*,
 278-282. Experiment 1.
 
 In addition to close replications of these two studies, this project also
@@ -19,11 +19,23 @@ distance.
 ## Compendium Structure
 
 The CLIMR project compendium comprises two main parts, one hosted on the Open
-Science Framework (OSF; https://osf.io/ra3dp/) and one hosted on GitHub
-(https://github.com/RabbitSnore/CLIMR). The OSF repository for CLIMR contains
+Science Framework (OSF; <https://osf.io/ra3dp/>) and one hosted on GitHub
+(<https://github.com/RabbitSnore/CLIMR>). The OSF repository for CLIMR contains
 the materials, methods, and data (when data are collected). The GitHub
 repository contains the code necessary to execute and reproduce the statistical
 analyses for the project.
+
+This repository is structured as follows:  
+
+- The source file for compiling the project is located in the root directory.
+- The source files to render analysis reports (i.e., `.Rmd` files) in the root
+directory. - The source files for data wrangling, visualization, simulation,
+effect calculation, and analysis are located in the `/R/` directory.
+- Rendered figures are located in the `/figures/` directory.  
+- Some data are located in the `/data/` directory, and data required for
+analyses will be downloaded automatically from the Open Science Framework as
+required.
+- Rendered reports are located in the `/reports/` directory.
 
 ## (Re-)Building the Project
 
@@ -34,9 +46,7 @@ webpage](https://resources.github.com/whitepapers/github-and-rstudio/) has
 information about how to clone repositories in R Studio. Once you have cloned
 the repository, open the project in R Studio, and run the following code:
 
-```
-source("CLIMR_build_project.R")
-```
+> `source("CLIMR_build_project.R")`
 
 Running this script will install all necessary packages and build the project,
 including all effect size calculations, meta-analytic models, data
