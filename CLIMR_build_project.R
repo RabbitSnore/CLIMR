@@ -157,9 +157,9 @@ if (validation_reports == TRUE) {
   
 }
 
-### Response option valence differences
+### BIF item response option valence difference robustness check
 
-# ADD SOURCE HERE
+source("./R/analyze/CLIMR_valence_analyses.R")
 
 # Reports ----------------------------------------------------------------------
 
@@ -180,6 +180,10 @@ climr_report("CLIMR_modality_moderation_supplement.Rmd")
 ### Smallest effect of interest
 
 climr_report("CLIMR_seoi_report.Rmd")
+
+### BIF item response option valence difference robustness check
+
+climr_report("CLIMR_valence-robustness-check_report.Rmd")
 
 ## Validation and pretest reports
 
