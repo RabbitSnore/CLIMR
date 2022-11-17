@@ -10,7 +10,7 @@ output:
   pdf_document:
     toc: yes
 knit: (function(input_file, encoding) {
-    rmarkdown::render(input_file, encoding = encoding, output_dir = "./reports/")
+    rmarkdown::render(input_file, rmarkdown::github_document(html_preview = FALSE), encoding = encoding, output_dir = "./reports/")
   })
 ---
 

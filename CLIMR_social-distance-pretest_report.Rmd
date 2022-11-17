@@ -4,7 +4,7 @@ author: "CLIMR Team"
 date: "`r Sys.Date()`"
 output: github_document
 knit: (function(input_file, encoding) {
-    rmarkdown::render(input_file, github_document(html_preview = FALSE), encoding = encoding, output_dir = "./reports/")
+    rmarkdown::render(input_file, rmarkdown::github_document(html_preview = FALSE), encoding = encoding, output_dir = "./reports/")
   })
 ---
 
