@@ -51,6 +51,14 @@ codebook_base   <- FALSE
 
 validation_reports <- FALSE
 
+## Force package updates
+
+# Set this parameter to true if you want to force installation of all required
+# packages. This can be useful if you are encountering errors that may be caused
+# by outdated packages.
+
+force_update <- FALSE
+
 # Set up environment -----------------------------------------------------------
 
 ## Check and install necessary packages for the project
@@ -65,9 +73,15 @@ installation_list <- dependencies[!(dependencies %in% rownames(installed.package
 
 ### Install necessary packages
 
-if (length(installation_list) > 0) {
+if (length(installation_list) > 0 & force_update == FALSE) {
   
   install.packages(installation_list, dependencies = TRUE)
+  
+}
+
+if (force_update == TRUE) {
+  
+  install.packages(dependencies, dependencies = TRUE)
   
 }
 

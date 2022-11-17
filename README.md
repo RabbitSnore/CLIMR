@@ -27,10 +27,10 @@ analyses for the project.
 
 This repository is structured as follows:  
 
-- The source file for compiling the project is located in the root directory.
+- The source file for compiling the project is located in the root directory.  
 - The source files to render analysis reports (i.e., `.Rmd` files) in the root
 directory. - The source files for data wrangling, visualization, simulation,
-effect calculation, and analysis are located in the `/R/` directory.
+effect calculation, and analysis are located in the `/R/` directory.  
 - Rendered figures are located in the `/figures/` directory.  
 - Some data are located in the `/data/` directory, and data required for
 analyses will be downloaded automatically from the Open Science Framework as
@@ -72,3 +72,33 @@ Currently, the project is configured so that it will simulate data by default,
 rather than load real data. No actual data for the main replication studies have
 been collected. When data collection for the project is complete, the code will
 be updated to import the publicly available data set by default.
+
+# Technical Information
+
+The CLIMR project analysis code was built using R 4.1.3. The packages required
+for the project are listed below with the version number with which the code has
+been tested.
+
+If you are attempting to reproduce the analyses and encountering errors, some
+issues may be resolved by updating R and/or the required packages. For
+convenience, you can set the `force_update` parameter in `CLIMR_build_project.R`
+to `TRUE` if you want to update and (re)install all the required packages.
+
+```
+  Package  Version
+   cowplot   1.1.1
+     dplyr  1.0.10
+ggbeeswarm   0.6.0
+   ggplot2   3.4.0
+  ggstance   0.3.6
+   leaflet   2.1.1
+      lme4  1.1-31
+   metafor   3.8-1
+      osfr   0.2.9
+     readr   2.1.3
+ rmarkdown    2.18
+      simr   1.0.6
+   stringr   1.4.1
+     tidyr   1.2.1
+   viridis   0.6.2
+```
