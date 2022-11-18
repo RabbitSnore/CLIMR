@@ -147,6 +147,11 @@ source("./R/analyze/CLIMR_modality_moderation.R")
 
 source("./R/analyze/CLIMR_seoi.R")
 
+### Manipulation checks
+
+source("./R/calculate/CLIMR_calculate_manipulation_check_effects.R")
+source("./R/analyze/CLIMR_manipulation_checks.R")
+
 ### Validations and pretests
 
 # The BIF response option valence difference data is needed for the robustness
@@ -194,6 +199,10 @@ climr_report("CLIMR_modality_moderation_supplement.Rmd")
 ### Smallest effect of interest
 
 climr_report("CLIMR_seoi_report.Rmd")
+
+### Manipulation checks
+
+climr_report("CLIMR_manipulation_check_supplement.Rmd")
 
 ### BIF item response option valence difference robustness check
 

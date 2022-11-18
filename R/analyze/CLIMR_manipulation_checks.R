@@ -1,50 +1,50 @@
-#######################################################################
+################################################################################
 
-# CLIMR -- Meta-analysis of manipulation checks
+# CLIMR -- Meta-Analytic Models for Manipulation Checks
 
-#######################################################################
+################################################################################
 
-# Set up environment --------------------------------------------------
+# Set up environment -----------------------------------------------------------
 
 ## Load functions
 
+source("./R/functions/CLIMR_visualization_functions.R")
 source("./R/functions/CLIMR_meta_analytic_functions.R")
 
-# Meta-analysis for each experiment -----------------------------------
+# Meta-analysis and forest plot for each experiment ----------------------------
 
-## Liberman et al. (2002, Study 1): Temporal Distance -----------------
+## Liberman & Trope (1998, Study 1): Temporal Distance -------------------------
 
 ### Primary meta-analysis
 
 meta_mc_temporal <- rma(
   yi = d, 
   vi = var, 
-  data = effects_temporal_mc)
+  data = effects_mc_temporal)
 
-## Liberman & Trope (1998, Study 1): Temporal Distance ----------------
-
-### Primary meta-analysis
-
-meta_mc_temporal_2 <- rma(
-  yi = d, 
-  vi = var, 
-  data = effects_temporal_2_mc)
-
-## Henderson et al. (2006, Study 1): Spatial Distance -----------------
+## Fujita et al. (2006, Study 1): Spatial Distance -----------------------------
 
 ### Primary meta-analysis
 
 meta_mc_spatial <- rma(
   yi = d, 
   vi = var, 
-  data = effects_spatial_mc)
+  data = effects_mc_spatial)
 
-## Wakslak et al. (2006, Study 1): Likelihood Distance ----------------
+## Social Distance (Conceptual Replication) ------------------------------------
+
+### Primary meta-analysis
+
+meta_mc_social <- rma(
+  yi = d, 
+  vi = var, 
+  data = effects_mc_social)
+
+## Likelihood Distance (Conceptual Replication) --------------------------------
 
 ### Primary meta-analysis
 
 meta_mc_likelihood <- rma(
   yi = d, 
   vi = var, 
-  data = effects_likelihood_mc)
-
+  data = effects_mc_likelihood)

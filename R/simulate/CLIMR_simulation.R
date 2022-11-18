@@ -336,3 +336,21 @@ bif_likelihood_long <- bind_cols(str_likelihood, bif_columns_likelihood) %>%
 model_bif_likelihood <- makeGlmer(bif ~ condition + (1|lab:sub) + (1|lab) + (1|item) , family = binomial(link = "logit"), fixef = fixed, VarCorr = list(.01, .05, .01), data = bif_likelihood_long)
 
 data_bif_likelihood <- getData(model_bif_likelihood)
+
+# Manipulation checks ----------------------------------------------------------
+
+model_mc_temporal   <- makeLmer(y ~ condition + (1|lab), fixef = fixed, VarCorr = temporal_variances, sigma = 1, data = str_temporal)
+
+data_mc_temporal    <- getData(model_mc_temporal)
+
+model_mc_spatial    <- makeLmer(y ~ condition + (1|lab), fixef = fixed, VarCorr = spatial_variances, sigma = 1, data = str_spatial)
+
+data_mc_spatial     <- getData(model_mc_spatial)
+
+model_mc_social     <- makeLmer(y ~ condition + (1|lab), fixef = fixed, VarCorr = social_variances, sigma = 1, data = str_social)
+
+data_mc_social      <- getData(model_mc_social)
+
+model_mc_likelihood <- makeLmer(y ~ condition + (1|lab), fixef = fixed, VarCorr = likelihood_variances, sigma = 1, data = str_likelihood)
+
+data_mc_likelihood  <- getData(model_mc_likelihood)

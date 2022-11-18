@@ -29,7 +29,8 @@ This repository is structured as follows:
 
 - The source file for compiling the project is located in the root directory.  
 - The source files to render analysis reports (i.e., `.Rmd` files) in the root
-directory. - The source files for data wrangling, visualization, simulation,
+directory.  
+- The source files for data wrangling, visualization, simulation,
 effect calculation, and analysis are located in the `/R/` directory.  
 - Rendered figures are located in the `/figures/` directory.  
 - Some data are located in the `/data/` directory, and data required for
