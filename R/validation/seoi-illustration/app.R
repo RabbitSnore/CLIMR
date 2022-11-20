@@ -5,14 +5,13 @@
 ################################################################################
 
 library(shiny)
-
-packages <- c("dplyr", "ggplot2", "bslib")
-
-lapply(packages, library, character.only = TRUE)
+library(ggplot2)
+library(bslib)
 
 # User interface ---------------------------------------------------------------
 
 ui <- fluidPage(
+  
   theme = bs_theme(version = 5, bootswatch = "zephyr"),
 
   # Title
@@ -46,6 +45,7 @@ ui <- fluidPage(
                     step  = 0.01,
                     round = FALSE,
                     value = 0,
+                    pre   = "&delta; = ",
                     width = "75%")
         )
 
