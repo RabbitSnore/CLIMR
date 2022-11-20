@@ -68,8 +68,8 @@ server <- function(input, output) {
   output$distribution_plot <- renderPlot({
     
     df <- data.frame(
-      x = -8:8,
-      y = seq(0, 1, 1/16)
+      x = -4:6,
+      y = seq(0, 1, 1/10)
     )
     
     ggplot(df,
