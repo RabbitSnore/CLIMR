@@ -113,7 +113,13 @@ server <- function(input, output) {
   
   output$stat_summary <- renderText(
     
-    paste("<br>Any standardized mean difference in the population greater than ", "&delta;", " = ", format(as.numeric(input$smd), nsmall = 2, digits = 2), " would be regarded as support for the theoretical hypothesis.<br><br>If a well-conducted study estimated this effect with a confidence interval whose upper bound excluded ", format(as.numeric(input$smd), nsmall = 2, digits = 2), ", the result would be incompatible with the theoretical hypothesis.", "<br><br>", sep = "")
+    paste("<br>Any standardized mean difference in the population greater than
+    ", "&delta;", " = ", format(as.numeric(input$smd), nsmall = 2, digits =
+    2), " would be regarded as support for the theoretical
+    hypothesis.<br><br>If a well-conducted study estimated this effect with a
+    confidence interval whose upper bound excluded ",
+    format(as.numeric(input$smd), nsmall = 2, digits = 2), ", the result would
+    be incompatible with the theoretical hypothesis.", "<br><br>", sep = "")
     
   )
 }
