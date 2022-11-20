@@ -27,19 +27,27 @@ ui <- fluidPage(
           
           # Main Plot
           
-          tabPanel("Plot", plotOutput("distribution_plot",
+          tabPanel("Plot",
+                   em("These normal distributions (SD = 1) illustrate the 
+                      specified effect size."),
+                   br(),
+                   em("The distributions represent the data from each group in a
+                      two-group experiment."),
+                   plotOutput("distribution_plot",
                                       width = "100%")),
           
           # Statistical Summary
           
-          tabPanel("Verbal Summary", htmlOutput("stat_summary"))
+          tabPanel("Verbal Summary",
+                   strong("Your input can be summarized as follows:"),
+                   htmlOutput("stat_summary"))
           
         ),
         
         # Mean Difference Input
         
         sliderInput("smd",
-                    "Input a Population Standardized Mean Difference",
+                    "Specify a Population Standardized Mean Difference",
                     min   = 0.00,
                     max   = 2.50,
                     step  = 0.01,
@@ -105,7 +113,7 @@ server <- function(input, output) {
   
   output$stat_summary <- renderText(
     
-    paste("Your input can be summarized as follows:<br><br>Any standardized mean difference in the population greater than ", "&delta;", " = ", format(as.numeric(input$smd), nsmall = 2, digits = 2), " would be regarded as support for the theoretical hypothesis.<br><br>If a well-conducted study estimated this effect with a confidence interval whose upper bound excluded ", format(as.numeric(input$smd), nsmall = 2, digits = 2), ", the result would be incompatible with the theoretical hypothesis.", "<br><br>", sep = "")
+    paste("<br>Any standardized mean difference in the population greater than ", "&delta;", " = ", format(as.numeric(input$smd), nsmall = 2, digits = 2), " would be regarded as support for the theoretical hypothesis.<br><br>If a well-conducted study estimated this effect with a confidence interval whose upper bound excluded ", format(as.numeric(input$smd), nsmall = 2, digits = 2), ", the result would be incompatible with the theoretical hypothesis.", "<br><br>", sep = "")
     
   )
 }
