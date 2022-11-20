@@ -115,7 +115,7 @@ forest_spatial <- forest_plot(
   study_color      = fujita_2006_color
 )
 
-## Social Distance (Conceptual Replication) ------------------------------------
+## Social Distance (Paradigmatic Replication) ----------------------------------
 
 ### Primary meta-analysis
 
@@ -155,7 +155,7 @@ forest_social <- forest_plot(
   study_color      = social_color
 )
 
-## Likelihood Distance (Conceptual Replication) --------------------------------
+## Likelihood Distance (Paradigmatic Replication) ------------------------------
 
 ### Primary meta-analysis
 
