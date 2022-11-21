@@ -5,9 +5,9 @@ account: rabbitsnore
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 7681279
-bundleId: 6535996
+bundleId: 6540873
 url: https://rabbitsnore.shinyapps.io/seoi-illustration/
-when: 1668981448.81325
-lastSyncTime: 1668981448.81326
+when: 1669070389.50239
+lastSyncTime: 1669070389.5024
 asMultiple: FALSE
 asStatic: FALSE

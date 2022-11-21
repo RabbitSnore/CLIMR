@@ -53,7 +53,7 @@ ui <- fluidPage(
                     step  = 0.01,
                     round = FALSE,
                     value = 0,
-                    pre   = "&delta; = ",
+                    pre   = "d = ",
                     width = "75%")
         )
 
@@ -111,15 +111,37 @@ server <- function(input, output) {
     
   })
   
+  text <- reactive({
+    
+    if (as.numeric(input$smd) > 0) {
+      
+      text <- paste("<br>Any standardized mean difference in the population 
+                    greater than or equal to d = ", 
+                    format(as.numeric(input$smd), nsmall = 2, digits = 2), 
+                    " would be regarded as support for the theoretical 
+                    hypothesis.<br><br> If a well-conducted study estimated this
+                    effect with a confidence interval (with a prespecified 
+                    width) whose upper bound excluded ", 
+                    format(as.numeric(input$smd), nsmall = 2, digits = 2), 
+                    ", the result would be incompatible with the theoretical 
+                    hypothesis.", "<br><br>", sep = "")
+      
+    } else {
+      
+      text <- paste("<br>Since it would suggest that a population effect equal 
+                    to 0 would be support for the theoretical hypothesis, d = 0 
+                    is not a useful smallest effect of interest.<br><br>Please 
+                    select a value greater than 0.<br><br>", sep = "")
+      
+    }
+    
+    return(text)
+    
+  })
+  
   output$stat_summary <- renderText(
     
-    paste("<br>Any standardized mean difference in the population greater than
-    ", "&delta;", " = ", format(as.numeric(input$smd), nsmall = 2, digits = 2), 
-    " would be regarded as support for the theoretical hypothesis.<br><br>If a 
-    well-conducted study estimated this effect with a confidence interval (with 
-    a prespecified width) whose upper bound excluded ", 
-    format(as.numeric(input$smd), nsmall = 2, digits = 2), ", the result would 
-    be incompatible with the theoretical hypothesis.", "<br><br>", sep = "")
+    text()
     
   )
 }
