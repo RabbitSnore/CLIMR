@@ -2,7 +2,7 @@ Construal Level International Multilab Replication (CLIMR) Project:
 Pretest of Valence Differences in BIF Item Response Options
 ================
 CLIMR Team
-2022-11-08
+2022-11-22
 
 # Overview
 

@@ -154,30 +154,48 @@ source("./R/analyze/CLIMR_manipulation_checks.R")
 
 ### Validations and pretests
 
-# The BIF response option valence difference data is needed for the robustness
+# The BIF response option valence difference data are needed for the robustness
 # checks, but the rest of the validation analyses are not needed for the main
 # results
 source("./R/validation/CLIMR-bif-valence-relative-pretest_import-analyze.R")
 
 if (validation_reports == TRUE) {
   
+  # Validation of construal level measures
+  
   source("./R/validation/CLIMR-validation_data_importation.R")
   source("./R/validation/CLIMR-validation-2_data_importation.R")
+  
   source("./R/validation/CLIMR-validation_effect_calculations.R")
   source("./R/validation/CLIMR-validation-2_effect_calculations.R")
+  
   source("./R/validation/CLIMR-validation_exploration.R")
   source("./R/validation/CLIMR-validation-2_exploration.R")
   source("./R/validation/CLIMR-validation_data_visualization.R")
+  
   source("./R/validation/CLIMR-validation-studies_summary.R")
+  
+  # BIF item relevance to event in the likelihood replication
+  
+  source("./R/validation/CLIMR-action-relevance-pretest_data_importation.R")
+  source("./R/validation/CLIMR-action-relevance-pretest_analysis.R")
+  
+  # BIF item response option valence differences
+  
   source("./R/validation/CLIMR-bif-valence-separate-pretest_import-analyze.R")
   
   source("./R/validation/CLIMR-bif-valence-exploration.R")
+  
+  # Social distance manipulation pretest
+  
   source("./R/validation/CLIMR-social-distance-pretest.R")
   
 }
 
 ### BIF item response option valence difference robustness check
 
+# Note that these analyses are computationally intensive. They can take several
+# minutes to calculate.
 source("./R/analyze/CLIMR_valence_analyses.R")
 
 # Reports ----------------------------------------------------------------------
@@ -215,6 +233,7 @@ if (validation_reports == TRUE) {
   climr_report("CLIMR_bif_report.Rmd")
   climr_report("CLIMR_validation_report.Rmd")
   climr_report("CLIMR_validation-2_report.Rmd")
+  climr_report("CLIMR_action-relevance-pretest_report.Rmd")
   climr_report("CLIMR_bif-valence-pretest_report.Rmd")
   climr_report("CLIMR_social-distance-pretest_report.Rmd")
   

@@ -2,7 +2,7 @@ Construal Level International Multilab Replication (CLIMR) Project:
 Examination of Behavior Identification Form (BIF) Item Behavior
 ================
 CLIMR Team
-2022-11-04
+2022-11-22
 
 # Behavior Identification Form (BIF) - Distance Manipulation by Item Interaction
 

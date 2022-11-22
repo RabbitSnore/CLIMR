@@ -2,7 +2,7 @@ Construal Level International Multilab Replication (CLIMR) Project:
 Pretest of Social distance Manipulation
 ================
 CLIMR Team
-2022-11-10
+2022-11-22
 
 # Overview
 

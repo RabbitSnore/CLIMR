@@ -2,7 +2,7 @@ Construal Level International Multilab Replication (CLIMR) Project:
 Interval Estimate Validation Report
 ================
 CLIMR Team
-2022-11-04
+2022-11-22
 
 # Krüger et al. (2014) Study 4, close replication
 
