@@ -4,6 +4,8 @@ Interval Estimate Validation Report
 CLIMR Team
 2022-11-22
 
+These validations are documented here: <https://osf.io/kgrs9/>
+
 # Krüger et al. (2014) Study 4, close replication
 
 ``` r

@@ -20,6 +20,8 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ```
 
+These validations are documented here: https://osf.io/kgrs9/
+
 # Krüger et al. (2014) Study 4, close replication
 
 ```{r}

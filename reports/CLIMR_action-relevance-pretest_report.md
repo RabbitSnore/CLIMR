@@ -4,6 +4,11 @@ Item Action Relevance Pretest Report
 CLIMR Team
 2022-11-22
 
+# Overview
+
+The documentation for this pretest is provided here:
+<https://osf.io/h7f4q/>
+
 # Test of Each Item’s Mean Relevance Against Midpoint
 
 ``` r

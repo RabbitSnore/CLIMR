@@ -20,6 +20,8 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ```
 
+These validation studies are documented here: https://osf.io/kgrs9/
+
 # Categorization Task
 
 ```{r}

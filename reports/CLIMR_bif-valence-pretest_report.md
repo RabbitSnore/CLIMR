@@ -210,8 +210,8 @@ summary(model_soc)
     ## 
     ## Fixed effects:
     ##              Estimate Std. Error z value Pr(>|z|)    
-    ## (Intercept)   0.46244    0.09806   4.716 2.41e-06 ***
-    ## mani_social2  0.19131    0.10537   1.816   0.0694 .  
+    ## (Intercept)   0.46244    0.09806   4.716  2.4e-06 ***
+    ## mani_social2  0.19130    0.10537   1.816   0.0694 .  
     ## ---
     ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
     ## 
@@ -244,8 +244,8 @@ summary(model_val_sep)
     ## Fixed effects:
     ##              Estimate Std. Error z value Pr(>|z|)    
     ## (Intercept)   0.46245    0.09561   4.837 1.32e-06 ***
-    ## mani_social2  0.19130    0.10536   1.816   0.0694 .  
-    ## d_sep_mc      0.21045    0.13681   1.538   0.1240    
+    ## mani_social2  0.19130    0.10537   1.816   0.0694 .  
+    ## d_sep_mc      0.21045    0.13682   1.538   0.1240    
     ## ---
     ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
     ## 
@@ -273,15 +273,15 @@ summary(model_val_sep_int)
     ## Random effects:
     ##  Groups Name        Variance Std.Dev.
     ##  id     (Intercept) 0.3428   0.5855  
-    ##  item   (Intercept) 0.1007   0.3174  
+    ##  item   (Intercept) 0.1008   0.3174  
     ## Number of obs: 4825, groups:  id, 193; item, 25
     ## 
     ## Fixed effects:
     ##                       Estimate Std. Error z value Pr(>|z|)    
     ## (Intercept)            0.46296    0.09563   4.841 1.29e-06 ***
-    ## mani_social2           0.19016    0.10537   1.805   0.0711 .  
+    ## mani_social2           0.19017    0.10537   1.805   0.0711 .  
     ## d_sep_mc               0.25409    0.14760   1.721   0.0852 .  
-    ## mani_social2:d_sep_mc -0.09648    0.12180  -0.792   0.4283    
+    ## mani_social2:d_sep_mc -0.09648    0.12179  -0.792   0.4282    
     ## ---
     ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
     ## 
@@ -337,13 +337,13 @@ summary(model_val_rel)
     ## Random effects:
     ##  Groups Name        Variance Std.Dev.
     ##  id     (Intercept) 0.34258  0.5853  
-    ##  item   (Intercept) 0.06404  0.2531  
+    ##  item   (Intercept) 0.06405  0.2531  
     ## Number of obs: 4825, groups:  id, 193; item, 25
     ## 
     ## Fixed effects:
     ##              Estimate Std. Error z value Pr(>|z|)    
     ## (Intercept)    0.4625     0.0876   5.279  1.3e-07 ***
-    ## mani_social2   0.1913     0.1053   1.816 0.069411 .  
+    ## mani_social2   0.1913     0.1053   1.816 0.069408 .  
     ## d_rel_mc       0.6099     0.1646   3.705 0.000212 ***
     ## ---
     ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
@@ -378,9 +378,9 @@ summary(model_val_rel_int)
     ## Fixed effects:
     ##                       Estimate Std. Error z value Pr(>|z|)    
     ## (Intercept)            0.46402    0.08765   5.294 1.20e-07 ***
-    ## mani_social2           0.18757    0.10535   1.781    0.075 .  
-    ## d_rel_mc               0.71241    0.18283   3.897 9.76e-05 ***
-    ## mani_social2:d_rel_mc -0.22520    0.17332  -1.299    0.194    
+    ## mani_social2           0.18757    0.10535   1.780    0.075 .  
+    ## d_rel_mc               0.71241    0.18284   3.896 9.77e-05 ***
+    ## mani_social2:d_rel_mc -0.22520    0.17333  -1.299    0.194    
     ## ---
     ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
     ## 

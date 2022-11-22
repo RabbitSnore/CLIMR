@@ -4,6 +4,8 @@ Validation Pretest Report
 CLIMR Team
 2022-11-22
 
+These validation studies are documented here: <https://osf.io/kgrs9/>
+
 # Categorization Task
 
 ``` r

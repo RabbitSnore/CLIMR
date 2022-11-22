@@ -28,12 +28,12 @@ We have several data sets that can provide information about the
 plausibility of this concern. We can examine data from the following
 sources:
 
--   The CLIMR validation experiment for the BIF, which attempted a
-    direct manipulation of abstraction
--   Sánchez, Coleman, & Ledgerwood (2021), which attempted to manipulate
-    temporal distance
--   Grinfeld et al (2021), experiments 2b, 2c, and the replication of
-    2c, which attempted to manipulate hypotheticality
+- The CLIMR validation experiment for the BIF, which attempted a direct
+  manipulation of abstraction
+- Sánchez, Coleman, & Ledgerwood (2021), which attempted to manipulate
+  temporal distance
+- Grinfeld et al (2021), experiments 2b, 2c, and the replication of 2c,
+  which attempted to manipulate hypotheticality
 
 ## CLIMR
 
@@ -67,19 +67,19 @@ summary(log_model_climr_rs)
     ## 
     ## Scaled residuals: 
     ##     Min      1Q  Median      3Q     Max 
-    ## -5.9671 -0.4573 -0.1194  0.4821  6.0074 
+    ## -5.9671 -0.4573 -0.1194  0.4821  6.0075 
     ## 
     ## Random effects:
     ##  Groups Name         Variance Std.Dev. Corr 
-    ##  sub    (Intercept)  4.4341   2.1057        
-    ##  item   (Intercept)  0.4439   0.6662        
-    ##         groupdistant 0.0126   0.1123   -0.50
+    ##  sub    (Intercept)  4.43410  2.1057        
+    ##  item   (Intercept)  0.44386  0.6662        
+    ##         groupdistant 0.01261  0.1123   -0.50
     ## Number of obs: 10808, groups:  sub, 436; item, 25
     ## 
     ## Fixed effects:
     ##              Estimate Std. Error z value Pr(>|z|)    
-    ## (Intercept)   -1.8156     0.2000   -9.08   <2e-16 ***
-    ## groupdistant   3.0613     0.2188   13.99   <2e-16 ***
+    ## (Intercept)   -1.8156     0.1999  -9.083   <2e-16 ***
+    ## groupdistant   3.0613     0.2187  13.999   <2e-16 ***
     ## ---
     ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
     ## 
@@ -98,31 +98,31 @@ coef(log_model_climr_rs)$item
 ```
 
     ##       (Intercept) groupdistant
-    ## bif1   -1.4771632     3.031579
-    ## bif10  -1.4357127     3.011146
-    ## bif11  -1.7896420     3.016134
-    ## bif12  -2.1841071     3.122737
-    ## bif13  -1.7009671     3.045330
-    ## bif14  -2.5607153     3.129834
-    ## bif15  -2.2897267     3.131453
-    ## bif16  -0.7415234     2.917973
-    ## bif17  -2.5065793     3.098615
-    ## bif18  -1.7513497     3.015024
-    ## bif19  -0.7225259     3.006062
-    ## bif2   -0.9270916     3.011805
-    ## bif20  -1.9179546     3.068584
-    ## bif21  -1.9816550     2.991758
-    ## bif22  -2.1906833     3.096864
-    ## bif23  -1.5969886     3.042695
-    ## bif24  -2.5478196     3.070126
-    ## bif25  -2.0594644     3.098361
-    ## bif3   -2.5580084     3.151042
-    ## bif4   -1.3297043     3.058310
-    ## bif5   -2.5274088     3.156778
-    ## bif6   -1.3978045     3.039474
-    ## bif7   -0.8197864     2.968796
-    ## bif8   -2.7965968     3.098714
-    ## bif9   -0.9277399     3.042685
+    ## bif1   -1.4771647     3.031594
+    ## bif10  -1.4357118     3.011156
+    ## bif11  -1.7896385     3.016141
+    ## bif12  -2.1841158     3.122767
+    ## bif13  -1.7009686     3.045346
+    ## bif14  -2.5607218     3.129861
+    ## bif15  -2.2897358     3.131484
+    ## bif16  -0.7415167     2.917967
+    ## bif17  -2.5065812     3.098634
+    ## bif18  -1.7513464     3.015031
+    ## bif19  -0.7225302     3.006080
+    ## bif2   -0.9270950     3.011822
+    ## bif20  -1.9179575     3.068602
+    ## bif21  -1.9816459     2.991756
+    ## bif22  -2.1906880     3.096887
+    ## bif23  -1.5969906     3.042711
+    ## bif24  -2.5478166     3.070137
+    ## bif25  -2.0594705     3.098386
+    ## bif3   -2.5580184     3.151075
+    ## bif4   -1.3297106     3.058334
+    ## bif5   -2.5274199     3.156813
+    ## bif6   -1.3978077     3.039492
+    ## bif7   -0.8197853     2.968803
+    ## bif8   -2.7965957     3.098729
+    ## bif9   -0.9277472     3.042709
 
 ## Sánchez et al (2021)
 
@@ -150,7 +150,8 @@ summary(log_model_sanchez_rs)
 
     ## Generalized linear mixed model fit by maximum likelihood (Laplace Approximation) ['glmerMod']
     ##  Family: binomial  ( logit )
-    ## Formula: bif_response ~ as.factor(Distance_condition) + (1 | ID) + (1 +      as.factor(Distance_condition) | item)
+    ## Formula: bif_response ~ as.factor(Distance_condition) + (1 | ID) + (1 +  
+    ##     as.factor(Distance_condition) | item)
     ##    Data: sanchez_long
     ## 
     ##      AIC      BIC   logLik deviance df.resid 
@@ -158,19 +159,19 @@ summary(log_model_sanchez_rs)
     ## 
     ## Scaled residuals: 
     ##     Min      1Q  Median      3Q     Max 
-    ## -3.4986 -0.8337  0.3860  0.7903  3.5040 
+    ## -3.4986 -0.8337  0.3861  0.7903  3.5040 
     ## 
     ## Random effects:
     ##  Groups Name                           Variance Std.Dev. Corr 
     ##  ID     (Intercept)                    0.63420  0.7964        
-    ##  item   (Intercept)                    0.44143  0.6644        
+    ##  item   (Intercept)                    0.44142  0.6644        
     ##         as.factor(Distance_condition)2 0.04628  0.2151   -0.21
     ## Number of obs: 12125, groups:  ID, 484; item, 25
     ## 
     ## Fixed effects:
     ##                                Estimate Std. Error z value Pr(>|z|)   
-    ## (Intercept)                     0.01845    0.14525   0.127  0.89891   
-    ## as.factor(Distance_condition)2  0.25517    0.09347   2.730  0.00634 **
+    ## (Intercept)                     0.01844    0.14526   0.127  0.89900   
+    ## as.factor(Distance_condition)2  0.25517    0.09348   2.730  0.00634 **
     ## ---
     ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
     ## 
@@ -188,31 +189,31 @@ coef(log_model_sanchez_rs)$item
 ```
 
     ##        (Intercept) as.factor(Distance_condition)2
-    ## BIF01 -0.007553661                     0.19532568
-    ## BIF02  0.688855707                     0.56699288
-    ## BIF03  0.158531647                     0.35110674
-    ## BIF04 -0.682579390                    -0.02865140
-    ## BIF05  1.157733351                    -0.13138483
-    ## BIF06 -0.179991012                     0.30769872
-    ## BIF07  0.304852026                     0.16590329
-    ## BIF08 -0.712944487                     0.27749083
-    ## BIF09  0.153678855                     0.19581898
-    ## BIF10  0.087185393                     0.25705939
-    ## BIF11 -1.567595127                     0.39604681
-    ## BIF12  0.664033384                     0.26913959
-    ## BIF13 -0.024153492                     0.10372069
-    ## BIF14 -0.190239884                     0.32810825
-    ## BIF15 -0.010400613                     0.47266670
-    ## BIF16  0.784399025                     0.27356071
-    ## BIF17 -0.568768596                     0.25260759
-    ## BIF18 -0.151828191                     0.28722049
-    ## BIF19 -0.312456948                     0.19697364
-    ## BIF20  0.747761787                     0.13901667
-    ## BIF21 -0.580407684                     0.50841726
-    ## BIF22  0.133294222                     0.23683876
-    ## BIF23 -0.716802199                     0.07822627
-    ## BIF24 -0.069731628                     0.40998119
-    ## BIF25  1.261833840                     0.22186246
+    ## BIF01 -0.007553246                     0.19532220
+    ## BIF02  0.688851998                     0.56699563
+    ## BIF03  0.158530243                     0.35110618
+    ## BIF04 -0.682576766                    -0.02865776
+    ## BIF05  1.157740532                    -0.13140134
+    ## BIF06 -0.179992282                     0.30769837
+    ## BIF07  0.304853226                     0.16589800
+    ## BIF08 -0.712946123                     0.27749176
+    ## BIF09  0.153679466                     0.19581493
+    ## BIF10  0.087185123                     0.25705696
+    ## BIF11 -1.567600529                     0.39605492
+    ## BIF12  0.664033668                     0.26913524
+    ## BIF13 -0.024151906                     0.10371522
+    ## BIF14 -0.190241434                     0.32810839
+    ## BIF15 -0.010403796                     0.47266948
+    ## BIF16  0.784399398                     0.27355595
+    ## BIF17 -0.568769673                     0.25260740
+    ## BIF18 -0.151829156                     0.28721958
+    ## BIF19 -0.312456937                     0.19697127
+    ## BIF20  0.747763997                     0.13900889
+    ## BIF21 -0.580412274                     0.50842296
+    ## BIF22  0.133294273                     0.23683571
+    ## BIF23 -0.716801072                     0.07822255
+    ## BIF24 -0.069734080                     0.40998275
+    ## BIF25  1.261835634                     0.22185403
 
 Although there is certainly some variation, it is not so extensive that
 it obscures the apparent effect of the distance manipulation. Note there
@@ -281,21 +282,21 @@ summary(log_model_grinfeld_2b_rs)
     ## 
     ## Random effects:
     ##  Groups   Name                  Variance Std.Dev. Corr
-    ##  workerId (Intercept)           4.84568  2.2013       
-    ##  item     (Intercept)           0.58294  0.7635       
+    ##  workerId (Intercept)           4.84567  2.2013       
+    ##  item     (Intercept)           0.58293  0.7635       
     ##           conditionhypothetical 0.01113  0.1055   0.79
     ## Number of obs: 9025, groups:  workerId, 361; item, 25
     ## 
     ## Fixed effects:
     ##                       Estimate Std. Error z value Pr(>|z|)   
-    ## (Intercept)             0.6016     0.2297   2.618  0.00883 **
-    ## conditionhypothetical  -0.1127     0.2428  -0.464  0.64260   
+    ## (Intercept)             0.6016     0.2298   2.617  0.00886 **
+    ## conditionhypothetical  -0.1127     0.2429  -0.464  0.64261   
     ## ---
     ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
     ## 
     ## Correlation of Fixed Effects:
     ##             (Intr)
-    ## cndtnhyptht -0.481
+    ## cndtnhyptht -0.482
 
 ``` r
 summary(log_model_grinfeld_2c_rs)
@@ -322,7 +323,7 @@ summary(log_model_grinfeld_2c_rs)
     ## 
     ## Fixed effects:
     ##                       Estimate Std. Error z value Pr(>|z|)   
-    ## (Intercept)            -0.1329     0.3964  -0.335  0.73732   
+    ## (Intercept)            -0.1329     0.3964  -0.335  0.73733   
     ## conditionhypothetical   1.7418     0.5351   3.255  0.00113 **
     ## ---
     ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
@@ -331,7 +332,7 @@ summary(log_model_grinfeld_2c_rs)
     ##             (Intr)
     ## cndtnhyptht -0.646
     ## optimizer (Nelder_Mead) convergence code: 0 (OK)
-    ## Model failed to converge with max|grad| = 0.00217486 (tol = 0.002, component 1)
+    ## Model failed to converge with max|grad| = 0.002175 (tol = 0.002, component 1)
 
 ``` r
 summary(log_model_grinfeld_2c_rep_rs)
@@ -358,8 +359,8 @@ summary(log_model_grinfeld_2c_rep_rs)
     ## 
     ## Fixed effects:
     ##                       Estimate Std. Error z value Pr(>|z|)
-    ## (Intercept)            0.53731    0.39024   1.377    0.169
-    ## conditionhypothetical  0.06203    0.50891   0.122    0.903
+    ## (Intercept)            0.53731    0.39028   1.377    0.169
+    ## conditionhypothetical  0.06203    0.50896   0.122    0.903
     ## 
     ## Correlation of Fixed Effects:
     ##             (Intr)
@@ -381,93 +382,93 @@ coef(log_model_grinfeld_2b_rs)$item
 ```
 
     ##               (Intercept) conditionhypothetical
-    ## apple         -0.03978320           -0.19683689
-    ## army           0.84285482           -0.08581797
-    ## car            0.88983767           -0.03381567
-    ## carpet         0.87680409           -0.09383047
-    ## cavity         0.33771893           -0.15674050
-    ## child          0.71041624           -0.09132858
-    ## chop           0.05905990           -0.17536908
-    ## cleaning       0.10811742           -0.16470377
-    ## climbing      -0.09030627           -0.19253206
-    ## doorbell       2.16367773            0.07088625
-    ## eating         0.62897898           -0.10506263
-    ## garden         0.14093569           -0.16138218
-    ## greeting      -0.15795692           -0.18810515
-    ## list           0.66349786           -0.12814224
-    ## locking        2.07138462            0.04575567
-    ## painting       0.85909382           -0.07853262
-    ## personality    0.92580951           -0.07194265
-    ## plants        -1.36283557           -0.32590616
-    ## reading        1.39474983           -0.03489156
-    ## rent           1.09474293           -0.04764579
-    ## temptation    -0.10763977           -0.18102587
-    ## test           0.35436387           -0.16075424
-    ## toothbrushing  1.01092712           -0.08059219
-    ## washing        0.12553183           -0.17999505
-    ## voting         0.71041624           -0.09132858
+    ## apple         -0.03976990           -0.19685991
+    ## army           0.84286714           -0.08583959
+    ## car            0.88984770           -0.03383308
+    ## carpet         0.87681697           -0.09385314
+    ## cavity         0.33773218           -0.15676358
+    ## child          0.71042817           -0.09134941
+    ## chop           0.05907267           -0.17539113
+    ## cleaning       0.10812992           -0.16472534
+    ## climbing      -0.09029341           -0.19255421
+    ## doorbell       2.16368884            0.07086587
+    ## eating         0.62899117           -0.10508391
+    ## garden         0.14094819           -0.16140377
+    ## greeting      -0.15794460           -0.18812624
+    ## list           0.66351134           -0.12816591
+    ## locking        2.07139650            0.04573391
+    ## painting       0.85910586           -0.07855374
+    ## personality    0.92582157           -0.07196384
+    ## plants        -1.36282245           -0.32592790
+    ## reading        1.39476240           -0.03491397
+    ## rent           1.09475465           -0.04766643
+    ## temptation    -0.10762754           -0.18104681
+    ## test           0.35437738           -0.16077785
+    ## toothbrushing  1.01094003           -0.08061497
+    ## voting         0.71042817           -0.09134941
+    ## washing        0.12554514           -0.18001816
 
 ``` r
 coef(log_model_grinfeld_2c_rs)$item
 ```
 
     ##               (Intercept) conditionhypothetical
-    ## apple         -0.98616186              1.523743
-    ## army           0.05792263              1.790588
-    ## car            0.37703325              1.872146
-    ## carpet         0.33497199              1.861397
-    ## cavity        -0.42006382              1.668424
-    ## child         -0.09057355              1.752635
-    ## chop          -0.53559541              1.638898
-    ## cleaning      -0.56195882              1.632159
-    ## climbing      -0.78075320              1.576240
-    ## doorbell       0.86769731              1.997550
-    ## eating         0.18100844              1.822046
-    ## garden        -0.57398190              1.629087
-    ## greeting      -0.63862046              1.612567
-    ## list           0.11224653              1.804472
-    ## locking        0.65390056              1.942908
+    ## apple         -0.98616203              1.523743
+    ## army           0.05792267              1.790588
+    ## car            0.37703334              1.872146
+    ## carpet         0.33497205              1.861397
+    ## cavity        -0.42006381              1.668424
+    ## child         -0.09057352              1.752635
+    ## chop          -0.53559548              1.638898
+    ## cleaning      -0.56195887              1.632159
+    ## climbing      -0.78075331              1.576241
+    ## doorbell       0.86769745              1.997550
+    ## eating         0.18100850              1.822046
+    ## garden        -0.57398200              1.629087
+    ## greeting      -0.63862056              1.612567
+    ## list           0.11224658              1.804472
+    ## locking        0.65390068              1.942908
     ## painting      -0.04966682              1.763091
     ## personality   -0.11656486              1.745993
-    ## plants        -1.50710806              1.390600
-    ## reading        0.32059683              1.857722
-    ## rent           0.19508525              1.825644
-    ## temptation    -0.70315881              1.596072
-    ## test          -0.27472116              1.705572
-    ## toothbrushing  0.65390056              1.942908
-    ## washing       -0.56195882              1.632159
-    ## voting         0.20919024              1.829250
+    ## plants        -1.50710833              1.390601
+    ## reading        0.32059689              1.857722
+    ## rent           0.19508529              1.825644
+    ## temptation    -0.70315891              1.596072
+    ## test          -0.27472121              1.705572
+    ## toothbrushing  0.65390068              1.942908
+    ## voting         0.20919028              1.829249
+    ## washing       -0.56195887              1.632159
 
 ``` r
 coef(log_model_grinfeld_2c_rep_rs)$item
 ```
 
     ##                (Intercept) conditionhypothetical
-    ## apple         -0.005655134          -0.038278359
-    ## army           0.276323897           0.030125069
-    ## car            1.534285062           0.190675939
-    ## carpet         1.254692925           0.175375264
-    ## cavity        -0.162960366          -0.148117594
-    ## child          0.807816059           0.111764086
-    ## chop           0.216596202           0.035223095
-    ## cleaning      -0.417518650          -0.033285107
-    ## climbing      -0.422714562          -0.001907389
-    ## doorbell       1.461598415           0.194766703
-    ## eating         0.744819471           0.116531257
-    ## garden        -0.044218087          -0.158481942
-    ## greeting      -0.139884617           0.066137086
-    ## list           0.857409228           0.202210142
-    ## locking        1.664495110           0.344438745
-    ## painting       0.871388756           0.107032466
-    ## personality    0.866693030           0.138743295
-    ## plants        -1.262334632          -0.216006179
-    ## reading        1.530248991           0.222888563
-    ## rent           1.141667456           0.024809020
-    ## temptation    -0.173329319          -0.085410503
-    ## test           0.401438452          -0.011450836
-    ## toothbrushing  0.930930545           0.134084796
-    ## washing        0.630119942           0.063039850
-    ## voting         0.456783379           0.014945199
+    ## apple         -0.005655347          -0.038278047
+    ## army           0.276323672           0.030125432
+    ## car            1.534284845           0.190676355
+    ## carpet         1.254692697           0.175375693
+    ## cavity        -0.162960544          -0.148117396
+    ## child          0.807815831           0.111764488
+    ## chop           0.216595972           0.035223470
+    ## cleaning      -0.417518888          -0.033284743
+    ## climbing      -0.422714812          -0.001906987
+    ## doorbell       1.461598192           0.194767133
+    ## eating         0.744819237           0.116531672
+    ## garden        -0.044218255          -0.158481769
+    ## greeting      -0.139884879           0.066137539
+    ## list           0.857408967           0.202210648
+    ## locking        1.664494839           0.344439337
+    ## painting       0.871388533           0.107032855
+    ## personality    0.866692794           0.138743723
+    ## plants        -1.262334845          -0.216005942
+    ## reading        1.530248760           0.222889020
+    ## rent           1.141667282           0.024809278
+    ## temptation    -0.173329523          -0.085410228
+    ## test           0.401438250          -0.011450537
+    ## toothbrushing  0.930930314           0.134085212
+    ## voting         0.456783170           0.014945523
+    ## washing        0.630119723           0.063040213
 
 # Summary
 
