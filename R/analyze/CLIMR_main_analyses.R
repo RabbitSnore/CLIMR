@@ -240,7 +240,10 @@ climr_figure <- climr_swarm(
   complete        = effects_complete, 
   original        = original, 
   study_colors    = study_colors, 
-  titles          = c("Temporal (Liberman & Trope, 1998, Exp 1)", "Spatial (Fujita et al., 2006, Exp 1)", "Social (paradigmatic replication)", "Likelihood (paradigmatic replication)")
+  titles          = c("Temporal (Liberman & Trope, 1998, Exp 1)", 
+                      "Spatial (Fujita et al., 2006, Exp 1)", 
+                      "Social (paradigmatic replication)", 
+                      "Likelihood (paradigmatic replication)")
 )
 
 ## Save plot

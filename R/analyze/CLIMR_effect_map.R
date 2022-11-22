@@ -1,16 +1,16 @@
-#######################################################################
+################################################################################
 
 # CLIMR -- Map of Effects
 
-#######################################################################
+################################################################################
 
-# Set up environment --------------------------------------------------
+# Set up environment -----------------------------------------------------------
 
 lab_coords <- read.csv("./data/lab_coordinates.csv") %>% 
   mutate(
-    ID = 1:nrow(.), # REMOVE WHEN FINAL IDENTIFIERS ARE SET
+    ID   = 1:nrow(.), # REMOVE WHEN FINAL IDENTIFIERS ARE SET
     long = as.numeric(long),
-    lat = as.numeric(lat)
+    lat  = as.numeric(lat)
   )
 
 ## Functions
@@ -43,17 +43,11 @@ color_sign <- function(x) {
 }
 
 palette_temporal   <- colorRamp(colors = c("#FFFFFF", "#37392E"))
-palette_temporal_2 <- colorRamp(colors = c("#FFFFFF", "#B9E28C"))
-palette_spatial    <- colorRamp(colors = c("#FFFFFF", "#A47C79"))
+palette_spatial    <- colorRamp(colors = c("#FFFFFF", "#B9E28C"))
+palette_social     <- colorRamp(colors = c("#FFFFFF", "#A47C79"))
 palette_likelihood <- colorRamp(colors = c("#FFFFFF", "#19647E"))
 
 palette_negative   <- colorRamp(colors = c("#FFFFFF", "#93101D"))
-
-# palette_temporal   <- colorRamp(colors = c("#D9DBD2", "#37392E"), bias = 5)
-# palette_temporal_2 <- colorRamp(colors = c("#D7EFBE", "#B9E28C"), bias = 5)
-# palette_spatial    <- colorRamp(colors = c("#DECFCE", "#A47C79"), bias = 5)
-# palette_likelihood <- colorRamp(colors = c("#BBE4F2", "#19647E"), bias = 5)
-
 
 effect_layer <- function(map, data, palette_fun, study_color, group_name) {
 
@@ -74,39 +68,25 @@ effect_layer <- function(map, data, palette_fun, study_color, group_name) {
     stroke       = TRUE,
     weight       = 50 * data$var,
     opacity      = 0.75,
-    group        = group_name
+    group        = group_name,
   )
   
 }
 
-# Data wrangling ------------------------------------------------------
-
-## Convert log odds to d
-
-effects_control_d <- effects_control %>% 
-  mutate(
-    d = log_odds*sqrt(3)/pi,
-    var = var*3/pi^2,
-    ci_lower = d - qnorm(.975)*sqrt(var),
-    ci_upper = d + qnorm(.975)*sqrt(var)
-  ) %>% 
-  select(-log_odds)
+# Data wrangling ---------------------------------------------------------------
 
 ## Link coordinates to effect estimates
 
 effects_temporal <- effects_temporal %>% 
   left_join(lab_coords, by = "ID")
 
-effects_temporal_2 <- effects_temporal_2 %>% 
-  left_join(lab_coords, by = "ID")
-
 effects_spatial <- effects_spatial %>% 
   left_join(lab_coords, by = "ID")
 
-effects_likelihood <- effects_likelihood %>% 
+effects_social  <- effects_social %>% 
   left_join(lab_coords, by = "ID")
 
-effects_control_d <- effects_control_d %>% 
+effects_likelihood <- effects_likelihood %>% 
   left_join(lab_coords, by = "ID")
 
 # Map -----------------------------------------------------------------
@@ -116,29 +96,42 @@ climr_leaflet <- leaflet() %>%
   
   # Temporal
   
-  effect_layer(effects_temporal, palette_temporal, liberman_2002_color, "Liberman et al. (2002, Study 1)") %>% 
+  effect_layer(effects_temporal, 
+               palette_temporal, 
+               liberman_1998_color, 
+               "Liberman & Trope (1998, Study 1)") %>% 
   
   # Spatial
   
-  effect_layer(effects_temporal_2, palette_temporal_2, liberman_1998_color, "Liberman & Trope (1998, Study 1)") %>% 
+  effect_layer(effects_spatial, 
+               palette_spatial, 
+               fujita_2006_color, 
+               "Fujita et al. (2006, Study 1)") %>% 
   
   # Social
   
-  effect_layer(effects_spatial, palette_spatial, henderson_2006_color, "Henderson et al. (2006, Study 1)") %>% 
+  effect_layer(effects_social, 
+               palette_social, 
+               social_color, 
+               "Social (paradigmatic replication)") %>% 
   
   # Likelihood
   
-  effect_layer(effects_likelihood, palette_likelihood, wakslak_2006_color, "Wakslak et al. (2006, Study 1)") %>% 
+  effect_layer(effects_likelihood, 
+               palette_likelihood, 
+               likelihood_color, 
+               "Likelihood (paradigmatic replication)") %>% 
   
   # Layer control
   
   addLayersControl(
     baseGroups = c(
-      "Liberman et al. (2002, Study 1)",
-      "Liberman & Trope (1998, Study 1)",
-      "Henderson et al. (2006, Study 1)",
-      "Wakslak et al. (2006, Study 1)"
+      "Temporal (Liberman & Trope, 1998, Exp 1)", 
+      "Spatial (Fujita et al., 2006, Exp 1)", 
+      "Social (paradigmatic replication)", 
+      "Likelihood (paradigmatic replication)"
       ),
-    options = layersControlOptions(collapsed = FALSE)
+    options  = layersControlOptions(collapsed = FALSE),
+    position = "bottomleft"
   )
 
