@@ -2,7 +2,7 @@ Construal Level International Multilab Replication (CLIMR) Project:
 Smallest Effect Size of Interest (SEOI) Report
 ================
 CLIMR Team
-2022-11-22
+2022-11-23
 
 # **THESE RESULTS ARE SIMULATED. DO NOT INTERPRET.**
 
