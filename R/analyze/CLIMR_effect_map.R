@@ -89,7 +89,7 @@ effects_social  <- effects_social %>%
 effects_likelihood <- effects_likelihood %>% 
   left_join(lab_coords, by = "ID")
 
-# Map -----------------------------------------------------------------
+# Map --------------------------------------------------------------------------
 
 climr_leaflet <- leaflet() %>% 
   addTiles() %>% 
@@ -134,4 +134,10 @@ climr_leaflet <- leaflet() %>%
     options  = layersControlOptions(collapsed = FALSE),
     position = "bottomleft"
   )
+
+# Export Map -------------------------------------------------------------------
+
+mapshot(climr_leaflet,
+        url = "./figures/climr_effect-map.html",
+        remove_controls = NULL)
 

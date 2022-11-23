@@ -65,7 +65,23 @@ force_update <- FALSE
 
 ### Packages required by the CLIMR project
 
-dependencies <- c("dplyr", "tidyr", "stringr", "readr", "metafor", "lme4", "ggplot2", "cowplot", "rmarkdown", "ggbeeswarm", "ggstance", "simr", "viridis", "leaflet", "osfr")
+dependencies <- c(
+  "dplyr", 
+  "tidyr", 
+  "stringr", 
+  "readr", 
+  "metafor", 
+  "lme4", 
+  "ggplot2", 
+  "cowplot", 
+  "rmarkdown", 
+  "ggbeeswarm", 
+  "ggstance", 
+  "simr", 
+  "viridis", 
+  "leaflet",
+  "mapview",
+  "osfr")
 
 ### Check whether packages are installed locally and get list of what needs to be installed
 
@@ -88,6 +104,13 @@ if (force_update == TRUE) {
 ## Load packages
 
 lapply(dependencies, library, character.only = TRUE)
+
+## Get version info
+
+version_info <- as.data.frame(installed.packages())[rownames(installed.packages()) %in% loadedNamespaces(), ] %>% 
+  select(-LibPath)
+
+write.csv(version_info, "./data/meta/climr_version-info.csv", row.names = FALSE)
 
 ## Functions
 
@@ -197,6 +220,10 @@ if (validation_reports == TRUE) {
 # Note that these analyses are computationally intensive. They can take several
 # minutes to calculate.
 source("./R/analyze/CLIMR_valence_analyses.R")
+
+## Leaflet map of effects
+
+source("./R/analyze/CLIMR_effect_map.R")
 
 # Reports ----------------------------------------------------------------------
 

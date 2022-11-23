@@ -1,7 +1,7 @@
 CLIMR Supplemental Analysis Report: Manipulation Checks
 ================
 CLIMR Team
-2022-11-22
+2022-11-23
 
 # **THESE RESULTS ARE SIMULATED. DO NOT INTERPRET.**
 
@@ -26,7 +26,7 @@ meta_mc_temporal
     ## 
     ## Model Results:
     ## 
-    ## estimate      se     zval    pval   ci.lb   ci.ub     ​ 
+    ## estimate      se     zval    pval   ci.lb   ci.ub      
     ##   0.4957  0.0423  11.7298  <.0001  0.4129  0.5785  *** 
     ## 
     ## ---
@@ -51,7 +51,7 @@ meta_mc_spatial
     ## 
     ## Model Results:
     ## 
-    ## estimate      se     zval    pval   ci.lb   ci.ub     ​ 
+    ## estimate      se     zval    pval   ci.lb   ci.ub      
     ##   0.4500  0.0421  10.6944  <.0001  0.3675  0.5325  *** 
     ## 
     ## ---
@@ -76,7 +76,7 @@ meta_mc_social
     ## 
     ## Model Results:
     ## 
-    ## estimate      se     zval    pval   ci.lb   ci.ub     ​ 
+    ## estimate      se     zval    pval   ci.lb   ci.ub      
     ##   0.4904  0.0421  11.6386  <.0001  0.4079  0.5730  *** 
     ## 
     ## ---
@@ -101,7 +101,7 @@ meta_mc_likelihood
     ## 
     ## Model Results:
     ## 
-    ## estimate      se     zval    pval   ci.lb   ci.ub     ​ 
+    ## estimate      se     zval    pval   ci.lb   ci.ub      
     ##   0.4241  0.0418  10.1386  <.0001  0.3421  0.5061  *** 
     ## 
     ## ---

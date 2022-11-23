@@ -41,11 +41,8 @@ reports/*.html
 .Renviron
 
 # Plots
-/plots/*.png
-/plots/*.svg
-plots/*.png
-plots/*.svg
-plots/*
+/figures/*.html
+/figures/climr_effect-map_files/*
 
 # Notes
 /notes/*
