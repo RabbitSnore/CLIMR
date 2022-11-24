@@ -36,17 +36,16 @@ selection <- read.csv("./data/study-exclusion-data.csv")
 
 exclusion_table <- 
 selection %>% 
-  filter(exclusion_fine != 2 | is.na(exclusion_fine)) %>% 
   group_by(distance) %>% 
   summarise(
     N                                              = n(),
     validation                                     = sum(exclusion_fine == 1, na.rm = TRUE),
-    perceptual                                     = sum(exclusion_fine == 3, na.rm = TRUE),
-    previous_replication                           = sum(exclusion_fine == 4, na.rm = TRUE),
-    design                                         = sum(exclusion_fine == 5, na.rm = TRUE),
-    logistical                                     = sum(exclusion_fine == 6, na.rm = TRUE),
-    unavailable                                    = sum(exclusion_fine == 7, na.rm = TRUE),
-    against_theory                                 = sum(exclusion_fine == 8, na.rm = TRUE),
+    perceptual                                     = sum(exclusion_fine == 2, na.rm = TRUE),
+    previous_replication                           = sum(exclusion_fine == 3, na.rm = TRUE),
+    design                                         = sum(exclusion_fine == 4, na.rm = TRUE),
+    logistical                                     = sum(exclusion_fine == 5, na.rm = TRUE),
+    unavailable                                    = sum(exclusion_fine == 6, na.rm = TRUE),
+    against_theory                                 = sum(exclusion_fine == 7, na.rm = TRUE),
     included                                       = sum(included, na.rm = TRUE),
     "Studies screened for eligibility"             = N,
     "Measure failed validation"                    = N - validation,
