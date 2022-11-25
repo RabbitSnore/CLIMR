@@ -16,7 +16,7 @@
 # than loaded from files. This should be set to TRUE for diagnostic purposes and
 # for review.
 
-simulation_mode <- TRUE
+simulation_mode    <- TRUE
 
 ## Read and write data
 
@@ -25,14 +25,14 @@ simulation_mode <- TRUE
 # set to TRUE. Only set this to FALSE if you are loading raw data or are
 # simulating data.
 
-read_precleaned <- FALSE
+read_precleaned    <- FALSE
 
 # This parameter controls whether the "export version" of the data should be
 # produced after loading and cleaning the raw data. Generally, this parameter
 # will only be useful for the main CLIMR team when creating the first build of
 # the project. Only set this to TRUE if you know what you are doing.
 
-write_data      <- FALSE
+write_data         <- FALSE
 
 ## Codebook base
 
@@ -41,7 +41,7 @@ write_data      <- FALSE
 # survey. This parameter is intended for use by the CLIMR team. It is not likely
 # a user reproducing the analyses will need to change this.
 
-codebook_base   <- FALSE
+codebook_base      <- FALSE
 
 ## Validation reports
 
@@ -53,11 +53,19 @@ validation_reports <- FALSE
 
 ## Force package updates
 
-# Set this parameter to true if you want to force installation of all required
+# Set this parameter to TRUE if you want to force installation of all required
 # packages. This can be useful if you are encountering errors that may be caused
 # by outdated packages.
 
-force_update <- FALSE
+force_update       <- FALSE
+
+## Create effect map
+
+# Set this parameter should be set to TRUE if you want to generate the leaflet
+# map of effect sizes, plotted on a map displaying each of the contributing
+# labs.
+
+create_map         <- FALSE
 
 # Set up environment -----------------------------------------------------------
 
@@ -177,11 +185,6 @@ source("./R/analyze/CLIMR_manipulation_checks.R")
 
 ### Validations and pretests
 
-# The BIF response option valence difference data are needed for the robustness
-# checks, but the rest of the validation analyses are not needed for the main
-# results
-source("./R/validation/CLIMR-bif-valence-relative-pretest_import-analyze.R")
-
 if (validation_reports == TRUE) {
   
   # Validation of construal level measures
@@ -206,12 +209,19 @@ if (validation_reports == TRUE) {
   # BIF item response option valence differences
   
   source("./R/validation/CLIMR-bif-valence-separate-pretest_import-analyze.R")
-  
+  source("./R/validation/CLIMR-bif-valence-relative-pretest_import-analyze.R")
   source("./R/validation/CLIMR-bif-valence-exploration.R")
   
   # Social distance manipulation pretest
   
   source("./R/validation/CLIMR-social-distance-pretest.R")
+  
+} else if (validation_reports == FALSE) {
+  
+  # The BIF response option valence difference data are needed for the
+  # robustness checks, but the rest of the validation analyses are not needed
+  # for the main results
+  source("./R/validation/CLIMR-bif-valence-relative-pretest_import-analyze.R")
   
 }
 
@@ -223,7 +233,11 @@ source("./R/analyze/CLIMR_valence_analyses.R")
 
 ## Leaflet map of effects
 
-source("./R/analyze/CLIMR_effect_map.R")
+if (create_map == TRUE) {
+  
+  source("./R/analyze/CLIMR_effect_map.R")
+  
+}
 
 # Reports ----------------------------------------------------------------------
 
