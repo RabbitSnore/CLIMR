@@ -16,7 +16,7 @@ ui <- fluidPage(
 
   # Title
 
-  titlePanel("Smallest Effect of Interest"),
+  titlePanel("Smallest Effect Size of Interest"),
 
   # Sidebar input
   
