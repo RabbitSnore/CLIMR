@@ -271,6 +271,10 @@ climr_report("CLIMR_comprehension_check_supplement.Rmd")
 
 climr_report("CLIMR_modality_moderation_supplement.Rmd")
 
+### Power analyses
+
+climr_report("CLIMR_power_report.Rmd")
+
 ### Smallest effect of interest
 
 if (seoi_analysis == TRUE){

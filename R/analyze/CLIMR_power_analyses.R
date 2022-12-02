@@ -16,7 +16,8 @@ source("./R/functions/CLIMR_power_functions.R")
 
 # Required sample sizes --------------------------------------------------------
 
-power_range <- seq(.01, .99, .01)
+# The round() call is included here to avoid floating point issues
+power_range <- round(seq(.01, .99, .01), 2)
 
 required_n_temporal   <- power_sample(id = "temporal",
                                       d = meta_temporal$beta[[1]],
@@ -38,6 +39,20 @@ required_n <- bind_rows(required_n_temporal,
                         required_n_spatial,
                         required_n_social,
                         required_n_likelihood)
+
+## Summary data
+
+power_80_n_temporal <- required_n_temporal[required_n_temporal$power == .80, ]$N
+power_95_n_temporal <- required_n_temporal[required_n_temporal$power == .95, ]$N
+
+power_80_n_spatial <- required_n_spatial[required_n_spatial$power == .80, ]$N
+power_95_n_spatial <- required_n_spatial[required_n_spatial$power == .95, ]$N
+
+power_80_n_social <- required_n_social[required_n_social$power == .80, ]$N
+power_95_n_social <- required_n_social[required_n_social$power == .95, ]$N
+
+power_80_n_likelihood <- required_n_likelihood[required_n_likelihood$power == .80, ]$N
+power_95_n_likelihood <- required_n_likelihood[required_n_likelihood$power == .95, ]$N
 
 ## Data visualization
 
@@ -105,6 +120,22 @@ detectable_effects <- clt_samples %>%
   select(id = citation, N = n_total, k = k_groups) %>% 
   pmap(power_effect) %>% 
   bind_rows()
+
+## Summary data
+
+smaller_n_temporal    <- sum(meta_temporal$beta[[1]] < detectable_effects$d)
+smaller_prop_temporal <- smaller_n_temporal/nrow(detectable_effects)
+
+smaller_n_spatial    <- sum(meta_spatial$beta[[1]] < detectable_effects$d)
+smaller_prop_spatial <- smaller_n_spatial/nrow(detectable_effects)
+
+smaller_n_social    <- sum(meta_social$beta[[1]] < detectable_effects$d)
+smaller_prop_social <- smaller_n_social/nrow(detectable_effects)
+
+smaller_n_likelihood    <- sum(meta_likelihood$beta[[1]] < detectable_effects$d)
+smaller_prop_likelihood <- smaller_n_likelihood/nrow(detectable_effects)
+
+## Data visualization
 
 detectable_hist <- 
 ggplot(detectable_effects,
@@ -182,6 +213,13 @@ detection_power_likelihood <- clt_samples %>%
   select(id = citation, N = n_total, k = k_groups) %>% 
   pmap(power_achieved, d = meta_likelihood$beta[[1]]) %>% 
   bind_rows()
+
+## Summary data
+
+median_power_temporal   <- median(detection_power_temporal$power)
+median_power_spatial    <- median(detection_power_spatial$power)
+median_power_social     <- median(detection_power_social$power)
+median_power_likelihood <- median(detection_power_likelihood$power)
 
 ## Data visualizations
 
