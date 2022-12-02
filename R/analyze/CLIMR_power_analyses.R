@@ -238,7 +238,8 @@ ggplot(detection_power_temporal,
     labels = paste(seq(0, 1, .10) * 100, "%", sep = "")
   ) +
   coord_cartesian(
-    xlim = c(-0.1, 1.1)
+    xlim = c(-0.1, 1.1),
+    ylim = c(0, 18)
   ) +
   labs(
     x     = "Power to Detect Replication Effect Estimate",
@@ -262,7 +263,8 @@ detection_plot_spatial <-
     labels = paste(seq(0, 1, .10) * 100, "%", sep = "")
   ) +
   coord_cartesian(
-    xlim = c(-0.1, 1.1)
+    xlim = c(-0.1, 1.1),
+    ylim = c(0, 18)
   ) +
   labs(
     x     = "Power to Detect Replication Effect Estimate",
@@ -286,7 +288,8 @@ detection_plot_social <-
     labels = paste(seq(0, 1, .10) * 100, "%", sep = "")
   ) +
   coord_cartesian(
-    xlim = c(-0.1, 1.1)
+    xlim = c(-0.1, 1.1),
+    ylim = c(0, 18)
   ) +
   labs(
     x     = "Power to Detect Replication Effect Estimate",
@@ -310,7 +313,8 @@ detection_plot_likelihood <-
     labels = paste(seq(0, 1, .10) * 100, "%", sep = "")
   ) +
   coord_cartesian(
-    xlim = c(-0.1, 1.1)
+    xlim = c(-0.1, 1.1),
+    ylim = c(0, 18)
   ) +
   labs(
     x     = "Power to Detect Replication Effect Estimate",
