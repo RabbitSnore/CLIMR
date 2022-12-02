@@ -67,6 +67,13 @@ force_update       <- FALSE
 
 create_map         <- FALSE
 
+## SEOI
+
+# Set this parameter to TRUE if you want to conduct analyses related to the
+# smallest effect size of interest.
+
+seoi_analysis      <- FALSE 
+
 # Set up environment -----------------------------------------------------------
 
 ## Check and install necessary packages for the project
@@ -175,9 +182,17 @@ source("./R/analyze/CLIMR_main_analyses.R")
 
 source("./R/analyze/CLIMR_modality_moderation.R")
 
+### Power analysis
+
+source("./R/analyze/CLIMR_power_analysis.R")
+
 ### Smallest effect of interest
 
-source("./R/analyze/CLIMR_seoi.R")
+if (seoi_analysis == TRUE) {
+  
+  source("./R/analyze/CLIMR_seoi.R")
+  
+}
 
 ### Manipulation checks
 
@@ -258,7 +273,11 @@ climr_report("CLIMR_modality_moderation_supplement.Rmd")
 
 ### Smallest effect of interest
 
-climr_report("CLIMR_seoi_report.Rmd")
+if (seoi_analysis == TRUE){
+  
+  climr_report("CLIMR_seoi_report.Rmd")
+  
+}
 
 ### Manipulation checks
 

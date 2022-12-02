@@ -196,6 +196,7 @@ ggplot(detection_power_temporal,
     color = "darkgrey"
   ) +
   scale_x_continuous(
+    limits = c(0, 1),
     breaks = seq(0, 1, .10),
     labels = paste(seq(0, 1, .10) * 100, "%", sep = "")
   ) +
@@ -217,6 +218,7 @@ detection_plot_spatial <-
     color = "darkgrey"
   ) +
   scale_x_continuous(
+    limits = c(0, 1),
     breaks = seq(0, 1, .10),
     labels = paste(seq(0, 1, .10) * 100, "%", sep = "")
   ) +
@@ -238,6 +240,7 @@ detection_plot_social <-
     color = "darkgrey"
   ) +
   scale_x_continuous(
+    limits = c(0, 1),
     breaks = seq(0, 1, .10),
     labels = paste(seq(0, 1, .10) * 100, "%", sep = "")
   ) +
@@ -259,6 +262,7 @@ detection_plot_likelihood <-
     color = "darkgrey"
   ) +
   scale_x_continuous(
+    limits = c(0, 1),
     breaks = seq(0, 1, .10),
     labels = paste(seq(0, 1, .10) * 100, "%", sep = "")
   ) +

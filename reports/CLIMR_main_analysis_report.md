@@ -35,7 +35,7 @@ meta_temporal
     ## 
     ## Model Results:
     ## 
-    ## estimate      se    zval    pval   ci.lb   ci.ub     ​ 
+    ## estimate      se    zval    pval   ci.lb   ci.ub      
     ##   0.3867  0.0424  9.1217  <.0001  0.3036  0.4697  *** 
     ## 
     ## ---
@@ -67,7 +67,7 @@ meta_spatial
     ## 
     ## Model Results:
     ## 
-    ## estimate      se    zval    pval   ci.lb   ci.ub     ​ 
+    ## estimate      se    zval    pval   ci.lb   ci.ub      
     ##   0.3900  0.0420  9.2902  <.0001  0.3077  0.4723  *** 
     ## 
     ## ---
@@ -99,7 +99,7 @@ meta_social
     ## 
     ## Model Results:
     ## 
-    ## estimate      se    zval    pval   ci.lb   ci.ub     ​ 
+    ## estimate      se    zval    pval   ci.lb   ci.ub      
     ##   0.4170  0.0419  9.9593  <.0001  0.3349  0.4991  *** 
     ## 
     ## ---
@@ -131,7 +131,7 @@ meta_likelihood
     ## 
     ## Model Results:
     ## 
-    ## estimate      se     zval    pval   ci.lb   ci.ub     ​ 
+    ## estimate      se     zval    pval   ci.lb   ci.ub      
     ##   0.4387  0.0439  10.0004  <.0001  0.3528  0.5247  *** 
     ## 
     ## ---

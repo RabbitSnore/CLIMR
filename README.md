@@ -98,6 +98,7 @@ ggbeeswarm   0.6.0
    mapview  2.11.0
    metafor   3.8-1
       osfr   0.2.9
+     purrr   0.3.4
      readr   2.1.3
  rmarkdown    2.18
       simr   1.0.6
