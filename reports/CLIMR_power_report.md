@@ -4,7 +4,9 @@ Power Analysis Report
 CLIMR Team
 2022-12-02
 
-# Main Figure
+# **THESE RESULTS ARE SIMULATED. DO NOT INTERPRET.**
+
+# Power Figure
 
 ``` r
 knitr::include_graphics("./figures/climr_power_figure.png")

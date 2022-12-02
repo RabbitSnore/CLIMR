@@ -14,7 +14,9 @@ knit: (function(input_file, encoding) {
   })
 ---
 
-# Main Figure
+# **THESE RESULTS ARE SIMULATED. DO NOT INTERPRET.**
+
+# Power Figure
 
 ```{r}
 knitr::include_graphics("./figures/climr_power_figure.png")
