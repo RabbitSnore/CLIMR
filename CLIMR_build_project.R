@@ -89,7 +89,8 @@ dependencies <- c(
   "viridis", 
   "leaflet",
   "mapview",
-  "osfr")
+  "osfr",
+  "purrr")
 
 ### Check whether packages are installed locally and get list of what needs to be installed
 

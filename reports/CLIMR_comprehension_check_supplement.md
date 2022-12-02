@@ -1,7 +1,7 @@
 CLIMR Supplemental Analysis Report: Comprehension Check Failures Removed
 ================
 CLIMR Team
-2022-11-23
+2022-12-02
 
 # **THESE RESULTS ARE SIMULATED. DO NOT INTERPRET.**
 
@@ -26,7 +26,7 @@ meta_temporal_comp
     ## 
     ## Model Results:
     ## 
-    ## estimate      se    zval    pval   ci.lb   ci.ub      
+    ## estimate      se    zval    pval   ci.lb   ci.ub     ​ 
     ##   0.3942  0.0435  9.0543  <.0001  0.3089  0.4796  *** 
     ## 
     ## ---
@@ -58,7 +58,7 @@ meta_spatial_comp
     ## 
     ## Model Results:
     ## 
-    ## estimate      se    zval    pval   ci.lb   ci.ub      
+    ## estimate      se    zval    pval   ci.lb   ci.ub     ​ 
     ##   0.3970  0.0440  9.0176  <.0001  0.3107  0.4832  *** 
     ## 
     ## ---
@@ -90,7 +90,7 @@ meta_social_comp
     ## 
     ## Model Results:
     ## 
-    ## estimate      se    zval    pval   ci.lb   ci.ub      
+    ## estimate      se    zval    pval   ci.lb   ci.ub     ​ 
     ##   0.4113  0.0431  9.5380  <.0001  0.3268  0.4958  *** 
     ## 
     ## ---
@@ -122,7 +122,7 @@ meta_likelihood_comp
     ## 
     ## Model Results:
     ## 
-    ## estimate      se    zval    pval   ci.lb   ci.ub      
+    ## estimate      se    zval    pval   ci.lb   ci.ub     ​ 
     ##   0.4349  0.0447  9.7204  <.0001  0.3472  0.5225  *** 
     ## 
     ## ---
