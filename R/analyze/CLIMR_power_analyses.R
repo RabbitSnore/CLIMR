@@ -234,9 +234,11 @@ ggplot(detection_power_temporal,
     color = "darkgrey"
   ) +
   scale_x_continuous(
-    limits = c(0, 1),
     breaks = seq(0, 1, .10),
     labels = paste(seq(0, 1, .10) * 100, "%", sep = "")
+  ) +
+  coord_cartesian(
+    xlim = c(-0.1, 1.1)
   ) +
   labs(
     x     = "Power to Detect Replication Effect Estimate",
@@ -256,9 +258,11 @@ detection_plot_spatial <-
     color = "darkgrey"
   ) +
   scale_x_continuous(
-    limits = c(0, 1),
     breaks = seq(0, 1, .10),
     labels = paste(seq(0, 1, .10) * 100, "%", sep = "")
+  ) +
+  coord_cartesian(
+    xlim = c(-0.1, 1.1)
   ) +
   labs(
     x     = "Power to Detect Replication Effect Estimate",
@@ -278,9 +282,11 @@ detection_plot_social <-
     color = "darkgrey"
   ) +
   scale_x_continuous(
-    limits = c(0, 1),
     breaks = seq(0, 1, .10),
     labels = paste(seq(0, 1, .10) * 100, "%", sep = "")
+  ) +
+  coord_cartesian(
+    xlim = c(-0.1, 1.1)
   ) +
   labs(
     x     = "Power to Detect Replication Effect Estimate",
@@ -300,9 +306,11 @@ detection_plot_likelihood <-
     color = "darkgrey"
   ) +
   scale_x_continuous(
-    limits = c(0, 1),
     breaks = seq(0, 1, .10),
     labels = paste(seq(0, 1, .10) * 100, "%", sep = "")
+  ) +
+  coord_cartesian(
+    xlim = c(-0.1, 1.1)
   ) +
   labs(
     x     = "Power to Detect Replication Effect Estimate",

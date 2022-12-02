@@ -184,7 +184,7 @@ source("./R/analyze/CLIMR_modality_moderation.R")
 
 ### Power analysis
 
-source("./R/analyze/CLIMR_power_analysis.R")
+source("./R/analyze/CLIMR_power_analyses.R")
 
 ### Smallest effect of interest
 
