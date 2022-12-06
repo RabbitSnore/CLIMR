@@ -123,16 +123,16 @@ detectable_effects <- clt_samples %>%
 
 ## Summary data
 
-smaller_n_temporal      <- 1 - sum(meta_temporal$beta[[1]] < detectable_effects$d)
+smaller_n_temporal      <-     sum(meta_temporal$beta[[1]] < detectable_effects$d)
 smaller_prop_temporal   <- 1 - smaller_n_temporal/nrow(detectable_effects)
   
-smaller_n_spatial       <- 1 - sum(meta_spatial$beta[[1]] < detectable_effects$d)
+smaller_n_spatial       <-     sum(meta_spatial$beta[[1]] < detectable_effects$d)
 smaller_prop_spatial    <- 1 - smaller_n_spatial/nrow(detectable_effects)
   
-smaller_n_social        <- 1 - sum(meta_social$beta[[1]] < detectable_effects$d)
+smaller_n_social        <-     sum(meta_social$beta[[1]] < detectable_effects$d)
 smaller_prop_social     <- 1 - smaller_n_social/nrow(detectable_effects)
 
-smaller_n_likelihood    <- 1 - sum(meta_likelihood$beta[[1]] < detectable_effects$d)
+smaller_n_likelihood    <-     sum(meta_likelihood$beta[[1]] < detectable_effects$d)
 smaller_prop_likelihood <- 1 - smaller_n_likelihood/nrow(detectable_effects)
 
 ## Data visualization

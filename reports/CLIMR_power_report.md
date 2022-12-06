@@ -38,7 +38,7 @@ power_95_n_temporal
 smaller_prop_temporal
 ```
 
-    ## [1] 1.91
+    ## [1] 0.08
 
 ### What is the median power for the replication effect that the previous experiments samples provided?
 
@@ -70,7 +70,7 @@ power_95_n_spatial
 smaller_prop_spatial
 ```
 
-    ## [1] 1.91
+    ## [1] 0.08
 
 ### What is the median power for the replication effect that the previous experiments samples provided?
 
@@ -102,7 +102,7 @@ power_95_n_social
 smaller_prop_social
 ```
 
-    ## [1] 1.88
+    ## [1] 0.11
 
 ### What is the median power for the replication effect that the previous experiments samples provided?
 
@@ -134,7 +134,7 @@ power_95_n_likelihood
 smaller_prop_likelihood
 ```
 
-    ## [1] 1.85
+    ## [1] 0.14
 
 ### What is the median power for the replication effect that the previous experiments samples provided?
 
