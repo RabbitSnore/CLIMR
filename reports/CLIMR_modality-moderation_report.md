@@ -41,7 +41,7 @@ meta_temporal_mode
     ## 
     ## Model Results:
     ## 
-    ##                 estimate      se    zval    pval   ci.lb   ci.ub     ​ 
+    ##                 estimate      se    zval    pval   ci.lb   ci.ub      
     ## modalitylab       0.4658  0.0643  7.2497  <.0001  0.3399  0.5918  *** 
     ## modalityonline    0.3345  0.0585  5.7155  <.0001  0.2198  0.4491  *** 
     ## 
@@ -82,7 +82,7 @@ meta_spatial_mode
     ## 
     ## Model Results:
     ## 
-    ##                 estimate      se    zval    pval   ci.lb   ci.ub     ​ 
+    ##                 estimate      se    zval    pval   ci.lb   ci.ub      
     ## modalitylab       0.4318  0.0630  6.8504  <.0001  0.3083  0.5554  *** 
     ## modalityonline    0.3567  0.0563  6.3378  <.0001  0.2464  0.4670  *** 
     ## 
@@ -123,7 +123,7 @@ meta_social_mode
     ## 
     ## Model Results:
     ## 
-    ##                 estimate      se    zval    pval   ci.lb   ci.ub     ​ 
+    ##                 estimate      se    zval    pval   ci.lb   ci.ub      
     ## modalitylab       0.4622  0.0628  7.3588  <.0001  0.3391  0.5853  *** 
     ## modalityonline    0.3808  0.0562  6.7800  <.0001  0.2707  0.4909  *** 
     ## 
@@ -164,7 +164,7 @@ meta_likelihood_mode
     ## 
     ## Model Results:
     ## 
-    ##                 estimate      se    zval    pval   ci.lb   ci.ub     ​ 
+    ##                 estimate      se    zval    pval   ci.lb   ci.ub      
     ## modalitylab       0.4147  0.0651  6.3723  <.0001  0.2872  0.5423  *** 
     ## modalityonline    0.4592  0.0598  7.6749  <.0001  0.3420  0.5765  *** 
     ## 

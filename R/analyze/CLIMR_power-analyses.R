@@ -8,11 +8,11 @@
 
 ## Load data
 
-clt_samples <- read.csv("./data/study-sample-data.csv")
+clt_samples <- read.csv("./data/climr_study-sample-data.csv")
 
 ## Load functions
 
-source("./R/functions/CLIMR_power_functions.R")
+source("./R/functions/CLIMR_power-functions.R")
 
 # Required sample sizes --------------------------------------------------------
 

@@ -11,9 +11,6 @@ knit: (function(input_file, encoding) {
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 
-source("./R/validation/CLIMR-action-relevance-pretest_data_importation.R")
-source("./R/validation/CLIMR-action-relevance-pretest_analysis.R")
-
 ```
 
 # Overview

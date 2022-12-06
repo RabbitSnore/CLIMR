@@ -2,7 +2,7 @@ Construal Level International Multilab Replication (CLIMR) Project:
 Validation Pretest Report
 ================
 CLIMR Team
-2022-11-22
+2022-12-06
 
 These validation studies are documented here: <https://osf.io/kgrs9/>
 

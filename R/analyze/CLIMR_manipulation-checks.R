@@ -8,8 +8,8 @@
 
 ## Load functions
 
-source("./R/functions/CLIMR_visualization_functions.R")
-source("./R/functions/CLIMR_meta_analytic_functions.R")
+source("./R/functions/CLIMR_visualization-functions.R")
+source("./R/functions/CLIMR_meta-analytic-functions.R")
 
 # Meta-analysis and forest plot for each experiment ----------------------------
 

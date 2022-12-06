@@ -11,7 +11,7 @@
 # These should already be loaded, but on the off chance they're not, this will
 # load them.
 
-source("./R/functions/CLIMR_visualization_functions.R")
+source("./R/functions/CLIMR_visualization-functions.R")
 
 # FUnction to calculate frequencies and proportions of excluded SEOI estimates
 

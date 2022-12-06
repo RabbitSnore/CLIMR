@@ -47,13 +47,13 @@ webpage](https://resources.github.com/whitepapers/github-and-rstudio/) has
 information about how to clone repositories in R Studio. Once you have cloned
 the repository, open the project in R Studio, and run the following code:
 
-> `source("CLIMR_build_project.R")`
+> `source("CLIMR_build-project.R")`
 
 Running this script will install all necessary packages and build the project,
 including all effect size calculations, meta-analytic models, data
 visualizations, and reports.
 
-Additionally, `CLIMR_build_project.R` includes parameters that control its
+Additionally, `CLIMR_build-project.R` includes parameters that control its
 operations (e.g., whether to run a simulation or load data files). These
 parameters must be changed manually, and they should only be changed if you know
 what you are doing.
@@ -83,7 +83,7 @@ overview of the most central required packages is provided below.
 
 If you are attempting to reproduce the analyses and encountering errors, some
 issues may be resolved by updating R and/or the required packages. For
-convenience, you can set the `force_update` parameter in `CLIMR_build_project.R`
+convenience, you can set the `force_update` parameter in `CLIMR_build-project.R`
 to `TRUE` if you want to update and (re)install all the required packages.
 
 ```

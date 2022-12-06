@@ -30,7 +30,7 @@ lapply(dependencies, library, character.only = TRUE)
 
 # Load functions
 
-source("./R/functions/CLIMR_effect_size_functions.R")
+source("./R/functions/CLIMR_effect-size-functions.R")
 
 # Import and wrangle data ------------------------------------------------------
 

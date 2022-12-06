@@ -30,7 +30,7 @@ lapply(dependencies, library, character.only = TRUE)
 
 # Import data ------------------------------------------------------------------
 
-selection <- read.csv("./data/study-exclusion-data.csv")
+selection <- read.csv("./data/climr_study-exclusion-data.csv")
 
 # Summary information ----------------------------------------------------------
 

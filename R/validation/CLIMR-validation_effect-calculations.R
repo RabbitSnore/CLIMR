@@ -8,7 +8,7 @@
 
 ## Load general functions
 
-source("./R/functions/CLIMR_effect_size_functions.R")
+source("./R/functions/CLIMR_effect-size-functions.R")
 
 # Calculate each study's effect sizes ------------------------------------------
 

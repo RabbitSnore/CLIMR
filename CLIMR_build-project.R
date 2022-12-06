@@ -164,27 +164,27 @@ if (simulation_mode == TRUE) {
 
 if (simulation_mode == FALSE) {
   
-  source("./R/import/CLIMR_data_importation.R")
+  source("./R/import/CLIMR_data-importation.R")
   
 }
 
 ## Effect calculation
 
-source("./R/calculate/CLIMR_calculate_effects.R")
+source("./R/calculate/CLIMR_calculate-effects.R")
 
 ## Meta-analysis
 
-source("./R/analyze/CLIMR_main_analyses.R")
+source("./R/analyze/CLIMR_main-analyses.R")
 
 ## Supplementary analyses
 
 ### Modality moderation
 
-source("./R/analyze/CLIMR_modality_moderation.R")
+source("./R/analyze/CLIMR_modality-moderation.R")
 
 ### Power analysis
 
-source("./R/analyze/CLIMR_power_analyses.R")
+source("./R/analyze/CLIMR_power-analyses.R")
 
 ### Smallest effect of interest
 
@@ -196,8 +196,8 @@ if (seoi_analysis == TRUE) {
 
 ### Manipulation checks
 
-source("./R/calculate/CLIMR_calculate_manipulation_check_effects.R")
-source("./R/analyze/CLIMR_manipulation_checks.R")
+source("./R/calculate/CLIMR_calculate-manipulation-check-effects.R")
+source("./R/analyze/CLIMR_manipulation-checks.R")
 
 ### Validations and pretests
 
@@ -205,21 +205,21 @@ if (validation_reports == TRUE) {
   
   # Validation of construal level measures
   
-  source("./R/validation/CLIMR-validation_data_importation.R")
-  source("./R/validation/CLIMR-validation-2_data_importation.R")
+  source("./R/validation/CLIMR-validation_data-importation.R")
+  source("./R/validation/CLIMR-validation-2_data-importation.R")
   
-  source("./R/validation/CLIMR-validation_effect_calculations.R")
-  source("./R/validation/CLIMR-validation-2_effect_calculations.R")
+  source("./R/validation/CLIMR-validation_effect-calculations.R")
+  source("./R/validation/CLIMR-validation-2_effect-calculations.R")
   
   source("./R/validation/CLIMR-validation_exploration.R")
   source("./R/validation/CLIMR-validation-2_exploration.R")
-  source("./R/validation/CLIMR-validation_data_visualization.R")
+  source("./R/validation/CLIMR-validation_data-visualization.R")
   
   source("./R/validation/CLIMR-validation-studies_summary.R")
   
   # BIF item relevance to event in the likelihood replication
   
-  source("./R/validation/CLIMR-action-relevance-pretest_data_importation.R")
+  source("./R/validation/CLIMR-action-relevance-pretest_data-importation.R")
   source("./R/validation/CLIMR-action-relevance-pretest_analysis.R")
   
   # BIF item response option valence differences
@@ -245,13 +245,13 @@ if (validation_reports == TRUE) {
 
 # Note that these analyses are computationally intensive. They can take several
 # minutes to calculate.
-source("./R/analyze/CLIMR_valence_analyses.R")
+source("./R/analyze/CLIMR_valence-analyses.R")
 
 ## Leaflet map of effects
 
 if (create_map == TRUE) {
   
-  source("./R/analyze/CLIMR_effect_map.R")
+  source("./R/analyze/CLIMR_effect-map.R")
   
 }
 
@@ -259,17 +259,17 @@ if (create_map == TRUE) {
 
 ## Main project report
 
-climr_report("CLIMR_main_analysis_report.Rmd")
+climr_report("CLIMR_main-analysis_report.Rmd")
 
 ## Supplemental reports
 
 ### Comprehension check report
 
-climr_report("CLIMR_comprehension_check_supplement.Rmd")
+climr_report("CLIMR_comprehension-check_report.Rmd")
 
 ### Moderator report
 
-climr_report("CLIMR_modality_moderation_supplement.Rmd")
+climr_report("CLIMR_modality-moderation_report.Rmd")
 
 ### Power analyses
 
@@ -285,7 +285,7 @@ if (seoi_analysis == TRUE){
 
 ### Manipulation checks
 
-climr_report("CLIMR_manipulation_check_supplement.Rmd")
+climr_report("CLIMR_manipulation-check_report.Rmd")
 
 ### BIF item response option valence difference robustness check
 

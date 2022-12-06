@@ -6,7 +6,7 @@
 
 # Set up environment -----------------------------------------------------------
 
-lab_coords <- read.csv("./data/lab_coordinates.csv") %>% 
+lab_coords <- read.csv("./data/climr_lab-coordinates.csv") %>% 
   mutate(
     ID   = 1:nrow(.), # REMOVE WHEN FINAL IDENTIFIERS ARE SET
     long = as.numeric(long),
