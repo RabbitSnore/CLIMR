@@ -6,11 +6,11 @@ Construal Level Theory (CLT):
 Liberman, N., & Trope, Y. (1998). The role of feasibility and desirability
 considerations in near and distant future decisions: A test of temporal
 construal theory. *Journal of Personality and Social Psychology, 75*(1), 5-18.
-Experiment 1.
+Study 1.
 
 Fujita, K., Henderson, M., Eng, J., Trope, Y., & Liberman, N. (2006). Spatial
 distance and mental construal of social events. *Psychological Science, 14*,
-278-282. Experiment 1.
+278-282. Study 1.
 
 In addition to close replications of these two studies, this project also
 entails two paradigmatic replications relevant to social and likelihood
