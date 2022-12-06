@@ -123,17 +123,17 @@ detectable_effects <- clt_samples %>%
 
 ## Summary data
 
-smaller_n_temporal    <- sum(meta_temporal$beta[[1]] < detectable_effects$d)
-smaller_prop_temporal <- smaller_n_temporal/nrow(detectable_effects)
+smaller_n_temporal      <- 1 - sum(meta_temporal$beta[[1]] < detectable_effects$d)
+smaller_prop_temporal   <- 1 - smaller_n_temporal/nrow(detectable_effects)
+  
+smaller_n_spatial       <- 1 - sum(meta_spatial$beta[[1]] < detectable_effects$d)
+smaller_prop_spatial    <- 1 - smaller_n_spatial/nrow(detectable_effects)
+  
+smaller_n_social        <- 1 - sum(meta_social$beta[[1]] < detectable_effects$d)
+smaller_prop_social     <- 1 - smaller_n_social/nrow(detectable_effects)
 
-smaller_n_spatial    <- sum(meta_spatial$beta[[1]] < detectable_effects$d)
-smaller_prop_spatial <- smaller_n_spatial/nrow(detectable_effects)
-
-smaller_n_social    <- sum(meta_social$beta[[1]] < detectable_effects$d)
-smaller_prop_social <- smaller_n_social/nrow(detectable_effects)
-
-smaller_n_likelihood    <- sum(meta_likelihood$beta[[1]] < detectable_effects$d)
-smaller_prop_likelihood <- smaller_n_likelihood/nrow(detectable_effects)
+smaller_n_likelihood    <- 1 - sum(meta_likelihood$beta[[1]] < detectable_effects$d)
+smaller_prop_likelihood <- 1 - smaller_n_likelihood/nrow(detectable_effects)
 
 ## Data visualization
 
@@ -223,6 +223,35 @@ median_power_likelihood <- median(detection_power_likelihood$power)
 
 ## Data visualizations
 
+### Get a reasonable maximum for the y-axis
+
+count_max_temporal   <- detection_power_temporal$power %>% 
+  cut(breaks = seq(0, 1, .05)) %>% 
+  table() %>% 
+  max()
+
+count_max_spatial    <- detection_power_spatial$power %>% 
+  cut(breaks = seq(0, 1, .05)) %>% 
+  table() %>% 
+  max()
+
+count_max_social     <- detection_power_temporal$power %>% 
+  cut(breaks = seq(0, 1, .05)) %>% 
+  table() %>% 
+  max()
+
+count_max_likelihood <- detection_power_temporal$power %>% 
+  cut(breaks = seq(0, 1, .05)) %>% 
+  table() %>% 
+  max()
+
+count_max <- max(count_max_temporal,
+                 count_max_spatial, 
+                 count_max_social, 
+                 count_max_likelihood) + 5
+
+### Create visualizations
+
 detection_plot_temporal <- 
 ggplot(detection_power_temporal,
        aes(
@@ -233,13 +262,20 @@ ggplot(detection_power_temporal,
     fill = "grey",
     color = "darkgrey"
   ) +
+  geom_vline(
+    xintercept = median_power_temporal,
+    linetype = "dashed",
+    size = 1,
+    alpha = .80,
+    color = liberman_1998_color
+  ) +
   scale_x_continuous(
     breaks = seq(0, 1, .10),
     labels = paste(seq(0, 1, .10) * 100, "%", sep = "")
   ) +
   coord_cartesian(
     xlim = c(-0.1, 1.1),
-    ylim = c(0, 18)
+    ylim = c(0, count_max)
   ) +
   labs(
     x     = "Power to Detect Replication Effect Estimate",
@@ -258,13 +294,20 @@ detection_plot_spatial <-
     fill = "grey",
     color = "darkgrey"
   ) +
+  geom_vline(
+    xintercept = median_power_spatial,
+    linetype = "dashed",
+    size = 1,
+    alpha = .80,
+    color = fujita_2006_color
+  ) +
   scale_x_continuous(
     breaks = seq(0, 1, .10),
     labels = paste(seq(0, 1, .10) * 100, "%", sep = "")
   ) +
   coord_cartesian(
     xlim = c(-0.1, 1.1),
-    ylim = c(0, 18)
+    ylim = c(0, count_max)
   ) +
   labs(
     x     = "Power to Detect Replication Effect Estimate",
@@ -283,13 +326,20 @@ detection_plot_social <-
     fill = "grey",
     color = "darkgrey"
   ) +
+  geom_vline(
+    xintercept = median_power_social,
+    linetype = "dashed",
+    size = 1,
+    alpha = .80,
+    color = social_color
+  ) +
   scale_x_continuous(
     breaks = seq(0, 1, .10),
     labels = paste(seq(0, 1, .10) * 100, "%", sep = "")
   ) +
   coord_cartesian(
     xlim = c(-0.1, 1.1),
-    ylim = c(0, 18)
+    ylim = c(0, count_max)
   ) +
   labs(
     x     = "Power to Detect Replication Effect Estimate",
@@ -308,13 +358,20 @@ detection_plot_likelihood <-
     fill = "grey",
     color = "darkgrey"
   ) +
+  geom_vline(
+    xintercept = median_power_likelihood,
+    linetype = "dashed",
+    size = 1,
+    alpha = .80,
+    color = likelihood_color
+  ) +
   scale_x_continuous(
     breaks = seq(0, 1, .10),
     labels = paste(seq(0, 1, .10) * 100, "%", sep = "")
   ) +
   coord_cartesian(
     xlim = c(-0.1, 1.1),
-    ylim = c(0, 18)
+    ylim = c(0, count_max)
   ) +
   labs(
     x     = "Power to Detect Replication Effect Estimate",

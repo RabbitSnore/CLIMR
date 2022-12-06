@@ -32,13 +32,13 @@ power_95_n_temporal
 
     ## [1] 349.6109
 
-### What proportion of effects for which previous experiments had 80% power is the replication effect smaller than?
+### What proportion of previous experiments had at least 80% power to detect effects the size of the replication effect?
 
 ``` r
 smaller_prop_temporal
 ```
 
-    ## [1] 0.92
+    ## [1] 1.91
 
 ### What is the median power for the replication effect that the previous experiments samples provided?
 
@@ -64,13 +64,13 @@ power_95_n_spatial
 
     ## [1] 343.6478
 
-### What proportion of effects for which previous experiments had 80% power is the replication effect smaller than?
+### What proportion of previous experiments had at least 80% power to detect effects the size of the replication effect?
 
 ``` r
 smaller_prop_spatial
 ```
 
-    ## [1] 0.92
+    ## [1] 1.91
 
 ### What is the median power for the replication effect that the previous experiments samples provided?
 
@@ -96,13 +96,13 @@ power_95_n_social
 
     ## [1] 300.8708
 
-### What proportion of effects for which previous experiments had 80% power is the replication effect smaller than?
+### What proportion of previous experiments had at least 80% power to detect effects the size of the replication effect?
 
 ``` r
 smaller_prop_social
 ```
 
-    ## [1] 0.89
+    ## [1] 1.88
 
 ### What is the median power for the replication effect that the previous experiments samples provided?
 
@@ -134,7 +134,7 @@ power_95_n_likelihood
 smaller_prop_likelihood
 ```
 
-    ## [1] 0.86
+    ## [1] 1.85
 
 ### What is the median power for the replication effect that the previous experiments samples provided?
 

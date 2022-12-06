@@ -37,7 +37,7 @@ power_80_n_temporal
 power_95_n_temporal
 ```
 
-### What proportion of effects for which previous experiments had 80% power is the replication effect smaller than?
+### What proportion of previous experiments had at least 80% power to detect effects the size of the replication effect?
 
 ```{r}
 smaller_prop_temporal
@@ -62,7 +62,7 @@ power_80_n_spatial
 power_95_n_spatial
 ```
 
-### What proportion of effects for which previous experiments had 80% power is the replication effect smaller than?
+### What proportion of previous experiments had at least 80% power to detect effects the size of the replication effect?
 
 ```{r}
 smaller_prop_spatial
@@ -87,7 +87,7 @@ power_80_n_social
 power_95_n_social
 ```
 
-### What proportion of effects for which previous experiments had 80% power is the replication effect smaller than?
+### What proportion of previous experiments had at least 80% power to detect effects the size of the replication effect?
 
 ```{r}
 smaller_prop_social
