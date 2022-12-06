@@ -24,7 +24,7 @@ source("./R/functions/CLIMR_effect_size_functions.R")
 effects_temporal <- lab_d_calc(
   data       = data_temporal, 
   distance   = "temporal", 
-  experiment = "Liberman & Trope (1998, Study 1)"
+  experiment = "Temporal (Liberman & Trope, 1998, Study 1)"
 )
 
 ### Comprehension check failures removed
@@ -32,7 +32,7 @@ effects_temporal <- lab_d_calc(
 effects_temporal_comp <- lab_d_calc(
   data       = filter(data_temporal, comp_check == 0), 
   distance   = "temporal", 
-  experiment = "Liberman & Trope (1998, Study 1)"
+  experiment = "Temporal (Liberman & Trope, 1998, Study 1)"
 )
 
 ## Fujita et al. (2006, Study 1): Spatial Distance -----------------------------
@@ -42,7 +42,7 @@ effects_temporal_comp <- lab_d_calc(
 effects_spatial <- lab_d_calc(
   data       = data_spatial, 
   distance   = "spatial", 
-  experiment = "Fujita et al. (2006, Study 1)"
+  experiment = "Spatial (Fujita et al., 2006, Study 1)"
 )
 
 ### Comprehension check failures removed
@@ -50,7 +50,7 @@ effects_spatial <- lab_d_calc(
 effects_spatial_comp <- lab_d_calc(
   data       = filter(data_spatial, comp_check == 0), 
   distance   = "spatial", 
-  experiment = "Fujita et al. (2006, Study 1)"
+  experiment = "Spatial (Fujita et al., 2006, Study 1)"
 )
 
 ## Social Distance (Paradigmatic Replication) ----------------------------------
@@ -60,7 +60,7 @@ effects_spatial_comp <- lab_d_calc(
 effects_social <- lab_d_calc(
   data       = data_social, 
   distance   = "social", 
-  experiment = "Social Distance (Conceptual Replication)"
+  experiment = "Social (paradigmatic replication)"
 )
 
 ### Comprehension check failures removed
@@ -68,7 +68,7 @@ effects_social <- lab_d_calc(
 effects_social_comp <- lab_d_calc(
   data       = filter(data_social, comp_check == 0), 
   distance   = "social", 
-  experiment = "Social Distance (Conceptual Replication)"
+  experiment = "Social (paradigmatic replication)"
 )
 
 ## Likelihood Distance (Paradigmatic Replication) ------------------------------
@@ -78,7 +78,7 @@ effects_social_comp <- lab_d_calc(
 effects_likelihood <- lab_d_calc(
   data       = data_likelihood, 
   distance   = "likelihood", 
-  experiment = "Likelihood Distance (Conceptual Replication)"
+  experiment = "Likelihood (paradigmatic replication)"
 )
 
 ### Comprehension check failures removed
@@ -86,7 +86,7 @@ effects_likelihood <- lab_d_calc(
 effects_likelihood_comp <- lab_d_calc(
   data       = filter(data_likelihood, comp_check == 0), 
   distance   = "likelihood", 
-  experiment = "Likelihood Distance (Conceptual Replication)"
+  experiment = "Likelihood (paradigmatic replication)"
 )
 
 # Export effect size data ------------------------------------------------------

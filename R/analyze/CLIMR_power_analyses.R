@@ -244,7 +244,7 @@ ggplot(detection_power_temporal,
   labs(
     x     = "Power to Detect Replication Effect Estimate",
     y     = "Count",
-    title = "Temporal (Liberman & Trope, 1998, Exp 1)"
+    title = "Temporal (Liberman & Trope, 1998, Study 1)"
   ) +
   theme_classic()
 
@@ -269,7 +269,7 @@ detection_plot_spatial <-
   labs(
     x     = "Power to Detect Replication Effect Estimate",
     y     = "Count",
-    title = "Spatial (Fujita et al., 2006, Exp 1)"
+    title = "Spatial (Fujita et al., 2006, Study 1)"
   ) +
   theme_classic()
 

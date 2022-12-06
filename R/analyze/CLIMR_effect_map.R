@@ -99,14 +99,14 @@ climr_leaflet <- leaflet() %>%
   effect_layer(effects_temporal, 
                palette_temporal, 
                liberman_1998_color, 
-               "Temporal (Liberman & Trope, 1998, Exp 1)") %>% 
+               "Temporal (Liberman & Trope, 1998, Study 1)") %>% 
   
   # Spatial
   
   effect_layer(effects_spatial, 
                palette_spatial, 
                fujita_2006_color, 
-               "Spatial (Fujita et al., 2006, Exp 1)") %>% 
+               "Spatial (Fujita et al., 2006, Study 1)") %>% 
   
   # Social
   
@@ -126,8 +126,8 @@ climr_leaflet <- leaflet() %>%
   
   addLayersControl(
     baseGroups = c(
-      "Temporal (Liberman & Trope, 1998, Exp 1)", 
-      "Spatial (Fujita et al., 2006, Exp 1)", 
+      "Temporal (Liberman & Trope, 1998, Study 1)", 
+      "Spatial (Fujita et al., 2006, Study 1)", 
       "Social (paradigmatic replication)", 
       "Likelihood (paradigmatic replication)"
       ),

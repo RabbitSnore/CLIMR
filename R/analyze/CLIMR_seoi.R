@@ -66,8 +66,8 @@ climr_seoi_figure <- seoi_swarm(
   meta_likelihood = meta_likelihood, 
   complete        = seoi_complete,
   study_colors    = study_colors, 
-  titles          = c("Temporal (Liberman & Trope, 1998, Exp 1)",
-                      "Spatial (Fujita et al., 2006, Exp 1)",
+  titles          = c("Temporal (Liberman & Trope, 1998, Study 1)",
+                      "Spatial (Fujita et al., 2006, Study 1)",
                       "Social (paradigmatic replication)",
                       "Likelihood (paradigmatic replication)")
   )

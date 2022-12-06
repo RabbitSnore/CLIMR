@@ -22,7 +22,7 @@ source("./R/functions/CLIMR_effect_size_functions.R")
 effects_mc_temporal <- lab_d_calc(
   data       = data_mc_temporal, 
   distance   = "temporal", 
-  experiment = "Liberman & Trope (1998, Study 1)"
+  experiment = "Temporal (Liberman & Trope, 1998, Study 1)"
 )
 
 ## Fujita et al. (2006, Study 1): Spatial Distance -----------------------------
@@ -30,7 +30,7 @@ effects_mc_temporal <- lab_d_calc(
 effects_mc_spatial <- lab_d_calc(
   data       = data_mc_spatial, 
   distance   = "spatial", 
-  experiment = "Fujita et al. (2006, Study 1)"
+  experiment = "Spatial (Fujita et al., 2006, Study 1)"
 )
 
 ## Social Distance (Paradigmatic Replication) ----------------------------------
@@ -38,7 +38,7 @@ effects_mc_spatial <- lab_d_calc(
 effects_mc_social <- lab_d_calc(
   data       = data_mc_social, 
   distance   = "social", 
-  experiment = "Social Distance (Conceptual Replication)"
+  experiment = "Social (paradigmatic replication)"
 )
 
 ## Likelihood Distance (Paradigmatic Replication) ------------------------------
@@ -46,5 +46,5 @@ effects_mc_social <- lab_d_calc(
 effects_mc_likelihood <- lab_d_calc(
   data       = data_mc_likelihood, 
   distance   = "likelihood", 
-  experiment = "Likelihood Distance (Conceptual Replication)"
+  experiment = "Likelihood (paradigmatic replication)"
 )

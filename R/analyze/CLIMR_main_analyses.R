@@ -70,7 +70,7 @@ forest_temporal <- forest_plot(
   org_d            = original$d[original$study == "temporal"],
   org_ci_lower     = original$ci_lower[original$study == "temporal"], 
   org_ci_upper     = original$ci_upper[original$study == "temporal"], 
-  title            = "Temporal (Liberman & Trope, 1998, Exp 1)", 
+  title            = "Temporal (Liberman & Trope, 1998, Study 1)", 
   study_color      = liberman_1998_color
   )
 
@@ -111,7 +111,7 @@ forest_spatial <- forest_plot(
   org_d            = original$d[original$study == "spatial"],
   org_ci_lower     = original$ci_lower[original$study == "spatial"], 
   org_ci_upper     = original$ci_upper[original$study == "spatial"], 
-  title            = "Spatial (Fujita et al., 2006, Exp 1)", 
+  title            = "Spatial (Fujita et al., 2006, Study 1)", 
   study_color      = fujita_2006_color
 )
 
@@ -240,8 +240,8 @@ climr_figure <- climr_swarm(
   complete        = effects_complete, 
   original        = original, 
   study_colors    = study_colors, 
-  titles          = c("Temporal (Liberman & Trope, 1998, Exp 1)", 
-                      "Spatial (Fujita et al., 2006, Exp 1)", 
+  titles          = c("Temporal (Liberman & Trope, 1998, Study 1)", 
+                      "Spatial (Fujita et al., 2006, Study 1)", 
                       "Social (paradigmatic replication)", 
                       "Likelihood (paradigmatic replication)")
 )
