@@ -248,7 +248,8 @@ count_max_likelihood <- detection_power_temporal$power %>%
 count_max <- max(count_max_temporal,
                  count_max_spatial, 
                  count_max_social, 
-                 count_max_likelihood) + 5
+                 count_max_likelihood) / 5 %>%
+  ceiling() * 5
 
 ### Create visualizations
 
