@@ -19,8 +19,8 @@ distance.
 ## Compendium Structure
 
 The CLIMR project compendium comprises two main parts, one hosted on the Open
-Science Framework (OSF; <https://osf.io/ra3dp/>) and one hosted on GitHub
-(<https://github.com/RabbitSnore/CLIMR>). The OSF repository for CLIMR contains
+Science Framework (OSF; https://osf.io/ra3dp/) and one hosted on GitHub
+(https://github.com/RabbitSnore/CLIMR). The OSF repository for CLIMR contains
 the materials, methods, and data (when data are collected). The GitHub
 repository contains the code necessary to execute and reproduce the statistical
 analyses for the project.
@@ -41,8 +41,8 @@ required.
 ## (Re-)Building the Project
 
 If you want to reproduce the analyses and output for the CLIMR project, the most
-straightforward way to do this is to clone this repository into an R Project in
-R Studio. [This
+straightforward way to do this is to clone this repository into an RStudio
+project. [This
 webpage](https://resources.github.com/whitepapers/github-and-rstudio/) has
 information about how to clone repositories in R Studio. Once you have cloned
 the repository, open the project in R Studio, and run the following code:
