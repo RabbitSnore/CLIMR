@@ -2,7 +2,7 @@ Construal Level International Multilab Replication (CLIMR) Project:
 Pretest of Social distance Manipulation
 ================
 CLIMR Team
-2022-12-06
+2022-12-16
 
 # Overview
 
@@ -22,7 +22,7 @@ distance_d
 knitr::include_graphics("./figures/climr_social-distance-pretest-histogram.png")
 ```
 
-![](./figures/climr_social-distance-pretest-histogram.png)<!-- -->
+<img src="./figures/climr_social-distance-pretest-histogram.png" width="3000" />
 
 ``` r
 close_cor_mat

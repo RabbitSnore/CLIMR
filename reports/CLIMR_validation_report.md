@@ -2,7 +2,7 @@ Construal Level International Multilab Replication (CLIMR) Project:
 Validation Pretest Report
 ================
 CLIMR Team
-2022-12-06
+2022-12-16
 
 These validation studies are documented here: <https://osf.io/kgrs9/>
 
@@ -19,7 +19,7 @@ effect_temporal
 knitr::include_graphics("./figures/climr_validation-temporal-hist.png")
 ```
 
-![](./figures/climr_validation-temporal-hist.png)<!-- -->
+<img src="./figures/climr_validation-temporal-hist.png" width="3000" />
 
 # Segmentation Task
 
@@ -34,7 +34,7 @@ effect_spatial
 knitr::include_graphics("./figures/climr_validation-spatial-hist.png")
 ```
 
-![](./figures/climr_validation-spatial-hist.png)<!-- -->
+<img src="./figures/climr_validation-spatial-hist.png" width="3000" />
 
 # Behavior Identification Form
 
@@ -49,7 +49,7 @@ effect_temporal_2
 knitr::include_graphics("./figures/climr_validation-temporal-2-hist.png")
 ```
 
-![](./figures/climr_validation-temporal-2-hist.png)<!-- -->
+<img src="./figures/climr_validation-temporal-2-hist.png" width="3000" />
 
 # Robustness Checks
 

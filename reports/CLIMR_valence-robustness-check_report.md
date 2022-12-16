@@ -3,7 +3,7 @@ Robustness Tests Account for Valence Differences in the Response Options
 for the Items on the Behavior Identification Form (BIF)
 ================
 CLIMR Team
-2022-12-06
+2022-12-16
 
 # **THESE RESULTS ARE SIMULATED. DO NOT INTERPRET.**
 
@@ -41,9 +41,9 @@ summary(glmm_temporal_bif_base)
     ## 
     ## Random effects:
     ##  Groups  Name        Variance Std.Dev.
-    ##  lab:sub (Intercept) 0.004197 0.06479 
+    ##  lab:sub (Intercept) 0.004197 0.06478 
     ##  lab     (Intercept) 0.054292 0.23301 
-    ##  item    (Intercept) 0.018312 0.13532 
+    ##  item    (Intercept) 0.018313 0.13532 
     ## Number of obs: 61875, groups:  lab:sub, 2475; lab, 99; item, 25
     ## 
     ## Fixed effects:
@@ -76,15 +76,15 @@ summary(glmm_temporal_bif_val)
     ## Random effects:
     ##  Groups  Name        Variance Std.Dev.
     ##  lab:sub (Intercept) 0.004197 0.06478 
-    ##  lab     (Intercept) 0.054288 0.23300 
+    ##  lab     (Intercept) 0.054289 0.23300 
     ##  item    (Intercept) 0.017817 0.13348 
     ## Number of obs: 61875, groups:  lab:sub, 2475; lab, 99; item, 25
     ## 
     ## Fixed effects:
     ##                   Estimate Std. Error z value Pr(>|z|)    
-    ## (Intercept)       0.001898   0.073658   0.026    0.979    
-    ## conditiondistant -0.464211   0.017021 -27.273   <2e-16 ***
-    ## d                -0.061034   0.077302  -0.790    0.430    
+    ## (Intercept)       0.001896   0.073682   0.026    0.979    
+    ## conditiondistant -0.464215   0.017021 -27.273   <2e-16 ***
+    ## d                -0.061035   0.077333  -0.789    0.430    
     ## ---
     ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
     ## 
@@ -111,17 +111,17 @@ summary(glmm_temporal_bif_int)
     ## 
     ## Random effects:
     ##  Groups  Name        Variance Std.Dev.
-    ##  lab:sub (Intercept) 0.004198 0.0648  
-    ##  lab     (Intercept) 0.054289 0.2330  
-    ##  item    (Intercept) 0.017808 0.1334  
+    ##  lab:sub (Intercept) 0.004197 0.06479 
+    ##  lab     (Intercept) 0.054289 0.23300 
+    ##  item    (Intercept) 0.017808 0.13345 
     ## Number of obs: 61875, groups:  lab:sub, 2475; lab, 99; item, 25
     ## 
     ## Fixed effects:
     ##                     Estimate Std. Error z value Pr(>|z|)    
-    ## (Intercept)        -0.007763   0.076004  -0.102    0.919    
-    ## conditiondistant   -0.444939   0.041108 -10.824   <2e-16 ***
-    ## d                  -0.049262   0.080597  -0.611    0.541    
-    ## conditiondistant:d -0.023506   0.045641  -0.515    0.607    
+    ## (Intercept)        -0.007769   0.076081  -0.102    0.919    
+    ## conditiondistant   -0.444940   0.041121 -10.820   <2e-16 ***
+    ## d                  -0.049256   0.080684  -0.610    0.542    
+    ## conditiondistant:d -0.023506   0.045657  -0.515    0.607    
     ## ---
     ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
     ## 
@@ -161,19 +161,19 @@ summary(glmm_spatial_bif_base)
     ## 
     ## Scaled residuals: 
     ##     Min      1Q  Median      3Q     Max 
-    ## -1.5754 -0.8867 -0.6897  1.0372  1.9000 
+    ## -1.5755 -0.8867 -0.6897  1.0372  1.9000 
     ## 
     ## Random effects:
     ##  Groups  Name        Variance Std.Dev.
     ##  lab:sub (Intercept) 0.01717  0.1310  
-    ##  lab     (Intercept) 0.05950  0.2439  
+    ##  lab     (Intercept) 0.05951  0.2439  
     ##  item    (Intercept) 0.01134  0.1065  
     ## Number of obs: 61875, groups:  lab:sub, 2475; lab, 99; item, 25
     ## 
     ## Fixed effects:
     ##                  Estimate Std. Error z value Pr(>|z|)    
-    ## (Intercept)       0.03674    0.03470   1.059     0.29    
-    ## conditiondistant -0.49501    0.01764 -28.061   <2e-16 ***
+    ## (Intercept)       0.03675    0.03469   1.059     0.29    
+    ## conditiondistant -0.49501    0.01764 -28.062   <2e-16 ***
     ## ---
     ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
     ## 
@@ -206,9 +206,9 @@ summary(glmm_spatial_bif_val)
     ## 
     ## Fixed effects:
     ##                  Estimate Std. Error z value Pr(>|z|)    
-    ## (Intercept)       0.04812    0.06233   0.772    0.440    
-    ## conditiondistant -0.49501    0.01764 -28.062   <2e-16 ***
-    ## d                -0.01387    0.06313  -0.220    0.826    
+    ## (Intercept)       0.04812    0.06234   0.772    0.440    
+    ## conditiondistant -0.49501    0.01764 -28.061   <2e-16 ***
+    ## d                -0.01387    0.06314  -0.220    0.826    
     ## ---
     ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
     ## 
@@ -241,11 +241,11 @@ summary(glmm_spatial_bif_int)
     ## Number of obs: 61875, groups:  lab:sub, 2475; lab, 99; item, 25
     ## 
     ## Fixed effects:
-    ##                    Estimate Std. Error z value Pr(>|z|)    
-    ## (Intercept)         0.03044    0.06492   0.469    0.639    
-    ## conditiondistant   -0.45869    0.04133 -11.099   <2e-16 ***
-    ## d                   0.00768    0.06689   0.115    0.909    
-    ## conditiondistant:d -0.04428    0.04557  -0.972    0.331    
+    ##                     Estimate Std. Error z value Pr(>|z|)    
+    ## (Intercept)         0.030440   0.064918   0.469    0.639    
+    ## conditiondistant   -0.458689   0.041327 -11.099   <2e-16 ***
+    ## d                   0.007679   0.066892   0.115    0.909    
+    ## conditiondistant:d -0.044283   0.045571  -0.972    0.331    
     ## ---
     ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
     ## 
@@ -290,7 +290,7 @@ summary(glmm_social_bif_base)
     ## Random effects:
     ##  Groups  Name        Variance Std.Dev.
     ##  lab:sub (Intercept) 0.006024 0.07761 
-    ##  lab     (Intercept) 0.039681 0.19920 
+    ##  lab     (Intercept) 0.039680 0.19920 
     ##  item    (Intercept) 0.006399 0.07999 
     ## Number of obs: 61875, groups:  lab:sub, 2475; lab, 99; item, 25
     ## 
@@ -329,10 +329,10 @@ summary(glmm_social_bif_val)
     ## Number of obs: 61875, groups:  lab:sub, 2475; lab, 99; item, 25
     ## 
     ## Fixed effects:
-    ##                  Estimate Std. Error z value Pr(>|z|)    
-    ## (Intercept)       0.03075    0.04958   0.620    0.535    
-    ## conditiondistant -0.46347    0.01698 -27.294   <2e-16 ***
-    ## d                -0.00570    0.04974  -0.115    0.909    
+    ##                   Estimate Std. Error z value Pr(>|z|)    
+    ## (Intercept)       0.030748   0.049566   0.620    0.535    
+    ## conditiondistant -0.463466   0.016980 -27.294   <2e-16 ***
+    ## d                -0.005702   0.049731  -0.115    0.909    
     ## ---
     ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
     ## 
@@ -359,16 +359,16 @@ summary(glmm_social_bif_int)
     ## 
     ## Random effects:
     ##  Groups  Name        Variance Std.Dev.
-    ##  lab:sub (Intercept) 0.006024 0.07761 
+    ##  lab:sub (Intercept) 0.006024 0.07762 
     ##  lab     (Intercept) 0.039680 0.19920 
-    ##  item    (Intercept) 0.006395 0.07997 
+    ##  item    (Intercept) 0.006396 0.07997 
     ## Number of obs: 61875, groups:  lab:sub, 2475; lab, 99; item, 25
     ## 
     ## Fixed effects:
     ##                    Estimate Std. Error z value Pr(>|z|)    
-    ## (Intercept)         0.03532    0.05267   0.671    0.502    
+    ## (Intercept)         0.03533    0.05267   0.671    0.502    
     ## conditiondistant   -0.47305    0.04097 -11.546   <2e-16 ***
-    ## d                  -0.01127    0.05426  -0.208    0.835    
+    ## d                  -0.01128    0.05426  -0.208    0.835    
     ## conditiondistant:d  0.01168    0.04544   0.257    0.797    
     ## ---
     ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
@@ -376,7 +376,7 @@ summary(glmm_social_bif_int)
     ## Correlation of Fixed Effects:
     ##             (Intr) cndtnd d     
     ## condtndstnt -0.371              
-    ## d           -0.845  0.364       
+    ## d           -0.845  0.363       
     ## cndtndstnt:  0.338 -0.910 -0.399
 
 # Likelihood Distance (Paradigmatic Replication)
@@ -414,14 +414,14 @@ summary(glmm_likelihood_bif_base)
     ## Random effects:
     ##  Groups  Name        Variance Std.Dev.
     ##  lab:sub (Intercept) 0.013931 0.11803 
-    ##  lab     (Intercept) 0.055373 0.23532 
+    ##  lab     (Intercept) 0.055373 0.23531 
     ##  item    (Intercept) 0.006958 0.08341 
     ## Number of obs: 61875, groups:  lab:sub, 2475; lab, 99; item, 25
     ## 
     ## Fixed effects:
     ##                  Estimate Std. Error z value Pr(>|z|)    
     ## (Intercept)      -0.03234    0.03137  -1.031    0.303    
-    ## conditiondistant -0.45839    0.01746 -26.261   <2e-16 ***
+    ## conditiondistant -0.45839    0.01746 -26.260   <2e-16 ***
     ## ---
     ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
     ## 
@@ -447,16 +447,16 @@ summary(glmm_likelihood_bif_val)
     ## 
     ## Random effects:
     ##  Groups  Name        Variance Std.Dev.
-    ##  lab:sub (Intercept) 0.013930 0.11803 
-    ##  lab     (Intercept) 0.055372 0.23531 
-    ##  item    (Intercept) 0.006925 0.08322 
+    ##  lab:sub (Intercept) 0.013931 0.11803 
+    ##  lab     (Intercept) 0.055373 0.23531 
+    ##  item    (Intercept) 0.006926 0.08322 
     ## Number of obs: 61875, groups:  lab:sub, 2475; lab, 99; item, 25
     ## 
     ## Fixed effects:
     ##                  Estimate Std. Error z value Pr(>|z|)    
-    ## (Intercept)      -0.01954    0.05254  -0.372    0.710    
+    ## (Intercept)      -0.01956    0.05252  -0.372    0.710    
     ## conditiondistant -0.45839    0.01746 -26.260   <2e-16 ***
-    ## d                -0.01560    0.05139  -0.303    0.762    
+    ## d                -0.01558    0.05137  -0.303    0.762    
     ## ---
     ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
     ## 
@@ -484,21 +484,21 @@ summary(glmm_likelihood_bif_int)
     ## Random effects:
     ##  Groups  Name        Variance Std.Dev.
     ##  lab:sub (Intercept) 0.013932 0.11803 
-    ##  lab     (Intercept) 0.055374 0.23532 
+    ##  lab     (Intercept) 0.055373 0.23532 
     ##  item    (Intercept) 0.006924 0.08321 
     ## Number of obs: 61875, groups:  lab:sub, 2475; lab, 99; item, 25
     ## 
     ## Fixed effects:
     ##                     Estimate Std. Error z value Pr(>|z|)    
-    ## (Intercept)        -0.007697   0.055632  -0.138    0.890    
-    ## conditiondistant   -0.482653   0.041271 -11.695   <2e-16 ***
-    ## d                  -0.030042   0.056015  -0.536    0.592    
-    ## conditiondistant:d  0.029581   0.045589   0.649    0.516    
+    ## (Intercept)        -0.007698   0.055610  -0.138    0.890    
+    ## conditiondistant   -0.482657   0.041253 -11.700   <2e-16 ***
+    ## d                  -0.030045   0.055993  -0.537    0.592    
+    ## conditiondistant:d  0.029586   0.045569   0.649    0.516    
     ## ---
     ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
     ## 
     ## Correlation of Fixed Effects:
     ##             (Intr) cndtnd d     
     ## condtndstnt -0.363              
-    ## d           -0.826  0.361       
-    ## cndtndstnt:  0.329 -0.906 -0.398
+    ## d           -0.826  0.360       
+    ## cndtndstnt:  0.328 -0.906 -0.398

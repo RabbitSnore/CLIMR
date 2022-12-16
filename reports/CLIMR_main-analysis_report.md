@@ -2,7 +2,7 @@ Construal Level International Multilab Replication (CLIMR) Project: Main
 Analysis Report
 ================
 CLIMR Team
-2022-12-06
+2022-12-16
 
 # **THESE RESULTS ARE SIMULATED. DO NOT INTERPRET.**
 
@@ -12,7 +12,7 @@ CLIMR Team
 knitr::include_graphics("./figures/climr_main_figure.png")
 ```
 
-![](./figures/climr_main_figure.png)<!-- -->
+<img src="./figures/climr_main_figure.png" width="2400" />
 
 # Meta-Analytic Models
 
@@ -150,4 +150,4 @@ bt_likelihood
 knitr::include_graphics("./figures/climr_arboretum.png")
 ```
 
-![](./figures/climr_arboretum.png)<!-- -->
+<img src="./figures/climr_arboretum.png" width="5400" />

@@ -2,7 +2,7 @@ Construal Level International Multilab Replication (CLIMR) Project:
 Pretest of Valence Differences in BIF Item Response Options
 ================
 CLIMR Team
-2022-12-06
+2022-12-16
 
 # Overview
 
@@ -111,7 +111,7 @@ bif_scale_smd_rel
 There is a strong correspondence between the separate and relative
 judgments.
 
-![](./figures/climr_bif-valence-scatter.png)<!-- -->
+<img src="./figures/climr_bif-valence-scatter.png" width="2100" />
 
 Item 13, which concerns voting, appeared to have discrepant results in
 the two judgment modes. This may be because the abstract option
@@ -273,15 +273,15 @@ summary(model_val_sep_int)
     ## Random effects:
     ##  Groups Name        Variance Std.Dev.
     ##  id     (Intercept) 0.3428   0.5855  
-    ##  item   (Intercept) 0.1007   0.3174  
+    ##  item   (Intercept) 0.1008   0.3174  
     ## Number of obs: 4825, groups:  id, 193; item, 25
     ## 
     ## Fixed effects:
     ##                       Estimate Std. Error z value Pr(>|z|)    
     ## (Intercept)            0.46296    0.09563   4.841 1.29e-06 ***
-    ## mani_social2           0.19016    0.10537   1.805   0.0711 .  
+    ## mani_social2           0.19017    0.10537   1.805   0.0711 .  
     ## d_sep_mc               0.25409    0.14760   1.721   0.0852 .  
-    ## mani_social2:d_sep_mc -0.09648    0.12180  -0.792   0.4283    
+    ## mani_social2:d_sep_mc -0.09648    0.12179  -0.792   0.4283    
     ## ---
     ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
     ## 
@@ -378,9 +378,9 @@ summary(model_val_rel_int)
     ## Fixed effects:
     ##                       Estimate Std. Error z value Pr(>|z|)    
     ## (Intercept)            0.46402    0.08765   5.294 1.20e-07 ***
-    ## mani_social2           0.18757    0.10535   1.781    0.075 .  
-    ## d_rel_mc               0.71241    0.18283   3.897 9.76e-05 ***
-    ## mani_social2:d_rel_mc -0.22520    0.17332  -1.299    0.194    
+    ## mani_social2           0.18757    0.10535   1.780    0.075 .  
+    ## d_rel_mc               0.71241    0.18285   3.896 9.77e-05 ***
+    ## mani_social2:d_rel_mc -0.22520    0.17333  -1.299    0.194    
     ## ---
     ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
     ## 

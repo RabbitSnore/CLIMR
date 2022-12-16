@@ -2,7 +2,7 @@ Construal Level International Multilab Replication (CLIMR) Project:
 Interval Estimate Validation Report
 ================
 CLIMR Team
-2022-12-06
+2022-12-16
 
 These validations are documented here: <https://osf.io/kgrs9/>
 
@@ -79,4 +79,4 @@ validation_plot_data
 knitr::include_graphics("./figures/climr_validation_plot.png")
 ```
 
-![](./figures/climr_validation_plot.png)<!-- -->
+<img src="./figures/climr_validation_plot.png" width="3000" />
