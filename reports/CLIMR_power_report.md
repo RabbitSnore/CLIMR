@@ -2,7 +2,7 @@ Construal Level International Multilab Replication (CLIMR) Project:
 Power Analysis Report
 ================
 CLIMR Team
-2022-12-16
+2022-12-18
 
 # **THESE RESULTS ARE SIMULATED. DO NOT INTERPRET.**
 
@@ -12,7 +12,7 @@ CLIMR Team
 knitr::include_graphics("./figures/climr_power_figure.png")
 ```
 
-<img src="./figures/climr_power_figure.png" width="4500" />
+![](./figures/climr_power_figure.png)<!-- -->
 
 # Power Analyses for Each Replication
 

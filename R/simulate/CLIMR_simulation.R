@@ -59,7 +59,7 @@ levels(str_temporal$condition) <- c("close", "distant")
 # The data are simulated from a Poisson distribution,
 # because BIF scores are discrete values.
 
-model_temporal <- makeGlmer(y ~ condition + (1|lab), family = poisson(link = "log"), fixef = fixed, VarCorr = temporal_variances, data = str_temporal)
+model_temporal <- makeGlmer(bif_total ~ condition + (1|lab), family = poisson(link = "log"), fixef = fixed, VarCorr = temporal_variances, data = str_temporal)
 
 ## Data simulation
 
@@ -104,7 +104,7 @@ levels(str_spatial$condition) <- c("close", "distant")
 # The data are simulated from a Poisson distribution,
 # because BIF scores are discrete values.
 
-model_spatial <- makeGlmer(y ~ condition + (1|lab), family = poisson(link = "log"), fixef = fixed, VarCorr = spatial_variances, data = str_spatial)
+model_spatial <- makeGlmer(bif_total ~ condition + (1|lab), family = poisson(link = "log"), fixef = fixed, VarCorr = spatial_variances, data = str_spatial)
 
 ## Data simulation
 
@@ -149,7 +149,7 @@ levels(str_social$condition) <- c("close", "distant")
 # The data are simulated from a Poisson distribution,
 # because BIF scores are discrete values.
 
-model_social <- makeGlmer(y ~ condition + (1|lab), family = poisson(link = "log"), fixef = fixed, VarCorr = social_variances, data = str_social)
+model_social <- makeGlmer(bif_total ~ condition + (1|lab), family = poisson(link = "log"), fixef = fixed, VarCorr = social_variances, data = str_social)
 
 ## Data simulation
 
@@ -194,7 +194,7 @@ levels(str_likelihood$condition) <- c("close", "distant")
 # The data are simulated from a Poisson distribution,
 # because BIF scores are discrete values.
 
-model_likelihood <- makeGlmer(y ~ condition + (1|lab), family = poisson(link = "log"), fixef = fixed, VarCorr = likelihood_variances, data = str_likelihood)
+model_likelihood <- makeGlmer(bif_total ~ condition + (1|lab), family = poisson(link = "log"), fixef = fixed, VarCorr = likelihood_variances, data = str_likelihood)
 
 ## Data simulation
 
@@ -339,18 +339,18 @@ data_bif_likelihood <- getData(model_bif_likelihood)
 
 # Manipulation checks ----------------------------------------------------------
 
-model_mc_temporal   <- makeLmer(y ~ condition + (1|lab), fixef = fixed, VarCorr = temporal_variances, sigma = 1, data = str_temporal)
+model_mc_temporal   <- makeLmer(mc ~ condition + (1|lab), fixef = fixed, VarCorr = temporal_variances, sigma = 1, data = str_temporal)
 
 data_mc_temporal    <- getData(model_mc_temporal)
 
-model_mc_spatial    <- makeLmer(y ~ condition + (1|lab), fixef = fixed, VarCorr = spatial_variances, sigma = 1, data = str_spatial)
+model_mc_spatial    <- makeLmer(mc ~ condition + (1|lab), fixef = fixed, VarCorr = spatial_variances, sigma = 1, data = str_spatial)
 
 data_mc_spatial     <- getData(model_mc_spatial)
 
-model_mc_social     <- makeLmer(y ~ condition + (1|lab), fixef = fixed, VarCorr = social_variances, sigma = 1, data = str_social)
+model_mc_social     <- makeLmer(mc ~ condition + (1|lab), fixef = fixed, VarCorr = social_variances, sigma = 1, data = str_social)
 
 data_mc_social      <- getData(model_mc_social)
 
-model_mc_likelihood <- makeLmer(y ~ condition + (1|lab), fixef = fixed, VarCorr = likelihood_variances, sigma = 1, data = str_likelihood)
+model_mc_likelihood <- makeLmer(mc ~ condition + (1|lab), fixef = fixed, VarCorr = likelihood_variances, sigma = 1, data = str_likelihood)
 
 data_mc_likelihood  <- getData(model_mc_likelihood)

@@ -1,7 +1,7 @@
 CLIMR Supplemental Analysis Report: Comprehension Check Failures Removed
 ================
 CLIMR Team
-2022-12-16
+2022-12-18
 
 # **THESE RESULTS ARE SIMULATED. DO NOT INTERPRET.**
 
@@ -26,7 +26,7 @@ meta_temporal_comp
     ## 
     ## Model Results:
     ## 
-    ## estimate      se    zval    pval   ci.lb   ci.ub      
+    ## estimate      se    zval    pval   ci.lb   ci.ub     ​ 
     ##   0.3942  0.0435  9.0543  <.0001  0.3089  0.4796  *** 
     ## 
     ## ---
@@ -36,8 +36,8 @@ meta_temporal_comp
 bt_temporal_comp
 ```
 
-    ##        diff  ci_lower ci_upper
-    ## 1 0.3717451 0.2912741 0.452216
+    ##   diff ci_lower ci_upper
+    ## 1   NA       NA       NA
 
 ## Fujita et al. (2006, Study 1)
 
@@ -58,7 +58,7 @@ meta_spatial_comp
     ## 
     ## Model Results:
     ## 
-    ## estimate      se    zval    pval   ci.lb   ci.ub      
+    ## estimate      se    zval    pval   ci.lb   ci.ub     ​ 
     ##   0.3970  0.0440  9.0176  <.0001  0.3107  0.4832  *** 
     ## 
     ## ---
@@ -68,8 +68,8 @@ meta_spatial_comp
 bt_spatial_comp
 ```
 
-    ##        diff  ci_lower  ci_upper
-    ## 1 0.3754186 0.2938218 0.4570155
+    ##   diff ci_lower ci_upper
+    ## 1   NA       NA       NA
 
 ## Social Distance
 
@@ -90,7 +90,7 @@ meta_social_comp
     ## 
     ## Model Results:
     ## 
-    ## estimate      se    zval    pval   ci.lb   ci.ub      
+    ## estimate      se    zval    pval   ci.lb   ci.ub     ​ 
     ##   0.4113  0.0431  9.5380  <.0001  0.3268  0.4958  *** 
     ## 
     ## ---
@@ -100,8 +100,8 @@ meta_social_comp
 bt_social_comp
 ```
 
-    ##        diff  ci_lower  ci_upper
-    ## 1 0.3941241 0.3131356 0.4751125
+    ##   diff ci_lower ci_upper
+    ## 1   NA       NA       NA
 
 ## Likelihood Distance
 
@@ -122,7 +122,7 @@ meta_likelihood_comp
     ## 
     ## Model Results:
     ## 
-    ## estimate      se    zval    pval   ci.lb   ci.ub      
+    ## estimate      se    zval    pval   ci.lb   ci.ub     ​ 
     ##   0.4349  0.0447  9.7204  <.0001  0.3472  0.5225  *** 
     ## 
     ## ---
@@ -132,5 +132,5 @@ meta_likelihood_comp
 bt_likelihood_comp
 ```
 
-    ##        diff  ci_lower  ci_upper
-    ## 1 0.3938351 0.3144247 0.4732454
+    ##   diff ci_lower ci_upper
+    ## 1   NA       NA       NA

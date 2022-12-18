@@ -18,13 +18,15 @@ if (read_precleaned == FALSE) {
   
   ### Parse file names
   
-  parsed <- str_match(file_names, "climr_(.*)_(.*).csv") %>% 
-    as.data.frame() %>% 
-    rename(
-      file_name = V1,
-      lab       = V2,
-      modality  = V3
-    )
+  parsed <- str_match(file_names, "climr_(.*)_(.*)_(.*).csv") %>% 
+    as.data.frame()
+  
+  colnames(parsed) <- c(
+    "filename",
+    "lab",
+    "language",
+    "modality"
+  )
   
   ### Get file paths
   
@@ -208,7 +210,7 @@ temporal_bif <- temporal_raw %>%
   
   rowwise() %>% 
   mutate(
-    y = case_when(
+    bif_total = case_when(
       condition == "close"   ~ sum(c_across(starts_with("t_c_bif"))),
       condition == "distant" ~ sum(c_across(starts_with("t_d_bif")))
     )
@@ -244,6 +246,6 @@ data_temporal <- temporal_raw %>%
   
   left_join(temporal_bif, by = "sub") %>% 
   
-  filter(complete.cases(y))
+  filter(complete.cases(bif_total))
 
 

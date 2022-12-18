@@ -193,7 +193,7 @@ lab_d_calc <- function(data, distance, experiment, cond_1 = "close", cond_2 = "d
     effect_data[i, ] <- d_calc(
       ID = lab_temp, 
       x = data$condition[data$lab == lab_temp], 
-      y = data$y[data$lab == lab_temp],
+      y = data$bif_total[data$lab == lab_temp],
       cond_1 = cond_1, 
       cond_2 = cond_2
     )
