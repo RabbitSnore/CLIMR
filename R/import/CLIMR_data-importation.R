@@ -18,12 +18,16 @@ if (read_precleaned == FALSE) {
   
   ### Parse file names
   
-  parsed <- str_match(file_names, "climr_(.*)_(.*)_(.*).csv") %>% 
+  parsed <- str_match(
+    file_names, 
+    "climr_(temporal|spatial|social|likelihood)_((..)_..)_(..)_(lab|online)_.*.csv") %>% 
     as.data.frame()
   
   colnames(parsed) <- c(
     "filename",
+    "experiment",
     "lab",
+    "country",
     "language",
     "modality"
   )
@@ -58,14 +62,40 @@ if (read_precleaned == FALSE) {
     raw_list[[i]]          <- raw_list[[i]] %>%
       slice(-1, -2)
     
-    raw_list[[i]]$lab      <- parsed$lab[i]
-    raw_list[[i]]$modality <- parsed$modality[i]
+    raw_list[[i]]$experiment <- parsed$experiment[i]
+    raw_list[[i]]$lab        <- parsed$lab[i]
+    raw_list[[i]]$country    <- parsed$country[i]
+    raw_list[[i]]$language   <- parsed$language[i]
+    raw_list[[i]]$modality   <- parsed$modality[i]
     
   }
   
   ### Bind all data
   
   raw <- bind_rows(raw_list)
+  
+  ### Basic cleaning and renaming
+  
+  raw <- raw %>% 
+    rename(
+      sub            = ResponseId,
+      total_duration = Duration..in.seconds.,
+      start_date     = StartDate,
+      end_date       = EndDate,
+      recorded_date  = RecordedDate
+    ) %>% 
+    mutate (
+      lab_modality = paste(lab, modality, sep = "_")
+    ) %>% 
+    select(
+      lab, modality, lab_modality, language, experiment,
+      sub, id_subject, id_internal,
+      everything(),
+      -Status, -IPAddress, -Progress, -Finished, -starts_with("Recipient"),
+      -ExternalReference, -LocationLatitude, -LocationLongitude, 
+      -DistributionChannel, -UserLanguage
+    ) %>% 
+    type_convert()
   
 }
 
@@ -75,88 +105,41 @@ if (read_precleaned == FALSE) {
 
 if (read_precleaned == TRUE) {
   
-  raw <- read.csv("./data/climr_complete_data.csv") # Replace with direct OSF download
+  raw <- read.csv("./data/climr_complete-data.csv") # Replace with direct OSF download
   
 }
 
-## SEOI data
+# Wrangling for Analysis -------------------------------------------------------
 
-if (read_precleaned == TRUE) {
-  
-  seoi_complete <- read.csv("./data/climr_seoi_data.csv") # Replace with direct OSF download
-  
-}
+# Separate variables by experiment
 
-# Basic cleaning ---------------------------------------------------------------
+## Liberman & Trope (1998, Study 1)
 
-## Rename variables
+temporal_raw <- raw %>% 
+  filter(experiment == "temporal")
 
-raw <- raw %>% 
-  rename(
-    sub            = ResponseId,
-    total_duration = Duration..in.seconds.
-  ) %>% 
-  mutate (
-    lab = paste(lab, modality, sep = "_")
-  )
+temporal <- temporal_raw[, sapply(temporal_raw, function(x) { !all(is.na(x)) })]
 
-## Separate variables by experiment
-
-### Liberman & Trope (1998, Study 1)
-
-temporal <- raw %>% 
-  filter(experiment == "temporal") %>% 
-  select(
-    experiment,
-    lab,
-    modality,
-    sub,
-    group,
-    starts_with("t_")
-  ) %>% 
-  type_convert()
-
-### Fujita et al (2006, Study 1)
+## Fujita et al (2006, Study 1)
 
 spatial_raw <- raw %>% 
-  filter(experiment == "spatial") %>% 
-  select(
-    experiment,
-    lab,
-    modality,
-    sub,
-    group,
-    starts_with("sp_")
-  ) %>% 
-  type_convert()
+  filter(experiment == "spatial")
 
-### Social Distance
+spatial <- spatial_raw[, sapply(spatial_raw, function(x) { !all(is.na(x)) })]
 
-social <- raw %>% 
-  filter(experiment == "social") %>% 
-  select(
-    experiment,
-    lab,
-    modality,
-    sub,
-    group,
-    starts_with("s_")
-  ) %>% 
-  type_convert()
+## Social Distance
 
-### Likelihood Distance
+social_raw <- raw %>% 
+  filter(experiment == "social")
+
+social <- social_raw[, sapply(social_raw, function(x) { !all(is.na(x)) })]
+
+## Likelihood Distance
 
 likelihood_raw <- raw %>% 
-  filter(experiment == "likelihood") %>% 
-  select(
-    experiment,
-    lab,
-    modality,
-    sub,
-    group,
-    starts_with("l_")
-  ) %>% 
-  type_convert()
+  filter(experiment == "likelihood")
+
+likelihood <- likelihood_raw[, sapply(likelihood_raw, function(x) { !all(is.na(x)) })]
 
 # Data exportation -------------------------------------------------------------
 
@@ -167,27 +150,19 @@ likelihood_raw <- raw %>%
 
 if (write_data == TRUE) {
   
-  raw_complete <- bind_rows(temporal_raw, temporal_2_raw, spatial_raw, likelihood_raw)
-  
-  write.csv(raw_complete, "./data/climr_complete_data.csv", row.names = FALSE)
+  write.csv(raw, "./data/climr_complete_data.csv", row.names = FALSE)
 
 }
 
 if (codebook_base == TRUE) {
   
-  if (!exists("raw_complete")) {
-    
-    raw_complete <- bind_rows(temporal_raw, spatial_raw, social_raw, likelihood_raw)
-    
-  }
-  
   class_raw <- data.frame(
-    variable_name = colnames(raw_complete),
-    variable_type = unlist(lapply(raw_complete, class))
+    variable_name = colnames(raw),
+    variable_type = map_vec(raw, function(x) { class(x)[[1]] })
   )
     
   codebook <- variable_text %>% 
-    filter(variable_name %in% colnames(raw_complete)) %>% 
+    filter(variable_name %in% colnames(raw)) %>% 
     select(variable_name, variable_text) %>% 
     left_join(class_raw, by = "variable_name")
   
@@ -248,4 +223,9 @@ data_temporal <- temporal_raw %>%
   
   filter(complete.cases(bif_total))
 
+# Cleaning - Fujita et al (2006, Study 1) --------------------------------------
+
+# Cleaning - Social Distance ---------------------------------------------------
+
+# Cleaning - Likelihood Distance -----------------------------------------------
 

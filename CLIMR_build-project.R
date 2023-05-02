@@ -67,13 +67,6 @@ force_update       <- FALSE
 
 create_map         <- FALSE
 
-## SEOI
-
-# Set this parameter to TRUE if you want to conduct analyses related to the
-# smallest effect size of interest.
-
-seoi_analysis      <- FALSE 
-
 # Set up environment -----------------------------------------------------------
 
 ## Check and install necessary packages for the project
