@@ -121,6 +121,10 @@ version_info <- as.data.frame(installed.packages())[rownames(installed.packages(
 
 write.csv(version_info, "./data/meta/climr_version-info.csv", row.names = FALSE)
 
+version_primary <- version_info %>% 
+  filter(Package %in% dependencies) %>%
+  select(Version)
+
 ## Functions
 
 ### Render report

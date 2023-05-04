@@ -76,7 +76,7 @@ be updated to import the publicly available data set by default.
 
 # Technical Information
 
-The CLIMR project analysis code was built using R 4.2.2. The packages required
+The CLIMR project analysis code was built using R 4.2.3. The packages required
 for the project with information about the version with which the code has been
 tested is available in the file `/data/meta/climr_version-info.csv`. A brief
 overview of the most central required packages is provided below.
@@ -87,22 +87,22 @@ convenience, you can set the `force_update` parameter in `CLIMR_build-project.R`
 to `TRUE` if you want to update and (re)install all the required packages.
 
 ```
-  Package  Version
-   cowplot   1.1.1
-     dplyr  1.0.10
-ggbeeswarm   0.6.0
-   ggplot2   3.4.0
-  ggstance   0.3.6
-   leaflet   2.1.1
-      lme4  1.1-31
-   mapview  2.11.0
-   metafor   3.8-1
-      osfr   0.2.9
-     purrr   0.3.5
-     readr   2.1.3
- rmarkdown    2.19
-      simr   1.0.6
-   stringr   1.5.0
-     tidyr   1.2.1
-   viridis   0.6.2
+Package    Version
+cowplot      1.1.1
+dplyr        1.1.1
+ggbeeswarm   0.7.1
+ggplot2      3.4.1
+ggstance     0.3.6
+leaflet      2.1.2
+lme4        1.1-32
+mapview     2.11.0
+metafor      4.0-0
+osfr         0.2.9
+purrr        1.0.1
+readr        2.1.4
+rmarkdown     2.21
+simr         1.0.6
+stringr      1.5.0
+tidyr        1.3.0
+viridis      0.6.2
 ```
