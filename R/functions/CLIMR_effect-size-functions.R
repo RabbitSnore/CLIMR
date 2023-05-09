@@ -6,11 +6,24 @@
 
 # STANDARDIZED MEAN DIFFERENCE -------------------------------------------------
 
-## Calculate standardized mean difference, sampling variance, and 95% confidence intervals
+## Calculate standardized mean difference, sampling variance, and 95% confidence
+## intervals
 
-### Note that this function is designed to compute a mean difference standardized by the standard deviation pooled across the conditions, and it will ignore any dependence of observations.
-### This approach is consistent with the recommendations of Jake Westfall in the documentation for the PANGEA power calculation tool, as well as in discussions of computing generalized standardized mean differences.
-### One key advantage of this approach is that it is highly general and produces effect sizes that are easy to compare to other standardized effect sizes. However, it does not account for the correlation of errors between observations that, e.g., come from the same person. But this is on purpose.
+### Note that this function is designed to compute a mean difference
+### standardized by the standard deviation pooled across the conditions, and it
+### will ignore any dependence of observations. This approach is consistent with
+### the recommendations of Jake Westfall in the documentation for the PANGEA
+### power calculation tool, as well as in discussions of computing generalized
+### standardized mean differences. One key advantage of this approach is that it
+### is highly general and produces effect sizes that are easy to compare to
+### other standardized effect sizes. However, it does not account for the
+### correlation of errors between observations that, e.g., come from the same
+### person. But this is on purpose.
+
+### In earlier drafts of the CLIMR project, we planned to conduct studies with
+### within-subjects manipulations of psychological distance. In the final plan,
+### all the designs are between-subjects. As such, we don't need to be concerned
+### about non-independent observations of this kind anyway.
 
 d_calc <- function(ID, x, y, cond_1, cond_2) {
   
@@ -126,7 +139,8 @@ prop_calc <- function(x, y) {
 
 # STANDARDIZED MEAN DIFFEENCE FROM LOG ODDS RATIO
 
-## Calculate a d-like statistic, given a log odds ratio and confidence interval bounds
+## Calculate a d-like statistic, given a log odds ratio and confidence interval
+## bounds
 
 d_lor_calc <- function(lor, ci_lower, ci_upper) {
   
@@ -144,7 +158,8 @@ d_lor_calc <- function(lor, ci_lower, ci_upper) {
 
 # CREATING EMPTY DATA SETS FOR EFFECT SIZES ------------------------------------
 
-## The data frame produced by this function is designed to work with the d_calc() function
+## The data frame produced by this function is designed to work with the
+## d_calc() function
 
 empty_smd_data <- function(n) {
   
@@ -160,7 +175,8 @@ empty_smd_data <- function(n) {
   
 }
 
-## The data frame produced by this function is designed to work with the odds_calc() function
+## The data frame produced by this function is designed to work with the
+## odds_calc() function
 
 empty_lor_data <- function(n) {
   
@@ -182,18 +198,18 @@ empty_lor_data <- function(n) {
 
 lab_d_calc <- function(data, distance, experiment, cond_1 = "close", cond_2 = "distant") {
   
-  lab_count <- length(unique(data$lab))
+  lab_count <- length(unique(data$lab_modality))
   
   effect_data <- empty_smd_data(lab_count)
   
   for (i in 1:lab_count) {
     
-    lab_temp <- unique(data$lab)[i]
+    lab_temp <- unique(data$lab_modality)[i]
     
     effect_data[i, ] <- d_calc(
       ID = lab_temp, 
-      x = data$condition[data$lab == lab_temp], 
-      y = data$bif_total[data$lab == lab_temp],
+      x = data$condition[data$lab_modality == lab_temp], 
+      y = data$bif_total[data$lab_modality == lab_temp],
       cond_1 = cond_1, 
       cond_2 = cond_2
     )
@@ -203,7 +219,11 @@ lab_d_calc <- function(data, distance, experiment, cond_1 = "close", cond_2 = "d
   effect_data$distance   <- distance
   effect_data$experiment <- experiment
   
-  effect_data <- extract(effect_data, ID, "modality", ".*_(.*)", remove = FALSE)
+  effect_data <- extract(effect_data,
+                         col   = ID,
+                         into  = c("lab", "country", "modality"),
+                         regex = "((..)_..)_(.*)",
+                         remove = FALSE)
   
   return(effect_data)
   
@@ -213,26 +233,31 @@ lab_d_calc <- function(data, distance, experiment, cond_1 = "close", cond_2 = "d
 
 lab_lor_calc <- function(data, distance, experiment, cond_1 = "close", cond_2 = "distant") {
   
-  lab_count <- length(unique(data$lab))
+  lab_count <- length(unique(data$lab_modality))
   
   effect_data <- empty_lor_data(lab_count)
   
   for (i in 1:lab_count) {
     
-    lab_temp <- unique(data$lab)[i]
+    lab_temp <- unique(data$lab_modality)[i]
     
     effect_data[i, ] <- odds_calc(
       ID = lab_temp, 
-      x = data$condition[data$lab == lab_temp], 
-      y = data$y[data$lab == lab_temp],
+      x = data$condition[data$lab_modality == lab_temp], 
+      y = data$y[data$lab_modality == lab_temp],
       cond_1 = cond_1, 
       cond_2 = cond_2
     )
     
   }
   
-  effect_data$distance <- distance
+  effect_data$distance   <- distance
   effect_data$experiment <- experiment
+  
+  effect_data <- extract(effect_data,
+                         col   = lab,
+                         into  = c("lab", "country", "modality"),
+                         regex = "((..)_..)_(.*)")
   
   return(effect_data)
   
@@ -242,26 +267,32 @@ lab_lor_calc <- function(data, distance, experiment, cond_1 = "close", cond_2 = 
 
 lab_mc_calc <- function(data, distance, experiment, cond_1 = "close", cond_2 = "distant") {
   
-  lab_count <- length(unique(data$lab))
+  lab_count <- length(unique(data$lab_modality))
   
   effect_data <- empty_smd_data(lab_count)
   
   for (i in 1:lab_count) {
     
-    lab_temp <- unique(data$lab)[i]
+    lab_temp <- unique(data$lab_modality)[i]
     
     effect_data[i, ] <- d_calc(
       ID = lab_temp, 
-      x = data$condition[data$lab == lab_temp], 
-      y = data$mc[data$lab == lab_temp],
+      x = data$condition[data$lab_modality == lab_temp], 
+      y = data$mc[data$lab_modality == lab_temp],
       cond_1 = cond_1, 
       cond_2 = cond_2
     )
     
   }
   
-  effect_data$distance <- distance
+  effect_data$distance   <- distance
   effect_data$experiment <- experiment
+  
+  effect_data <- extract(effect_data,
+                         col   = ID,
+                         into  = c("lab", "country", "modality"),
+                         regex = "((..)_..)_(.*)",
+                         remove = FALSE)
   
   return(effect_data)
   
@@ -269,8 +300,9 @@ lab_mc_calc <- function(data, distance, experiment, cond_1 = "close", cond_2 = "
 
 # OUTLIER REMOVAL BASED ON MEDIAN ABSOLUTE DEVIATION ---------------------------
 
-## Given a data frame with a variable y, this function returns a data frame with rows removed for cases that exceed the upper and lower bound based on median absolute deviations. 
-## By default, this function uses 3.0 MADs as a cutoff.
+## Given a data frame with a variable y, this function returns a data frame with
+## rows removed for cases that exceed the upper and lower bound based on median
+## absolute deviations. By default, this function uses 3.0 MADs as a cutoff.
 
 mad_removal <- function(data, cutoff = 3.0, constant = 1/qnorm(.75)) {
   

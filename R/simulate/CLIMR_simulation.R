@@ -219,37 +219,29 @@ data_likelihood$comp_check <- sample(c(0, 1), nrow(data_likelihood), replace = T
 ## This will create a roughly even split of labs collecting online and in person.
 
 modality_data <- data.frame(
-  ID = 1:labs,
+  lab = 1:labs,
   modality = sample(c("lab", "online"), labs, replace = TRUE)
 )
 
-# SEOI data --------------------------------------------------------------------
-
-seoi_contr_n <- 200
-seoi_clt_n   <- 20
-seoi_total_n <- seoi_contr_n + seoi_clt_n
-
-seoi_complete <- data.frame(
-  d = c(rnbinom(seoi_contr_n, 10, .3)/100, rnbinom(seoi_clt_n, 10, .3)/100,
-        rnbinom(seoi_contr_n, 10, .3)/100, rnbinom(seoi_clt_n, 10, .3)/100,
-        rnbinom(seoi_contr_n, 10, .3)/100, rnbinom(seoi_clt_n, 10, .3)/100,
-        rnbinom(seoi_contr_n, 10, .3)/100, rnbinom(seoi_clt_n, 10, .3)/100),
-  distance = c(
-    rep("temporal", seoi_total_n), 
-    rep("spatial", seoi_total_n), 
-    rep("social", seoi_total_n), 
-    rep("likelihood", seoi_total_n)),  
-  sample = c(
-    rep("Contributor", seoi_contr_n),
-    rep("Expert", seoi_clt_n),
-    rep("Contributor", seoi_contr_n),
-    rep("Expert", seoi_clt_n),
-    rep("Contributor", seoi_contr_n),
-    rep("Expert", seoi_clt_n),
-    rep("Contributor", seoi_contr_n),
-    rep("Expert", seoi_clt_n)
+modality_data$lab_modality <- paste(
+  "XX_",
+  str_pad(1:labs, 2, "left", "0"), 
+  "_",
+  modality_data$modality,
+  sep = ""
   )
-)
+
+data_temporal <- data_temporal %>% 
+  left_join(modality_data, by = "lab")
+
+data_spatial <- data_spatial %>% 
+  left_join(modality_data, by = "lab")
+
+data_social <- data_social %>% 
+  left_join(modality_data, by = "lab")
+
+data_likelihood <- data_likelihood %>% 
+  left_join(modality_data, by = "lab")
 
 # Raw BIF data simulation ------------------------------------------------------
 
@@ -354,3 +346,15 @@ data_mc_social      <- getData(model_mc_social)
 model_mc_likelihood <- makeLmer(mc ~ condition + (1|lab), fixef = fixed, VarCorr = likelihood_variances, sigma = 1, data = str_likelihood)
 
 data_mc_likelihood  <- getData(model_mc_likelihood)
+
+data_mc_temporal <- data_mc_temporal %>% 
+  left_join(modality_data, by = "lab")
+
+data_mc_spatial <- data_mc_spatial %>% 
+  left_join(modality_data, by = "lab")
+
+data_mc_social <- data_mc_social %>% 
+  left_join(modality_data, by = "lab")
+
+data_mc_likelihood <- data_mc_likelihood %>% 
+  left_join(modality_data, by = "lab")

@@ -2,7 +2,7 @@ Construal Level International Multilab Replication (CLIMR) Project: Main
 Analysis Report
 ================
 CLIMR Team
-2022-12-18
+2023-05-09
 
 # **THESE RESULTS ARE SIMULATED. DO NOT INTERPRET.**
 
@@ -12,7 +12,7 @@ CLIMR Team
 knitr::include_graphics("./figures/climr_main_figure.png")
 ```
 
-![](./figures/climr_main_figure.png)<!-- -->
+<img src="./figures/climr_main_figure.png" width="2400" />
 
 # Meta-Analytic Models
 
@@ -35,7 +35,7 @@ meta_temporal
     ## 
     ## Model Results:
     ## 
-    ## estimate      se    zval    pval   ci.lb   ci.ub     ​ 
+    ## estimate      se    zval    pval   ci.lb   ci.ub      
     ##   0.3867  0.0424  9.1217  <.0001  0.3036  0.4697  *** 
     ## 
     ## ---
@@ -67,7 +67,7 @@ meta_spatial
     ## 
     ## Model Results:
     ## 
-    ## estimate      se    zval    pval   ci.lb   ci.ub     ​ 
+    ## estimate      se    zval    pval   ci.lb   ci.ub      
     ##   0.3900  0.0420  9.2902  <.0001  0.3077  0.4723  *** 
     ## 
     ## ---
@@ -99,7 +99,7 @@ meta_social
     ## 
     ## Model Results:
     ## 
-    ## estimate      se    zval    pval   ci.lb   ci.ub     ​ 
+    ## estimate      se    zval    pval   ci.lb   ci.ub      
     ##   0.4170  0.0419  9.9593  <.0001  0.3349  0.4991  *** 
     ## 
     ## ---
@@ -131,7 +131,7 @@ meta_likelihood
     ## 
     ## Model Results:
     ## 
-    ## estimate      se     zval    pval   ci.lb   ci.ub     ​ 
+    ## estimate      se     zval    pval   ci.lb   ci.ub      
     ##   0.4387  0.0439  10.0004  <.0001  0.3528  0.5247  *** 
     ## 
     ## ---
@@ -150,4 +150,4 @@ bt_likelihood
 knitr::include_graphics("./figures/climr_arboretum.png")
 ```
 
-![](./figures/climr_arboretum.png)<!-- -->
+<img src="./figures/climr_arboretum.png" width="5400" />

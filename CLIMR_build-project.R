@@ -157,11 +157,15 @@ if (simulation_mode == TRUE) {
   
 }
 
-## Data importation
-
 if (simulation_mode == FALSE) {
-  
+
+## Data importation  
+
   source("./R/import/CLIMR_data-importation.R")
+  
+## Data wrangling
+
+  source("./R/import/CLIMR_data-wrangling.R")
   
 }
 
@@ -182,14 +186,6 @@ source("./R/analyze/CLIMR_modality-moderation.R")
 ### Power analysis
 
 source("./R/analyze/CLIMR_power-analyses.R")
-
-### Smallest effect of interest
-
-if (seoi_analysis == TRUE) {
-  
-  source("./R/analyze/CLIMR_seoi.R")
-  
-}
 
 ### Manipulation checks
 
@@ -271,14 +267,6 @@ climr_report("CLIMR_modality-moderation_report.Rmd")
 ### Power analyses
 
 climr_report("CLIMR_power_report.Rmd")
-
-### Smallest effect of interest
-
-if (seoi_analysis == TRUE){
-  
-  climr_report("CLIMR_seoi_report.Rmd")
-  
-}
 
 ### Manipulation checks
 
