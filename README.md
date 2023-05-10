@@ -70,9 +70,9 @@ These reports are rendered in a format that is readable on GitHub.
 ## IMPORTANT NOTE
 
 Currently, the project is configured so that it will simulate data by default,
-rather than load real data. No actual data for the main replication studies have
-been collected. When data collection for the project is complete, the code will
-be updated to import the publicly available data set by default.
+rather than load real data. Data collection is ongoing. When data collection for
+the project is complete, the code will be updated to import the publicly
+available data set by default.
 
 # Technical Information
 
