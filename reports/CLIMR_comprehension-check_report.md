@@ -1,7 +1,7 @@
 CLIMR Supplemental Analysis Report: Comprehension Check Failures Removed
 ================
 CLIMR Team
-2023-05-09
+2023-05-11
 
 # **THESE RESULTS ARE SIMULATED. DO NOT INTERPRET.**
 
@@ -36,8 +36,8 @@ meta_temporal_comp
 bt_temporal_comp
 ```
 
-    ##   diff ci_lower ci_upper
-    ## 1   NA       NA       NA
+    ##        diff  ci_lower ci_upper
+    ## 1 0.3717451 0.2912741 0.452216
 
 ## Fujita et al. (2006, Study 1)
 
@@ -68,8 +68,8 @@ meta_spatial_comp
 bt_spatial_comp
 ```
 
-    ##   diff ci_lower ci_upper
-    ## 1   NA       NA       NA
+    ##        diff  ci_lower  ci_upper
+    ## 1 0.3754186 0.2938218 0.4570155
 
 ## Social Distance
 
@@ -100,8 +100,8 @@ meta_social_comp
 bt_social_comp
 ```
 
-    ##   diff ci_lower ci_upper
-    ## 1   NA       NA       NA
+    ##        diff  ci_lower  ci_upper
+    ## 1 0.3941241 0.3131356 0.4751125
 
 ## Likelihood Distance
 
@@ -132,5 +132,5 @@ meta_likelihood_comp
 bt_likelihood_comp
 ```
 
-    ##   diff ci_lower ci_upper
-    ## 1   NA       NA       NA
+    ##        diff  ci_lower  ci_upper
+    ## 1 0.3938351 0.3144247 0.4732454

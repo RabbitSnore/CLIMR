@@ -44,7 +44,7 @@ meta_temporal <- rma(
   data = effects_temporal)
 
 bt_temporal <- diff_calc(
-  y        = data_temporal$y, 
+  y        = data_temporal$bif_total, 
   d        = meta_temporal$beta[[1]], 
   ci_lower = meta_temporal$ci.lb[[1]], 
   ci_upper = meta_temporal$ci.ub[[1]])
@@ -57,7 +57,7 @@ meta_temporal_comp <- rma(
   data = effects_temporal_comp)
 
 bt_temporal_comp <- diff_calc(
-  y        = filter(data_temporal, comp_check == 0)$y, 
+  y        = filter(data_temporal, comp_check == 0)$bif_total, 
   d        = meta_temporal_comp$beta[[1]], 
   ci_lower = meta_temporal_comp$ci.lb[[1]], 
   ci_upper = meta_temporal_comp$ci.ub[[1]])
@@ -85,7 +85,7 @@ meta_spatial <- rma(
   data = effects_spatial)
 
 bt_spatial <- diff_calc(
-  y        = data_spatial$y, 
+  y        = data_spatial$bif_total, 
   d        = meta_spatial$beta[[1]], 
   ci_lower = meta_spatial$ci.lb[[1]], 
   ci_upper = meta_spatial$ci.ub[[1]])
@@ -98,7 +98,7 @@ meta_spatial_comp <- rma(
   data = effects_spatial_comp)
 
 bt_spatial_comp <- diff_calc(
-  y        = filter(data_spatial, comp_check == 0)$y, 
+  y        = filter(data_spatial, comp_check == 0)$bif_total, 
   d        = meta_spatial_comp$beta[[1]], 
   ci_lower = meta_spatial_comp$ci.lb[[1]], 
   ci_upper = meta_spatial_comp$ci.ub[[1]])
@@ -125,7 +125,7 @@ meta_social <- rma(
   data = effects_social)
 
 bt_social <- diff_calc(
-  y        = data_social$y, 
+  y        = data_social$bif_total, 
   d        = meta_social$beta[[1]], 
   ci_lower = meta_social$ci.lb[[1]], 
   ci_upper = meta_social$ci.ub[[1]])
@@ -138,7 +138,7 @@ meta_social_comp <- rma(
   data = effects_social_comp)
 
 bt_social_comp <- diff_calc(
-  y        = filter(data_social, comp_check == 0)$y, 
+  y        = filter(data_social, comp_check == 0)$bif_total, 
   d        = meta_social_comp$beta[[1]], 
   ci_lower = meta_social_comp$ci.lb[[1]], 
   ci_upper = meta_social_comp$ci.ub[[1]])
@@ -165,7 +165,7 @@ meta_likelihood <- rma(
   data = effects_likelihood)
 
 bt_likelihood <- diff_calc(
-  y        = data_likelihood$y, 
+  y        = data_likelihood$bif_total, 
   d        = meta_likelihood$beta[[1]], 
   ci_lower = meta_likelihood$ci.lb[[1]], 
   ci_upper = meta_likelihood$ci.ub[[1]])
@@ -178,7 +178,7 @@ meta_likelihood_comp <- rma(
   data = effects_likelihood_comp)
 
 bt_likelihood_comp <- diff_calc(
-  y        = filter(data_likelihood, comp_check == 0)$y, 
+  y        = filter(data_likelihood, comp_check == 0)$bif_total, 
   d        = meta_likelihood_comp$beta[[1]], 
   ci_lower = meta_likelihood_comp$ci.lb[[1]], 
   ci_upper = meta_likelihood_comp$ci.ub[[1]])
@@ -221,14 +221,21 @@ I2_complete_comp <- I2_mv(meta_complete_comp, effects_complete_comp)
 
 # Arboretum plot ---------------------------------------------------------------
 
-arboretum <- arboretum_plot(list(forest_temporal, forest_spatial, forest_social, forest_likelihood))
+arboretum <- arboretum_plot(list(forest_temporal, 
+                                 forest_spatial, 
+                                 forest_social, 
+                                 forest_likelihood))
 
 ## Save plot
 
-save_plot("./figures/climr_arboretum.png", arboretum, base_height = 12, base_width = 18)
-save_plot("./figures/climr_arboretum.svg", arboretum, base_height = 12, base_width = 18)
+save_plot("./figures/climr_arboretum.png", 
+          arboretum, base_height = 12, base_width = 18)
 
-save_plot("./reports/figures/climr_arboretum.png", arboretum, base_height = 12, base_width = 18)
+save_plot("./figures/climr_arboretum.svg", 
+          arboretum, base_height = 12, base_width = 18)
+
+save_plot("./reports/figures/climr_arboretum.png", 
+          arboretum, base_height = 12, base_width = 18)
 
 # Main results: Beeswarm plot --------------------------------------------------
 
@@ -248,10 +255,14 @@ climr_figure <- climr_swarm(
 
 ## Save plot
 
-save_plot("./figures/climr_main_figure.png", climr_figure, base_asp = 1.6, base_height = 5)
-save_plot("./figures/climr_main_figure.svg", climr_figure, base_asp = 1.6, base_height = 5)
+save_plot("./figures/climr_main_figure.png", 
+          climr_figure, base_asp = 1.6, base_height = 5)
 
-save_plot("./reports/figures/climr_main_figure.png", climr_figure, base_asp = 1.6, base_height = 5)
+save_plot("./figures/climr_main_figure.svg", 
+          climr_figure, base_asp = 1.6, base_height = 5)
+
+save_plot("./reports/figures/climr_main_figure.png", 
+          climr_figure, base_asp = 1.6, base_height = 5)
 
 # Planned moderator analysis ---------------------------------------------------
 
