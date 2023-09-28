@@ -76,11 +76,16 @@ if (read_precleaned == FALSE) {
       lab, modality, lab_modality, country, language, experiment,
       sub, id_subject, id_internal,
       everything(),
-      -Status, -IPAddress, -Progress, -Finished, -starts_with("Recipient"),
-      -ExternalReference, -LocationLatitude, -LocationLongitude, 
+      -Status, -Progress, -Finished, -starts_with("Recipient"),
       -DistributionChannel, -UserLanguage
     ) %>% 
     type_convert()
+  
+  ## Handle deviations
+  
+  ### AU_04: Known duplicate submissions
+  
+  source("R/import/CLIMR_duplicate-data-handling.R")
   
   ## Create codebook information
   
@@ -100,8 +105,7 @@ if (read_precleaned == FALSE) {
         select(
           sub, id_subject, id_internal,
           everything(),
-          -Status, -IPAddress, -Progress, -Finished, -starts_with("Recipient"),
-          -ExternalReference, -LocationLatitude, -LocationLongitude, 
+          -Status, -Progress, -Finished, -starts_with("Recipient"),
           -DistributionChannel, -UserLanguage
         ) %>% 
         slice(1) %>% 
