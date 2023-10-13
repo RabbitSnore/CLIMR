@@ -20,7 +20,7 @@ if (read_precleaned == FALSE) {
   
   parsed <- str_match(
     file_names, 
-    "climr_(temporal|spatial|social|likelihood)_((..)_..)_(..)_(lab|online)_.*.csv") %>% 
+    "climr_(temporal|spatial|social|likelihood)_((..)_..)_(..-?.*?)_(lab|online)_.*.csv") %>% 
     as.data.frame()
   
   colnames(parsed) <- c(
@@ -85,7 +85,18 @@ if (read_precleaned == FALSE) {
   
   ### AU_04: Known duplicate submissions
   
+  # There are notes about this case of known duplicate submissions included in
+  # the comments of the script that handles these cases.
+  
   source("R/import/CLIMR_duplicate-data-handling.R")
+  
+  ### MY_01: Test cases
+  
+  # Lab MY_01 included a test run case in the data, which should be removed
+  # prior to analysis. This case is marked with "PILOT" as it ID.
+  
+  raw <- raw %>% 
+    filter(id_subject != "PILOT" | is.na(id_subject))
   
   ## Create codebook information
   

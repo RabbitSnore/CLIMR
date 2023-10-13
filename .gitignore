@@ -53,3 +53,4 @@ reports/*.html
 /data/lab_coordinates.csv
 /data/climr_test_data.csv
 /data/climr_codebook.csv
+/data/utility/climr_social-stimuli.csv

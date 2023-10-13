@@ -92,27 +92,64 @@ social_bif <- social %>%
 
 ## Adding comprehension checks
 
-data_social <- social_raw %>% 
-  select(sub, condition, starts_with("comp"),
-         female_young, female_old,
-         male_young, male_old,
-         unisex
-         ) %>% 
+### Load lab-specific social distance stimuli (i.e., names)
+
+social_names <- read.csv("data/utility/climr_social-stimuli.csv")
+
+social_names_long <- social_names %>% 
+  pivot_longer(
+    cols          = c(
+      starts_with("female"), 
+      starts_with("male"), 
+      starts_with("unisex")),
+    names_pattern = "(.*)_(.)",
+    names_to      = c("type", "number"),
+    values_to     = "name"
+  ) %>% 
+  select(
+    lab = lab_id, type, number, name
+  ) %>% 
   mutate(
-    comp_check = case_when(
-      !is.na(female_young) & female_young == comp_female_1990 ~ 0,
-      !is.na(female_young) & female_young != comp_female_1990 ~ 1,
-      !is.na(female_old)   & female_old   == comp_female_1960 ~ 0,
-      !is.na(female_old)   & female_old   != comp_female_1960 ~ 1,
-      !is.na(male_young)   & male_young   == comp_male_1990   ~ 0,
-      !is.na(male_young)   & male_young   != comp_male_1990   ~ 1,
-      !is.na(male_old)     & male_old     == comp_male_1960   ~ 0,
-      !is.na(male_old)     & male_old     != comp_male_1960   ~ 1,
-      !is.na(unisex)       & unisex       == comp_nonbinary   ~ 0,
-      !is.na(unisex)       & unisex       != comp_nonbinary   ~ 1
+    name = tolower(name)
+  ) %>% 
+  type_convert()
+
+### Join name information with raw data to identify comprehension check failures
+
+social_comp <- social %>% 
+  select(lab, sub, starts_with("comp"), name_pipe) %>% 
+  mutate(
+    name_pipe = tolower(name_pipe)
+  ) %>% 
+  pivot_longer(
+    cols = starts_with("comp"),
+    names_to = "check",
+    values_to = "number",
+    values_drop_na = TRUE
+  ) %>% 
+  mutate(
+    type = case_when(
+      check == "comp_female_1990" ~ "female_young",
+      check == "comp_female_1960" ~ "female_old",
+      check == "comp_male_1990" ~ "male_young",
+      check == "comp_male_1960" ~ "male_old",
+      check == "comp_nonbinary"    ~ "unisex",
     )
   ) %>% 
-  select(sub, comp_check) %>%
+  left_join(social_names_long, by = c("lab", "type", "number")) %>% 
+  mutate(
+    comp_check = case_when(
+      name_pipe == name ~ 0,
+      name_pipe != name ~ 1
+    )
+  ) %>% 
+  select(
+    sub, comp_check
+  )
+
+### Join comprehension check data with main outcomes
+
+data_social <- social_comp %>% 
   left_join(social_bif, by = "sub") %>% 
   relocate(comp_check, .after = bif_total)
 
