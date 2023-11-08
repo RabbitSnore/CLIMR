@@ -83,7 +83,7 @@ if (read_precleaned == FALSE) {
   
   ## Handle deviations
   
-  ### AU_04: Known duplicate submissions
+  ### AU_04, AU_01: Known duplicate submissions
   
   # There are notes about this case of known duplicate submissions included in
   # the comments of the script that handles these cases.

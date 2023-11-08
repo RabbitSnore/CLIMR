@@ -265,7 +265,7 @@ lab_lor_calc <- function(data, distance, experiment, cond_1 = "close", cond_2 = 
 
 ## Calculate standardized mean difference for manipulation checks
 
-lab_mc_calc <- function(data, distance, experiment, cond_1 = "close", cond_2 = "distant") {
+lab_mc_calc <- function(data, distance, experiment, cond_1 = "distant", cond_2 = "close") {
   
   lab_count <- length(unique(data$lab_modality))
   
