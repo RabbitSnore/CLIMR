@@ -41,6 +41,20 @@ data_temporal <- temporal_raw %>%
   left_join(temporal_bif, by = "sub") %>% 
   relocate(comp_check, .after = bif_total)
 
+## Long form BIF data
+
+bif_names_temporal <- 
+  colnames(data_temporal)[str_detect(colnames(data_temporal), "bif_\\d\\d")]
+
+data_bif_temporal <- data_temporal %>% 
+  pivot_longer(
+    cols           = all_of(bif_names_temporal),
+    names_to       = "item",
+    names_pattern  = "._._(bif_..)",
+    values_to      = "bif", 
+    values_drop_na = TRUE
+  )
+
 # Wrangling - Fujita et al (2006, Study 1) -------------------------------------
 
 ## Calculate BIF scores
@@ -77,6 +91,20 @@ data_spatial <- spatial_raw %>%
   select(sub, comp_check) %>% 
   left_join(spatial_bif, by = "sub") %>% 
   relocate(comp_check, .after = bif_total)
+
+## Long form BIF data
+
+bif_names_spatial <- 
+  colnames(data_spatial)[str_detect(colnames(data_spatial), "bif_\\d\\d")]
+
+data_bif_spatial <- data_spatial %>% 
+  pivot_longer(
+    cols           = all_of(bif_names_spatial),
+    names_to       = "item",
+    names_pattern  = "._._(bif_..)",
+    values_to      = "bif", 
+    values_drop_na = TRUE
+  )
 
 # Wrangling - Social Distance --------------------------------------------------
 
@@ -153,6 +181,20 @@ data_social <- social_comp %>%
   left_join(social_bif, by = "sub") %>% 
   relocate(comp_check, .after = bif_total)
 
+## Long form BIF data
+
+bif_names_social <- 
+  colnames(data_social)[str_detect(colnames(data_social), "bif_\\d\\d")]
+
+data_bif_social <- data_social %>% 
+  pivot_longer(
+    cols           = all_of(bif_names_social),
+    names_to       = "item",
+    names_pattern  = ".._(bif_..)",
+    values_to      = "bif", 
+    values_drop_na = TRUE
+  )
+
 # Wrangling - Likelihood Distance ----------------------------------------------
 
 ## Calculate BIF scores
@@ -189,6 +231,20 @@ data_likelihood <- likelihood_raw %>%
   select(sub, comp_check) %>% 
   left_join(likelihood_bif, by = "sub") %>% 
   relocate(comp_check, .after = bif_total)
+
+## Long form BIF data
+
+bif_names_likelihood <- 
+  colnames(data_likelihood)[str_detect(colnames(data_likelihood), "bif_\\d\\d")]
+
+data_bif_likelihood <- data_likelihood %>% 
+  pivot_longer(
+    cols           = all_of(bif_names_likelihood),
+    names_to       = "item",
+    names_pattern  = "._._(bif_..)",
+    values_to      = "bif", 
+    values_drop_na = TRUE
+  )
 
 # Wrangling - Manipulation Checks ----------------------------------------------
 

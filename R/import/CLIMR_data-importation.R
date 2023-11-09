@@ -98,6 +98,21 @@ if (read_precleaned == FALSE) {
   raw <- raw %>% 
     filter(id_subject != "PILOT" | is.na(id_subject))
   
+  ### NL_02: Test cases
+  
+  # NL_02 reported testing the experiments a few times, flagging their test
+  # cases using the subject ID variable. These cases should be removed.
+
+  raw <- raw %>% 
+    filter(!str_detect(id_subject, "test|Test") | is.na(id_subject))
+  
+  ### Duplicated participant IDs
+  
+  # Some labs reported accidentally reusing some participant ID values These
+  # values are not used in any analysis, so these non-unique cases are retained.
+  # They don't seem to pose any practical issue, since the Qualtrics response ID
+  # still identifies each unique response.
+  
   ## Create codebook information
   
   if (codebook_base == TRUE) {
