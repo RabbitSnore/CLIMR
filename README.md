@@ -87,22 +87,23 @@ convenience, you can set the `force_update` parameter in `CLIMR_build-project.R`
 to `TRUE` if you want to update and (re)install all the required packages.
 
 ```
-Package    Version
-cowplot      1.1.1
-dplyr        1.1.1
-ggbeeswarm   0.7.1
-ggplot2      3.4.1
-ggstance     0.3.6
-leaflet      2.1.2
-lme4        1.1-32
-mapview     2.11.0
-metafor      4.0-0
-osfr         0.2.9
-purrr        1.0.1
-readr        2.1.4
-rmarkdown     2.21
-simr         1.0.6
-stringr      1.5.0
-tidyr        1.3.0
-viridis      0.6.2
+Package     Version
+cowplot       1.1.1
+dplyr         1.1.3
+ggbeeswarm    0.7.2
+ggplot2       3.4.4
+ggstance      0.3.6
+leaflet       2.2.0
+lme4       1.1-35.1
+lubridate     1.9.3
+mapview      2.11.2
+metafor       4.4-0
+osfr          0.2.9
+purrr         1.0.2
+readr         2.1.4
+rmarkdown      2.25
+simr          1.0.7
+stringr       1.5.0
+tidyr         1.3.0
+viridis       0.6.4
 ```

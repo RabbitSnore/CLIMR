@@ -14,8 +14,6 @@
 # This script assumes all packages specified in the central script have already
 # been loaded.
 
-library(lubridate)
-
 # AU_04: Load data -------------------------------------------------------------
 
 # AU_04 reported that they detected that some participants submitted more than
@@ -67,7 +65,7 @@ dup_sel  <- dup_data %>%
   filter(record < 2) %>% # Retain only first recorded case for each participant
   ungroup()
 
-# AU_04: Remove duplicates -----------------------------------------------------
+# AU_04: Remove duplicates
 
 # Find the closest matches for end and start times
 
@@ -89,7 +87,7 @@ dup_ident <- raw_dup[dup_rem$closest, ]
 # differences between end and start times are in an appropriate direction
 time_differences <- dup_ident$end_date - dup_rem$start
 
-# AU_04: Remove and replace data -----------------------------------------------
+# AU_04: Remove and replace data
 
 # Remove AU_04 from the raw loaded data and replace it with the version from
 # which duplicate submissions have been removed
@@ -99,7 +97,9 @@ raw <- raw %>%
 
 raw <- bind_rows(raw, dup_ident)
 
-# AU_01: Load data -------------------------------------------------------------
+# AU_01 ------------------------------------------------------------------------
+
+# AU_01: Load data
 
 # AU_01 reported that they detected that some participants submitted more than
 # one response to the online survey and requested course credit more than once.
@@ -138,7 +138,7 @@ dup_sel  <- dup_data %>%
   filter(record < 2) %>% # Retain only first recorded case for each participant
   ungroup()
 
-# AU_01: Remove duplicates -----------------------------------------------------
+# AU_01: Remove duplicates
 
 # The time records in the main experiment data seem to be behaving strangely,
 # possibly due to timezoning. This code is hacky, but it should correct the
@@ -179,13 +179,103 @@ dup_ident <- raw_dup[dup_rem$closest, ]
 # differences between end and start times are in an appropriate direction
 time_differences <- dup_ident$end_date - dup_rem$start_time
 
-# AU_01: Remove and replace data -----------------------------------------------
+# AU_01: Remove and replace data
 
 # Remove AU_01 from the raw loaded data and replace it with the version from
 # which duplicate submissions have been removed
 
 raw <- raw %>% 
   filter(lab != "AU_01")
+
+raw <- bind_rows(raw, dup_ident)
+
+# AU_03 ------------------------------------------------------------------------
+
+# AU_03: Load data
+
+# AU_03 reported that they detected that some participants submitted more than
+# one response to the online survey and requested course credit more than once.
+# These additional cases must be removed, though the first submissions can be
+# retained as valid data.
+
+# Extract data from AU_03
+
+raw_dup <- raw %>% 
+  filter(lab == "AU_03")
+
+# Load credit completion data
+
+# The general approach for removing duplicates is to identify the cases in the
+# experiment data with a completion time closest to the start time in the survey
+# that AU_03 used to collect participants' information for issuing course
+# credit. The known valid cases from the credit survey will be retained in the
+# experimental data (based on the closest time match), and all others will be
+# discarded.
+
+# These data files came from AU_03's survey for collecting participants'
+# information so that course credit could be assigned. The data have been
+# deidentified. The CLIMR team never had access to identifiable information.
+
+# This data file contains information about which cases are from the same
+# person.
+dup_data <- read_csv("data/utility/climr_AU_03_duplicate-data_deidentified.csv")
+
+# Identify and remove cases with repeated submissions
+
+dup_sel  <- dup_data %>% 
+  group_by(pseudo_id) %>% 
+  mutate(
+    record = 1:n()
+  ) %>% 
+  filter(record < 2) %>% # Retain only first recorded case for each participant
+  ungroup()
+
+# AU_03: Remove duplicates
+
+## Time adjustments
+
+# Add eight hours to the duplicate data to correct for difference in recording
+# time
+dup_sel$start_time <- as_datetime(as.character(dup_sel$start_time)) + (60 * 60 * 8)
+
+# Account for the discrepancy in when Europe and Australia implement DST
+dup_sel <- dup_sel %>% 
+  mutate(
+    start_time = case_when(
+      start_time <  "2023-10-30" | start_time >  "2023-11-06" ~ start_time, 
+      start_time >= "2023-10-30" | start_time <= "2023-11-06" ~ start_time - 3600
+    )
+  )
+
+# Manually remove cases known to be test cases and incorrect information entry
+# by the participant
+dup_sel <- dup_sel %>% 
+  filter(pseudo_id != 1 & pseudo_id != 236 & pseudo_id != 108)
+
+# Find the closest matches for end and start times
+
+dup_rem <- dup_sel %>%
+  group_by(pseudo_id) %>% 
+  mutate(
+    closest = which(abs(start_time - raw_dup$end_date) == min(abs(start_time - raw_dup$end_date)))
+  ) %>% 
+  ungroup()
+
+# Retain only the closest matches
+
+dup_ident <- raw_dup[dup_rem$closest, ]
+
+# As a way of potentially detecting identification errors, verify that all time
+# differences between end and start times are in an appropriate direction
+time_differences <- dup_ident$end_date - dup_rem$start_time
+
+# AU_03: Remove and replace data
+
+# Remove AU_03 from the raw loaded data and replace it with the version from
+# which duplicate submissions have been removed
+
+raw <- raw %>% 
+  filter(lab != "AU_03")
 
 raw <- bind_rows(raw, dup_ident)
 

@@ -78,6 +78,7 @@ dependencies <- c(
   "tidyr", 
   "stringr", 
   "readr", 
+  "lubridate",
   "metafor", 
   "lme4", 
   "ggplot2", 
