@@ -48,7 +48,7 @@ The social distance studies yielded a meta-analytic effect of
 interval for this estimate `r report_meta_ci(meta_social)`. Transforming the
 meta-analytic estimate to an unstandardized effect, we found that on average
 participants gave `r report_meta_bt(bt_social)` abstract responses on the
-study specific 19-item BIF when they were assigned to the distant condition,
+full 25-item BIF when they were assigned to the distant condition,
 compared to the close condition. A Q-test indicated an amount of heterogeneity
 `r report_meta_het(meta_social)`.
 
@@ -69,7 +69,7 @@ The likelihood studies yielded a meta-analytic effect of
 interval for this estimate `r report_meta_ci(meta_likelihood)`. Transforming the
 meta-analytic estimate to an unstandardized effect, we found that on average
 participants gave `r report_meta_bt(bt_likelihood)` abstract responses on the
-study specific 19-item BIF when they were assigned to the distant condition,
+study specific 9-item BIF when they were assigned to the distant condition,
 compared to the close condition. A Q-test indicated an amount of heterogeneity
 `r report_meta_het(meta_likelihood)`.
 
