@@ -196,7 +196,7 @@ empty_lor_data <- function(n) {
 
 ## Calculate standardized mean difference for each lab
 
-lab_d_calc <- function(data, distance, experiment, cond_1 = "close", cond_2 = "distant") {
+lab_d_calc <- function(data, distance, experiment, cond_1 = "distant", cond_2 = "close") {
   
   lab_count <- length(unique(data$lab_modality))
   
@@ -231,7 +231,7 @@ lab_d_calc <- function(data, distance, experiment, cond_1 = "close", cond_2 = "d
 
 ## Calculate log odds ratio for each lab
 
-lab_lor_calc <- function(data, distance, experiment, cond_1 = "close", cond_2 = "distant") {
+lab_lor_calc <- function(data, distance, experiment, cond_1 = "distant", cond_2 = "close") {
   
   lab_count <- length(unique(data$lab_modality))
   

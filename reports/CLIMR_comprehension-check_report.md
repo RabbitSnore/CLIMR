@@ -1,7 +1,7 @@
 CLIMR Supplemental Analysis Report: Comprehension Check Failures Removed
 ================
 CLIMR Team
-2023-10-13
+2023-11-24
 
 # **THESE RESULTS ARE SIMULATED. DO NOT INTERPRET.**
 
@@ -16,18 +16,18 @@ meta_temporal_comp
     ## 
     ## Random-Effects Model (k = 99; tau^2 estimator: REML)
     ## 
-    ## tau^2 (estimated amount of total heterogeneity): 0.0026 (SE = 0.0267)
-    ## tau (square root of estimated tau^2 value):      0.0508
-    ## I^2 (total heterogeneity / total variability):   1.38%
-    ## H^2 (total variability / sampling variability):  1.01
+    ## tau^2 (estimated amount of total heterogeneity): 0.0162 (SE = 0.0288)
+    ## tau (square root of estimated tau^2 value):      0.1274
+    ## I^2 (total heterogeneity / total variability):   8.02%
+    ## H^2 (total variability / sampling variability):  1.09
     ## 
     ## Test for Heterogeneity:
-    ## Q(df = 98) = 103.8297, p-val = 0.3243
+    ## Q(df = 98) = 111.7298, p-val = 0.1622
     ## 
     ## Model Results:
     ## 
     ## estimate      se    zval    pval   ci.lb   ci.ub      
-    ##   0.3942  0.0435  9.0543  <.0001  0.3089  0.4796  *** 
+    ##   0.4340  0.0452  9.5967  <.0001  0.3453  0.5226  *** 
     ## 
     ## ---
     ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
@@ -36,8 +36,8 @@ meta_temporal_comp
 bt_temporal_comp
 ```
 
-    ##        diff  ci_lower ci_upper
-    ## 1 0.3717451 0.2912741 0.452216
+    ##        diff  ci_lower  ci_upper
+    ## 1 0.4188009 0.3332681 0.5043337
 
 ## Fujita et al. (2006, Study 1)
 
@@ -48,18 +48,18 @@ meta_spatial_comp
     ## 
     ## Random-Effects Model (k = 99; tau^2 estimator: REML)
     ## 
-    ## tau^2 (estimated amount of total heterogeneity): 0.0078 (SE = 0.0273)
-    ## tau (square root of estimated tau^2 value):      0.0884
-    ## I^2 (total heterogeneity / total variability):   4.07%
-    ## H^2 (total variability / sampling variability):  1.04
+    ## tau^2 (estimated amount of total heterogeneity): 0.0504 (SE = 0.0335)
+    ## tau (square root of estimated tau^2 value):      0.2246
+    ## I^2 (total heterogeneity / total variability):   21.47%
+    ## H^2 (total variability / sampling variability):  1.27
     ## 
     ## Test for Heterogeneity:
-    ## Q(df = 98) = 111.3257, p-val = 0.1688
+    ## Q(df = 98) = 127.6299, p-val = 0.0238
     ## 
     ## Model Results:
     ## 
     ## estimate      se    zval    pval   ci.lb   ci.ub      
-    ##   0.3970  0.0440  9.0176  <.0001  0.3107  0.4832  *** 
+    ##   0.3865  0.0487  7.9287  <.0001  0.2909  0.4820  *** 
     ## 
     ## ---
     ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
@@ -69,7 +69,7 @@ bt_spatial_comp
 ```
 
     ##        diff  ci_lower  ci_upper
-    ## 1 0.3754186 0.2938218 0.4570155
+    ## 1 0.3592849 0.2704697 0.4481002
 
 ## Social Distance
 
@@ -80,18 +80,18 @@ meta_social_comp
     ## 
     ## Random-Effects Model (k = 99; tau^2 estimator: REML)
     ## 
-    ## tau^2 (estimated amount of total heterogeneity): 0 (SE = 0.0262)
+    ## tau^2 (estimated amount of total heterogeneity): 0 (SE = 0.0261)
     ## tau (square root of estimated tau^2 value):      0
     ## I^2 (total heterogeneity / total variability):   0.00%
     ## H^2 (total variability / sampling variability):  1.00
     ## 
     ## Test for Heterogeneity:
-    ## Q(df = 98) = 84.4963, p-val = 0.8326
+    ## Q(df = 98) = 76.2680, p-val = 0.9491
     ## 
     ## Model Results:
     ## 
     ## estimate      se    zval    pval   ci.lb   ci.ub      
-    ##   0.4113  0.0431  9.5380  <.0001  0.3268  0.4958  *** 
+    ##   0.4119  0.0431  9.5619  <.0001  0.3275  0.4964  *** 
     ## 
     ## ---
     ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
@@ -101,7 +101,7 @@ bt_social_comp
 ```
 
     ##        diff  ci_lower  ci_upper
-    ## 1 0.3941241 0.3131356 0.4751125
+    ## 1 0.4001186 0.3181037 0.4821335
 
 ## Likelihood Distance
 
@@ -112,18 +112,18 @@ meta_likelihood_comp
     ## 
     ## Random-Effects Model (k = 99; tau^2 estimator: REML)
     ## 
-    ## tau^2 (estimated amount of total heterogeneity): 0.0126 (SE = 0.0282)
-    ## tau (square root of estimated tau^2 value):      0.1123
-    ## I^2 (total heterogeneity / total variability):   6.36%
-    ## H^2 (total variability / sampling variability):  1.07
+    ## tau^2 (estimated amount of total heterogeneity): 0.0073 (SE = 0.0273)
+    ## tau (square root of estimated tau^2 value):      0.0856
+    ## I^2 (total heterogeneity / total variability):   3.82%
+    ## H^2 (total variability / sampling variability):  1.04
     ## 
     ## Test for Heterogeneity:
-    ## Q(df = 98) = 109.2699, p-val = 0.2052
+    ## Q(df = 98) = 106.1728, p-val = 0.2691
     ## 
     ## Model Results:
     ## 
     ## estimate      se    zval    pval   ci.lb   ci.ub      
-    ##   0.4349  0.0447  9.7204  <.0001  0.3472  0.5225  *** 
+    ##   0.3978  0.0440  9.0330  <.0001  0.3115  0.4841  *** 
     ## 
     ## ---
     ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
@@ -133,4 +133,4 @@ bt_likelihood_comp
 ```
 
     ##        diff  ci_lower  ci_upper
-    ## 1 0.3938351 0.3144247 0.4732454
+    ## 1 0.3593435 0.2813736 0.4373133

@@ -1,0 +1,85 @@
+---
+format: docx
+---
+
+## Temporal Distance
+
+The temporal distance studies — direct replications of Liberman & Trope (1998,
+Study 1) — yielded a meta-analytic effect of 
+`r report_meta_effect(meta_temporal)`. The lower bound of the 95% confidence
+interval for this estimate `r report_meta_ci(meta_temporal)`. Transforming the
+meta-analytic estimate to an unstandardized effect, we found that on average
+participants gave `r report_meta_bt(bt_temporal)` abstract responses on the
+study specific 19-item BIF when they were assigned to the distant condition,
+compared to the close condition. A Q-test indicated an amount of heterogeneity
+`r report_meta_het(meta_temporal)`.
+
+In a two-group experiment, the meta-analytic effect size for the temporal
+studies would require N = `r format(ceiling(power_80_n_temporal), nsmall = 0)` participants to
+detect with 80% power and N = `r format(ceiling(power_95_n_temporal), nsmall = 0)` participants to
+detect with 95% power. Of the experiments in the previous literature, `r report_power_80(smaller_prop_temporal)` had at least 80% power to detect the meta-analytic effect size for this replication. Across sample sizes from
+previous experiments, the median power for this effect size estimate was `r format(round(100 * median_power_temporal, 1), nsmall = 1)`%.
+
+Across labs, the meta-analytic estimate for the effect on the manipulation check
+for temporal distance was `r report_meta_effect(meta_mc_temporal)`. The lower
+bound of the 95% confidence interval for this estimate `r report_meta_ci(meta_mc_temporal)`.
+
+## Spatial Distance
+
+The spatial distance studies — direct replications of Fujita et al. (2006, Study
+1) — yielded a meta-analytic effect of `r report_meta_effect(meta_spatial)`. The
+lower bound of the 95% confidence interval for this estimate `r report_meta_ci(meta_spatial)`. Transforming the meta-analytic estimate to an unstandardized effect, we found that on average participants gave `r report_meta_bt(bt_spatial)` abstract responses on the study specific 13-item BIF when they were assigned to the distant condition, compared to the close
+condition. A Q-test indicated an amount of heterogeneity `r report_meta_het(meta_spatial)`.
+
+In a two-group experiment, the meta-analytic effect size for the spatial
+studies would require N = `r format(ceiling(power_80_n_spatial), nsmall = 0)` participants to
+detect with 80% power and N = `r format(ceiling(power_95_n_spatial), nsmall = 0)` participants to
+detect with 95% power. Of the experiments in the previous literature, `r report_power_80(smaller_prop_spatial)` had at least 80% power to detect the meta-analytic effect size for this replication. Across sample sizes from
+previous experiments, the median power for this effect size estimate was `r format(round(100 * median_power_spatial, 1), nsmall = 1)`%.
+
+Across labs, the meta-analytic estimate for the effect on the manipulation check
+for spatial distance was `r report_meta_effect(meta_mc_spatial)`. The lower
+bound of the 95% confidence interval for this estimate `r report_meta_ci(meta_mc_spatial)`.
+
+## Social Distance
+
+The social distance studies yielded a meta-analytic effect of 
+`r report_meta_effect(meta_social)`. The lower bound of the 95% confidence
+interval for this estimate `r report_meta_ci(meta_social)`. Transforming the
+meta-analytic estimate to an unstandardized effect, we found that on average
+participants gave `r report_meta_bt(bt_social)` abstract responses on the
+study specific 19-item BIF when they were assigned to the distant condition,
+compared to the close condition. A Q-test indicated an amount of heterogeneity
+`r report_meta_het(meta_social)`.
+
+In a two-group experiment, the meta-analytic effect size for the social
+studies would require N = `r format(ceiling(power_80_n_social), nsmall = 0)` participants to
+detect with 80% power and N = `r format(ceiling(power_95_n_social), nsmall = 0)` participants to
+detect with 95% power. Of the experiments in the previous literature, `r report_power_80(smaller_prop_social)` had at least 80% power to detect the meta-analytic effect size for this replication. Across sample sizes from
+previous experiments, the median power for this effect size estimate was `r format(round(100 * median_power_social, 1), nsmall = 1)`%.
+
+Across labs, the meta-analytic estimate for the effect on the manipulation check
+for social distance was `r report_meta_effect(meta_mc_social)`. The lower
+bound of the 95% confidence interval for this estimate `r report_meta_ci(meta_mc_social)`.
+
+## Likelihood
+
+The likelihood studies yielded a meta-analytic effect of 
+`r report_meta_effect(meta_likelihood)`. The lower bound of the 95% confidence
+interval for this estimate `r report_meta_ci(meta_likelihood)`. Transforming the
+meta-analytic estimate to an unstandardized effect, we found that on average
+participants gave `r report_meta_bt(bt_likelihood)` abstract responses on the
+study specific 19-item BIF when they were assigned to the distant condition,
+compared to the close condition. A Q-test indicated an amount of heterogeneity
+`r report_meta_het(meta_likelihood)`.
+
+In a two-group experiment, the meta-analytic effect size for the likelihood
+studies would require N = `r format(ceiling(power_80_n_likelihood), nsmall = 0)` participants to
+detect with 80% power and N = `r format(ceiling(power_95_n_likelihood), nsmall = 0)` participants to
+detect with 95% power. Of the experiments in the previous literature, `r report_power_80(smaller_prop_likelihood)` had at least 80% power to detect the meta-analytic effect size for this replication. Across sample sizes from
+previous experiments, the median power for this effect size estimate was `r format(round(100 * median_power_likelihood, 1), nsmall = 1)`%.
+
+Across labs, the meta-analytic estimate for the effect on the manipulation check
+for likelihood distance was `r report_meta_effect(meta_mc_likelihood)`. The lower
+bound of the 95% confidence interval for this estimate `r report_meta_ci(meta_mc_likelihood)`.
+

@@ -2,7 +2,7 @@ Construal Level International Multilab Replication (CLIMR) Project:
 Power Analysis Report
 ================
 CLIMR Team
-2023-10-13
+2023-11-24
 
 # **THESE RESULTS ARE SIMULATED. DO NOT INTERPRET.**
 
@@ -24,13 +24,13 @@ knitr::include_graphics("./figures/climr_power_figure.png")
 power_80_n_temporal
 ```
 
-    ## [1] 211.9376
+    ## [1] 162.3499
 
 ``` r
 power_95_n_temporal
 ```
 
-    ## [1] 349.6109
+    ## [1] 267.5077
 
 ### What proportion of previous experiments had at least 80% power to detect effects the size of the replication effect?
 
@@ -38,7 +38,7 @@ power_95_n_temporal
 smaller_prop_temporal
 ```
 
-    ## [1] 0.08
+    ## [1] 0.14
 
 ### What is the median power for the replication effect that the previous experiments samples provided?
 
@@ -46,7 +46,7 @@ smaller_prop_temporal
 median_power_temporal
 ```
 
-    ## [1] 0.3530552
+    ## [1] 0.4408179
 
 ## Fujita et al. (2006, Study 1)
 
@@ -56,13 +56,13 @@ median_power_temporal
 power_80_n_spatial
 ```
 
-    ## [1] 208.3361
+    ## [1] 206.4215
 
 ``` r
 power_95_n_spatial
 ```
 
-    ## [1] 343.6478
+    ## [1] 340.4778
 
 ### What proportion of previous experiments had at least 80% power to detect effects the size of the replication effect?
 
@@ -78,7 +78,7 @@ smaller_prop_spatial
 median_power_spatial
 ```
 
-    ## [1] 0.358177
+    ## [1] 0.3609655
 
 ## Social Distance (Paradigmatic Replication)
 
@@ -88,13 +88,13 @@ median_power_spatial
 power_80_n_social
 ```
 
-    ## [1] 182.5
+    ## [1] 189.1534
 
 ``` r
 power_95_n_social
 ```
 
-    ## [1] 300.8708
+    ## [1] 311.887
 
 ### What proportion of previous experiments had at least 80% power to detect effects the size of the replication effect?
 
@@ -102,7 +102,7 @@ power_95_n_social
 smaller_prop_social
 ```
 
-    ## [1] 0.11
+    ## [1] 0.1
 
 ### What is the median power for the replication effect that the previous experiments samples provided?
 
@@ -110,7 +110,7 @@ smaller_prop_social
 median_power_social
 ```
 
-    ## [1] 0.4001598
+    ## [1] 0.388382
 
 ## Likelihood Distance (Paradigmatic Replication)
 
@@ -120,13 +120,13 @@ median_power_social
 power_80_n_likelihood
 ```
 
-    ## [1] 165.0363
+    ## [1] 200.6022
 
 ``` r
 power_95_n_likelihood
 ```
 
-    ## [1] 271.9557
+    ## [1] 330.8429
 
 ### What proportion of effects for which previous experiments had 80% power is the replication effect smaller than?
 
@@ -134,7 +134,7 @@ power_95_n_likelihood
 smaller_prop_likelihood
 ```
 
-    ## [1] 0.14
+    ## [1] 0.08
 
 ### What is the median power for the replication effect that the previous experiments samples provided?
 
@@ -142,4 +142,4 @@ smaller_prop_likelihood
 median_power_likelihood
 ```
 
-    ## [1] 0.4349158
+    ## [1] 0.3697343

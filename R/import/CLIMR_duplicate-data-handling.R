@@ -1,6 +1,6 @@
 ################################################################################
 
-# CLIMR -- Duplicate data handling, AU_04, AU_01
+# CLIMR -- Duplicate data handling, AU_04, AU_01, AU_03
 
 ################################################################################
 
@@ -14,7 +14,9 @@
 # This script assumes all packages specified in the central script have already
 # been loaded.
 
-# AU_04: Load data -------------------------------------------------------------
+# AU_04 ------------------------------------------------------------------------
+
+# AU_04: Load data
 
 # AU_04 reported that they detected that some participants submitted more than
 # one response to the online survey and requested course credit more than once.

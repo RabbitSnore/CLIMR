@@ -148,6 +148,26 @@ climr_report <- function(input) {
   
 }
 
+### Manuscript functions
+
+source("R/functions/CLIMR_report-functions.R")
+
+climr_manuscript <- function(input) {
+  
+  require(rmarkdown)
+  
+  render(
+    input = input,
+    output_format = "word_document",
+    output_dir = "./reports/",
+    clean = TRUE,
+    envir = globalenv(),
+    run_pandoc = TRUE,
+    quiet = FALSE
+  )
+  
+}
+
 # R Scripts --------------------------------------------------------------------
 
 ## Simulation
@@ -158,13 +178,15 @@ if (simulation_mode == TRUE) {
   
 }
 
+## Loading, cleaning, and wrangling
+
 if (simulation_mode == FALSE) {
 
-## Data importation  
+  ### Data importation  
 
   source("./R/import/CLIMR_data-importation.R")
   
-## Data wrangling
+  ### Data wrangling
 
   source("./R/import/CLIMR_data-wrangling.R")
   
@@ -289,3 +311,9 @@ if (validation_reports == TRUE) {
   climr_report("CLIMR_social-distance-pretest_report.Rmd")
   
 }
+
+## Manuscript results
+
+### Primary results
+
+climr_manuscript("CLIMR_primary-results.qmd")

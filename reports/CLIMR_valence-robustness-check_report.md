@@ -3,7 +3,7 @@ Robustness Tests Account for Valence Differences in the Response Options
 for the Items on the Behavior Identification Form (BIF)
 ================
 CLIMR Team
-2023-10-13
+2023-11-24
 
 # **THESE RESULTS ARE SIMULATED. DO NOT INTERPRET.**
 
@@ -19,9 +19,9 @@ lrt_val_temporal
     ## glmm_temporal_bif_val: bif ~ condition + d + (1 | lab:sub) + (1 | lab) + (1 | item)
     ## glmm_temporal_bif_int: bif ~ condition * d + (1 | lab:sub) + (1 | lab) + (1 | item)
     ##                        npar   AIC   BIC logLik deviance  Chisq Df Pr(>Chisq)
-    ## glmm_temporal_bif_base    5 83546 83592 -41768    83536                     
-    ## glmm_temporal_bif_val     6 83548 83602 -41768    83536 0.7592  1     0.3836
-    ## glmm_temporal_bif_int     7 83549 83612 -41768    83535 0.5661  1     0.4518
+    ## glmm_temporal_bif_base    5 83626 83671 -41808    83616                     
+    ## glmm_temporal_bif_val     6 83627 83681 -41807    83615 1.1447  1     0.2847
+    ## glmm_temporal_bif_int     7 83629 83692 -41807    83615 0.0056  1     0.9404
 
 ``` r
 summary(glmm_temporal_bif_base)
@@ -33,29 +33,29 @@ summary(glmm_temporal_bif_base)
     ##    Data: data_bif_temporal
     ## 
     ##      AIC      BIC   logLik deviance df.resid 
-    ##  83546.4  83591.5 -41768.2  83536.4    61870 
+    ##  83625.9  83671.1 -41808.0  83615.9    61870 
     ## 
     ## Scaled residuals: 
     ##     Min      1Q  Median      3Q     Max 
-    ## -1.5842 -0.8840 -0.7034  1.0456  1.7758 
+    ## -1.5548 -0.8897 -0.7019  1.0455  1.7893 
     ## 
     ## Random effects:
     ##  Groups  Name        Variance Std.Dev.
-    ##  lab:sub (Intercept) 0.01160  0.1077  
-    ##  lab     (Intercept) 0.05748  0.2398  
-    ##  item    (Intercept) 0.01134  0.1065  
+    ##  lab:sub (Intercept) 0.007115 0.08435 
+    ##  lab     (Intercept) 0.055227 0.23501 
+    ##  item    (Intercept) 0.009231 0.09608 
     ## Number of obs: 61875, groups:  lab:sub, 2475; lab, 99; item, 25
     ## 
     ## Fixed effects:
-    ##                   Estimate Std. Error z value Pr(>|z|)    
-    ## (Intercept)       0.007579   0.034400    0.22    0.826    
-    ## conditiondistant -0.447702   0.017321  -25.85   <2e-16 ***
+    ##                  Estimate Std. Error z value Pr(>|z|)    
+    ## (Intercept)       0.01716    0.03260   0.527    0.598    
+    ## conditiondistant -0.48041    0.01713 -28.047   <2e-16 ***
     ## ---
     ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
     ## 
     ## Correlation of Fixed Effects:
     ##             (Intr)
-    ## condtndstnt -0.254
+    ## condtndstnt -0.248
 
 ``` r
 summary(glmm_temporal_bif_val)
@@ -67,31 +67,31 @@ summary(glmm_temporal_bif_val)
     ##    Data: data_bif_temporal
     ## 
     ##      AIC      BIC   logLik deviance df.resid 
-    ##  83547.6  83601.8 -41767.8  83535.6    61869 
+    ##  83626.8  83681.0 -41807.4  83614.8    61869 
     ## 
     ## Scaled residuals: 
     ##     Min      1Q  Median      3Q     Max 
-    ## -1.5825 -0.8843 -0.7034  1.0454  1.7769 
+    ## -1.5514 -0.8899 -0.7018  1.0454  1.7904 
     ## 
     ## Random effects:
     ##  Groups  Name        Variance Std.Dev.
-    ##  lab:sub (Intercept) 0.01160  0.1077  
-    ##  lab     (Intercept) 0.05748  0.2397  
-    ##  item    (Intercept) 0.01095  0.1046  
+    ##  lab:sub (Intercept) 0.007115 0.08435 
+    ##  lab     (Intercept) 0.055220 0.23499 
+    ##  item    (Intercept) 0.008739 0.09348 
     ## Number of obs: 61875, groups:  lab:sub, 2475; lab, 99; item, 25
     ## 
     ## Fixed effects:
     ##                  Estimate Std. Error z value Pr(>|z|)    
-    ## (Intercept)       0.05240    0.06143   0.853    0.394    
-    ## conditiondistant -0.44770    0.01732 -25.847   <2e-16 ***
-    ## d                -0.05463    0.06222  -0.878    0.380    
+    ## (Intercept)       0.06733    0.05649   1.192    0.233    
+    ## conditiondistant -0.48041    0.01713 -28.048   <2e-16 ***
+    ## d                -0.06115    0.05650  -1.082    0.279    
     ## ---
     ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
     ## 
     ## Correlation of Fixed Effects:
     ##             (Intr) cndtnd
-    ## condtndstnt -0.143       
-    ## d           -0.831  0.001
+    ## condtndstnt -0.144       
+    ## d           -0.820  0.001
 
 ``` r
 summary(glmm_temporal_bif_int)
@@ -103,33 +103,33 @@ summary(glmm_temporal_bif_int)
     ##    Data: data_bif_temporal
     ## 
     ##      AIC      BIC   logLik deviance df.resid 
-    ##  83549.0  83612.3 -41767.5  83535.0    61868 
+    ##  83628.8  83692.0 -41807.4  83614.8    61868 
     ## 
     ## Scaled residuals: 
     ##     Min      1Q  Median      3Q     Max 
-    ## -1.5802 -0.8838 -0.7034  1.0457  1.7725 
+    ## -1.5518 -0.8900 -0.7018  1.0454  1.7909 
     ## 
     ## Random effects:
     ##  Groups  Name        Variance Std.Dev.
-    ##  lab:sub (Intercept) 0.01160  0.1077  
-    ##  lab     (Intercept) 0.05748  0.2397  
-    ##  item    (Intercept) 0.01095  0.1046  
+    ##  lab:sub (Intercept) 0.007116 0.08435 
+    ##  lab     (Intercept) 0.055219 0.23499 
+    ##  item    (Intercept) 0.008739 0.09348 
     ## Number of obs: 61875, groups:  lab:sub, 2475; lab, 99; item, 25
     ## 
     ## Fixed effects:
-    ##                    Estimate Std. Error z value Pr(>|z|)    
-    ## (Intercept)         0.06654    0.06426   1.035    0.301    
-    ## conditiondistant   -0.47574    0.04110 -11.574   <2e-16 ***
-    ## d                  -0.07187    0.06634  -1.083    0.279    
-    ## conditiondistant:d  0.03421    0.04547   0.752    0.452    
+    ##                     Estimate Std. Error z value Pr(>|z|)    
+    ## (Intercept)         0.066013   0.059153   1.116    0.264    
+    ## conditiondistant   -0.477620   0.041007 -11.647   <2e-16 ***
+    ## d                  -0.059541   0.060417  -0.985    0.324    
+    ## conditiondistant:d -0.003407   0.045480  -0.075    0.940    
     ## ---
     ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
     ## 
     ## Correlation of Fixed Effects:
     ##             (Intr) cndtnd d     
-    ## condtndstnt -0.323              
-    ## d           -0.847  0.314       
-    ## cndtndstnt:  0.293 -0.907 -0.346
+    ## condtndstnt -0.327              
+    ## d           -0.838  0.323       
+    ## cndtndstnt:  0.297 -0.909 -0.355
 
 # Fujita et al. (2006, Study 1)
 
@@ -143,9 +143,9 @@ lrt_val_spatial
     ## glmm_spatial_bif_val: bif ~ condition + d + (1 | lab:sub) + (1 | lab) + (1 | item)
     ## glmm_spatial_bif_int: bif ~ condition * d + (1 | lab:sub) + (1 | lab) + (1 | item)
     ##                       npar   AIC   BIC logLik deviance  Chisq Df Pr(>Chisq)
-    ## glmm_spatial_bif_base    5 83376 83421 -41683    83366                     
-    ## glmm_spatial_bif_val     6 83377 83431 -41682    83365 1.0062  1     0.3158
-    ## glmm_spatial_bif_int     7 83379 83442 -41682    83365 0.0066  1     0.9354
+    ## glmm_spatial_bif_base    5 83190 83235 -41590    83180                     
+    ## glmm_spatial_bif_val     6 83192 83246 -41590    83180 0.0006  1     0.9812
+    ## glmm_spatial_bif_int     7 83193 83256 -41590    83179 0.8461  1     0.3577
 
 ``` r
 summary(glmm_spatial_bif_base)
@@ -157,29 +157,29 @@ summary(glmm_spatial_bif_base)
     ##    Data: data_bif_spatial
     ## 
     ##      AIC      BIC   logLik deviance df.resid 
-    ##  83375.8  83421.0 -41682.9  83365.8    61870 
+    ##  83189.9  83235.1 -41590.0  83179.9    61870 
     ## 
     ## Scaled residuals: 
     ##     Min      1Q  Median      3Q     Max 
-    ## -1.3805 -0.8712 -0.7020  1.0637  1.8506 
+    ## -1.4177 -0.8723 -0.6916  1.0563  1.7972 
     ## 
     ## Random effects:
     ##  Groups  Name        Variance Std.Dev.
-    ##  lab:sub (Intercept) 0.005091 0.07135 
-    ##  lab     (Intercept) 0.048852 0.22103 
-    ##  item    (Intercept) 0.009426 0.09709 
+    ##  lab:sub (Intercept) 0.010519 0.10256 
+    ##  lab     (Intercept) 0.052073 0.22820 
+    ##  item    (Intercept) 0.009673 0.09835 
     ## Number of obs: 61875, groups:  lab:sub, 2475; lab, 99; item, 25
     ## 
     ## Fixed effects:
     ##                  Estimate Std. Error z value Pr(>|z|)    
-    ## (Intercept)      -0.02662    0.03176  -0.838    0.402    
-    ## conditiondistant -0.47813    0.01705 -28.038   <2e-16 ***
+    ## (Intercept)      -0.01740    0.03250  -0.535    0.592    
+    ## conditiondistant -0.49537    0.01734 -28.574   <2e-16 ***
     ## ---
     ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
     ## 
     ## Correlation of Fixed Effects:
     ##             (Intr)
-    ## condtndstnt -0.260
+    ## condtndstnt -0.259
 
 ``` r
 summary(glmm_spatial_bif_val)
@@ -191,31 +191,31 @@ summary(glmm_spatial_bif_val)
     ##    Data: data_bif_spatial
     ## 
     ##      AIC      BIC   logLik deviance df.resid 
-    ##  83376.8  83431.0 -41682.4  83364.8    61869 
+    ##  83191.9  83246.1 -41590.0  83179.9    61869 
     ## 
     ## Scaled residuals: 
     ##     Min      1Q  Median      3Q     Max 
-    ## -1.3791 -0.8712 -0.7017  1.0636  1.8516 
+    ## -1.4177 -0.8723 -0.6916  1.0562  1.7973 
     ## 
     ## Random effects:
     ##  Groups  Name        Variance Std.Dev.
-    ##  lab:sub (Intercept) 0.005091 0.07135 
-    ##  lab     (Intercept) 0.048846 0.22101 
-    ##  item    (Intercept) 0.008985 0.09479 
+    ##  lab:sub (Intercept) 0.010519 0.10256 
+    ##  lab     (Intercept) 0.052073 0.22820 
+    ##  item    (Intercept) 0.009673 0.09835 
     ## Number of obs: 61875, groups:  lab:sub, 2475; lab, 99; item, 25
     ## 
     ## Fixed effects:
-    ##                  Estimate Std. Error z value Pr(>|z|)    
-    ## (Intercept)       0.02092    0.05650   0.370    0.711    
-    ## conditiondistant -0.47813    0.01705 -28.037   <2e-16 ***
-    ## d                -0.05794    0.05719  -1.013    0.311    
+    ##                   Estimate Std. Error z value Pr(>|z|)    
+    ## (Intercept)      -0.016256   0.058308  -0.279    0.780    
+    ## conditiondistant -0.495371   0.017336 -28.574   <2e-16 ***
+    ## d                -0.001391   0.059014  -0.024    0.981    
     ## ---
     ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
     ## 
     ## Correlation of Fixed Effects:
     ##             (Intr) cndtnd
-    ## condtndstnt -0.147       
-    ## d           -0.830  0.001
+    ## condtndstnt -0.144       
+    ## d           -0.830  0.000
 
 ``` r
 summary(glmm_spatial_bif_int)
@@ -227,33 +227,33 @@ summary(glmm_spatial_bif_int)
     ##    Data: data_bif_spatial
     ## 
     ##      AIC      BIC   logLik deviance df.resid 
-    ##  83378.8  83442.0 -41682.4  83364.8    61868 
+    ##  83193.1  83256.3 -41589.5  83179.1    61868 
     ## 
     ## Scaled residuals: 
     ##     Min      1Q  Median      3Q     Max 
-    ## -1.3789 -0.8711 -0.7019  1.0637  1.8511 
+    ## -1.4183 -0.8720 -0.6914  1.0555  1.7913 
     ## 
     ## Random effects:
     ##  Groups  Name        Variance Std.Dev.
-    ##  lab:sub (Intercept) 0.005091 0.07135 
-    ##  lab     (Intercept) 0.048847 0.22101 
-    ##  item    (Intercept) 0.008984 0.09479 
+    ##  lab:sub (Intercept) 0.010522 0.10258 
+    ##  lab     (Intercept) 0.052075 0.22820 
+    ##  item    (Intercept) 0.009667 0.09832 
     ## Number of obs: 61875, groups:  lab:sub, 2475; lab, 99; item, 25
     ## 
     ## Fixed effects:
-    ##                     Estimate Std. Error z value Pr(>|z|)    
-    ## (Intercept)         0.022387   0.059306   0.377    0.706    
-    ## conditiondistant   -0.481154   0.040996 -11.737   <2e-16 ***
-    ## d                  -0.059733   0.061278  -0.975    0.330    
-    ## conditiondistant:d  0.003695   0.045511   0.081    0.935    
+    ##                      Estimate Std. Error z value Pr(>|z|)    
+    ## (Intercept)         0.0004094  0.0610523   0.007    0.995    
+    ## conditiondistant   -0.5297874  0.0412474 -12.844   <2e-16 ***
+    ## d                  -0.0217108  0.0630072  -0.345    0.730    
+    ## conditiondistant:d  0.0419568  0.0456154   0.920    0.358    
     ## ---
     ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
     ## 
     ## Correlation of Fixed Effects:
     ##             (Intr) cndtnd d     
-    ## condtndstnt -0.336              
-    ## d           -0.848  0.328       
-    ## cndtndstnt:  0.305 -0.909 -0.360
+    ## condtndstnt -0.327              
+    ## d           -0.847  0.318       
+    ## cndtndstnt:  0.297 -0.907 -0.351
 
 # Social Distance (Paradigmatic Replication)
 
@@ -266,10 +266,10 @@ lrt_val_social
     ## glmm_social_bif_base: bif ~ condition + (1 | lab:sub) + (1 | lab) + (1 | item)
     ## glmm_social_bif_val: bif ~ condition + d + (1 | lab:sub) + (1 | lab) + (1 | item)
     ## glmm_social_bif_int: bif ~ condition * d + (1 | lab:sub) + (1 | lab) + (1 | item)
-    ##                      npar   AIC   BIC logLik deviance  Chisq Df Pr(>Chisq)   
-    ## glmm_social_bif_base    5 83825 83870 -41907    83815                        
-    ## glmm_social_bif_val     6 83820 83874 -41904    83808 6.8104  1   0.009063 **
-    ## glmm_social_bif_int     7 83822 83885 -41904    83808 0.1837  1   0.668187   
+    ##                      npar   AIC   BIC logLik deviance  Chisq Df Pr(>Chisq)  
+    ## glmm_social_bif_base    5 83631 83676 -41811    83621                       
+    ## glmm_social_bif_val     6 83630 83685 -41809    83618 2.8341  1    0.09228 .
+    ## glmm_social_bif_int     7 83632 83696 -41809    83618 0.0152  1    0.90172  
     ## ---
     ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
@@ -283,29 +283,29 @@ summary(glmm_social_bif_base)
     ##    Data: data_bif_social
     ## 
     ##      AIC      BIC   logLik deviance df.resid 
-    ##  83825.0  83870.1 -41907.5  83815.0    61870 
+    ##  83631.1  83676.3 -41810.6  83621.1    61870 
     ## 
     ## Scaled residuals: 
     ##     Min      1Q  Median      3Q     Max 
-    ## -1.4827 -0.8947 -0.7098  1.0435  1.7262 
+    ## -1.4843 -0.8825 -0.7139  1.0468  1.7623 
     ## 
     ## Random effects:
     ##  Groups  Name        Variance Std.Dev.
-    ##  lab:sub (Intercept) 0.008108 0.09004 
-    ##  lab     (Intercept) 0.048817 0.22094 
-    ##  item    (Intercept) 0.008165 0.09036 
+    ##  lab:sub (Intercept) 0.00937  0.0968  
+    ##  lab     (Intercept) 0.04666  0.2160  
+    ##  item    (Intercept) 0.01096  0.1047  
     ## Number of obs: 61875, groups:  lab:sub, 2475; lab, 99; item, 25
     ## 
     ## Fixed effects:
     ##                   Estimate Std. Error z value Pr(>|z|)    
-    ## (Intercept)       0.005647   0.030942   0.182    0.855    
-    ## conditiondistant -0.448615   0.017124 -26.198   <2e-16 ***
+    ## (Intercept)       0.008084   0.032465   0.249    0.803    
+    ## conditiondistant -0.462814   0.017184 -26.933   <2e-16 ***
     ## ---
     ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
     ## 
     ## Correlation of Fixed Effects:
     ##             (Intr)
-    ## condtndstnt -0.265
+    ## condtndstnt -0.263
 
 ``` r
 summary(glmm_social_bif_val)
@@ -317,31 +317,31 @@ summary(glmm_social_bif_val)
     ##    Data: data_bif_social
     ## 
     ##      AIC      BIC   logLik deviance df.resid 
-    ##  83820.1  83874.3 -41904.1  83808.1    61869 
+    ##  83630.3  83684.5 -41809.2  83618.3    61869 
     ## 
     ## Scaled residuals: 
     ##     Min      1Q  Median      3Q     Max 
-    ## -1.4722 -0.8943 -0.7094  1.0434  1.7257 
+    ## -1.4804 -0.8822 -0.7137  1.0464  1.7639 
     ## 
     ## Random effects:
     ##  Groups  Name        Variance Std.Dev.
-    ##  lab:sub (Intercept) 0.008111 0.09006 
-    ##  lab     (Intercept) 0.048774 0.22085 
-    ##  item    (Intercept) 0.005791 0.07610 
+    ##  lab:sub (Intercept) 0.009372 0.09681 
+    ##  lab     (Intercept) 0.046646 0.21598 
+    ##  item    (Intercept) 0.009590 0.09793 
     ## Number of obs: 61875, groups:  lab:sub, 2475; lab, 99; item, 25
     ## 
     ## Fixed effects:
     ##                  Estimate Std. Error z value Pr(>|z|)    
-    ## (Intercept)      -0.10427    0.04903  -2.127  0.03346 *  
-    ## conditiondistant -0.44861    0.01712 -26.198  < 2e-16 ***
-    ## d                 0.13397    0.04786   2.799  0.00512 ** 
+    ## (Intercept)      -0.07546    0.05764  -1.309   0.1905    
+    ## conditiondistant -0.46281    0.01718 -26.933   <2e-16 ***
+    ## d                 0.10183    0.05876   1.733   0.0831 .  
     ## ---
     ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
     ## 
     ## Correlation of Fixed Effects:
     ##             (Intr) cndtnd
-    ## condtndstnt -0.165       
-    ## d           -0.801 -0.002
+    ## condtndstnt -0.147       
+    ## d           -0.836 -0.002
 
 ``` r
 summary(glmm_social_bif_int)
@@ -353,33 +353,33 @@ summary(glmm_social_bif_int)
     ##    Data: data_bif_social
     ## 
     ##      AIC      BIC   logLik deviance df.resid 
-    ##  83822.0  83885.2 -41904.0  83808.0    61868 
+    ##  83632.3  83695.5 -41809.1  83618.3    61868 
     ## 
     ## Scaled residuals: 
     ##     Min      1Q  Median      3Q     Max 
-    ## -1.4728 -0.8949 -0.7091  1.0430  1.7287 
+    ## -1.4806 -0.8822 -0.7136  1.0465  1.7648 
     ## 
     ## Random effects:
     ##  Groups  Name        Variance Std.Dev.
-    ##  lab:sub (Intercept) 0.008111 0.09006 
-    ##  lab     (Intercept) 0.048775 0.22085 
-    ##  item    (Intercept) 0.005792 0.07610 
+    ##  lab:sub (Intercept) 0.009371 0.09681 
+    ##  lab     (Intercept) 0.046646 0.21598 
+    ##  item    (Intercept) 0.009590 0.09793 
     ## Number of obs: 61875, groups:  lab:sub, 2475; lab, 99; item, 25
     ## 
     ## Fixed effects:
-    ##                    Estimate Std. Error z value Pr(>|z|)    
-    ## (Intercept)        -0.09663    0.05217  -1.852   0.0640 .  
-    ## conditiondistant   -0.46463    0.04112 -11.300   <2e-16 ***
-    ## d                   0.12466    0.05256   2.372   0.0177 *  
-    ## conditiondistant:d  0.01948    0.04544   0.429   0.6682    
+    ##                     Estimate Std. Error z value Pr(>|z|)    
+    ## (Intercept)        -0.073172   0.060518  -1.209    0.227    
+    ## conditiondistant   -0.467428   0.041097 -11.374   <2e-16 ***
+    ## d                   0.099045   0.062916   1.574    0.115    
+    ## conditiondistant:d  0.005612   0.045422   0.124    0.902    
     ## ---
     ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
     ## 
     ## Correlation of Fixed Effects:
     ##             (Intr) cndtnd d     
-    ## condtndstnt -0.375              
-    ## d           -0.827  0.375       
-    ## cndtndstnt:  0.342 -0.909 -0.413
+    ## condtndstnt -0.336              
+    ## d           -0.853  0.325       
+    ## cndtndstnt:  0.305 -0.908 -0.358
 
 # Likelihood Distance (Paradigmatic Replication)
 
@@ -393,9 +393,9 @@ lrt_val_likelihood
     ## glmm_likelihood_bif_val: bif ~ condition + d + (1 | lab:sub) + (1 | lab) + (1 | item)
     ## glmm_likelihood_bif_int: bif ~ condition * d + (1 | lab:sub) + (1 | lab) + (1 | item)
     ##                          npar   AIC   BIC logLik deviance  Chisq Df Pr(>Chisq)
-    ## glmm_likelihood_bif_base    5 83142 83187 -41566    83132                     
-    ## glmm_likelihood_bif_val     6 83142 83196 -41565    83130 2.2196  1     0.1363
-    ## glmm_likelihood_bif_int     7 83144 83207 -41565    83130 0.0870  1     0.7680
+    ## glmm_likelihood_bif_base    5 83137 83182 -41563    83127                     
+    ## glmm_likelihood_bif_val     6 83138 83192 -41563    83126 0.7970  1     0.3720
+    ## glmm_likelihood_bif_int     7 83139 83203 -41563    83125 0.8384  1     0.3599
 
 ``` r
 summary(glmm_likelihood_bif_base)
@@ -407,29 +407,29 @@ summary(glmm_likelihood_bif_base)
     ##    Data: data_bif_likelihood
     ## 
     ##      AIC      BIC   logLik deviance df.resid 
-    ##  83141.8  83187.0 -41565.9  83131.8    61870 
+    ##  83136.9  83182.1 -41563.5  83126.9    61870 
     ## 
     ## Scaled residuals: 
     ##     Min      1Q  Median      3Q     Max 
-    ## -1.5714 -0.8635 -0.6907  1.0576  1.8245 
+    ## -1.4757 -0.8663 -0.6895  1.0631  1.8842 
     ## 
     ## Random effects:
     ##  Groups  Name        Variance Std.Dev.
-    ##  lab:sub (Intercept) 0.013467 0.11605 
-    ##  lab     (Intercept) 0.064179 0.25334 
-    ##  item    (Intercept) 0.009551 0.09773 
+    ##  lab:sub (Intercept) 0.008891 0.09429 
+    ##  lab     (Intercept) 0.059122 0.24315 
+    ##  item    (Intercept) 0.008749 0.09354 
     ## Number of obs: 61875, groups:  lab:sub, 2475; lab, 99; item, 25
     ## 
     ## Fixed effects:
     ##                  Estimate Std. Error z value Pr(>|z|)    
-    ## (Intercept)      -0.03239    0.03431  -0.944    0.345    
-    ## conditiondistant -0.47930    0.01750 -27.394   <2e-16 ***
+    ## (Intercept)      -0.05129    0.03298  -1.555     0.12    
+    ## conditiondistant -0.45755    0.01724 -26.546   <2e-16 ***
     ## ---
     ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
     ## 
     ## Correlation of Fixed Effects:
     ##             (Intr)
-    ## condtndstnt -0.249
+    ## condtndstnt -0.252
 
 ``` r
 summary(glmm_likelihood_bif_val)
@@ -441,31 +441,31 @@ summary(glmm_likelihood_bif_val)
     ##    Data: data_bif_likelihood
     ## 
     ##      AIC      BIC   logLik deviance df.resid 
-    ##  83141.6  83195.8 -41564.8  83129.6    61869 
+    ##  83138.1  83192.3 -41563.1  83126.1    61869 
     ## 
     ## Scaled residuals: 
     ##     Min      1Q  Median      3Q     Max 
-    ## -1.5789 -0.8635 -0.6901  1.0573  1.8193 
+    ## -1.4717 -0.8661 -0.6893  1.0631  1.8815 
     ## 
     ## Random effects:
     ##  Groups  Name        Variance Std.Dev.
-    ##  lab:sub (Intercept) 0.013467 0.11605 
-    ##  lab     (Intercept) 0.064163 0.25330 
-    ##  item    (Intercept) 0.008582 0.09264 
+    ##  lab:sub (Intercept) 0.008891 0.09429 
+    ##  lab     (Intercept) 0.059116 0.24314 
+    ##  item    (Intercept) 0.008420 0.09176 
     ## Number of obs: 61875, groups:  lab:sub, 2475; lab, 99; item, 25
     ## 
     ## Fixed effects:
     ##                  Estimate Std. Error z value Pr(>|z|)    
-    ## (Intercept)       0.03778    0.05708   0.662    0.508    
-    ## conditiondistant -0.47930    0.01750 -27.394   <2e-16 ***
-    ## d                -0.08553    0.05612  -1.524    0.127    
+    ## (Intercept)      -0.01018    0.05621  -0.181    0.856    
+    ## conditiondistant -0.45755    0.01724 -26.546   <2e-16 ***
+    ## d                -0.05010    0.05567  -0.900    0.368    
     ## ---
     ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
     ## 
     ## Correlation of Fixed Effects:
     ##             (Intr) cndtnd
-    ## condtndstnt -0.151       
-    ## d           -0.807  0.001
+    ## condtndstnt -0.148       
+    ## d           -0.812  0.001
 
 ``` r
 summary(glmm_likelihood_bif_int)
@@ -477,30 +477,30 @@ summary(glmm_likelihood_bif_int)
     ##    Data: data_bif_likelihood
     ## 
     ##      AIC      BIC   logLik deviance df.resid 
-    ##  83143.5  83206.7 -41564.8  83129.5    61868 
+    ##  83139.3  83202.5 -41562.6  83125.3    61868 
     ## 
     ## Scaled residuals: 
     ##     Min      1Q  Median      3Q     Max 
-    ## -1.5835 -0.8632 -0.6905  1.0575  1.8207 
+    ## -1.4802 -0.8666 -0.6893  1.0634  1.8939 
     ## 
     ## Random effects:
     ##  Groups  Name        Variance Std.Dev.
-    ##  lab:sub (Intercept) 0.013468 0.11605 
-    ##  lab     (Intercept) 0.064163 0.25330 
-    ##  item    (Intercept) 0.008582 0.09264 
+    ##  lab:sub (Intercept) 0.008893 0.0943  
+    ##  lab     (Intercept) 0.059117 0.2431  
+    ##  item    (Intercept) 0.008427 0.0918  
     ## Number of obs: 61875, groups:  lab:sub, 2475; lab, 99; item, 25
     ## 
     ## Fixed effects:
     ##                    Estimate Std. Error z value Pr(>|z|)    
-    ## (Intercept)         0.04317    0.05995   0.720    0.471    
-    ## conditiondistant   -0.49033    0.04129 -11.875   <2e-16 ***
-    ## d                  -0.09211    0.06041  -1.525    0.127    
-    ## conditiondistant:d  0.01347    0.04566   0.295    0.768    
+    ## (Intercept)        -0.02667    0.05904  -0.452    0.651    
+    ## conditiondistant   -0.42331    0.04117 -10.283   <2e-16 ***
+    ## d                  -0.03000    0.05987  -0.501    0.616    
+    ## conditiondistant:d -0.04180    0.04565  -0.916    0.360    
     ## ---
     ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
     ## 
     ## Correlation of Fixed Effects:
     ##             (Intr) cndtnd d     
-    ## condtndstnt -0.337              
-    ## d           -0.827  0.335       
-    ## cndtndstnt:  0.305 -0.906 -0.369
+    ## condtndstnt -0.336              
+    ## d           -0.832  0.334       
+    ## cndtndstnt:  0.305 -0.908 -0.367
