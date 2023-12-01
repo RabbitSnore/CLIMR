@@ -4,7 +4,8 @@
 
 ################################################################################
 
-# This script assumes the importation script has already been run.
+# This script assumes the importation and wrangling scripts have already been
+# run.
 
 # Load data --------------------------------------------------------------------
 
@@ -16,12 +17,31 @@ colnames(iso_countries) <- str_replace_all(colnames(iso_countries), "-", "_")
 
 # Wrangle data -----------------------------------------------------------------
 
+# Combine and join data
+
+included <- bind_rows(data_temporal, data_spatial, data_social, data_likelihood)
+
+included <- included %>% 
+  left_join(
+    select(raw, sub, end_date,
+           gender, country, age),
+    by = "sub"
+  )
+
+included <- included %>% 
+  group_by(lab) %>% 
+  mutate(
+    finish_date = max(end_date)
+  ) %>% 
+  ungroup() %>% 
+  arrange(finish_date)
+
 # Cumulative sample size over time
 
 ## Across all labs
 
-end_date     <- as_datetime(sort(unique(raw$end_date)))
-cumulative_n <- cumsum(table(raw$end_date))
+end_date     <- as_datetime(sort(unique(included$end_date)))
+cumulative_n <- cumsum(table(included$end_date))
 
 collection <- data.frame(end_date, cumulative_n)
 
@@ -29,21 +49,24 @@ collection <- data.frame(end_date, cumulative_n)
 
 lab_collection <- data.frame()
 
-for (i in 1:length(raw$lab)) {
+for (i in 1:length(unique(included$lab))) {
   
-  lab_data <- raw[raw$lab == unique(raw$lab)[i], ]
+  lab_data <- included[included$lab == unique(included$lab)[i], ]
   
   ends     <- as_datetime(sort(unique(lab_data$end_date)))
   cume_ns  <- cumsum(table(lab_data$end_date))
   
-  lab_dates <- data.frame(lab = rep(unique(raw$lab)[i], length(ends)), 
+  lab_dates <- data.frame(lab = rep(unique(included$lab)[i], length(ends)), 
                           end_date     = ends, 
-                          cumulative_n = cume_ns)
+                          cumulative_n = cume_ns,
+                          finish_date  = unique(lab_data$finish_date))
   
   lab_dates <- bind_rows(lab_dates, 
-                         list(lab = unique(raw$lab)[i], 
-                           end_date = max(collection$end_date),
-                           cumulative_n = max(lab_dates$cumulative_n)))
+                         list(
+                           lab          = unique(included$lab)[i], 
+                           end_date     = max(collection$end_date),
+                           cumulative_n = max(lab_dates$cumulative_n),
+                           finish_date  = unique(lab_data$finish_date)))
   
   lab_collection <- bind_rows(lab_collection, lab_dates)
   
@@ -57,7 +80,7 @@ for (i in 1:length(raw$lab)) {
 
 # Lab data collection start dates
 
-lab_starts <- raw %>% 
+lab_starts <- included %>% 
   group_by(lab) %>% 
   summarise(
     start = min(end_date)
@@ -66,7 +89,7 @@ lab_starts <- raw %>%
 
 # Demographic for alluvial plot
 
-demo_alluvia <- raw %>%
+demo_alluvia <- included %>%
   mutate(
     age_cat = cut_number(age, 2)
   ) %>% 
@@ -87,53 +110,15 @@ demo_alluvia <- demo_alluvia %>%
 
 # Visualizations ---------------------------------------------------------------
 
-collection_time_plot <- 
-ggplot(collection,
-       aes(
-         x = end_date,
-         y = cumulative_n
-       )) +
-  geom_line(
-    group     = 1,
-    color     = "#0B6F4B",
-    linewidth = 1.5
-  ) +
-  geom_point(
-    data = lab_starts,
-    aes(
-      x = start,
-      y = cumulative_n
-    ),
-    size  = 3,
-    color = "#084932"
-  ) +
-  labs(
-    y = "Cumulative total sample size",
-    x = "Date"
-  ) +
-  scale_color_manual(
-    values = rainbow(length(unique(lab_collection$lab)), s = .5)
-  ) +
-  scale_x_datetime(
-    date_breaks = "week"
-  ) +
-  theme_classic() +
-  theme(
-    axis.text.x = element_text(angle = 50, vjust = 1, hjust = 1)
-  )
-
-collection_time_lab_plot <- 
-  ggplot(collection,
+rainbow_plot <- 
+  ggplot(lab_collection,
          aes(
            x = end_date,
-           y = cumulative_n
+           y = cumulative_n,
+           group = lab,
+           fill = lab
          )) +
   geom_area(
-    data = lab_collection,
-    aes(
-      group = lab,
-      fill = lab
-    ),
     color = "white",
     linewidth = .60,
     alpha     = .80
@@ -156,6 +141,7 @@ collection_time_lab_plot <-
     axis.text.x = element_text(angle = 50, vjust = 1, hjust = 1)
   )
 
+# CURRENTLY NOT WORKING
 ggplot(demo_alluvia,
        aes(
          y     = n,
