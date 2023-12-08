@@ -11,14 +11,14 @@
 # somewhat slowly, but none of the operations are very computationally
 # demanding.
 
-### AU_04, AU_01: Known duplicate submissions
+# AU_04, AU_01: Known duplicate submissions ------------------------------------
 
 # There are notes about this case of known duplicate submissions included in
 # the comments of the script that handles these cases.
 
 source("R/import/CLIMR_duplicate-data-handling.R")
 
-### MY_01: Test cases
+# MY_01: Test cases ------------------------------------------------------------
 
 # Lab MY_01 included a test run case in the data, which should be removed
 # prior to analysis. This case is marked with "PILOT" as it ID.
@@ -26,7 +26,7 @@ source("R/import/CLIMR_duplicate-data-handling.R")
 raw <- raw %>% 
   filter(id_subject != "PILOT" | is.na(id_subject))
 
-### NL_02: Test cases
+# NL_02: Test cases ------------------------------------------------------------
 
 # NL_02 reported testing the experiments a few times, flagging their test
 # cases using the subject ID variable. These cases should be removed.
@@ -34,7 +34,7 @@ raw <- raw %>%
 raw <- raw %>% 
   filter(!str_detect(id_subject, "test|Test") | is.na(id_subject))
 
-### US_12: Incorrect surveys for some participants and test cases
+# US_12: Incorrect surveys for some participants and test cases ----------------
 
 # Notes about a technical error are included in the script that is run below
 
@@ -49,14 +49,23 @@ raw <- raw %>%
   filter(id_subject != "US_12_99999" | is.na(id_subject)) %>% 
   filter(id_subject != "us129999"    | is.na(id_subject))
 
-### Duplicated participant IDs
+# US_06: Test cases ------------------------------------------------------------
+
+# US_06 reported testing the experiments a few times, and these test cases are
+# evident from their lack of identifiers for the SONA system automation.
+
+raw <- raw %>% 
+  filter(id_sona != "%SURVEY_CODE%" | is.na(id_sona)) %>% 
+  filter(id_internal != "97400") # This test case was identified manually
+
+# Duplicated participant IDs ---------------------------------------------------
 
 # Some labs reported accidentally reusing some participant ID values These
 # values are not used in any analysis, so these non-unique cases are retained.
 # They don't seem to pose any practical issue, since the Qualtrics response ID
 # still identifies each unique response.
 
-### Removal of known invalid or incomplete cases 
+# Removal of known invalid or incomplete cases ---------------------------------
 
 # There are some cases that should be removed because of their missing or
 # invalid demographic information. In these rows of data, there are no

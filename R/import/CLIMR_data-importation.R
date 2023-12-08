@@ -67,14 +67,15 @@ if (read_precleaned == FALSE) {
       total_duration = Duration..in.seconds.,
       start_date     = StartDate,
       end_date       = EndDate,
-      recorded_date  = RecordedDate
+      recorded_date  = RecordedDate,
+      id_sona        = id
     ) %>% 
     mutate (
       lab_modality = paste(lab, modality, sep = "_")
     ) %>% 
     select(
       lab, modality, lab_modality, country, language, experiment,
-      sub, id_subject, id_internal,
+      sub, id_subject, id_internal, id_sona,
       everything(),
       -Status, -Progress, -Finished, -starts_with("Recipient"),
       -DistributionChannel, -UserLanguage,
