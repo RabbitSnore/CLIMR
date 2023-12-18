@@ -58,6 +58,14 @@ raw <- raw %>%
   filter(id_sona != "%SURVEY_CODE%" | is.na(id_sona)) %>% 
   filter(id_internal != "97400") # This test case was identified manually
 
+# US_19: Test cases ------------------------------------------------------------
+
+# US_19 reported running the experiment to record their procedure video. This
+# case is identified by using "CLIMR" in the ID field.
+
+raw <- raw %>% 
+  filter(id_subject != "CLIMR" | is.na(id_subject))
+
 # Duplicated participant IDs ---------------------------------------------------
 
 # Some labs reported accidentally reusing some participant ID values These

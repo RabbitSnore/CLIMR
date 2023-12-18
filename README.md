@@ -13,7 +13,7 @@ distance and mental construal of social events. *Psychological Science, 14*,
 278-282. Study 1.
 
 In addition to close replications of these two studies, this project also
-entails two paradigmatic replications relevant to social and likelihood
+includes two paradigmatic replications relevant to social and likelihood
 distance.
 
 ## Compendium Structure
