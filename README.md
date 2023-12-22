@@ -74,6 +74,12 @@ rather than load real data. Data collection is ongoing. When data collection for
 the project is complete, the code will be updated to import the publicly
 available data set by default.
 
+As data are collected, the code in this repository will be periodically updated
+as we add code to address any issues reported by the contributing labs (e.g.,
+removal of data from researchers testing the surveys), and the code will be
+updated to correct any errors we detect and/or to address technical issues
+(e.g., code breakage from package updates).
+
 # Technical Information
 
 The CLIMR project analysis code was built using R 4.2.3. The packages required

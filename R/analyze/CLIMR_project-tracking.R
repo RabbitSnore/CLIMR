@@ -78,14 +78,25 @@ for (i in 1:length(unique(included$lab))) {
   
 }
 
-# Lab data collection start dates
+# Lab data collection start dates and end dates
 
 lab_starts <- included %>% 
   group_by(lab) %>% 
   summarise(
     start = min(end_date)
   ) %>% 
-  left_join(collection, by = c("start" = "end_date"))
+  left_join(collection, by = c("start" = "end_date")) %>% 
+  arrange(start)
+
+lab_ends <- lab_collection %>% 
+  group_by(lab) %>% 
+  summarise(
+    finish_date = unique(finish_date)
+  ) %>% 
+  arrange(finish_date)
+
+lab_collection$lab <- factor(lab_collection$lab,
+                             levels = lab_starts$lab)
 
 # Demographic for alluvial plot
 

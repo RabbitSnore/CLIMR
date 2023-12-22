@@ -66,6 +66,27 @@ raw <- raw %>%
 raw <- raw %>% 
   filter(id_subject != "CLIMR" | is.na(id_subject))
 
+# US_08: Repeated participation ------------------------------------------------
+
+# US_08 reported that two participants did the study twice, and they provided us
+# with the ID numbers of the second instances of participation. These cases
+# should be removed.
+
+raw <- raw %>% 
+  filter(!(id_subject == "274" & lab == "US_08") | is.na(id_subject)) %>%
+  filter(!(id_subject == "339" & lab == "US_08") | is.na(id_subject))
+
+# DE_01: Test cases ------------------------------------------------------------
+
+# DE_01 tested the experiments a few times and identified these cases by
+# entering "climr" or "climbr" in the ID field or the ethnicity field. These
+# cases should be removed.
+
+raw <- raw %>% 
+  filter(id_subject != "climr"  | is.na(id_subject)) %>% 
+  filter(id_subject != "climbr" | is.na(id_subject)) %>% 
+  filter(ethnicity  != "climr"  | is.na(ethnicity))
+
 # Duplicated participant IDs ---------------------------------------------------
 
 # Some labs reported accidentally reusing some participant ID values These
