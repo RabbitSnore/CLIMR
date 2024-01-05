@@ -82,8 +82,23 @@ if (read_precleaned == FALSE) {
     ) %>% 
     type_convert()
   
+  ### Handle duplication of national identity column
+  
+  # In some surveys, an extraneous character was introduced into the column name
+  # for the national identity variable, creating two columns that need to be
+  # combined.
+  
+  raw$national_identity <- coalesce(raw$national_identity., 
+                                    raw$national_identity)
+  
+  raw <- raw %>% 
+    select(-national_identity.) %>% 
+    relocate(national_identity, .after = gender)
+  
   ## Handle deviations
-          
+  
+  # The script called below handles lab-specific data cleaning tasks.
+  
   source("R/import/CLIMR_deviation-handling.R")
   
   ## Create codebook information
