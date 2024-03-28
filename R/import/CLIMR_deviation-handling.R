@@ -87,6 +87,17 @@ raw <- raw %>%
   filter(id_subject != "climbr" | is.na(id_subject)) %>% 
   filter(ethnicity  != "climr"  | is.na(ethnicity))
 
+# DE_06: Test cases ------------------------------------------------------------
+
+# DE_06 tested the experiments a few times and identified these cases by
+# entering "CLIMR in the ethnicity field. Additionally, two test cases were
+# indicated by irregular IDs. These cases should be removed.
+
+raw <- raw %>% 
+  filter(ethnicity != "CLIMR" | is.na(ethnicity)) %>% 
+  filter(!(id_subject == "12"  & lab == "DE_06") | is.na(id_subject)) %>% 
+  filter(!(id_subject == "999" & lab == "DE_06") | is.na(id_subject))
+
 # Duplicated participant IDs ---------------------------------------------------
 
 # Some labs reported accidentally reusing some participant ID values These
