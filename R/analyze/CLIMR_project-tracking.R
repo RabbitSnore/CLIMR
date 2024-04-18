@@ -7,8 +7,8 @@
 # This script assumes the importation and wrangling scripts have already been
 # run.
 
-# Note that this script requires the wesanderson package, which is currently not
-# included in the list of required packages for the project.
+# Note that this script borrows some colors palettes from the wesanderson
+# package, https://github.com/karthik/wesanderson
 
 # Load data --------------------------------------------------------------------
 
@@ -186,7 +186,7 @@ rainbow_plot <-
            fill  = lab
          )) +
   geom_area(
-    color     = "white",
+    # color     = "white",
     linewidth = .60,
     alpha     = .80
   ) +
@@ -210,7 +210,7 @@ rainbow_plot <-
     values = rainbow(length(unique(lab_collection$lab)), s = .5)
   ) +
   scale_x_datetime(
-    date_breaks = "week", 
+    date_breaks = "month", 
     limits      = c(min(lab_collection$end_date),
                     max(lab_collection$end_date))
   ) +
@@ -241,12 +241,8 @@ ggplot(radial_country_data,
                  max(pretty(radial_country_data$n))/5)
   ) +
   scale_fill_manual(
-    values = wesanderson::wes_palette(n = length(unique(radial_country_data$region)), 
-                                      "GrandBudapest1")
+    values = c("#F1BB7B", "#FD6467", "#5B1A18", "#D67236")
   ) +
-  # scale_fill_manual(
-  #   values = c("#331832", "#D81E5B", "#F0544F", "#C6D8D3")
-  # ) +
   labs(
     x    = "",
     y    = "",
@@ -316,8 +312,7 @@ ggplot(included,
     color = "#171717"
   ) +
   scale_fill_manual(
-    values = wesanderson::wes_palette(n = length(unique(radial_country_data$region)), 
-                                      "FantasticFox1"),
+    values = c("#FF4747", "#00A08A", "#F2AD00", "#F98400"),
     labels = rev(c("Female", "Male", "Nonbinary", "Other"))
   ) +
   labs(
