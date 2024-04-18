@@ -98,6 +98,13 @@ raw <- raw %>%
   filter(!(id_subject == "12"  & lab == "DE_06") | is.na(id_subject)) %>% 
   filter(!(id_subject == "999" & lab == "DE_06") | is.na(id_subject))
 
+# ES_01 & ES_04: Erroneous redirection -----------------------------------------
+
+# The script below handles an issue where some participants were mistakenly
+# redirected to the incorrect survey.
+
+source("R/import/CLIMR_redirection-handling.R")
+
 # Duplicated participant IDs ---------------------------------------------------
 
 # Some labs reported accidentally reusing some participant ID values These
