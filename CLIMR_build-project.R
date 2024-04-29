@@ -248,6 +248,10 @@ if (validation_reports == TRUE) {
   
   source("./R/validation/CLIMR-social-distance-pretest.R")
   
+  # Linguistic measures of concreteness
+  
+  source("./R/validation/CLIMR-validation_linguistic_analysis.R")
+  
 } else if (validation_reports == FALSE) {
   
   # The BIF response option valence difference data are needed for the
@@ -306,6 +310,7 @@ if (validation_reports == TRUE) {
   climr_report("CLIMR_bif_report.Rmd")
   climr_report("CLIMR_validation_report.Rmd")
   climr_report("CLIMR_validation-2_report.Rmd")
+  climr_report("CLIMR_validation-3_report.Rmd")
   climr_report("CLIMR_action-relevance-pretest_report.Rmd")
   climr_report("CLIMR_bif-valence-pretest_report.Rmd")
   climr_report("CLIMR_social-distance-pretest_report.Rmd")

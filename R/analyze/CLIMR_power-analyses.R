@@ -101,7 +101,7 @@ ggplot(required_n,
   ) +
   scale_y_continuous(
     limits = c(0, N_top),
-    breaks = seq(0, N_top, 100)
+    breaks = seq(0, N_top, N_top/10)
   ) +
   labs(
     x = "Power",
