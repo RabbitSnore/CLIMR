@@ -151,3 +151,97 @@ summary(lmer_lcm_pd)
     ## distancec -0.233
     ## optimizer (nlminbwrap) convergence code: 0 (OK)
     ## boundary (singular) fit: see help('isSingular')
+
+# Additional LCM Analyses
+
+## Effect for Activities Only
+
+``` r
+d_lcm_ac
+```
+
+    ##   ID         d         var  ci_lower  ci_upper
+    ## 1  1 0.3306758 0.002692923 0.2288849 0.4324667
+
+``` r
+summary(lmer_lcm_ac)
+```
+
+    ## Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
+    ## Formula: lcm ~ 1 + distance + (1 + distance | ResponseId) + (1 | item)
+    ##    Data: linguistic_long %>% filter(type == "ac")
+    ## Control: lmerControl(optimizer = "bobyqa")
+    ## 
+    ## REML criterion at convergence: 2432
+    ## 
+    ## Scaled residuals: 
+    ##     Min      1Q  Median      3Q     Max 
+    ## -4.0907 -0.5800  0.0154  0.5835  3.9477 
+    ## 
+    ## Random effects:
+    ##  Groups     Name        Variance Std.Dev. Corr 
+    ##  ResponseId (Intercept) 0.017143 0.13093       
+    ##             distancec   0.017971 0.13406  -0.02
+    ##  item       (Intercept) 0.001644 0.04055       
+    ##  Residual               0.269522 0.51916       
+    ## Number of obs: 1509, groups:  ResponseId, 302; item, 5
+    ## 
+    ## Fixed effects:
+    ##             Estimate Std. Error       df t value Pr(>|t|)    
+    ## (Intercept)   3.1780     0.0279   9.2141 113.897 7.96e-16 ***
+    ## distancec    -0.1794     0.0326 285.8306  -5.502 8.35e-08 ***
+    ## ---
+    ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+    ## 
+    ## Correlation of Fixed Effects:
+    ##           (Intr)
+    ## distancec -0.494
+    ## optimizer (bobyqa) convergence code: 0 (OK)
+    ## Model is nearly unidentifiable: large eigenvalue ratio
+    ##  - Rescale variables?
+
+## Effect for Activities Only (Modified Puddle-Ducks Version)
+
+``` r
+d_lcm_pd_ac
+```
+
+    ##   ID         d         var  ci_lower ci_upper
+    ## 1  1 0.5442957 0.002754937 0.4413394 0.647252
+
+``` r
+summary(lmer_lcm_pd_ac)
+```
+
+    ## Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
+    ## Formula: lcm_pd ~ 1 + distance + (1 + distance | ResponseId) + (1 | item)
+    ##    Data: linguistic_long %>% filter(type == "ac")
+    ## Control: lmerControl(optimizer = "nlminbwrap")
+    ## 
+    ## REML criterion at convergence: 1678.3
+    ## 
+    ## Scaled residuals: 
+    ##     Min      1Q  Median      3Q     Max 
+    ## -3.2722 -0.5717 -0.0262  0.5887  5.5965 
+    ## 
+    ## Random effects:
+    ##  Groups     Name        Variance Std.Dev. Corr
+    ##  ResponseId (Intercept) 0.019558 0.13985      
+    ##             distancec   0.002738 0.05233  0.99
+    ##  item       (Intercept) 0.019939 0.14121      
+    ##  Residual               0.154402 0.39294      
+    ## Number of obs: 1509, groups:  ResponseId, 302; item, 5
+    ## 
+    ## Fixed effects:
+    ##              Estimate Std. Error        df t value Pr(>|t|)    
+    ## (Intercept)   1.46616    0.06563   4.43472  22.340 9.97e-06 ***
+    ## distancec    -0.24154    0.02809 279.54686  -8.598 5.88e-16 ***
+    ## ---
+    ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+    ## 
+    ## Correlation of Fixed Effects:
+    ##           (Intr)
+    ## distancec -0.173
+    ## optimizer (nlminbwrap) convergence code: 0 (OK)
+    ## Model is nearly unidentifiable: large eigenvalue ratio
+    ##  - Rescale variables?

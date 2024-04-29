@@ -58,3 +58,26 @@ summary(lmer_lcm)
 ```{r}
 summary(lmer_lcm_pd)
 ```
+
+# Additional LCM Analyses
+
+## Effect for Activities Only
+
+```{r}
+d_lcm_ac
+```
+
+```{r}
+summary(lmer_lcm_ac)
+```
+
+## Effect for Activities Only (Modified Puddle-Ducks Version)
+
+```{r}
+d_lcm_pd_ac
+```
+
+```{r}
+summary(lmer_lcm_pd_ac)
+```
+
