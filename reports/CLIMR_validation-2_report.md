@@ -2,7 +2,7 @@ Construal Level International Multilab Replication (CLIMR) Project:
 Interval Estimate Validation Report
 ================
 CLIMR Team
-2022-12-16
+2024-04-29
 
 These validations are documented here: <https://osf.io/kgrs9/>
 
@@ -59,24 +59,3 @@ effect_bridge_bif
 
     ##   ID         d        var   ci_lower ci_upper
     ## 1  1 0.1343801 0.01636396 -0.1175967 0.386357
-
-# Summary of Validations Studies
-
-``` r
-validation_plot_data
-```
-
-    ##                        ID           d         var   ci_lower  ci_upper
-    ## 1                     BIF  1.41884331 0.011898202  1.2044363 1.6332504
-    ## 2          Categorization  0.08676957 0.003846699 -0.0349298 0.2084690
-    ## 3            Segmentation  0.06592508 0.009921950 -0.1298945 0.2617447
-    ## 4 Quantity Estimation (a) -0.08105716 0.016210130 -0.3318366 0.1697223
-    ## 5 Quantity Estimation (b)  0.09970903 0.016549638 -0.1537092 0.3531273
-    ## 6       Length Estimation  0.09718508 0.016756621 -0.1578293 0.3521995
-    ## 7  Spillover Effect (BIF) -0.01850364 0.007171503 -0.1844826 0.1474754
-
-``` r
-knitr::include_graphics("./figures/climr_validation_plot.png")
-```
-
-<img src="./figures/climr_validation_plot.png" width="3000" />

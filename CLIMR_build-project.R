@@ -231,8 +231,6 @@ if (validation_reports == TRUE) {
   source("./R/validation/CLIMR-validation-2_exploration.R")
   source("./R/validation/CLIMR-validation_data-visualization.R")
   
-  source("./R/validation/CLIMR-validation-studies_summary.R")
-  
   # BIF item relevance to event in the likelihood replication
   
   source("./R/validation/CLIMR-action-relevance-pretest_data-importation.R")
@@ -251,6 +249,10 @@ if (validation_reports == TRUE) {
   # Linguistic measures of concreteness
   
   source("./R/validation/CLIMR-validation_linguistic_analysis.R")
+  
+  # Summary of validation studies
+  
+  source("./R/validation/CLIMR-validation-studies_summary.R")
   
 } else if (validation_reports == FALSE) {
   

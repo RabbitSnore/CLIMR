@@ -81,3 +81,14 @@ d_lcm_pd_ac
 summary(lmer_lcm_pd_ac)
 ```
 
+# Summary of Validations Studies
+
+```{r}
+validation_plot_data
+```
+
+```{r}
+knitr::include_graphics("./figures/climr_validation_plot.png")
+```
+
+

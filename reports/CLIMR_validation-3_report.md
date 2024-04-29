@@ -17,22 +17,22 @@ Previous relevant analyses by the Puddle-Ducks can be found here:
 d_folk
 ```
 
-    ##   ID        d         var  ci_lower ci_upper
-    ## 1  1 1.001557 0.001493545 0.9257806 1.077333
+    ##                  ID        d         var  ci_lower ci_upper
+    ## 1 Folk Concreteness 1.001557 0.001493545 0.9257806 1.077333
 
 ``` r
 d_lcm
 ```
 
-    ##   ID           d         var   ci_lower    ci_upper
-    ## 1  1 -0.06532858 0.001328546 -0.1367964 0.006139257
+    ##    ID           d         var   ci_lower    ci_upper
+    ## 1 LCM -0.06532858 0.001328546 -0.1367964 0.006139257
 
 ``` r
 d_lcm_pd
 ```
 
-    ##   ID         d         var  ci_lower  ci_upper
-    ## 1  1 0.2374944 0.001337186 0.1657946 0.3091943
+    ##               ID         d         var  ci_lower  ci_upper
+    ## 1 LCM (Modified) 0.2374944 0.001337186 0.1657946 0.3091943
 
 ``` r
 knitr::include_graphics("./figures/climr_linguistic-measure-swarm_figure.png")
@@ -245,3 +245,27 @@ summary(lmer_lcm_pd_ac)
     ## optimizer (nlminbwrap) convergence code: 0 (OK)
     ## Model is nearly unidentifiable: large eigenvalue ratio
     ##  - Rescale variables?
+
+# Summary of Validations Studies
+
+``` r
+validation_plot_data
+```
+
+    ##                         ID           d         var   ci_lower    ci_upper
+    ## 1                      BIF  1.41884331 0.011898202  1.2044363 1.633250369
+    ## 2           Categorization  0.08676957 0.003846699 -0.0349298 0.208468953
+    ## 3             Segmentation  0.06592508 0.009921950 -0.1298945 0.261744651
+    ## 4  Quantity Estimation (a) -0.08105716 0.016210130 -0.3318366 0.169722320
+    ## 5  Quantity Estimation (b)  0.09970903 0.016549638 -0.1537092 0.353127287
+    ## 6        Length Estimation  0.09718508 0.016756621 -0.1578293 0.352199495
+    ## 7   Spillover Effect (BIF) -0.01850364 0.007171503 -0.1844826 0.147475375
+    ## 8        Folk Concreteness  1.00155660 0.001493545  0.9257806 1.077332551
+    ## 9                      LCM -0.06532858 0.001328546 -0.1367964 0.006139257
+    ## 10          LCM (Modified)  0.23749445 0.001337186  0.1657946 0.309194301
+
+``` r
+knitr::include_graphics("./figures/climr_validation_plot.png")
+```
+
+<img src="./figures/climr_validation_plot.png" width="4050" />

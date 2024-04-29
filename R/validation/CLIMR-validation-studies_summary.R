@@ -5,9 +5,10 @@
 ################################################################################
 
 # This script assumes you have run all the main validations scripts to compose
-# the reports for Validation 1 and Validation 2.
+# the reports for Validation 1, Validation 2, and Validation 3.
 
-### Check whether packages are installed locally and get list of what needs to be installed
+### Check whether packages are installed locally and get list of what needs to
+### be installed
 
 installation_list <- dependencies[!(dependencies %in% rownames(installed.packages()))]
 
@@ -23,12 +24,23 @@ spillover_rma <- rma(yi = d, vi = var, data = spillover)
 
 # Data for Plotting ------------------------------------------------------------
 
+# Validation 1
+
 effect_temporal_2$ID     <- "BIF" 
 effect_temporal$ID       <- "Categorization"
 effect_spatial$ID        <- "Segmentation"
+
+# Validation 2
+
 effect_fruit_close$ID    <- "Quantity Estimation (a)"
 effect_fruit_modified$ID <- "Quantity Estimation (b)"
 effect_bridge$ID         <- "Length Estimation"
+
+# Validation 3
+
+d_folk$ID                <- "Folk Concreteness" 
+d_lcm$ID                 <- "LCM"
+d_lcm_pd$ID              <- "LCM (Modified)"
 
 validation_plot_data <- bind_rows(
   effect_temporal_2,
@@ -42,7 +54,10 @@ validation_plot_data <- bind_rows(
     d        = spillover_rma$beta[[1]], 
     var      = spillover_rma$se^2, 
     ci_lower = spillover_rma$ci.lb, 
-    ci_upper = spillover_rma$ci.ub)
+    ci_upper = spillover_rma$ci.ub),
+  d_folk,
+  d_lcm,
+  d_lcm_pd
   )
 
 validation_plot_data$ID <- ordered(validation_plot_data$ID, 
@@ -53,7 +68,10 @@ validation_plot_data$ID <- ordered(validation_plot_data$ID,
                                      "Quantity Estimation (a)",
                                      "Quantity Estimation (b)",
                                      "Length Estimation",
-                                     "Spillover Effect (BIF)"
+                                     "Spillover Effect (BIF)",
+                                     "Folk Concreteness",
+                                     "LCM",
+                                     "LCM (Modified)"
                                    ))
 
 # Visualization ----------------------------------------------------------------
@@ -70,8 +88,8 @@ ggplot(validation_plot_data,
     size = 2
   ) +
   geom_errorbar(
-    width = .25,
-    size = 1
+    width     = .25,
+    linewidth = 1
   ) +
   geom_hline(
     yintercept = 0,
@@ -112,7 +130,7 @@ ggplot(validation_plot_data,
 
 ## Save plot
 
-cowplot::save_plot("./figures/climr_validation_plot.png", validation_plot, base_height = 6, base_width = 10)
-cowplot::save_plot("./figures/climr_validation_plot.svg", validation_plot, base_height = 6, base_width = 10)
+cowplot::save_plot("./figures/climr_validation_plot.png", validation_plot, base_height = 6, base_width = 13.5)
+cowplot::save_plot("./figures/climr_validation_plot.svg", validation_plot, base_height = 6, base_width = 13.5)
 
-cowplot::save_plot("./reports/figures/climr_validation_plot.png", validation_plot, base_height = 6, base_width = 10)
+cowplot::save_plot("./reports/figures/climr_validation_plot.png", validation_plot, base_height = 6, base_width = 13.5)

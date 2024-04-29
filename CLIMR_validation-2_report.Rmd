@@ -57,15 +57,3 @@ effect_bridge
 ```{r}
 effect_bridge_bif
 ```
-
-# Summary of Validations Studies
-
-```{r}
-validation_plot_data
-```
-
-
-```{r}
-knitr::include_graphics("./figures/climr_validation_plot.png")
-```
-
