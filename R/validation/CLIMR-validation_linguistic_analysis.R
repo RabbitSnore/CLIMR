@@ -194,7 +194,12 @@ swarm_lcm_pd <-
 swarm_grid <- plot_grid(swarm_folk, swarm_lcm, swarm_lcm_pd, 
                         nrow = 1)
 
-save_plot("figures/climr_linguistic-measure-swarm_figure.png", swarm_grid,
+save_plot("figures/climr_linguistic-measure-swarm_figure.png", 
+          swarm_grid,
+          base_height = 6, base_width = 10)
+
+save_plot("reports/figures/climr_linguistic-measure-swarm_figure.png", 
+          swarm_grid,
           base_height = 6, base_width = 10)
 
 # Random effects exploration ---------------------------------------------------
