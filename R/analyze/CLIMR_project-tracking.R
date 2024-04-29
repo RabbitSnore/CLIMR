@@ -173,6 +173,29 @@ included$gender <- factor(
   levels = rev(c(2, 1, 3, 4))
 )
 
+# Power benchmarks -------------------------------------------------------------
+
+# Sensitivity analyses for each experiment
+
+effect_80 <- power.t.test(n = nrow(included)/4/2, 
+                          power = .80, 
+                          sig.level = .05)$delta
+
+effect_95 <- power.t.test(n = nrow(included)/4/2, 
+                          power = .95, 
+                          sig.level = .05)$delta
+
+power_summary <- paste(
+  "With approximately n = ",
+  round(nrow(included)/4/2),
+  " per condition, each experiment has 80% power for d = ",
+  round(effect_80, 2),
+  " and 95% power for d = ",
+  round(effect_95, 2),
+  ".",
+  sep = ""
+)
+
 # Visualizations ---------------------------------------------------------------
 
 # Rainbow plot: Cumulative sample size over time
@@ -205,6 +228,12 @@ rainbow_plot <-
       label = lab
     ),
     size = 2.5
+  ) +
+  annotate(
+    geom = "text", 
+    x = min(lab_collection$end_date) + days(45),
+    y = pretty(nrow(included))[[1]], 
+    label = str_wrap(power_summary, 60)
   ) +
   scale_color_manual(
     values = rainbow(length(unique(lab_collection$lab)), s = .5)

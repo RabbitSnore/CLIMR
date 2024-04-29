@@ -43,7 +43,7 @@ reports/*.html
 # Plots
 /figures/*.html
 /figures/climr_effect-map_files/*
-/figure/*project-tracker*
+/figures/*project-tracker*
 
 # Notes
 /notes/*
