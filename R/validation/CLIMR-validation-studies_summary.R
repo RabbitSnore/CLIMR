@@ -7,11 +7,6 @@
 # This script assumes you have run all the main validations scripts to compose
 # the reports for Validation 1, Validation 2, and Validation 3.
 
-### Check whether packages are installed locally and get list of what needs to
-### be installed
-
-installation_list <- dependencies[!(dependencies %in% rownames(installed.packages()))]
-
 # Meta-Analysis of Spillover Effects -------------------------------------------
 
 spillover <- bind_rows(
@@ -119,18 +114,27 @@ ggplot(validation_plot_data,
   #   size = 3
   # ) +
   scale_y_continuous(
-    breaks = seq(from = -0.50, to = 2.00, by = .10),
+    breaks = seq(from = -0.50, to = 2.00, by = .25),
     limits = c(-0.50, 2.00)
   ) +
   labs(
     x = "",
     y = "Standardized Mean Difference"
   ) +
-  theme_classic()
+  theme_classic() +
+  theme(
+    axis.text.x = element_text(angle = 45, vjust = 1, hjust = 1, size = 10)
+  )
 
 ## Save plot
 
-cowplot::save_plot("./figures/climr_validation_plot.png", validation_plot, base_height = 6, base_width = 13.5)
-cowplot::save_plot("./figures/climr_validation_plot.svg", validation_plot, base_height = 6, base_width = 13.5)
+cowplot::save_plot("./figures/climr_validation_plot.png", 
+                   validation_plot, 
+                   base_height = 6, base_width = 9)
+cowplot::save_plot("./figures/climr_validation_plot.svg", 
+                   validation_plot, 
+                   base_height = 6, base_width = 9)
 
-cowplot::save_plot("./reports/figures/climr_validation_plot.png", validation_plot, base_height = 6, base_width = 13.5)
+cowplot::save_plot("./reports/figures/climr_validation_plot.png", 
+                   validation_plot, 
+                   base_height = 6, base_width = 9)
