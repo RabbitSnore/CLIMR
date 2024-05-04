@@ -67,6 +67,27 @@ Reports of the preliminary studies (as well as placeholder reports using
 simulated data for the main studies) are available in the `/reports/` directory.
 These reports are rendered in a format that is readable on GitHub.
 
+### Primary Results (CURRENTLY PLACEHOLDERS WITH SIMULATED RESULTS)
+
+- [Main Analyses](reports/CLIMR_main-analysis_report.md)
+- [Comprehension Check Analyses](reports/CLIMR_comprehension-check_report.md)
+- [Manipulation Check Analyses](reports/CLIMR_manipulation-check_report.md)
+- [Power Analyses](reports/CLIMR_power_report.md)
+- [BIF Response Option Valence Robustness Checks](reports/CLIMR_valence-robustness-check_report.md)
+
+### Validation Studies
+
+- [Validation Study 1: BIF, Categorization, Segmentation](reports/CLIMR_validation_report.md)
+- [Validation Study 2: Interval Estimation](reports/CLIMR_validation_report-2.md)
+- [Validation Study 3: Linguistic Measures](reports/CLIMR_validation_report-3.md)
+
+### Pretests and Examination of Outcome Measures
+
+- [Differntial Effects on BIF Items](reports/CLIMR_bif_report.md)
+- [Relevance of BIF Items to Target Event](reports/CLIMR_action-relevance-pretest_report.md)
+- [Valence of BIF Response Options](reports/CLIMR_bif-valence-pretest_report.md)
+- [Pretest of Social Distance Manipulation](reports/CLIMR_social-distance-pretest_report.md)
+
 ## IMPORTANT NOTE
 
 Currently, the project is configured so that it will simulate data by default,
