@@ -1,5 +1,5 @@
 ---
-title: "Construal Level International Multilab Replication (CLIMR) Project: Robustness Tests Account for Valence Differences in the Response Options for the Items on the Behavior Identification Form (BIF)"
+title: "Construal Level International Multilab Replication (CLIMR) Project: Robustness Tests Accounting for Valence Differences in the Response Options for the Items on the Behavior Identification Form (BIF)"
 author: "CLIMR Team"
 date: "`r Sys.Date()`"
 output:

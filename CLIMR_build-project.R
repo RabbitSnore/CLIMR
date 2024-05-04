@@ -93,9 +93,11 @@ dependencies <- c(
   "osfr",
   "purrr")
 
-### Check whether packages are installed locally and get list of what needs to be installed
+### Check whether packages are installed locally and get list of what needs to
+### be installed
 
-installation_list <- dependencies[!(dependencies %in% rownames(installed.packages()))]
+installation_list <- 
+  dependencies[!(dependencies %in% rownames(installed.packages()))]
 
 ### Install necessary packages
 
@@ -117,7 +119,9 @@ lapply(dependencies, library, character.only = TRUE)
 
 ## Get version info
 
-version_info <- as.data.frame(installed.packages())[rownames(installed.packages()) %in% loadedNamespaces(), ] %>% 
+pack_logical <- rownames(installed.packages()) %in% loadedNamespaces()
+
+version_info <- as.data.frame(installed.packages())[pack_logical, ] %>% 
   select(-LibPath)
 
 write.csv(version_info, "./data/meta/climr_version-info.csv", row.names = FALSE)
@@ -130,7 +134,8 @@ version_primary <- version_info %>%
 
 ### Render report
 
-# This function is used to knit the R Markdown reports using the global environment.
+# This function is used to knit the R Markdown reports using the global
+# environment.
 
 climr_report <- function(input) {
   
