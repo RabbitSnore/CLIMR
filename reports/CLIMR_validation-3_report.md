@@ -2,7 +2,7 @@ Construal Level International Multilab Replication (CLIMR) Project:
 Linguistic Concreteness Validation
 ================
 CLIMR Team
-2024-04-29
+2024-05-04
 
 These validations are documented here: <https://osf.io/kgrs9/>
 
@@ -47,110 +47,102 @@ summary(lmer_folk)
 ```
 
     ## Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
-    ## Formula: concreteness ~ 1 + distance + (1 + distance | ResponseId) + (1 |      item)
+    ## Formula: concreteness ~ 1 + distance + (1 | ResponseId) + (1 + distance |      item)
     ##    Data: linguistic_long
     ## Control: lmerControl(optimizer = "nlminbwrap")
     ## 
-    ## REML criterion at convergence: 332
+    ## REML criterion at convergence: 282.1
     ## 
     ## Scaled residuals: 
     ##     Min      1Q  Median      3Q     Max 
-    ## -4.3767 -0.5843 -0.0631  0.5118  8.5920 
+    ## -4.1952 -0.5772 -0.0648  0.5064  8.6797 
     ## 
     ## Random effects:
     ##  Groups     Name        Variance Std.Dev. Corr 
-    ##  ResponseId (Intercept) 0.008639 0.09295       
-    ##             distancec   0.037377 0.19333  -0.32
-    ##  item       (Intercept) 0.005038 0.07098       
-    ##  Residual               0.055873 0.23637       
+    ##  ResponseId (Intercept) 0.021201 0.14560       
+    ##  item       (Intercept) 0.009187 0.09585       
+    ##             distancec   0.009017 0.09496  -0.71
+    ##  Residual               0.053616 0.23155       
     ## Number of obs: 3020, groups:  ResponseId, 302; item, 10
     ## 
     ## Fixed effects:
-    ##              Estimate Std. Error        df t value Pr(>|t|)    
-    ## (Intercept)   2.60347    0.02437  11.61433  106.83   <2e-16 ***
-    ## distancec     0.28551    0.01920 228.64001   14.87   <2e-16 ***
+    ##             Estimate Std. Error       df t value Pr(>|t|)    
+    ## (Intercept)  2.60347    0.03297 11.70295  78.972  < 2e-16 ***
+    ## distancec    0.28551    0.03542 14.90050   8.061  8.2e-07 ***
     ## ---
     ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
     ## 
     ## Correlation of Fixed Effects:
     ##           (Intr)
-    ## distancec -0.192
-    ## optimizer (nlminbwrap) convergence code: 0 (OK)
-    ## Model is nearly unidentifiable: large eigenvalue ratio
-    ##  - Rescale variables?
+    ## distancec -0.700
 
 ``` r
 summary(lmer_lcm)
 ```
 
     ## Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
-    ## Formula: lcm ~ 1 + distance + (1 + distance | ResponseId) + (1 | item)
+    ## Formula: lcm ~ 1 + distance + (1 | ResponseId) + (1 + distance | item)
     ##    Data: linguistic_long
     ## Control: lmerControl(optimizer = "bobyqa")
     ## 
-    ## REML criterion at convergence: 5063.1
+    ## REML criterion at convergence: 4893.3
     ## 
     ## Scaled residuals: 
     ##     Min      1Q  Median      3Q     Max 
-    ## -4.3705 -0.5719  0.0021  0.6124  3.6487 
+    ## -4.2393 -0.5763  0.0099  0.5781  3.8898 
     ## 
     ## Random effects:
-    ##  Groups     Name        Variance Std.Dev. Corr 
-    ##  ResponseId (Intercept) 0.02473  0.1572        
-    ##             distancec   0.08951  0.2992   -0.84
-    ##  item       (Intercept) 0.03896  0.1974        
-    ##  Residual               0.28780  0.5365        
+    ##  Groups     Name        Variance Std.Dev. Corr
+    ##  ResponseId (Intercept) 0.03149  0.1775       
+    ##  item       (Intercept) 0.02015  0.1419       
+    ##             distancec   0.07940  0.2818   0.02
+    ##  Residual               0.26793  0.5176       
     ## Number of obs: 3019, groups:  ResponseId, 302; item, 10
     ## 
     ## Fixed effects:
-    ##              Estimate Std. Error        df t value Pr(>|t|)    
-    ## (Intercept)   3.20939    0.06507  10.12669  49.319 2.12e-13 ***
-    ## distancec     0.03899    0.02793 289.91187   1.396    0.164    
+    ##             Estimate Std. Error       df t value Pr(>|t|)    
+    ## (Intercept)  3.20939    0.04882 10.70782  65.733 2.63e-15 ***
+    ## distancec    0.03896    0.09335  9.92756   0.417    0.685    
     ## ---
     ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
     ## 
     ## Correlation of Fixed Effects:
     ##           (Intr)
-    ## distancec -0.186
-    ## optimizer (bobyqa) convergence code: 0 (OK)
-    ## Model is nearly unidentifiable: large eigenvalue ratio
-    ##  - Rescale variables?
+    ## distancec -0.062
 
 ``` r
 summary(lmer_lcm_pd)
 ```
 
     ## Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
-    ## Formula: lcm_pd ~ 1 + distance + (1 + distance | ResponseId) + (1 | item)
+    ## Formula: lcm_pd ~ 1 + distance + (1 | ResponseId) + (1 + distance | item)
     ##    Data: linguistic_long
     ## Control: lmerControl(optimizer = "nlminbwrap")
     ## 
-    ## REML criterion at convergence: 3965.7
+    ## REML criterion at convergence: 3842.3
     ## 
     ## Scaled residuals: 
     ##     Min      1Q  Median      3Q     Max 
-    ## -3.2396 -0.6076 -0.0239  0.5941  5.4582 
+    ## -3.7776 -0.5974 -0.0246  0.5806  5.8059 
     ## 
     ## Random effects:
     ##  Groups     Name        Variance Std.Dev. Corr 
-    ##  ResponseId (Intercept) 0.01567  0.1252        
-    ##             distancec   0.08379  0.2895   -1.00
-    ##  item       (Intercept) 0.01473  0.1214        
-    ##  Residual               0.20025  0.4475        
+    ##  ResponseId (Intercept) 0.02212  0.1487        
+    ##  item       (Intercept) 0.01339  0.1157        
+    ##             distancec   0.04321  0.2079   -0.37
+    ##  Residual               0.18945  0.4353        
     ## Number of obs: 3019, groups:  ResponseId, 302; item, 10
     ## 
     ## Fixed effects:
-    ##              Estimate Std. Error        df t value Pr(>|t|)    
-    ## (Intercept)   1.41625    0.04122  10.94855  34.359 1.68e-12 ***
-    ## distancec    -0.11493    0.02351 284.62182  -4.889 1.69e-06 ***
+    ##             Estimate Std. Error       df t value Pr(>|t|)    
+    ## (Intercept)  1.41625    0.03999 10.79991  35.418 1.61e-12 ***
+    ## distancec   -0.11499    0.06976 10.18888  -1.648     0.13    
     ## ---
     ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
     ## 
     ## Correlation of Fixed Effects:
     ##           (Intr)
-    ## distancec -0.233
-    ## optimizer (nlminbwrap) convergence code: 0 (OK)
-    ## boundary (singular) fit: see help('isSingular')
+    ## distancec -0.410
 
 # Additional LCM Analyses
 
@@ -168,37 +160,34 @@ summary(lmer_lcm_ac)
 ```
 
     ## Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
-    ## Formula: lcm ~ 1 + distance + (1 + distance | ResponseId) + (1 | item)
+    ## Formula: lcm ~ 1 + distance + (1 | ResponseId) + (1 + distance | item)
     ##    Data: linguistic_long %>% filter(type == "ac")
     ## Control: lmerControl(optimizer = "bobyqa")
     ## 
-    ## REML criterion at convergence: 2432
+    ## REML criterion at convergence: 2390.1
     ## 
     ## Scaled residuals: 
     ##     Min      1Q  Median      3Q     Max 
-    ## -4.0907 -0.5800  0.0154  0.5835  3.9477 
+    ## -3.9210 -0.5842  0.0135  0.5878  3.9114 
     ## 
     ## Random effects:
     ##  Groups     Name        Variance Std.Dev. Corr 
-    ##  ResponseId (Intercept) 0.017143 0.13093       
-    ##             distancec   0.017971 0.13406  -0.02
-    ##  item       (Intercept) 0.001644 0.04055       
-    ##  Residual               0.269522 0.51916       
+    ##  ResponseId (Intercept) 0.027623 0.16620       
+    ##  item       (Intercept) 0.004477 0.06691       
+    ##             distancec   0.045080 0.21232  -0.96
+    ##  Residual               0.258197 0.50813       
     ## Number of obs: 1509, groups:  ResponseId, 302; item, 5
     ## 
     ## Fixed effects:
     ##             Estimate Std. Error       df t value Pr(>|t|)    
-    ## (Intercept)   3.1780     0.0279   9.2141 113.897 7.96e-16 ***
-    ## distancec    -0.1794     0.0326 285.8306  -5.502 8.35e-08 ***
+    ## (Intercept)  3.17796    0.03738  5.21296  85.021 2.15e-09 ***
+    ## distancec   -0.17931    0.10034  4.30745  -1.787    0.143    
     ## ---
     ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
     ## 
     ## Correlation of Fixed Effects:
     ##           (Intr)
-    ## distancec -0.494
-    ## optimizer (bobyqa) convergence code: 0 (OK)
-    ## Model is nearly unidentifiable: large eigenvalue ratio
-    ##  - Rescale variables?
+    ## distancec -0.863
 
 ## Effect for Activities Only (Modified Puddle-Ducks Version)
 
@@ -214,37 +203,34 @@ summary(lmer_lcm_pd_ac)
 ```
 
     ## Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
-    ## Formula: lcm_pd ~ 1 + distance + (1 + distance | ResponseId) + (1 | item)
+    ## Formula: lcm_pd ~ 1 + distance + (1 | ResponseId) + (1 + distance | item)
     ##    Data: linguistic_long %>% filter(type == "ac")
     ## Control: lmerControl(optimizer = "nlminbwrap")
     ## 
-    ## REML criterion at convergence: 1678.3
+    ## REML criterion at convergence: 1677.1
     ## 
     ## Scaled residuals: 
     ##     Min      1Q  Median      3Q     Max 
-    ## -3.2722 -0.5717 -0.0262  0.5887  5.5965 
+    ## -3.2517 -0.5752 -0.0427  0.5876  5.8140 
     ## 
     ## Random effects:
-    ##  Groups     Name        Variance Std.Dev. Corr
-    ##  ResponseId (Intercept) 0.019558 0.13985      
-    ##             distancec   0.002738 0.05233  0.99
-    ##  item       (Intercept) 0.019939 0.14121      
-    ##  Residual               0.154402 0.39294      
+    ##  Groups     Name        Variance Std.Dev. Corr 
+    ##  ResponseId (Intercept) 0.027877 0.16696       
+    ##  item       (Intercept) 0.022905 0.15134       
+    ##             distancec   0.004615 0.06794  -0.41
+    ##  Residual               0.153302 0.39154       
     ## Number of obs: 1509, groups:  ResponseId, 302; item, 5
     ## 
     ## Fixed effects:
-    ##              Estimate Std. Error        df t value Pr(>|t|)    
-    ## (Intercept)   1.46616    0.06563   4.43472  22.340 9.97e-06 ***
-    ## distancec    -0.24154    0.02809 279.54686  -8.598 5.88e-16 ***
+    ##             Estimate Std. Error       df t value Pr(>|t|)    
+    ## (Intercept)  1.46616    0.07037  4.30069   20.84 1.75e-05 ***
+    ## distancec   -0.24164    0.04124  6.50514   -5.86 0.000816 ***
     ## ---
     ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
     ## 
     ## Correlation of Fixed Effects:
     ##           (Intr)
-    ## distancec -0.173
-    ## optimizer (nlminbwrap) convergence code: 0 (OK)
-    ## Model is nearly unidentifiable: large eigenvalue ratio
-    ##  - Rescale variables?
+    ## distancec -0.416
 
 # Summary of Validations Studies
 
@@ -268,4 +254,4 @@ validation_plot_data
 knitr::include_graphics("./figures/climr_validation_plot.png")
 ```
 
-<img src="./figures/climr_validation_plot.png" width="4050" />
+<img src="./figures/climr_validation_plot.png" width="2700" />

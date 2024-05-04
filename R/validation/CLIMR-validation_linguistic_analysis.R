@@ -52,7 +52,7 @@ source("./R/functions/CLIMR_effect-size-functions.R")
 
 if (!file.exists("data/validation/climr_linguistic-validation_cleaned-parsed_data.csv")) {
   
-  osf_retrieve_file("662fab8d80d25c3a9ef9192f") %>% 
+  osf_retrieve_file("6636272a419d001a7dfea022") %>% 
     osf_download(path = "./data/validation/",
                  conflicts = "overwrite")
   
@@ -68,8 +68,8 @@ linguistic_long <-
 lmer_folk   <- lmer(concreteness
                     ~ 1
                     + distance
-                    + (1 + distance|ResponseId)
-                    + (1 | item),
+                    + (1 |ResponseId)
+                    + (1 + distance| item),
                     data = linguistic_long,
                     control = lmerControl(
                       optimizer = "nlminbwrap"
@@ -78,8 +78,8 @@ lmer_folk   <- lmer(concreteness
 lmer_lcm    <- lmer(lcm
                     ~ 1
                     + distance
-                    + (1 + distance|ResponseId)
-                    + (1 | item),
+                    + (1 |ResponseId)
+                    + (1 + distance| item),
                     data = linguistic_long,
                     control = lmerControl(
                       optimizer = "bobyqa"
@@ -88,8 +88,8 @@ lmer_lcm    <- lmer(lcm
 lmer_lcm_pd <- lmer(lcm_pd
                     ~ 1
                     + distance
-                    + (1 + distance|ResponseId)
-                    + (1 | item),
+                    + (1 |ResponseId)
+                    + (1 + distance| item),
                     data = linguistic_long,
                     control = lmerControl(
                       optimizer = "nlminbwrap"
@@ -231,8 +231,8 @@ ggplot(lmm_folk_ranef,
 lmer_lcm_ac <- lmer(lcm
                     ~ 1
                     + distance
-                    + (1 + distance|ResponseId)
-                    + (1 | item),
+                    + (1 |ResponseId)
+                    + (1 + distance| item),
                     data = linguistic_long %>% 
                       filter(type == "ac"),
                     control = lmerControl(
@@ -274,8 +274,8 @@ swarm_lcm_ac <-
 lmer_lcm_pd_ac <- lmer(lcm_pd
                     ~ 1
                     + distance
-                    + (1 + distance|ResponseId)
-                    + (1 | item),
+                    + (1 |ResponseId)
+                    + (1 + distance| item),
                     data = linguistic_long %>% 
                       filter(type == "ac"),
                     control = lmerControl(

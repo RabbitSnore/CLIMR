@@ -192,6 +192,9 @@ linguistic_long <- linguistic_long %>%
 
 # Export parsed data -----------------------------------------------------------
 
+linguistic_long <- linguistic_long %>% 
+  select(-PROLIFIC_PID)
+
 write_csv(linguistic_long, 
           "data/validation/climr_linguistic-validation_cleaned-parsed_data.csv")
 
