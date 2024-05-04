@@ -78,8 +78,8 @@ These reports are rendered in a format that is readable on GitHub.
 ### Validation Studies
 
 - [Validation Study 1: BIF, Categorization, Segmentation](reports/CLIMR_validation_report.md)
-- [Validation Study 2: Interval Estimation](reports/CLIMR_validation_report-2.md)
-- [Validation Study 3: Linguistic Measures](reports/CLIMR_validation_report-3.md)
+- [Validation Study 2: Interval Estimation](reports/CLIMR_validation-2_report.md)
+- [Validation Study 3: Linguistic Measures](reports/CLIMR_validation-3_report.md)
 
 ### Pretests and Examination of Outcome Measures
 
