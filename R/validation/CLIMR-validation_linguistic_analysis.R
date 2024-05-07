@@ -4,6 +4,18 @@
 
 ################################################################################
 
+# Note that this script is designed to work with a precleaned data set, which
+# has already been coded using the folk concreteness dictionary and the two LCM
+# approaches. This cleaning, wrangling, and coding was done with the script
+# R/CLIMR_validation_linguistic_import-wrangle.R. This script is stored in the
+# repository, but it is not necessary to run, unless you want to reproduce the
+# analyses from an earlier state or make upstream modifications. However, that
+# script is written expecting a form of the data downloaded directly out of
+# Qualtrics. However, the most important thing is that you have the texts for
+# coding. These are stored in the cleaned version of the data.  Reproducing from
+# that earlier state will require some modifications to the code, but it's
+# doable.
+
 # Set up environment -----------------------------------------------------------
 
 ## Check and install necessary packages for the project
@@ -60,6 +72,18 @@ if (!file.exists("data/validation/climr_linguistic-validation_cleaned-parsed_dat
 
 linguistic_long <- 
   read_csv("data/validation/climr_linguistic-validation_cleaned-parsed_data.csv")
+
+# Wrangle ----------------------------------------------------------------------
+
+# Word length
+
+linguistic_long$word_length <- 
+  lengths(str_match_all(linguistic_long$text, "\\W+")) + 1
+
+# Character length
+
+linguistic_long$character_length <- 
+  lengths(str_split(linguistic_long$text, ""))
 
 # Analysis ---------------------------------------------------------------------
 
