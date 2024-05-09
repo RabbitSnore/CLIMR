@@ -7,6 +7,24 @@
 # This script assumes you have run all the main validations scripts to compose
 # the reports for Validation 1, Validation 2, and Validation 3.
 
+# Import data ------------------------------------------------------------------
+
+# Ejelöv & Luke causal efficacy data
+
+if(!file.exists("data/validation/causal_efficacy_data.csv")) {
+  
+  osf_retrieve_file("5d1b5d954994dd001916311f") %>% 
+    osf_download(path = "./data/validation/",
+                 conflicts = "overwrite")
+  
+}
+
+causal_efficacy <- read.csv("data/validation/causal_efficacy_data.csv")
+
+## Empirical cumulative distribution of manipulation check effect sizes
+
+mc_ecdf <-  ecdf(causal_efficacy$MC_ES)
+
 # Meta-Analysis of Spillover Effects -------------------------------------------
 
 spillover <- bind_rows(
@@ -36,6 +54,8 @@ effect_bridge$ID         <- "Length Estimation"
 d_folk$ID                <- "Folk Concreteness" 
 d_lcm$ID                 <- "LCM"
 d_lcm_pd$ID              <- "LCM (Modified)"
+
+# Assemble data
 
 validation_plot_data <- bind_rows(
   effect_temporal_2,
@@ -68,6 +88,8 @@ validation_plot_data$ID <- ordered(validation_plot_data$ID,
                                      "LCM",
                                      "LCM (Modified)"
                                    ))
+
+validation_plot_data$percentile_ejelov_luke <- mc_ecdf(validation_plot_data$d)
 
 # Visualization ----------------------------------------------------------------
 

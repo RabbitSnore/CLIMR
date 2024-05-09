@@ -2,7 +2,7 @@ Construal Level International Multilab Replication (CLIMR) Project:
 Linguistic Concreteness Validation
 ================
 CLIMR Team
-2024-05-04
+2024-05-09
 
 These validations are documented here: <https://osf.io/kgrs9/>
 
@@ -238,17 +238,17 @@ summary(lmer_lcm_pd_ac)
 validation_plot_data
 ```
 
-    ##                         ID           d         var   ci_lower    ci_upper
-    ## 1                      BIF  1.41884331 0.011898202  1.2044363 1.633250369
-    ## 2           Categorization  0.08676957 0.003846699 -0.0349298 0.208468953
-    ## 3             Segmentation  0.06592508 0.009921950 -0.1298945 0.261744651
-    ## 4  Quantity Estimation (a) -0.08105716 0.016210130 -0.3318366 0.169722320
-    ## 5  Quantity Estimation (b)  0.09970903 0.016549638 -0.1537092 0.353127287
-    ## 6        Length Estimation  0.09718508 0.016756621 -0.1578293 0.352199495
-    ## 7   Spillover Effect (BIF) -0.01850364 0.007171503 -0.1844826 0.147475375
-    ## 8        Folk Concreteness  1.00155660 0.001493545  0.9257806 1.077332551
-    ## 9                      LCM -0.06532858 0.001328546 -0.1367964 0.006139257
-    ## 10          LCM (Modified)  0.23749445 0.001337186  0.1657946 0.309194301
+    ##                         ID           d         var   ci_lower    ci_upper percentile_ejelov_luke
+    ## 1                      BIF  1.41884331 0.011898202  1.2044363 1.633250369              0.5000000
+    ## 2           Categorization  0.08676957 0.003846699 -0.0349298 0.208468953              0.0000000
+    ## 3             Segmentation  0.06592508 0.009921950 -0.1298945 0.261744651              0.0000000
+    ## 4  Quantity Estimation (a) -0.08105716 0.016210130 -0.3318366 0.169722320              0.0000000
+    ## 5  Quantity Estimation (b)  0.09970903 0.016549638 -0.1537092 0.353127287              0.0000000
+    ## 6        Length Estimation  0.09718508 0.016756621 -0.1578293 0.352199495              0.0000000
+    ## 7   Spillover Effect (BIF) -0.01850364 0.007171503 -0.1844826 0.147475375              0.0000000
+    ## 8        Folk Concreteness  1.00155660 0.001493545  0.9257806 1.077332551              0.3660714
+    ## 9                      LCM -0.06532858 0.001328546 -0.1367964 0.006139257              0.0000000
+    ## 10          LCM (Modified)  0.23749445 0.001337186  0.1657946 0.309194301              0.0000000
 
 ``` r
 knitr::include_graphics("./figures/climr_validation_plot.png")
