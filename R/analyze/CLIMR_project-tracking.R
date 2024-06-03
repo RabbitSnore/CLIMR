@@ -200,6 +200,13 @@ power_summary <- paste(
 
 # Rainbow plot: Cumulative sample size over time
 
+offset_days <- days(
+  as.numeric(
+    round(
+      (max(lab_collection$end_date) - min(lab_collection$end_date))/6)
+    )
+  )
+
 rainbow_plot <- 
   ggplot(lab_collection,
          aes(
@@ -231,7 +238,7 @@ rainbow_plot <-
   ) +
   annotate(
     geom = "text", 
-    x = min(lab_collection$end_date) + days(45),
+    x = min(lab_collection$end_date) + offset_days,
     y = pretty(nrow(included))[[1]], 
     label = str_wrap(power_summary, 60)
   ) +
@@ -280,7 +287,10 @@ ggplot(radial_country_data,
   geom_text(
     x = 0,
     y = -max(pretty(radial_country_data$n))/2,
-    label = paste(length(unique(included$lab)), " labs\nN = ", nrow(included), sep = "")
+    label = paste(length(unique(included$lab)), 
+                  " labs\nN = ", 
+                  nrow(included), 
+                  sep = "")
   ) +
   coord_polar() +
   theme(

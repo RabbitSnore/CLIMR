@@ -94,7 +94,7 @@ forest_plot <- function(replication_data, meta_analysis, org_d, org_ci_lower, or
       xintercept = meta_analysis$beta[[1]],
       linetype   = "dashed",
       color      = "black",
-      size       = 1
+      linewidth  = 1
     ) +
     geom_vline(
       xintercept = 0,
@@ -211,7 +211,7 @@ forest_plot_lor <- function(replication_data, meta_analysis, org_lor, org_ci_low
       xintercept = meta_analysis$beta[[1]],
       linetype   = "dashed",
       color      = "black",
-      size       = 1
+      linewidth  = 1
     ) +
     geom_vline(
       xintercept = 0,
