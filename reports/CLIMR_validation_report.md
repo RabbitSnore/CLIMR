@@ -2,7 +2,7 @@ Construal Level International Multilab Replication (CLIMR) Project:
 Validation Pretest Report
 ================
 CLIMR Team
-2024-04-29
+2024-06-04
 
 These validation studies are documented here: <https://osf.io/kgrs9/>
 
@@ -61,6 +61,19 @@ effect_temporal_cc
 
     ##   ID         d         var    ci_lower  ci_upper
     ## 1  1 0.1135343 0.004310192 -0.01530567 0.2423743
+
+### Mixed effects model based effect size
+
+``` r
+emm_temporal
+```
+
+    ##  contrast        effect.size    SE   df lower.CL upper.CL
+    ##  close - distant       0.137 0.143 3.72   -0.273    0.547
+    ## 
+    ## sigma used for effect sizes: 1.394 
+    ## Degrees-of-freedom method: inherited from kenward-roger when re-gridding 
+    ## Confidence level used: 0.95
 
 ## Segmentation Task
 

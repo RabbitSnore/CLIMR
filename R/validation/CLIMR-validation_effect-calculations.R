@@ -32,6 +32,19 @@ effect_temporal_cc <- d_calc(
   cond_1 = "close", cond_2 = "distant"
 )
 
+### Mixed effects model
+
+lmm_temporal <- lmer(y 
+                     ~ 1
+                     + condition
+                     + (1|sub)
+                     + (1|stimulus),
+                     data = data_temporal)
+
+emm_temporal <- eff_size(emmeans(lmm_temporal, specs = "condition"),
+                         sigma = sigma(lmm_temporal),
+                         edf   = nrow(data_temporal))
+
 ## Henderson et al. (2006, Study 1): Spatial Distance, Segmentation ------------
 
 ### Removal of outliers

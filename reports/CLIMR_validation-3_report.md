@@ -2,7 +2,7 @@ Construal Level International Multilab Replication (CLIMR) Project:
 Linguistic Concreteness Validation
 ================
 CLIMR Team
-2024-05-09
+2024-06-04
 
 These validations are documented here: <https://osf.io/kgrs9/>
 

@@ -2,7 +2,7 @@ Construal Level International Multilab Replication (CLIMR) Project:
 Interval Estimate Validation Report
 ================
 CLIMR Team
-2024-04-29
+2024-06-04
 
 These validations are documented here: <https://osf.io/kgrs9/>
 

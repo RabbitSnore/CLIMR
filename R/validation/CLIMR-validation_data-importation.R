@@ -10,7 +10,22 @@
 
 ### Packages required by the CLIMR project
 
-dependencies <- c("dplyr", "tidyr", "stringr", "readr", "metafor", "lme4", "ggplot2", "cowplot", "rmarkdown", "ggbeeswarm", "ggstance", "simr", "viridis", "leaflet", "osfr")
+dependencies <- c("dplyr", 
+                  "tidyr", 
+                  "stringr", 
+                  "readr", 
+                  "metafor", 
+                  "lme4",
+                  "emmeans",
+                  "ggplot2", 
+                  "cowplot", 
+                  "rmarkdown", 
+                  "ggbeeswarm", 
+                  "ggstance", 
+                  "simr", 
+                  "viridis", 
+                  "leaflet", 
+                  "osfr")
 
 ### Check whether packages are installed locally and get list of what needs to be installed
 

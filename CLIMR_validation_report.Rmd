@@ -60,6 +60,12 @@ knitr::include_graphics("./figures/climr_validation-temporal-2-hist.png")
 effect_temporal_cc
 ```
 
+### Mixed effects model based effect size
+
+```{r}
+emm_temporal
+```
+
 ## Segmentation Task
 
 ```{r}
