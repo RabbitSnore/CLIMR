@@ -21,9 +21,11 @@ distance.
 The CLIMR project compendium comprises two main parts, one hosted on the Open
 Science Framework (OSF; https://osf.io/ra3dp/) and one hosted on GitHub
 (https://github.com/RabbitSnore/CLIMR). The OSF repository for CLIMR contains
-the materials, methods, and data (when data are collected). The GitHub
-repository contains the code necessary to execute and reproduce the statistical
-analyses for the project.
+the materials, methods, and data (when data are collected). The OSF repository
+also contains the registration documentation and Stage 1 manuscript for the
+registered report for the primary results of the project. The GitHub repository
+contains the code necessary to execute and reproduce the statistical analyses
+for the project.
 
 This repository is structured as follows:  
 
@@ -69,6 +71,9 @@ These reports are rendered in a format that is readable on GitHub.
 
 ### Primary Results (CURRENTLY PLACEHOLDERS WITH SIMULATED RESULTS)
 
+When data collection is complete, the primary results of the replications will
+be available in the reports linked below.
+
 - [Main Analyses](reports/CLIMR_main-analysis_report.md)
 - [Comprehension Check Analyses](reports/CLIMR_comprehension-check_report.md)
 - [Manipulation Check Analyses](reports/CLIMR_manipulation-check_report.md)
@@ -77,11 +82,21 @@ These reports are rendered in a format that is readable on GitHub.
 
 ### Validation Studies
 
+In part to assist with the selection of studies that would be theoretically
+informative to replicate, we have conducted a series of studies assessing
+measures of mental abstraction/concreteness. These validations studies are
+reported in a preprint available here: https://osf.io/preprints/psyarxiv/v6xt4
+
 - [Validation Study 1: BIF, Categorization, Segmentation](reports/CLIMR_validation_report.md)
 - [Validation Study 2: Interval Estimation](reports/CLIMR_validation-2_report.md)
 - [Validation Study 3: Linguistic Measures](reports/CLIMR_validation-3_report.md)
 
 ### Pretests and Examination of Outcome Measures
+
+To address reviewer concerns and to validate the procedures used in the
+replication studies, we have conducted a series of pretests and assessments of
+potential sources of error. These analyses are reported in the documents linked
+below.
 
 - [Differntial Effects on BIF Items](reports/CLIMR_bif_report.md)
 - [Relevance of BIF Items to Target Event](reports/CLIMR_action-relevance-pretest_report.md)
