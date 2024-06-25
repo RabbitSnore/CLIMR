@@ -11,6 +11,14 @@
 temporal_bif <- temporal %>% 
   select(lab, modality, lab_modality, sub, condition, 
          starts_with("t_c_bif"), starts_with("t_d_bif")) %>% 
+  select( # Remove unused items
+    -t_c_bif_03, -t_d_bif_03,
+    -t_c_bif_05, -t_d_bif_05,
+    -t_c_bif_06, -t_d_bif_06,
+    -t_c_bif_13, -t_d_bif_13,
+    -t_c_bif_14, -t_d_bif_14,
+    -t_c_bif_21, -t_d_bif_21
+  ) %>% 
   rowwise() %>% 
   mutate(
     bif_total = case_when(
@@ -41,12 +49,43 @@ data_temporal <- temporal_raw %>%
   left_join(temporal_bif, by = "sub") %>% 
   relocate(comp_check, .after = bif_total)
 
-## Long form BIF data
+## Long form BIF data (all items)
+
+temporal_bif_full <- temporal %>% 
+  select(lab, modality, lab_modality, sub, condition, 
+         starts_with("t_c_bif"), starts_with("t_d_bif")) %>% 
+  rowwise() %>% 
+  mutate(
+    bif_total = case_when(
+      condition == "close"   ~ sum(c_across(starts_with("t_c_bif"))),
+      condition == "distant" ~ sum(c_across(starts_with("t_d_bif")))
+    )
+  )
+
+data_temporal_full <- temporal_raw %>% 
+  select(sub, condition, ends_with("compcheck")) %>% 
+  pivot_longer(
+    cols      = ends_with("compcheck"),
+    names_to  = "block",
+    values_to = "comp_check"
+  ) %>% 
+  filter(complete.cases(comp_check)) %>% 
+  mutate(
+    comp_check = case_when(
+      comp_check == "1" & condition == "distant" ~ 0,
+      comp_check == "2" & condition == "close"   ~ 0,
+      comp_check != "1" & condition == "distant" ~ 1, # 1 indicates an error
+      comp_check != "2" & condition == "close"   ~ 1
+    )
+  ) %>% 
+  select(sub, comp_check) %>% 
+  left_join(temporal_bif_full, by = "sub") %>% 
+  relocate(comp_check, .after = bif_total)
 
 bif_names_temporal <- 
-  colnames(data_temporal)[str_detect(colnames(data_temporal), "bif_\\d\\d")]
+  colnames(data_temporal_full)[str_detect(colnames(data_temporal_full), "bif_\\d\\d")]
 
-data_bif_temporal <- data_temporal %>% 
+data_bif_temporal <- data_temporal_full %>% 
   pivot_longer(
     cols           = all_of(bif_names_temporal),
     names_to       = "item",
@@ -62,6 +101,20 @@ data_bif_temporal <- data_temporal %>%
 spatial_bif <- spatial %>% 
   select(lab, modality, lab_modality, sub, condition, 
          starts_with("sp_c_bif"), starts_with("sp_d_bif")) %>% 
+  select( # Remove unused items
+    -sp_c_bif_01, -sp_d_bif_01,
+    -sp_c_bif_03, -sp_d_bif_03,
+    -sp_c_bif_06, -sp_d_bif_06,
+    -sp_c_bif_08, -sp_d_bif_08,
+    -sp_c_bif_11, -sp_d_bif_11,
+    -sp_c_bif_13, -sp_d_bif_13,
+    -sp_c_bif_15, -sp_d_bif_15,
+    -sp_c_bif_17, -sp_d_bif_17,
+    -sp_c_bif_18, -sp_d_bif_18,
+    -sp_c_bif_21, -sp_d_bif_21,
+    -sp_c_bif_24, -sp_d_bif_24,
+    -sp_c_bif_25, -sp_d_bif_25
+  ) %>% 
   rowwise() %>% 
   mutate(
     bif_total = case_when(
@@ -92,12 +145,43 @@ data_spatial <- spatial_raw %>%
   left_join(spatial_bif, by = "sub") %>% 
   relocate(comp_check, .after = bif_total)
 
-## Long form BIF data
+## Long form BIF data (all items)
+
+spatial_bif_full <- spatial %>% 
+  select(lab, modality, lab_modality, sub, condition, 
+         starts_with("sp_c_bif"), starts_with("sp_d_bif")) %>% 
+  rowwise() %>% 
+  mutate(
+    bif_total = case_when(
+      condition == "close"   ~ sum(c_across(starts_with("sp_c_bif"))),
+      condition == "distant" ~ sum(c_across(starts_with("sp_d_bif")))
+    )
+  )
+
+data_spatial_full <- spatial_raw %>% 
+  select(sub, condition, sp_compcheck_c, sp_compcheck_d) %>% 
+  pivot_longer(
+    cols      = c("sp_compcheck_c", "sp_compcheck_d"),
+    names_to  = "block",
+    values_to = "comp_check"
+  ) %>% 
+  filter(complete.cases(comp_check)) %>% 
+  mutate(
+    comp_check = case_when(
+      comp_check == "2" & condition == "distant" ~ 0,
+      comp_check == "1" & condition == "close"   ~ 0,
+      comp_check != "2" & condition == "distant" ~ 1, # 1 indicates an error
+      comp_check != "1" & condition == "close"   ~ 1
+    )
+  ) %>% 
+  select(sub, comp_check) %>% 
+  left_join(spatial_bif_full, by = "sub") %>% 
+  relocate(comp_check, .after = bif_total)
 
 bif_names_spatial <- 
-  colnames(data_spatial)[str_detect(colnames(data_spatial), "bif_\\d\\d")]
+  colnames(data_spatial_full)[str_detect(colnames(data_spatial_full), "bif_\\d\\d")]
 
-data_bif_spatial <- data_spatial %>% 
+data_bif_spatial <- data_spatial_full %>% 
   pivot_longer(
     cols           = all_of(bif_names_spatial),
     names_to       = "item",
@@ -203,6 +287,24 @@ likelihood_bif <- likelihood %>%
   select(lab, modality, lab_modality, sub, condition, 
          starts_with("l_c_bif"), starts_with("l_d_bif")) %>% 
   rowwise() %>% 
+  select( # Remove unused items
+    -l_c_bif_02, -l_d_bif_02,
+    -l_c_bif_03, -l_d_bif_03,
+    -l_c_bif_04, -l_d_bif_04,
+    -l_c_bif_05, -l_d_bif_05,
+    -l_c_bif_06, -l_d_bif_06,
+    -l_c_bif_10, -l_d_bif_10,
+    -l_c_bif_13, -l_d_bif_13,
+    -l_c_bif_14, -l_d_bif_14,
+    -l_c_bif_15, -l_d_bif_15,
+    -l_c_bif_16, -l_d_bif_16,
+    -l_c_bif_17, -l_d_bif_17,
+    -l_c_bif_19, -l_d_bif_19,
+    -l_c_bif_20, -l_d_bif_20,
+    -l_c_bif_21, -l_d_bif_21,
+    -l_c_bif_23, -l_d_bif_23,
+    -l_c_bif_24, -l_d_bif_24
+  ) %>% 
   mutate(
     bif_total = case_when(
       condition == "close"   ~ sum(c_across(starts_with("l_c_bif"))),
@@ -234,10 +336,41 @@ data_likelihood <- likelihood_raw %>%
 
 ## Long form BIF data
 
-bif_names_likelihood <- 
-  colnames(data_likelihood)[str_detect(colnames(data_likelihood), "bif_\\d\\d")]
+likelihood_bif_full <- likelihood %>% 
+  select(lab, modality, lab_modality, sub, condition, 
+         starts_with("l_c_bif"), starts_with("l_d_bif")) %>% 
+  rowwise() %>% 
+  mutate(
+    bif_total = case_when(
+      condition == "close"   ~ sum(c_across(starts_with("l_c_bif"))),
+      condition == "distant" ~ sum(c_across(starts_with("l_d_bif")))
+    )
+  )
 
-data_bif_likelihood <- data_likelihood %>% 
+data_likelihood_full <- likelihood_raw %>% 
+  select(sub, condition, l_compcheck_c, l_compcheck_d) %>% 
+  pivot_longer(
+    cols      = c("l_compcheck_c", "l_compcheck_d"),
+    names_to  = "block",
+    values_to = "comp_check"
+  ) %>% 
+  filter(complete.cases(comp_check)) %>% 
+  mutate(
+    comp_check = case_when(
+      comp_check == "1" & condition == "distant" ~ 0,
+      comp_check == "6" & condition == "close"   ~ 0,
+      comp_check != "1" & condition == "distant" ~ 1, # 1 indicates an error
+      comp_check != "6" & condition == "close"   ~ 1
+    )
+  ) %>% 
+  select(sub, comp_check) %>% 
+  left_join(likelihood_bif_full, by = "sub") %>% 
+  relocate(comp_check, .after = bif_total)
+
+bif_names_likelihood <- 
+  colnames(data_likelihood_full)[str_detect(colnames(data_likelihood_full), "bif_\\d\\d")]
+
+data_bif_likelihood <- data_likelihood_full %>% 
   pivot_longer(
     cols           = all_of(bif_names_likelihood),
     names_to       = "item",

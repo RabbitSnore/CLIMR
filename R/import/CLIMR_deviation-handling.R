@@ -105,6 +105,22 @@ raw <- raw %>%
 
 source("R/import/CLIMR_redirection-handling.R")
 
+# TR_03: Test cases ------------------------------------------------------------
+
+# TR_03 reported testing the experiment and using "Climr" in the ethnicity field
+# and using the ID number 89 for these tests. These cases should be removed.
+
+raw <- raw %>% 
+  filter(ethnicity != "Climr"  | is.na(ethnicity)) %>% 
+  filter(!(id_subject == "89"  & lab == "TR_03") | is.na(id_subject))
+
+# CN_01: Procedural deviation handling -----------------------------------------
+
+# The script below handles an issue with the way CN_01 distributed the survey
+# link for the experiments.
+
+source("R/import/CLIMR_procedural-deviation-handling.R")
+
 # Duplicated participant IDs ---------------------------------------------------
 
 # Some labs reported accidentally reusing some participant ID values These

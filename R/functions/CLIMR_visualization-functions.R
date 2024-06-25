@@ -315,7 +315,16 @@ arboretum_plot <- function(plot_list, boundary_pad = .25, multiple = .50, rows =
 
 ## Main figure
 
-climr_swarm <- function(meta_temporal, meta_spatial, meta_social, meta_likelihood, complete, original, study_colors, titles, boundary_pad = .25, multiple = .50) {
+climr_swarm <- function(meta_temporal, 
+                        meta_spatial, 
+                        meta_social, 
+                        meta_likelihood, 
+                        complete, 
+                        original, 
+                        study_colors, 
+                        titles, 
+                        boundary_pad = .25, 
+                        multiple = .50) {
   
   ## Internal function to set up estimate data frame
   
@@ -390,14 +399,15 @@ climr_swarm <- function(meta_temporal, meta_spatial, meta_social, meta_likelihoo
            ) +
     geom_vline(
       xintercept = 0,
-      linetype = "longdash"
+      linetype   = "longdash",
+      alpha      = .66
     ) +
     geom_quasirandom(
-      width = .30,
+      width    = .30,
       groupOnX = FALSE,
-      alpha = .20,
+      alpha    = .20,
       aes(
-        # size = 1/var
+        size = 1/sqrt(var)
       )
     ) +
     scale_size_continuous(
@@ -408,8 +418,8 @@ climr_swarm <- function(meta_temporal, meta_spatial, meta_social, meta_likelihoo
       inherit.aes = FALSE,
       aes(
         y = distance,
-        xmax = ci_upper,
-        xmin = ci_lower,
+        xmax  = ci_upper,
+        xmin  = ci_lower,
         group = ID,
         color = distance,
         alpha = ID
