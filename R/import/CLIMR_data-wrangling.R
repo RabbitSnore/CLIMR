@@ -49,6 +49,20 @@ data_temporal <- temporal_raw %>%
   left_join(temporal_bif, by = "sub") %>% 
   relocate(comp_check, .after = bif_total)
 
+## Long form BIF data (selected items)
+
+bif_names_temporal <- 
+  colnames(data_temporal)[str_detect(colnames(data_temporal), "bif_\\d\\d")]
+
+data_bif_temporal <- data_temporal %>% 
+  pivot_longer(
+    cols           = all_of(bif_names_temporal),
+    names_to       = "item",
+    names_pattern  = "._._(bif_..)",
+    values_to      = "bif", 
+    values_drop_na = TRUE
+  )
+
 ## Long form BIF data (all items)
 
 temporal_bif_full <- temporal %>% 
@@ -82,12 +96,12 @@ data_temporal_full <- temporal_raw %>%
   left_join(temporal_bif_full, by = "sub") %>% 
   relocate(comp_check, .after = bif_total)
 
-bif_names_temporal <- 
+bif_names_temporal_full <- 
   colnames(data_temporal_full)[str_detect(colnames(data_temporal_full), "bif_\\d\\d")]
 
-data_bif_temporal <- data_temporal_full %>% 
+data_bif_temporal_full <- data_temporal_full %>% 
   pivot_longer(
-    cols           = all_of(bif_names_temporal),
+    cols           = all_of(bif_names_temporal_full),
     names_to       = "item",
     names_pattern  = "._._(bif_..)",
     values_to      = "bif", 
@@ -145,6 +159,20 @@ data_spatial <- spatial_raw %>%
   left_join(spatial_bif, by = "sub") %>% 
   relocate(comp_check, .after = bif_total)
 
+## Long form BIF data (selected items)
+
+bif_names_spatial <- 
+  colnames(data_spatial)[str_detect(colnames(data_spatial), "bif_\\d\\d")]
+
+data_bif_spatial <- data_spatial %>% 
+  pivot_longer(
+    cols           = all_of(bif_names_spatial),
+    names_to       = "item",
+    names_pattern  = "._._(bif_..)",
+    values_to      = "bif", 
+    values_drop_na = TRUE
+  )
+
 ## Long form BIF data (all items)
 
 spatial_bif_full <- spatial %>% 
@@ -178,12 +206,12 @@ data_spatial_full <- spatial_raw %>%
   left_join(spatial_bif_full, by = "sub") %>% 
   relocate(comp_check, .after = bif_total)
 
-bif_names_spatial <- 
+bif_names_spatial_full <- 
   colnames(data_spatial_full)[str_detect(colnames(data_spatial_full), "bif_\\d\\d")]
 
 data_bif_spatial <- data_spatial_full %>% 
   pivot_longer(
-    cols           = all_of(bif_names_spatial),
+    cols           = all_of(bif_names_spatial_full),
     names_to       = "item",
     names_pattern  = "._._(bif_..)",
     values_to      = "bif", 
@@ -334,7 +362,21 @@ data_likelihood <- likelihood_raw %>%
   left_join(likelihood_bif, by = "sub") %>% 
   relocate(comp_check, .after = bif_total)
 
-## Long form BIF data
+## Long form BIF data (selected items)
+
+bif_names_likelihood <- 
+  colnames(data_likelihood)[str_detect(colnames(data_likelihood), "bif_\\d\\d")]
+
+data_bif_likelihood <- data_likelihood %>% 
+  pivot_longer(
+    cols           = all_of(bif_names_likelihood),
+    names_to       = "item",
+    names_pattern  = "._._(bif_..)",
+    values_to      = "bif", 
+    values_drop_na = TRUE
+  )
+
+## Long form BIF data (all items)
 
 likelihood_bif_full <- likelihood %>% 
   select(lab, modality, lab_modality, sub, condition, 
@@ -367,12 +409,12 @@ data_likelihood_full <- likelihood_raw %>%
   left_join(likelihood_bif_full, by = "sub") %>% 
   relocate(comp_check, .after = bif_total)
 
-bif_names_likelihood <- 
+bif_names_likelihood_full <- 
   colnames(data_likelihood_full)[str_detect(colnames(data_likelihood_full), "bif_\\d\\d")]
 
 data_bif_likelihood <- data_likelihood_full %>% 
   pivot_longer(
-    cols           = all_of(bif_names_likelihood),
+    cols           = all_of(bif_names_likelihood_full),
     names_to       = "item",
     names_pattern  = "._._(bif_..)",
     values_to      = "bif", 

@@ -281,4 +281,86 @@ raw <- raw %>%
 
 raw <- bind_rows(raw, dup_ident)
 
-# After this point, the rest of the importation script should run.
+# IL_01 ------------------------------------------------------------------------
+
+# IL_01: Load data
+
+# IL_01 reported that they detected that some participants submitted more than
+# one response to the online survey. These additional cases must be removed,
+# though the first submissions can be retained as valid data.
+
+# Extract data from IL_01
+
+raw_dup <- raw %>% 
+  filter(lab == "IL_01")
+
+# Load credit completion data
+
+# The general approach for removing duplicates is to identify the cases in the
+# experiment data with a completion time closest to the start time in the survey
+# that AU_01 used to collect participants' information for issuing course
+# credit. The known valid cases from the credit survey will be retained in the
+# experimental data (based on the closest time match), and all others will be
+# discarded.
+
+# These data files came from AU_01's survey for collecting participants'
+# information so that course credit could be assigned. The data have been
+# deidentified.
+
+# This data file contains information about which cases are from the same
+# person.
+dup_data <- read_csv("data/utility/climr_IL_01_duplicate-data-supplement.csv")
+
+# Identify and remove cases with repeated submissions
+
+dup_sel  <- dup_data %>%
+  arrange(StartDate) %>% 
+  group_by(ID) %>% 
+  mutate(
+    record = 1:n()
+  ) %>% 
+  filter(record < 2) %>% # Retain only first recorded case for each participant
+  ungroup()
+
+# IL_01: Remove duplicates
+
+# The time zones in the landing survey data and the main experimental data are
+# discrepant by 8 hours
+raw_dup$end_date   <- as_datetime(as.character(raw_dup$end_date))
+
+# Add eight hours to the duplicate data to correct for difference in recording time
+dup_sel$StartDate <- as_datetime(as.character(dup_sel$StartDate)) + (60 * 60 * 8)
+
+# Find the closest matches for end and start times
+
+dup_rem <- dup_sel %>%
+  group_by(ID) %>% 
+  mutate(
+    closest = which(abs(StartDate - raw_dup$end_date) == min(abs(StartDate - raw_dup$end_date))),
+    minimum = min(abs(StartDate - raw_dup$end_date))
+  ) %>% 
+  ungroup()
+
+# Retain only the closest matches
+
+dup_ident <- raw_dup[unique(dup_rem$closest), ]
+
+# There was one case that was identified as closest to two submissions. Thus, we
+# are confident this case should be retained, but we may be removing one case of
+# otherwise valid data, to err on the side of caution.
+
+# As a way of potentially detecting identification errors, verify that all time
+# differences between end and start times are in an appropriate direction
+time_differences <- dup_ident$end_date - dup_rem$StartDate
+
+# IL_01: Remove and replace data
+
+# Remove IL_01 from the raw loaded data and replace it with the version from
+# which duplicate submissions have been removed
+
+raw <- raw %>% 
+  filter(lab != "IL_01")
+
+raw <- bind_rows(raw, dup_ident)
+
+# The remainder of the deviation handling script should be run at this point.

@@ -70,8 +70,8 @@ ggplot(required_n,
          color = id
        )) +
   geom_line(
-    size  = 1,
-    alpha = .80
+    linewidth = 1,
+    alpha     = .80
   ) +
   scale_color_manual(
     values = study_colors,

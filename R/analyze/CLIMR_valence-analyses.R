@@ -28,7 +28,7 @@ glmm_temporal_bif_base <- glmer(bif
                                 + (1|lab) 
                                 + (1|item), 
                                 family = binomial(link = "logit"), 
-                                data = data_bif_temporal)
+                                data   = data_bif_temporal)
 
 glmm_temporal_bif_val  <- glmer(bif 
                                 ~ condition 
@@ -37,7 +37,7 @@ glmm_temporal_bif_val  <- glmer(bif
                                 + (1|lab) 
                                 + (1|item), 
                                 family = binomial(link = "logit"), 
-                                data = data_bif_temporal)
+                                data   = data_bif_temporal)
 
 glmm_temporal_bif_int  <- glmer(bif 
                                 ~ condition 
@@ -46,7 +46,7 @@ glmm_temporal_bif_int  <- glmer(bif
                                 + (1|lab) 
                                 + (1|item), 
                                 family = binomial(link = "logit"), 
-                                data = data_bif_temporal)
+                                data   = data_bif_temporal)
 
 lrt_val_temporal       <- anova(glmm_temporal_bif_base, 
                                 glmm_temporal_bif_val, 
@@ -61,7 +61,7 @@ glmm_spatial_bif_base <- glmer(bif
                                + (1|lab) 
                                + (1|item), 
                                family = binomial(link = "logit"), 
-                               data = data_bif_spatial)
+                               data   = data_bif_spatial)
 
 glmm_spatial_bif_val  <- glmer(bif 
                                ~ condition 
@@ -70,7 +70,7 @@ glmm_spatial_bif_val  <- glmer(bif
                                + (1|lab) 
                                + (1|item), 
                                family = binomial(link = "logit"), 
-                               data = data_bif_spatial)
+                               data   = data_bif_spatial)
 
 glmm_spatial_bif_int  <- glmer(bif 
                                ~ condition 
@@ -79,7 +79,7 @@ glmm_spatial_bif_int  <- glmer(bif
                                + (1|lab) 
                                + (1|item), 
                                family = binomial(link = "logit"), 
-                               data = data_bif_spatial)
+                               data   = data_bif_spatial)
 
 lrt_val_spatial       <- anova(glmm_spatial_bif_base, 
                                glmm_spatial_bif_val, 
@@ -94,7 +94,7 @@ glmm_social_bif_base <- glmer(bif
                               + (1|lab) 
                               + (1|item), 
                               family = binomial(link = "logit"), 
-                              data = data_bif_social)
+                              data   = data_bif_social)
 
 glmm_social_bif_val  <- glmer(bif 
                               ~ condition 
@@ -103,7 +103,7 @@ glmm_social_bif_val  <- glmer(bif
                               + (1|lab) 
                               + (1|item), 
                               family = binomial(link = "logit"), 
-                              data = data_bif_social)
+                              data   = data_bif_social)
 
 glmm_social_bif_int  <- glmer(bif 
                               ~ condition 
@@ -112,7 +112,7 @@ glmm_social_bif_int  <- glmer(bif
                               + (1|lab) 
                               + (1|item), 
                               family = binomial(link = "logit"), 
-                              data = data_bif_social)
+                              data   = data_bif_social)
 
 lrt_val_social       <- anova(glmm_social_bif_base, 
                               glmm_social_bif_val, 
@@ -127,7 +127,7 @@ glmm_likelihood_bif_base <- glmer(bif
                                   + (1|lab) 
                                   + (1|item), 
                                   family = binomial(link = "logit"), 
-                                  data = data_bif_likelihood)
+                                  data   = data_bif_likelihood)
 
 glmm_likelihood_bif_val  <- glmer(bif 
                                   ~ condition 
@@ -136,7 +136,7 @@ glmm_likelihood_bif_val  <- glmer(bif
                                   + (1|lab) 
                                   + (1|item), 
                                   family = binomial(link = "logit"), 
-                                  data = data_bif_likelihood)
+                                  data   = data_bif_likelihood)
 
 glmm_likelihood_bif_int  <- glmer(bif 
                                   ~ condition 
@@ -145,7 +145,7 @@ glmm_likelihood_bif_int  <- glmer(bif
                                   + (1|lab) 
                                   + (1|item), 
                                   family = binomial(link = "logit"), 
-                                  data = data_bif_likelihood)
+                                  data   = data_bif_likelihood)
 
 lrt_val_likelihood       <- anova(glmm_likelihood_bif_base, 
                                   glmm_likelihood_bif_val, 

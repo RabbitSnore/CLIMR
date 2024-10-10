@@ -11,7 +11,7 @@
 # somewhat slowly, but none of the operations are very computationally
 # demanding.
 
-# AU_04, AU_01: Known duplicate submissions ------------------------------------
+# AU_04, AU_01, AU_03, IL_01: Known duplicate submissions ----------------------
 
 # There are notes about this case of known duplicate submissions included in
 # the comments of the script that handles these cases.
@@ -120,6 +120,16 @@ raw <- raw %>%
 # link for the experiments.
 
 source("R/import/CLIMR_procedural-deviation-handling.R")
+
+# SE_02: Participant using back button on browser ------------------------------
+
+# SE_02 reporting that one participant inappropriately used the back button on
+# the browser during the experiment. They received a different condition when
+# proceeding forward, so they were likely exposed to multiple versions of the
+# stimuli.  This case should be removed.
+
+raw <- raw %>% 
+  filter(!(lab == "SE_02" & id_subject == "17"))
 
 # Duplicated participant IDs ---------------------------------------------------
 

@@ -234,7 +234,7 @@ rainbow_plot <-
       y     = final_n - 50,
       label = lab
     ),
-    size = 2.5
+    size = 2.25
   ) +
   annotate(
     geom = "text", 
