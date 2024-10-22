@@ -252,12 +252,12 @@ rainbow_plot <-
     y = pretty(nrow(included))[[1]], 
     label = str_wrap(power_summary, 60)
   ) +
-  # scale_color_manual(
-  #   values = rainbow(length(unique(lab_collection$lab)), s = .5)
-  # ) +
-  # scale_fill_manual(
-  #   values = rainbow(length(unique(lab_collection$lab)), s = .5)
-  # ) +
+  scale_color_manual(
+    values = rainbow(length(unique(lab_collection$lab)), s = .8, alpha = .80)
+  ) +
+  scale_fill_manual(
+    values = rainbow(length(unique(lab_collection$lab)), s = .8, alpha = .80)
+  ) +
   scale_x_datetime(
     date_breaks = "month", 
     limits      = c(min(lab_collection$end_date),
