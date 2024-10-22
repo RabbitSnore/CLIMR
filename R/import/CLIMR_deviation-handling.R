@@ -131,6 +131,14 @@ source("R/import/CLIMR_procedural-deviation-handling.R")
 raw <- raw %>% 
   filter(!(lab == "SE_02" & id_subject == "17"))
 
+# SE_01: Participant signed up twice -------------------------------------------
+
+# SE_01 detected a participant who signed up for the study twice. Their second
+# response should be removed.
+
+raw <- raw %>% 
+  filter(!(lab == "SE_01" & id_subject == "61"))
+
 # Duplicated participant IDs ---------------------------------------------------
 
 # Some labs reported accidentally reusing some participant ID values These

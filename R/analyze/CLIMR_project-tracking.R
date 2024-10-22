@@ -216,7 +216,6 @@ rainbow_plot <-
            fill  = lab
          )) +
   geom_area(
-    # color     = "white",
     linewidth = .60,
     alpha     = .80
   ) +
@@ -227,10 +226,21 @@ rainbow_plot <-
   guides(
     fill = "none"
   ) +
+  geom_segment(
+    data = lab_final,
+    aes(
+      x     = end_date,
+      y     = final_n - 30,
+      xend  = end_date + days(3),
+      color = lab
+    ),
+    linewidth = 1,
+    alpha     = .80
+  ) +
   geom_text(
     data = lab_final,
     aes(
-      x     = end_date - days(4),
+      x     = end_date + days(9),
       y     = final_n - 50,
       label = lab
     ),
@@ -242,13 +252,19 @@ rainbow_plot <-
     y = pretty(nrow(included))[[1]], 
     label = str_wrap(power_summary, 60)
   ) +
-  scale_color_manual(
-    values = rainbow(length(unique(lab_collection$lab)), s = .5)
-  ) +
+  # scale_color_manual(
+  #   values = rainbow(length(unique(lab_collection$lab)), s = .5)
+  # ) +
+  # scale_fill_manual(
+  #   values = rainbow(length(unique(lab_collection$lab)), s = .5)
+  # ) +
   scale_x_datetime(
     date_breaks = "month", 
     limits      = c(min(lab_collection$end_date),
-                    max(lab_collection$end_date))
+                    max(lab_collection$end_date) + days(9))
+  ) +
+  guides(
+    color = "none"
   ) +
   theme_classic() +
   theme(
@@ -418,4 +434,4 @@ plot_grid(project_tracker_top,
 # Export project tracker
 
 save_plot("figures/climr_project-tracker.png", project_tracker,
-          base_height = 10, base_width = 12)
+          base_height = 11, base_width = 13.2)
