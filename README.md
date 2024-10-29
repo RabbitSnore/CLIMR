@@ -116,40 +116,9 @@ removal of data from researchers testing the surveys), and the code will be
 updated to correct any errors we detect and/or to address technical issues
 (e.g., code breakage from package updates).
 
-# Technical Information
+# Technical Information for Reproducibility
 
 The CLIMR project analysis code was built using R 4.3.2. The packages required
-for the project with information about the version with which the code has been
-tested is available in the file `/data/meta/climr_version-info.csv`. A brief
-overview of the most central required packages is provided below.
-
-If you are attempting to reproduce the analyses and encountering errors, some
-issues may be resolved by updating R and/or the required packages. For
-convenience, you can set the `force_update` parameter in `CLIMR_build-project.R`
-to `TRUE` if you want to update and (re)install all the required packages.
-
-```
-            Version
-cowplot       1.1.3
-dplyr         1.1.4
-ggbeeswarm    0.7.2
-ggplot2       3.5.0
-ggstance      0.3.6
-leaflet       2.2.1
-lme4       1.1-35.1
-lubridate     1.9.3
-mapview      2.11.2
-metafor       4.4-0
-osfr          0.2.9
-purrr         1.0.2
-readr         2.1.5
-rmarkdown      2.25
-simr          1.0.7
-stringr       1.5.1
-tidyr         1.3.0
-viridis       0.6.4
-```
-
-Some of the supplemental analyses (e.g., validation study analyses) require
-additional packages not noted here. However, these packages are automatically
-installed by the scripts for those analyses.
+for the project are tracked with the `renv` package. Guidance on how to use the
+renv package can be found
+[here](https://docs.posit.co/ide/user/ide/guide/environments/r/renv.html)

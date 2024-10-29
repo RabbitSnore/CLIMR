@@ -10,7 +10,7 @@
 
 # Build parameters -------------------------------------------------------------
 
-## Simulation mode
+# Simulation mode
 
 # When this parameter is set to TRUE, data for the project are simulated, rather
 # than loaded from files. This should be set to TRUE for diagnostic purposes and
@@ -18,7 +18,7 @@
 
 simulation_mode    <- TRUE
 
-## Read and write data
+# Read and write data
 
 # When this parameter is set to TRUE, the "export version" of the data will be
 # loaded. For users reproducing the reported analyses, this parameter should be 
@@ -34,7 +34,7 @@ read_precleaned    <- FALSE
 
 write_data         <- FALSE
 
-## Codebook base
+# Codebook base
 
 # When this parameter is set to TRUE, it creates the basic structure for the
 # data codebook, using the variable names and question text from the online
@@ -43,7 +43,7 @@ write_data         <- FALSE
 
 codebook_base      <- FALSE
 
-## Validation reports
+# Validation reports
 
 # When this parameter is set to TRUE, it knits the pretesting and validation
 # reports. This is set to FALSE by default, as its primary use is by the main
@@ -51,27 +51,42 @@ codebook_base      <- FALSE
 
 validation_reports <- FALSE
 
-## Force package updates
+# Create effect map
 
-# Set this parameter to TRUE if you want to force installation of all required
-# packages. This can be useful if you are encountering errors that may be caused
-# by outdated packages.
-
-force_update       <- FALSE
-
-## Create effect map
-
-# Set this parameter should be set to TRUE if you want to generate the leaflet
-# map of effect sizes, plotted on a map displaying each of the contributing
-# labs.
+# This parameter should be set to TRUE if you want to generate the leaflet map
+# of effect sizes, plotted on a map displaying each of the contributing labs.
 
 create_map         <- FALSE
 
+# Install/restore packages
+
+# Set this parameter to TRUE if you want to restore the packages for the project
+# using the renv package.
+
+restore_renv       <- FALSE
+
 # Set up environment -----------------------------------------------------------
 
-## Check and install necessary packages for the project
+# Install dependencies
 
-### Packages required by the CLIMR project
+if (restore_renv == TRUE) {
+  
+  if (!("renv" %in% rownames(installed.packages()))) {
+    
+    install.packages("renv", dependencies = TRUE)
+    
+  }
+  
+  renv::restore()
+  
+}
+
+# Load packages
+
+## Packages required by the CLIMR project
+
+# The CLIMR project uses the renv package to track the version information of
+# relevant packages.
 
 dependencies <- c(
   "dplyr", 
@@ -93,46 +108,11 @@ dependencies <- c(
   "osfr",
   "purrr")
 
-### Check whether packages are installed locally and get list of what needs to
-### be installed
-
-installation_list <- 
-  dependencies[!(dependencies %in% rownames(installed.packages()))]
-
-### Install necessary packages
-
-if (length(installation_list) > 0 & force_update == FALSE) {
-  
-  install.packages(installation_list, dependencies = TRUE)
-  
-}
-
-if (force_update == TRUE) {
-  
-  install.packages(dependencies, dependencies = TRUE)
-  
-}
-
-## Load packages
-
 lapply(dependencies, library, character.only = TRUE)
 
-## Get version info
+# Functions
 
-pack_logical <- rownames(installed.packages()) %in% loadedNamespaces()
-
-version_info <- as.data.frame(installed.packages())[pack_logical, ] %>% 
-  select(-LibPath)
-
-write.csv(version_info, "./data/meta/climr_version-info.csv", row.names = FALSE)
-
-version_primary <- version_info %>% 
-  filter(Package %in% dependencies) %>%
-  select(Version)
-
-## Functions
-
-### Render report
+## Render report
 
 # This function is used to knit the R Markdown reports using the global
 # environment.
@@ -153,7 +133,7 @@ climr_report <- function(input) {
   
 }
 
-### Manuscript functions
+## Manuscript functions
 
 source("R/functions/CLIMR_report-functions.R")
 
@@ -175,7 +155,7 @@ climr_manuscript <- function(input) {
 
 # R Scripts --------------------------------------------------------------------
 
-## Simulation
+# Simulation
 
 if (simulation_mode == TRUE) {
   
@@ -183,44 +163,44 @@ if (simulation_mode == TRUE) {
   
 }
 
-## Loading, cleaning, and wrangling
+# Loading, cleaning, and wrangling
 
 if (simulation_mode == FALSE) {
 
-  ### Data importation  
+  ## Data importation  
 
   source("./R/import/CLIMR_data-importation.R")
   
-  ### Data wrangling
+  ## Data wrangling
 
   source("./R/import/CLIMR_data-wrangling.R")
   
 }
 
-## Effect calculation
+# Effect calculation
 
 source("./R/calculate/CLIMR_calculate-effects.R")
 
-## Meta-analysis
+# Meta-analysis
 
 source("./R/analyze/CLIMR_main-analyses.R")
 
-## Supplementary analyses
+# Supplementary analyses
 
-### Modality moderation
+## Modality moderation
 
 source("./R/analyze/CLIMR_modality-moderation.R")
 
-### Power analysis
+## Power analysis
 
 source("./R/analyze/CLIMR_power-analyses.R")
 
-### Manipulation checks
+## Manipulation checks
 
 source("./R/calculate/CLIMR_calculate-manipulation-check-effects.R")
 source("./R/analyze/CLIMR_manipulation-checks.R")
 
-### Validations and pretests
+## Validations and pretests
 
 if (validation_reports == TRUE) {
   
@@ -268,13 +248,13 @@ if (validation_reports == TRUE) {
   
 }
 
-### BIF item response option valence difference robustness check
+## BIF item response option valence difference robustness check
 
 # Note that these analyses are computationally intensive. They can take several
 # minutes to calculate.
 source("./R/analyze/CLIMR_valence-analyses.R")
 
-## Leaflet map of effects
+# Leaflet map of effects
 
 if (create_map == TRUE) {
   
@@ -284,33 +264,33 @@ if (create_map == TRUE) {
 
 # Reports ----------------------------------------------------------------------
 
-## Main project report
+# Main project report
 
 climr_report("CLIMR_main-analysis_report.Rmd")
 
-## Supplemental reports
+# Supplemental reports
 
-### Comprehension check report
+## Comprehension check report
 
 climr_report("CLIMR_comprehension-check_report.Rmd")
 
-### Moderator report
+## Moderator report
 
 climr_report("CLIMR_modality-moderation_report.Rmd")
 
-### Power analyses
+## Power analyses
 
 climr_report("CLIMR_power_report.Rmd")
 
-### Manipulation checks
+## Manipulation checks
 
 climr_report("CLIMR_manipulation-check_report.Rmd")
 
-### BIF item response option valence difference robustness check
+## BIF item response option valence difference robustness check
 
 climr_report("CLIMR_valence-robustness-check_report.Rmd")
 
-## Validation and pretest reports
+# Validation and pretest reports
 
 if (validation_reports == TRUE) {
   
@@ -324,8 +304,8 @@ if (validation_reports == TRUE) {
   
 }
 
-## Manuscript results
+# Manuscript results
 
-### Primary results
+## Primary results
 
 climr_manuscript("CLIMR_primary-results.qmd")
