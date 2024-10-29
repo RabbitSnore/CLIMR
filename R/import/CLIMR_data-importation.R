@@ -20,7 +20,7 @@ if (read_precleaned == FALSE) {
   
   parsed <- str_match(
     file_names, 
-    "climr_(temporal|spatial|social|likelihood)_((..)_..)_(..-?.*?)_(lab|online)_.*.csv") %>% 
+    "climr_(temporal|spatial|social|likelihood)_((..)_..)_(..-?.*?)_(lab|online)_.*\\.csv") %>% 
     as.data.frame()
   
   colnames(parsed) <- c(

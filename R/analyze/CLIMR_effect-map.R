@@ -8,7 +8,6 @@
 
 lab_coords <- read.csv("./data/climr_lab-coordinates.csv") %>% 
   mutate(
-    ID   = 1:nrow(.), # REMOVE WHEN FINAL IDENTIFIERS ARE SET
     long = as.numeric(long),
     lat  = as.numeric(lat)
   )
@@ -55,15 +54,15 @@ effect_layer <- function(map, data, palette_fun, study_color, group_name) {
     map          = map,
     lng          = data$long,
     lat          = data$lat,
-    label        = data$Institution,
+    label        = data$affiliation,
     popup        = paste(format(
       round(data$d, 2), nsmall = 2), 
       " [", format(round(data$ci_lower, 2), nsmall = 2),  
       ", ", format(round(data$ci_upper, 2), nsmall = 2), "]"),
     labelOptions = labelOptions(textsize = "1.1em"),
-    radius       = (10 + data$d * 6) - (50 * data$var)/2,
+    radius       = (10 + data$d * 4) + (50 * data$var)/2,
     fillColor    = sapply(data$d, color_sign),
-    fillOpacity  = 1.00,
+    fillOpacity  = 0.75,
     color        = study_color,
     stroke       = TRUE,
     weight       = 50 * data$var,
@@ -78,16 +77,16 @@ effect_layer <- function(map, data, palette_fun, study_color, group_name) {
 ## Link coordinates to effect estimates
 
 effects_temporal <- effects_temporal %>% 
-  left_join(lab_coords, by = "ID")
+  left_join(lab_coords, by = "lab")
 
 effects_spatial <- effects_spatial %>% 
-  left_join(lab_coords, by = "ID")
+  left_join(lab_coords, by = "lab")
 
 effects_social  <- effects_social %>% 
-  left_join(lab_coords, by = "ID")
+  left_join(lab_coords, by = "lab")
 
 effects_likelihood <- effects_likelihood %>% 
-  left_join(lab_coords, by = "ID")
+  left_join(lab_coords, by = "lab")
 
 # Map --------------------------------------------------------------------------
 
