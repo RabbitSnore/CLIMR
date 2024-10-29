@@ -139,6 +139,24 @@ raw <- raw %>%
 raw <- raw %>% 
   filter(!(lab == "SE_01" & id_subject == "61"))
 
+# US_05: Participants signed up twice ------------------------------------------
+
+# US_05 detected two participants who signed up for the study twice. Their
+# second responses should be deleted.
+
+raw <- raw %>% 
+  filter(!(lab == "US_05" & id_subject == "149")) %>% 
+  filter(!(lab == "US_05" & id_subject == "152"))
+
+# DK_01: Error in likelihood experiment ----------------------------------------
+
+# There was an error in the likelihood experiment for DK_01, such that the
+# manipulation was not properly implemented. The data from this experiment
+# should be excluded.
+
+raw <- raw %>% 
+  filter(!(lab == "DK_01" & experiment == "likelihood"))
+
 # Duplicated participant IDs ---------------------------------------------------
 
 # Some labs reported accidentally reusing some participant ID values These
