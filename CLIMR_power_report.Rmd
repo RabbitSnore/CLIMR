@@ -14,8 +14,6 @@ knit: (function(input_file, encoding) {
   })
 ---
 
-# **THESE RESULTS ARE SIMULATED. DO NOT INTERPRET.**
-
 # Power Figure
 
 ```{r}

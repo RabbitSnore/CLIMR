@@ -16,7 +16,7 @@
 # than loaded from files. This should be set to TRUE for diagnostic purposes and
 # for review.
 
-simulation_mode    <- TRUE
+simulation_mode    <- FALSE
 
 # Read and write data
 
@@ -58,12 +58,19 @@ validation_reports <- FALSE
 
 create_map         <- FALSE
 
+# Generate progress tracker
+
+# This parameter should be set to TRUE if you want to generate the progress
+# tracker figure.
+
+progress_tracker   <- TRUE
+
 # Install/restore packages
 
-# Set this parameter to TRUE if you want to restore the packages for the project
-# using the renv package.
+# This parameter should be set to TRUE if you want to restore the packages for
+# the project using the renv package.
 
-restore_renv       <- FALSE
+restore_renv       <- TRUE
 
 # Set up environment -----------------------------------------------------------
 
@@ -114,7 +121,7 @@ lapply(dependencies, library, character.only = TRUE)
 
 ## Render report
 
-# This function is used to knit the R Markdown reports using the global
+# This function is used to knit the RMarkdown reports using the global
 # environment.
 
 climr_report <- function(input) {
@@ -122,18 +129,20 @@ climr_report <- function(input) {
   require(rmarkdown)
   
   render(
-    input = input,
+    input         = input,
     output_format = github_document(html_preview = FALSE),
-    output_dir = "./reports/",
-    clean = TRUE,
-    envir = globalenv(),
-    run_pandoc = TRUE,
-    quiet = FALSE
+    output_dir    = "./reports/",
+    clean         = TRUE,
+    envir         = globalenv(),
+    run_pandoc    = TRUE,
+    quiet         = FALSE
   )
   
 }
 
 ## Manuscript functions
+
+# This function is used to render the main results for the manuscript.
 
 source("R/functions/CLIMR_report-functions.R")
 
@@ -144,11 +153,11 @@ climr_manuscript <- function(input) {
   render(
     input = input,
     output_format = "word_document",
-    output_dir = "./reports/",
-    clean = TRUE,
-    envir = globalenv(),
-    run_pandoc = TRUE,
-    quiet = FALSE
+    output_dir    = "./reports/",
+    clean         = TRUE,
+    envir         = globalenv(),
+    run_pandoc    = TRUE,
+    quiet         = FALSE
   )
   
 }
@@ -177,6 +186,14 @@ if (simulation_mode == FALSE) {
   
 }
 
+# Progress tracker
+
+if (progress_tracker == TRUE) {
+  
+  source("./R/analyze/CLIMR_project-tracking.R")
+  
+}
+
 # Effect calculation
 
 source("./R/calculate/CLIMR_calculate-effects.R")
@@ -199,6 +216,10 @@ source("./R/analyze/CLIMR_power-analyses.R")
 
 source("./R/calculate/CLIMR_calculate-manipulation-check-effects.R")
 source("./R/analyze/CLIMR_manipulation-checks.R")
+
+## Online location checks (spatial experiment)
+
+source("./R/analyze/CLIMR_spatial-robustness.R")
 
 ## Validations and pretests
 
@@ -254,6 +275,18 @@ if (validation_reports == TRUE) {
 # minutes to calculate.
 source("./R/analyze/CLIMR_valence-analyses.R")
 
+# Additional exploratory analyses
+
+source("./R/explore/CLIMR_exploratory-data-wrangling.R")
+
+source("./R/explore/CLIMR_exploratory-country-language.R")
+source("./R/explore/CLIMR_exploratory-manipulation-checks.R")
+source("./R/explore/CLIMR_exploratory-valence-additional.R")
+source("./R/explore/CLIMR_exploratory-reliability.R")
+source("./R/explore/CLIMR_exploratory-bif-items.R")
+source("./R/explore/CLIMR_exploratory-influence.R")
+source("./R/explore/CLIMR_past-data.R")
+
 # Leaflet map of effects
 
 if (create_map == TRUE) {
@@ -286,9 +319,23 @@ climr_report("CLIMR_power_report.Rmd")
 
 climr_report("CLIMR_manipulation-check_report.Rmd")
 
+## Online location checks (spatial experiment)
+
+climr_report("CLIMR_spatial-robustness_report.Rmd")
+
 ## BIF item response option valence difference robustness check
 
 climr_report("CLIMR_valence-robustness-check_report.Rmd")
+
+# Exploratory analysis reports
+
+climr_report("CLIMR_exploration-country-language_report.Rmd")
+climr_report("CLIMR_exploration-manipulation-checks_report.Rmd")
+climr_report("CLIMR_exploration-valence-additional_report.Rmd")
+climr_report("CLIMR_exploration-reliability_report.Rmd")
+climr_report("CLIMR_exploration-bif-items_report.Rmd")
+climr_report("CLIMR_exploration-influence_report.Rmd")
+climr_report("CLIMR_exploration-past-data_report.Rmd")
 
 # Validation and pretest reports
 

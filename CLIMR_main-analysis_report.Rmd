@@ -13,8 +13,6 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ```
 
-# **THESE RESULTS ARE SIMULATED. DO NOT INTERPRET.**
-
 # Main Figure
 
 ```{r}

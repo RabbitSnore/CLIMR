@@ -79,9 +79,8 @@ contrasts(data_temporal$condition) <- contr.sum(2)
 
 ## Adding comprehension check
 
-# For this variable, 0 indicates passing the check
-# and 1 indicates failing the check.
-# The data are set this way to facilitate easier analysis.
+# For this variable, 0 indicates passing the check and 1 indicates failing the
+# check. The data are set this way to facilitate easier analysis.
 
 data_temporal$comp_check <- sample(c(0, 1), 
                                    nrow(data_temporal), 
@@ -133,9 +132,8 @@ contrasts(data_spatial$condition) <- contr.sum(2)
 
 ## Adding comprehension check
 
-# For this variable, 0 indicates passing the check
-# and 1 indicates failing the check.
-# The data are set this way to facilitate easier analysis.
+# For this variable, 0 indicates passing the check and 1 indicates failing the
+# check. The data are set this way to facilitate easier analysis.
 
 data_spatial$comp_check <- sample(c(0, 1), nrow(data_spatial), 
                                   replace = TRUE, 
@@ -186,9 +184,8 @@ contrasts(data_social$condition) <- contr.sum(2)
 
 ## Adding comprehension check
 
-# For this variable, 0 indicates passing the check
-# and 1 indicates failing the check.
-# The data are set this way to facilitate easier analysis.
+# For this variable, 0 indicates passing the check and 1 indicates failing the
+# check. The data are set this way to facilitate easier analysis.
 
 data_social$comp_check <- sample(c(0, 1), nrow(data_social), 
                                  replace = TRUE, 
@@ -239,9 +236,8 @@ contrasts(data_likelihood$condition) <- contr.sum(2)
 
 ## Adding comprehension check
 
-# For this variable, 0 indicates passing the check
-# and 1 indicates failing the check.
-# The data are set this way to facilitate easier analysis.
+# For this variable, 0 indicates passing the check and 1 indicates failing the
+# check. The data are set this way to facilitate easier analysis.
 
 data_likelihood$comp_check <- sample(c(0, 1),
                                      nrow(data_likelihood), 
@@ -276,6 +272,18 @@ data_social <- data_social %>%
 
 data_likelihood <- data_likelihood %>% 
   left_join(modality_data, by = "lab")
+
+
+## Adding location check for spatial experiment
+
+# For this variable, 1 indicates passing the check and 2 indicates failing the
+# check. The data are set this way to facilitate easier analysis.
+
+data_spatial$location <- sample(c(1, 2), nrow(data_spatial), 
+                                  replace = TRUE, 
+                                  prob = c(.95, .05))
+
+data_spatial$location[data_spatial$modality == "lab"] <- NA
 
 # Raw BIF data simulation ------------------------------------------------------
 
@@ -444,6 +452,8 @@ data_mc_temporal <- data_mc_temporal %>%
 
 data_mc_spatial <- data_mc_spatial %>% 
   left_join(modality_data, by = "lab")
+
+data_mc_spatial$location <- data_spatial$location
 
 data_mc_social <- data_mc_social %>% 
   left_join(modality_data, by = "lab")

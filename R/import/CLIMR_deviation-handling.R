@@ -63,6 +63,9 @@ raw <- raw %>%
 # US_19 reported running the experiment to record their procedure video. This
 # case is identified by using "CLIMR" in the ID field.
 
+# Note that this filtering will also remove other labs' test cases that used a
+# similar indicator.
+
 raw <- raw %>% 
   filter(id_subject != "CLIMR" | is.na(id_subject))
 
@@ -156,6 +159,63 @@ raw <- raw %>%
 
 raw <- raw %>% 
   filter(!(lab == "DK_01" & experiment == "likelihood"))
+
+# TW_01: Participants signed up twice ------------------------------------------
+
+# TW_01 reported a participant that signed up twice. This case should be
+# removed.
+
+raw <- raw %>% 
+  filter(!(lab == "TW_01" & id_subject == "C083"))
+
+# TW_02: Participants signed up twice ------------------------------------------
+
+# TW_02 reported participants that signed up twice. These cases should be
+# removed.
+
+raw <- raw %>% 
+  filter(!(lab == "TW_02" & id_subject == "047")) %>% 
+  filter(!(lab == "TW_02" & id_subject == "132"))
+
+# IT_01: Test cases and modality switch ----------------------------------------
+
+# IT_01 reported testing the survey. These cases should be removed.
+
+raw <- raw %>% 
+  filter(!(lab == "IT_01" & id_subject == "1")) %>% 
+  filter(!(lab == "IT_01" & id_subject == "500"))
+
+# IT_01 also reported changing modalities from in-lab to online. They provided
+# the ID numbers for these cases. They are noted below. However, there are too
+# few cases in this online sample to calculate effect sizes, so these cases will
+# be combined with the in-lab data, and they will be excluded from the modality
+# moderation analysis.
+
+# it_01_online_ids <- c(
+#   "45",
+#   "65",
+#   "66",
+#   "66",
+#   "67",
+#   "69",
+#   "68",
+#   "71",
+#   "70",
+#   "73",
+#   "74",
+#   "72",
+#   "75",
+#   "76",
+#   "77",
+#   "78",
+#   "79",
+#   "93",
+#   "94",
+#   "95",
+#   "96",
+#   "100",
+#   "70"
+# )
 
 # Duplicated participant IDs ---------------------------------------------------
 

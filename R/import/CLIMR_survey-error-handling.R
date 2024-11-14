@@ -50,8 +50,7 @@ raw_part$lab_modality <- "US_12_lab"
 
 # US_12: Remove and replace data
 
-# Remove US_XX from the raw loaded data and replace it with the version from
-# which duplicate submissions have been removed
+# Remove US_XX from the raw loaded data and replace it.
 
 raw <- raw %>% 
   filter(lab != "US_XX")

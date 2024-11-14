@@ -20,8 +20,6 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ```
 
-# **THESE RESULTS ARE SIMULATED. DO NOT INTERPRET.**
-
 # Liberman & Trope (1998, Study 1)
 
 ```{r}

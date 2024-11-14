@@ -1,0 +1,91 @@
+---
+title: "Construal Level International Multilab Replication (CLIMR) Project: Analysis of BIF Response Option Valence Differences in Past Data -- Sánchez et al (2021)"
+author: "CLIMR Team"
+date: "`r Sys.Date()`"
+output:
+  html_document:
+    theme: darkly
+    toc: yes
+    toc_float: yes
+    keep_md: true
+  pdf_document:
+    toc: yes
+knit: (function(input_file, encoding) {
+    rmarkdown::render(input_file, rmarkdown::github_document(html_preview = FALSE), encoding = encoding, output_dir = "./reports/")
+  })
+---
+
+# Re-Analysis of Sánchez et al (2021) BIF data
+
+Given that we unexpectedly found a significant interaction between the distance
+manipulation and BIF response option valence differences for the temporal
+distance replication, it may be worthwhile to examine whether there is evidence
+for the influence of this confound in previous data.
+
+To explore this possibility, we fit a series of mixed effects logistic
+regression models on the BIF item responses in the data of Sánchez et al (2021)
+in which we examine a potential interaction between the temporal distance
+manipulation in this study and valence differences in the item response options.
+
+```{r}
+lrt_val_sanchez
+```
+
+A likelihood ratio test indicates that adding the valence differences and the
+interaction term significantly improves the model.
+
+```{r}
+summary(glmm_sanchez_bif_int)
+```
+
+Although Sánchez et al (2021) reported a significant effect for temporal
+distance on the BIF, accounting for the interaction with the valence difference
+confound, this effect becomes near-zero and nonsignificant. The interaction is
+such that as the valence difference increases, the effect of the distance
+manipulation increases in magnitude. Converting from the log odds scale to _d_,
+the effect for the distance manipulation when the valence difference is zero is
+_d_ = `r glmm_sanchez_d_report`.
+
+This interaction is in a direction opposite to what was observed in the CLIMR
+replication of the temporal distance effect.
+
+## Models Not Retained
+
+```{r}
+summary(glmm_sanchez_bif_base)
+```
+
+```{r}
+summary(glmm_sanchez_bif_val)
+```
+
+# Reanalysis of Grinfeld et al (2024, Study 2C) BIF data
+
+We can also examine data from Grinfeld et al (2024, Study 2C) to see if a
+similar interaction occurs.
+
+```{r}
+lrt_val_grinfeld
+```
+
+A likelihood ratio test indicates significant model improvement when adding
+valence differences as a predictor but not the interaction term.
+
+```{r}
+summary(glmm_grinfeld_bif_val)
+```
+
+Controlling for valence differences, the effect of hypotheticality holds in this
+dataset, though there is also evidence that people prefer the abstract option
+more when it is positive.
+
+## Models Not Retained
+
+```{r}
+summary(glmm_grinfeld_bif_base)
+```
+
+```{r}
+summary(glmm_grinfeld_bif_int)
+```
+

@@ -1,9 +1,7 @@
 CLIMR Supplemental Analysis Report: Comprehension Check Failures Removed
 ================
 CLIMR Team
-2023-11-24
-
-# **THESE RESULTS ARE SIMULATED. DO NOT INTERPRET.**
+2024-11-08
 
 # Meta-Analytic Models
 
@@ -14,20 +12,20 @@ meta_temporal_comp
 ```
 
     ## 
-    ## Random-Effects Model (k = 99; tau^2 estimator: REML)
+    ## Random-Effects Model (k = 79; tau^2 estimator: REML)
     ## 
-    ## tau^2 (estimated amount of total heterogeneity): 0.0162 (SE = 0.0288)
-    ## tau (square root of estimated tau^2 value):      0.1274
-    ## I^2 (total heterogeneity / total variability):   8.02%
-    ## H^2 (total variability / sampling variability):  1.09
+    ## tau^2 (estimated amount of total heterogeneity): 0.0105 (SE = 0.0220)
+    ## tau (square root of estimated tau^2 value):      0.1023
+    ## I^2 (total heterogeneity / total variability):   6.85%
+    ## H^2 (total variability / sampling variability):  1.07
     ## 
     ## Test for Heterogeneity:
-    ## Q(df = 98) = 111.7298, p-val = 0.1622
+    ## Q(df = 78) = 93.9604, p-val = 0.1052
     ## 
     ## Model Results:
     ## 
-    ## estimate      se    zval    pval   ci.lb   ci.ub      
-    ##   0.4340  0.0452  9.5967  <.0001  0.3453  0.5226  *** 
+    ## estimate      se    zval    pval    ci.lb   ci.ub    
+    ##   0.0828  0.0444  1.8643  0.0623  -0.0042  0.1698  . 
     ## 
     ## ---
     ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
@@ -36,8 +34,8 @@ meta_temporal_comp
 bt_temporal_comp
 ```
 
-    ##        diff  ci_lower  ci_upper
-    ## 1 0.4188009 0.3332681 0.5043337
+    ##        diff   ci_lower  ci_upper
+    ## 1 0.3292014 -0.0168845 0.6752874
 
 ## Fujita et al. (2006, Study 1)
 
@@ -46,20 +44,20 @@ meta_spatial_comp
 ```
 
     ## 
-    ## Random-Effects Model (k = 99; tau^2 estimator: REML)
+    ## Random-Effects Model (k = 79; tau^2 estimator: REML)
     ## 
-    ## tau^2 (estimated amount of total heterogeneity): 0.0504 (SE = 0.0335)
-    ## tau (square root of estimated tau^2 value):      0.2246
-    ## I^2 (total heterogeneity / total variability):   21.47%
-    ## H^2 (total variability / sampling variability):  1.27
+    ## tau^2 (estimated amount of total heterogeneity): 0.0081 (SE = 0.0219)
+    ## tau (square root of estimated tau^2 value):      0.0899
+    ## I^2 (total heterogeneity / total variability):   5.33%
+    ## H^2 (total variability / sampling variability):  1.06
     ## 
     ## Test for Heterogeneity:
-    ## Q(df = 98) = 127.6299, p-val = 0.0238
+    ## Q(df = 78) = 77.6686, p-val = 0.4893
     ## 
     ## Model Results:
     ## 
-    ## estimate      se    zval    pval   ci.lb   ci.ub      
-    ##   0.3865  0.0487  7.9287  <.0001  0.2909  0.4820  *** 
+    ## estimate      se    zval    pval    ci.lb   ci.ub    
+    ##   0.0404  0.0441  0.9165  0.3594  -0.0460  0.1268    
     ## 
     ## ---
     ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
@@ -68,8 +66,8 @@ meta_spatial_comp
 bt_spatial_comp
 ```
 
-    ##        diff  ci_lower  ci_upper
-    ## 1 0.3592849 0.2704697 0.4481002
+    ##        diff   ci_lower  ci_upper
+    ## 1 0.1101206 -0.1253803 0.3456215
 
 ## Social Distance
 
@@ -78,20 +76,20 @@ meta_social_comp
 ```
 
     ## 
-    ## Random-Effects Model (k = 99; tau^2 estimator: REML)
+    ## Random-Effects Model (k = 79; tau^2 estimator: REML)
     ## 
-    ## tau^2 (estimated amount of total heterogeneity): 0 (SE = 0.0261)
-    ## tau (square root of estimated tau^2 value):      0
-    ## I^2 (total heterogeneity / total variability):   0.00%
-    ## H^2 (total variability / sampling variability):  1.00
+    ## tau^2 (estimated amount of total heterogeneity): 0.0182 (SE = 0.0205)
+    ## tau (square root of estimated tau^2 value):      0.1349
+    ## I^2 (total heterogeneity / total variability):   13.29%
+    ## H^2 (total variability / sampling variability):  1.15
     ## 
     ## Test for Heterogeneity:
-    ## Q(df = 98) = 76.2680, p-val = 0.9491
+    ## Q(df = 78) = 93.3626, p-val = 0.1131
     ## 
     ## Model Results:
     ## 
-    ## estimate      se    zval    pval   ci.lb   ci.ub      
-    ##   0.4119  0.0431  9.5619  <.0001  0.3275  0.4964  *** 
+    ## estimate      se     zval    pval    ci.lb    ci.ub      
+    ##  -0.2545  0.0423  -6.0098  <.0001  -0.3375  -0.1715  *** 
     ## 
     ## ---
     ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
@@ -100,8 +98,8 @@ meta_social_comp
 bt_social_comp
 ```
 
-    ##        diff  ci_lower  ci_upper
-    ## 1 0.4001186 0.3181037 0.4821335
+    ##        diff  ci_lower   ci_upper
+    ## 1 -1.308209 -1.734853 -0.8815642
 
 ## Likelihood Distance
 
@@ -110,20 +108,20 @@ meta_likelihood_comp
 ```
 
     ## 
-    ## Random-Effects Model (k = 99; tau^2 estimator: REML)
+    ## Random-Effects Model (k = 78; tau^2 estimator: REML)
     ## 
-    ## tau^2 (estimated amount of total heterogeneity): 0.0073 (SE = 0.0273)
-    ## tau (square root of estimated tau^2 value):      0.0856
-    ## I^2 (total heterogeneity / total variability):   3.82%
-    ## H^2 (total variability / sampling variability):  1.04
+    ## tau^2 (estimated amount of total heterogeneity): 0.0168 (SE = 0.0227)
+    ## tau (square root of estimated tau^2 value):      0.1298
+    ## I^2 (total heterogeneity / total variability):   11.00%
+    ## H^2 (total variability / sampling variability):  1.12
     ## 
     ## Test for Heterogeneity:
-    ## Q(df = 98) = 106.1728, p-val = 0.2691
+    ## Q(df = 77) = 92.4393, p-val = 0.1108
     ## 
     ## Model Results:
     ## 
-    ## estimate      se    zval    pval   ci.lb   ci.ub      
-    ##   0.3978  0.0440  9.0330  <.0001  0.3115  0.4841  *** 
+    ## estimate      se    zval    pval    ci.lb   ci.ub    
+    ##   0.0432  0.0450  0.9603  0.3369  -0.0449  0.1313    
     ## 
     ## ---
     ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
@@ -132,5 +130,5 @@ meta_likelihood_comp
 bt_likelihood_comp
 ```
 
-    ##        diff  ci_lower  ci_upper
-    ## 1 0.3593435 0.2813736 0.4373133
+    ##         diff    ci_lower  ci_upper
+    ## 1 0.08809769 -0.09170486 0.2679003

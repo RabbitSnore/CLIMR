@@ -40,21 +40,13 @@ reports/*.html
 # R Environment Variables
 .Renviron
 
-# Plots
-/figures/*.html
-/figures/climr_effect-map_files/*
-/figures/*project-tracker*
-
 # Notes
 /notes/*
 /notes/
 
 /data/validation/*
 /data/raw/*
-/data/lab_coordinates.csv
 /data/climr_test_data.csv
-/data/climr_codebook.csv
-/data/utility/climr_social-stimuli.csv
 
 # Reports
 

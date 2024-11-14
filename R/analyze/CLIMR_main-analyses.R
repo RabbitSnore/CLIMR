@@ -11,11 +11,6 @@
 source("./R/functions/CLIMR_visualization-functions.R")
 source("./R/functions/CLIMR_meta-analytic-functions.R")
 
-## Load data
-
-# NOTE
-# Insert code here to load the effect size data
-
 ### Load original effects
 
 original <- read.csv("./data/CLT_original.csv")

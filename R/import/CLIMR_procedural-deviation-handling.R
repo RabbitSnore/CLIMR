@@ -91,7 +91,9 @@ cn_01 <- cn_01 %>%
   filter(as_date(start_date) == as_date("2024-06-03") |
          as_date(start_date) == as_date("2024-06-05") |
          as_date(start_date) == as_date("2024-06-12") |
-         as_date(start_date) == as_date("2024-06-14"))
+         as_date(start_date) == as_date("2024-06-14") |
+         # CN_01 collected more data starting on 2024-10-17
+         as_date(start_date) >  as_date("2024-10-16"))
 
 # Reassemble data
 

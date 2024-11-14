@@ -26,7 +26,7 @@ included <- bind_rows(data_temporal, data_spatial, data_social, data_likelihood)
 
 included <- included %>% 
   left_join(
-    select(raw, sub, end_date,
+    select(raw, sub, end_date, total_duration,
            gender, country, language,
            age),
     by = "sub"
@@ -162,6 +162,8 @@ region_data <- iso_countries %>%
 radial_country_data <- radial_country_data %>% 
   left_join(region_data, by = c("country" = "alpha_2"))
 
+radial_country_data$region[radial_country_data$country == "TW"] <- "Asia"
+
 # Set factors
 
 radial_country_data$country <- factor(
@@ -172,6 +174,82 @@ included$gender <- factor(
   included$gender,
   levels = rev(c(2, 1, 3, 4))
 )
+
+# Experiment durations ---------------------------------------------------------
+
+data_temporal <- data_temporal %>% 
+  left_join(
+    select(raw, sub, total_duration),
+    by = "sub"
+  )
+
+data_spatial <- data_spatial %>% 
+  left_join(
+    select(raw, sub, total_duration),
+    by = "sub"
+  )
+
+data_social <- data_social %>% 
+  left_join(
+    select(raw, sub, total_duration),
+    by = "sub"
+  )
+
+data_likelihood <- data_likelihood %>% 
+  left_join(
+    select(raw, sub, total_duration),
+    by = "sub"
+  )
+
+duration_temporal <- data_temporal %>% 
+  filter(total_duration <= 60 * 60) %>% 
+  summarise(
+    median  = median(total_duration/60),
+    min     = min(total_duration/60),
+    max     = max(total_duration/60),
+    n       = n(),
+    extreme = nrow(data_temporal) - n
+  )
+
+duration_spatial <- data_spatial %>% 
+  filter(total_duration <= 60 * 60) %>% 
+  summarise(
+    median  = median(total_duration/60),
+    min     = min(total_duration/60),
+    max     = max(total_duration/60),
+    n       = n(),
+    extreme = nrow(data_spatial) - n
+  )
+
+duration_social <- data_social %>% 
+  filter(total_duration <= 60 * 60) %>% 
+  summarise(
+    median  = median(total_duration/60),
+    min     = min(total_duration/60),
+    max     = max(total_duration/60),
+    n       = n(),
+    extreme = nrow(data_social) - n
+  )
+
+duration_likelihood <- data_likelihood %>% 
+  filter(total_duration <= 60 * 60) %>% 
+  summarise(
+    median  = median(total_duration/60),
+    min     = min(total_duration/60),
+    max     = max(total_duration/60),
+    n       = n(),
+    extreme = nrow(data_likelihood) - n
+  )
+
+duration_included <- included %>% 
+  filter(total_duration <= 60 * 60) %>% 
+  summarise(
+    median  = median(total_duration/60),
+    min     = min(total_duration/60),
+    max     = max(total_duration/60),
+    n       = n(),
+    extreme = nrow(included) - n
+  )
 
 # Power benchmarks -------------------------------------------------------------
 
@@ -189,9 +267,9 @@ power_summary <- paste(
   "With approximately n = ",
   round(nrow(included)/4/2),
   " per condition, each experiment has 80% power for d = ",
-  round(effect_80, 2),
+  format(round(effect_80, 2), nsmall = 2),
   " and 95% power for d = ",
-  round(effect_95, 2),
+  format(round(effect_95, 2), nsmall = 2),
   ".",
   sep = ""
 )
@@ -244,7 +322,8 @@ rainbow_plot <-
       y     = final_n - 50,
       label = lab
     ),
-    size = 2.25
+    size  = 2.00,
+    alpha = .80
   ) +
   annotate(
     geom = "text", 

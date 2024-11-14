@@ -89,6 +89,53 @@ effects_likelihood_comp <- lab_d_calc(
   experiment = "Likelihood (paradigmatic replication)"
 )
 
+# Manage exclusions for modality analysis --------------------------------------
+
+# SK_01 reported switching from in-lab to online partway through data
+# collection. Because there is no way to clearly identify which cases were
+# collected in-lab vs. online, this lab should be excluded from the modality
+# moderation analysis.
+
+effects_temporal$modality[effects_temporal$lab == "SK_01"]     <- NA
+effects_spatial$modality[effects_spatial$lab == "SK_01"]       <- NA
+effects_social$modality[effects_social$lab == "SK_01"]         <- NA
+effects_likelihood$modality[effects_likelihood$lab == "SK_01"] <- NA
+
+# IT_01 reported that some participants took part online. The following
+# participant IDs were collected online. However, because there are too few
+# cases with which to calculate effect sizes, rather than creating separate
+# effect sizes for each modality, this lab's data will be excluded from the
+# modality analysis.
+
+# 45
+# 65
+# 66
+# 66
+# 67
+# 69
+# 68
+# 71
+# 70
+# 73
+# 74
+# 72
+# 75
+# 76
+# 77
+# 78
+# 79
+# 93
+# 94
+# 95
+# 96
+# 100
+# 70
+
+effects_temporal$modality[effects_temporal$lab == "IT_01"]     <- NA
+effects_spatial$modality[effects_spatial$lab == "IT_01"]       <- NA
+effects_social$modality[effects_social$lab == "IT_01"]         <- NA
+effects_likelihood$modality[effects_likelihood$lab == "IT_01"] <- NA
+
 # Export effect size data ------------------------------------------------------
 
 ## Combine all data

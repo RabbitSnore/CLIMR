@@ -137,6 +137,9 @@ smaller_prop_likelihood <- 1 - smaller_n_likelihood/nrow(detectable_effects)
 
 ## Data visualization
 
+power_breaks        <- seq(0, round(max(detectable_effects$d), 1), 0.10)
+power_breaks_labels <- format(power_breaks, nsmall = 2)
+
 detectable_hist <- 
 ggplot(detectable_effects,
        aes(
@@ -183,7 +186,8 @@ ggplot(detectable_effects,
     color = likelihood_color
   ) +
   scale_x_continuous(
-    breaks = seq(0, 5.00, 0.05)
+    breaks = power_breaks,
+    labels = power_breaks_labels
   ) +
   labs(
     x = "Detectable Standardized Mean Difference (80% Power)",

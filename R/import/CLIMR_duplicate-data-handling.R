@@ -1,6 +1,6 @@
 ################################################################################
 
-# CLIMR -- Duplicate data handling, AU_04, AU_01, AU_03
+# CLIMR -- Duplicate data handling
 
 ################################################################################
 
@@ -345,13 +345,9 @@ dup_rem <- dup_sel %>%
 
 dup_ident <- raw_dup[unique(dup_rem$closest), ]
 
-# There was one case that was identified as closest to two submissions. Thus, we
-# are confident this case should be retained, but we may be removing one case of
-# otherwise valid data, to err on the side of caution.
-
 # As a way of potentially detecting identification errors, verify that all time
 # differences between end and start times are in an appropriate direction
-time_differences <- dup_ident$end_date - dup_rem$StartDate
+time_differences <- dup_rem$minimum
 
 # IL_01: Remove and replace data
 

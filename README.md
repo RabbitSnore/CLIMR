@@ -16,6 +16,11 @@ In addition to close replications of these two studies, this project also
 includes two paradigmatic replications relevant to social and likelihood
 distance.
 
+The CLIMR project is a collaboration of 78 labs, across 27 countries, featuring
+15 languages.
+
+![A summary of the CLIMR project](figures/climr_project-tracker.png)
+
 ## Compendium Structure
 
 The CLIMR project compendium comprises two main parts, one hosted on the Open
@@ -46,8 +51,8 @@ If you want to reproduce the analyses and output for the CLIMR project, the most
 straightforward way to do this is to clone this repository into an RStudio
 project. [This
 webpage](https://resources.github.com/whitepapers/github-and-rstudio/) has
-information about how to clone repositories in R Studio. Once you have cloned
-the repository, open the project in R Studio, and run the following code:
+information about how to clone repositories in RStudio. Once you have cloned
+the repository, open the project in RStudio, and run the following code:
 
 > `source("CLIMR_build-project.R")`
 
@@ -63,16 +68,30 @@ what you are doing.
 Additional supplemental materials are available on the Open Science Framework:
 https://osf.io/ra3dp/
 
+### Technical Information for Reproducibility
+
+The CLIMR project analysis code was built using R 4.3.2. The packages required
+for the project are tracked with the `renv` package. Guidance on how to use the
+renv package can be found
+[here](https://docs.posit.co/ide/user/ide/guide/environments/r/renv.html)
+
+If you are reproducing the analyses for the first time, before running the
+script to build the project, you will need to install all necessary packages (in
+their correct version). The parameters of the build script are set to perform
+these installations by default. Note that this process can be time consuming and
+may require user input to confirm the installations. Alternatively, to do this
+manually, make sure that `renv` is installed, and run `renv::restore()`.
+
 ## Readable Reports
 
-Reports of the preliminary studies (as well as placeholder reports using
-simulated data for the main studies) are available in the `/reports/` directory.
-These reports are rendered in a format that is readable on GitHub.
+Reports of the the main analyses, supplemental analyses, and preliminary studies
+are available in the `/reports/` directory. These reports are rendered in a
+format that is readable on GitHub.
 
-### Primary Results (CURRENTLY PLACEHOLDERS WITH SIMULATED RESULTS)
+### Primary Results
 
-When data collection is complete, the primary results of the replications will
-be available in the reports linked below.
+The primary results of the replications are available in the reports linked
+below.
 
 - [Main Analyses](reports/CLIMR_main-analysis_report.md)
 - [Comprehension Check Analyses](reports/CLIMR_comprehension-check_report.md)
@@ -103,22 +122,16 @@ below.
 - [Valence of BIF Response Options](reports/CLIMR_bif-valence-pretest_report.md)
 - [Pretest of Social Distance Manipulation](reports/CLIMR_social-distance-pretest_report.md)
 
-## IMPORTANT NOTE
+### Exploratory and Post Hoc Analyses
 
-Currently, the project is configured so that it will simulate data by default,
-rather than load real data. Data collection is ongoing. When data collection for
-the project is complete, the code will be updated to import the publicly
-available data set by default.
+In addition to the planned analyses, we conducted several exploratory and post
+hoc analyses of the data.
 
-As data are collected, the code in this repository will be periodically updated
-as we add code to address any issues reported by the contributing labs (e.g.,
-removal of data from researchers testing the surveys), and the code will be
-updated to correct any errors we detect and/or to address technical issues
-(e.g., code breakage from package updates).
-
-# Technical Information for Reproducibility
-
-The CLIMR project analysis code was built using R 4.3.2. The packages required
-for the project are tracked with the `renv` package. Guidance on how to use the
-renv package can be found
-[here](https://docs.posit.co/ide/user/ide/guide/environments/r/renv.html)
+- [Spatial Experiment: Online Location Check Analysis](reports/CLIMR_spatial-robustness_report.md)
+- [Additional BIF Response Option Valence Difference Analyses: Random Slopes Models and Full Scales](reports/exploration-valence-additional_report.md)
+- [Scale Reliability of the BIF](reports/exploration-reliability_report.md)
+- [Cause Size and Effect Size Analysis](reports/exploration-manipulation-checks_report.md)
+- [Analysis of Influential Cases](reports/exploration-influence_report.md)
+- [Analysis of Country and Language](reports/exploration-country-language_report.md)
+- [Analysis of Effects on Individual BIF Items](reports/exploration-bif-items_report.md)
+- [Reanalysis of Data from Previous CLT Research](reports/exploration-past-data_report.md)

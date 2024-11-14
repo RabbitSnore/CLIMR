@@ -18,8 +18,6 @@ knit: (function(input_file, encoding) {
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-# **THESE RESULTS ARE SIMULATED. DO NOT INTERPRET.**
-
 # Meta-Analytic Models
 
 ## Liberman et al (1998, Study 1)

@@ -140,7 +140,7 @@ spatial_bif <- spatial %>%
 ## Adding comprehension checks
 
 data_spatial <- spatial_raw %>% 
-  select(sub, condition, sp_compcheck_c, sp_compcheck_d) %>% 
+  select(sub, condition, sp_compcheck_c, sp_compcheck_d, location) %>% 
   pivot_longer(
     cols      = c("sp_compcheck_c", "sp_compcheck_d"),
     names_to  = "block",
@@ -155,7 +155,7 @@ data_spatial <- spatial_raw %>%
       comp_check != "1" & condition == "close"   ~ 1
     )
   ) %>% 
-  select(sub, comp_check) %>% 
+  select(sub, comp_check, location) %>% 
   left_join(spatial_bif, by = "sub") %>% 
   relocate(comp_check, .after = bif_total)
 
@@ -187,7 +187,7 @@ spatial_bif_full <- spatial %>%
   )
 
 data_spatial_full <- spatial_raw %>% 
-  select(sub, condition, sp_compcheck_c, sp_compcheck_d) %>% 
+  select(sub, condition, sp_compcheck_c, sp_compcheck_d, location) %>% 
   pivot_longer(
     cols      = c("sp_compcheck_c", "sp_compcheck_d"),
     names_to  = "block",
@@ -202,14 +202,14 @@ data_spatial_full <- spatial_raw %>%
       comp_check != "1" & condition == "close"   ~ 1
     )
   ) %>% 
-  select(sub, comp_check) %>% 
+  select(sub, comp_check, location) %>% 
   left_join(spatial_bif_full, by = "sub") %>% 
   relocate(comp_check, .after = bif_total)
 
 bif_names_spatial_full <- 
   colnames(data_spatial_full)[str_detect(colnames(data_spatial_full), "bif_\\d\\d")]
 
-data_bif_spatial <- data_spatial_full %>% 
+data_bif_spatial_full <- data_spatial_full %>% 
   pivot_longer(
     cols           = all_of(bif_names_spatial_full),
     names_to       = "item",
@@ -412,7 +412,7 @@ data_likelihood_full <- likelihood_raw %>%
 bif_names_likelihood_full <- 
   colnames(data_likelihood_full)[str_detect(colnames(data_likelihood_full), "bif_\\d\\d")]
 
-data_bif_likelihood <- data_likelihood_full %>% 
+data_bif_likelihood_full <- data_likelihood_full %>% 
   pivot_longer(
     cols           = all_of(bif_names_likelihood_full),
     names_to       = "item",
@@ -425,7 +425,7 @@ data_bif_likelihood <- data_likelihood_full %>%
 
 data_manipulation_check <- raw %>% 
   select(lab, modality, lab_modality, sub, id_subject, id_internal,
-         contains("mancheck")) %>% 
+         contains("mancheck"), location) %>% 
   extract(
     col    = "mancheck",
     into   = c("distance", "condition"),

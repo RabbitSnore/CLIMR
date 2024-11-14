@@ -27,28 +27,22 @@ range_std <- function(x) {
   (x - min(x)) / (max(x) - min(x))
 }
 
+color_sign_pos  <- colorRampPalette(c("#F2F5EA", "#065A82"), bias = 2)
+color_sign_neg  <- colorRampPalette(c("#F95738", "#F2F5EA"), bias = 2)
+
+palette_pos     <- color_sign_pos(101)
+palette_neg     <- color_sign_neg(101)
+
 color_sign <- function(x) {
   
-  if (x < 0) {
-    
-    return("#F17E8A")
-    
-  } else {
-    
-    return("#71A253")
-    
-  }
+  x_pos <- round(1 + range_std(x[x >= 0]) * 100)
+  x_neg <- round(1 + range_std(x[x <  0]) * 100)
+  
+  return(c(palette_neg[x_neg], palette_pos[x_pos]))
   
 }
 
-palette_temporal   <- colorRamp(colors = c("#FFFFFF", "#37392E"))
-palette_spatial    <- colorRamp(colors = c("#FFFFFF", "#B9E28C"))
-palette_social     <- colorRamp(colors = c("#FFFFFF", "#A47C79"))
-palette_likelihood <- colorRamp(colors = c("#FFFFFF", "#19647E"))
-
-palette_negative   <- colorRamp(colors = c("#FFFFFF", "#93101D"))
-
-effect_layer <- function(map, data, palette_fun, study_color, group_name) {
+effect_layer <- function(map, data, study_color, group_name) {
 
   addCircleMarkers(
     map          = map,
@@ -60,13 +54,13 @@ effect_layer <- function(map, data, palette_fun, study_color, group_name) {
       " [", format(round(data$ci_lower, 2), nsmall = 2),  
       ", ", format(round(data$ci_upper, 2), nsmall = 2), "]"),
     labelOptions = labelOptions(textsize = "1.1em"),
-    radius       = (10 + data$d * 4) + (50 * data$var)/2,
-    fillColor    = sapply(data$d, color_sign),
+    radius       = 5 * log(1/data$var),
+    fillColor    = color_sign(data$d),
     fillOpacity  = 0.75,
     color        = study_color,
     stroke       = TRUE,
-    weight       = 50 * data$var,
-    opacity      = 0.75,
+    weight       = 5,
+    opacity      = 0.90,
     group        = group_name,
   )
   
@@ -76,17 +70,23 @@ effect_layer <- function(map, data, palette_fun, study_color, group_name) {
 
 ## Link coordinates to effect estimates
 
-effects_temporal <- effects_temporal %>% 
-  left_join(lab_coords, by = "lab")
+effects_temporal_map   <- effects_temporal %>% 
+  left_join(lab_coords, by = "lab") %>% 
+  arrange(d)
 
-effects_spatial <- effects_spatial %>% 
-  left_join(lab_coords, by = "lab")
+effects_temporal_map$effect_color <- color_sign(effects_temporal_map$d)
 
-effects_social  <- effects_social %>% 
-  left_join(lab_coords, by = "lab")
+effects_spatial_map    <- effects_spatial %>% 
+  left_join(lab_coords, by = "lab") %>% 
+  arrange(d)
 
-effects_likelihood <- effects_likelihood %>% 
-  left_join(lab_coords, by = "lab")
+effects_social_map     <- effects_social %>% 
+  left_join(lab_coords, by = "lab") %>% 
+  arrange(d)
+
+effects_likelihood_map <- effects_likelihood %>% 
+  left_join(lab_coords, by = "lab") %>% 
+  arrange(d)
 
 # Map --------------------------------------------------------------------------
 
@@ -95,29 +95,25 @@ climr_leaflet <- leaflet() %>%
   
   # Temporal
   
-  effect_layer(effects_temporal, 
-               palette_temporal, 
+  effect_layer(effects_temporal_map, 
                liberman_1998_color, 
                "Temporal (Liberman & Trope, 1998, Study 1)") %>% 
   
   # Spatial
   
-  effect_layer(effects_spatial, 
-               palette_spatial, 
+  effect_layer(effects_spatial_map, 
                fujita_2006_color, 
                "Spatial (Fujita et al., 2006, Study 1)") %>% 
   
   # Social
   
-  effect_layer(effects_social, 
-               palette_social, 
+  effect_layer(effects_social_map,  
                social_color, 
                "Social (paradigmatic replication)") %>% 
   
   # Likelihood
   
-  effect_layer(effects_likelihood, 
-               palette_likelihood, 
+  effect_layer(effects_likelihood_map, 
                likelihood_color, 
                "Likelihood (paradigmatic replication)") %>% 
   
