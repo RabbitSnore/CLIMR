@@ -8,7 +8,15 @@
 
 ## Forest plot for standardized mean difference
 
-forest_plot <- function(replication_data, meta_analysis, org_d, org_ci_lower, org_ci_upper, title, study_color = "black", boundary_pad = 0.25, multiple = .50) {
+forest_plot <- function(replication_data, 
+                        meta_analysis, 
+                        org_d, 
+                        org_ci_lower, 
+                        org_ci_upper, 
+                        title,
+                        study_color = "black", 
+                        boundary_pad = 0.25, 
+                        multiple = 1.00) {
   
   ## Internal function for creating forest plot data
   
@@ -254,7 +262,10 @@ forest_plot_lor <- function(replication_data, meta_analysis, org_lor, org_ci_low
 
 ## A figure combining forest plots for the four experiments, with a shared x-axis scale
 
-arboretum_plot <- function(plot_list, boundary_pad = .25, multiple = .50, rows = 1) {
+arboretum_plot <- function(plot_list, 
+                           boundary_pad = .25, 
+                           multiple = 1.00, 
+                           rows = 1) {
   
   require(cowplot)
   
