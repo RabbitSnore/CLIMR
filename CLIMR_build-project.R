@@ -285,7 +285,8 @@ source("./R/explore/CLIMR_exploratory-valence-additional.R")
 source("./R/explore/CLIMR_exploratory-reliability.R")
 source("./R/explore/CLIMR_exploratory-bif-items.R")
 source("./R/explore/CLIMR_exploratory-influence.R")
-source("./R/explore/CLIMR_past-data.R")
+source("./R/explore/CLIMR_exploratory-past-data.R")
+source("./R/explore/CLIMR_exploratory-ahs-panas.R")
 
 # Leaflet map of effects
 
@@ -336,6 +337,8 @@ climr_report("CLIMR_exploration-reliability_report.Rmd")
 climr_report("CLIMR_exploration-bif-items_report.Rmd")
 climr_report("CLIMR_exploration-influence_report.Rmd")
 climr_report("CLIMR_exploration-past-data_report.Rmd")
+climr_report("CLIMR_exploration-ahs_report.Rmd")
+climr_report("CLIMR_exploration-panas_report.Rmd")
 
 # Validation and pretest reports
 
