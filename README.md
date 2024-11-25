@@ -135,3 +135,5 @@ hoc analyses of the data.
 - [Analysis of Country and Language](reports/exploration-country-language_report.md)
 - [Analysis of Effects on Individual BIF Items](reports/exploration-bif-items_report.md)
 - [Reanalysis of Data from Previous CLT Research](reports/exploration-past-data_report.md)
+- [Potential Moderating Effect of the Analysis-Holism Scale](reports/exploration-ahs_report.md)
+- [Potential Moderating Effect of Positive and Negative Affect](reports/exploration-panas_report.md)
