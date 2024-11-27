@@ -3,7 +3,15 @@ Robustness Tests Accounting for Valence Differences in the Response
 Options for the Items on the Behavior Identification Form (BIF)
 ================
 CLIMR Team
-2024-11-08
+2024-11-27
+
+# Predictions from Retained Models
+
+``` r
+knitr::include_graphics("figures/climr_bif-valence-predictions.png")
+```
+
+<img src="figures/climr_bif-valence-predictions.png" width="3000" />
 
 # Liberman & Trope (1998, Study 1)
 

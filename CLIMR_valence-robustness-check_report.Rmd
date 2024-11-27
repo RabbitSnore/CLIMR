@@ -20,6 +20,12 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ```
 
+# Predictions from Retained Models
+
+```{r}
+knitr::include_graphics("figures/climr_bif-valence-predictions.png")
+```
+
 # Liberman & Trope (1998, Study 1)
 
 ```{r}
