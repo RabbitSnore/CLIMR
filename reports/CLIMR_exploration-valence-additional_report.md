@@ -1,8 +1,8 @@
 Construal Level International Multilab Replication (CLIMR) Project:
 Robustness Tests Accounting for Valence Differences in the Response
 Options for the Items on the Behavior Identification Form (BIF) – (1)
-random slopes for labs and BIF items, (2) for the Full BIF Scale, and
-(3) Item Removal for the Interaction Observed for the Temporal Distance
+random slopes for labs and BIF items, (2) the Full BIF Scale, and (3)
+Item Removal for the Interaction Observed for the Temporal Distance
 Experiment
 ================
 CLIMR Team
