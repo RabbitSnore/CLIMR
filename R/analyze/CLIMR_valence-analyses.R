@@ -209,6 +209,56 @@ plot_pred_val_temporal <-
   ) +
   theme_classic()
 
+plot_pred_val_prop_temporal <- 
+  ggplot(newdata_val_temporal,
+         aes(
+           y = pred,
+           x = d,
+           color = condition,
+           group = condition
+         )) +
+  geom_point(
+    data = data_bif_temporal %>% 
+      group_by(condition, d) %>% 
+      summarise(
+        prop = mean(bif)
+      ),
+    aes(
+      y = prop
+    ),
+    shape = 2
+  ) +
+  geom_point(
+    size = 1.5
+  ) +
+  geom_line(
+    linewidth = 1
+  ) +
+  geom_vline(
+    xintercept = 0,
+    linetype   = "dashed"
+  ) +
+  scale_x_continuous(
+    breaks = seq(0, 1.75, .25)
+  ) +
+  scale_y_continuous(
+    breaks = seq(0, 1, .1),
+    limits = c(0, 1)
+  ) +
+  scale_color_manual(
+    values = c(
+      "#88527F",
+      "#7EB09B"
+    )
+  ) +
+  labs(
+    y     = "Predicted probability of abstract choice",
+    x     = "Valence difference of response options (d)",
+    color = "Condition",
+    title = "Liberman & Trope (1998, Study 1)"
+  ) +
+  theme_classic()
+
 # Spatial distance
 
 ## Create new data for predictions
@@ -233,6 +283,56 @@ plot_pred_val_spatial <-
            color = condition,
            group = condition
          )) +
+  geom_point(
+    size = 1.5
+  ) +
+  geom_line(
+    linewidth = 1
+  ) +
+  geom_vline(
+    xintercept = 0,
+    linetype   = "dashed"
+  ) +
+  scale_x_continuous(
+    breaks = seq(0, 1.75, .25)
+  ) +
+  scale_y_continuous(
+    breaks = seq(0, 1, .1),
+    limits = c(0, 1)
+  ) +
+  scale_color_manual(
+    values = c(
+      "#88527F",
+      "#7EB09B"
+    )
+  ) +
+  labs(
+    y     = "Predicted probability of abstract choice",
+    x     = "Valence difference of response options (d)",
+    color = "Condition",
+    title = "Fujita et al. (2006, Study 1)"
+  ) +
+  theme_classic()
+
+plot_pred_val_prop_spatial <- 
+  ggplot(newdata_val_spatial,
+         aes(
+           y = pred,
+           x = d,
+           color = condition,
+           group = condition
+         )) +
+  geom_point(
+    data = data_bif_spatial %>% 
+      group_by(condition, d) %>% 
+      summarise(
+        prop = mean(bif)
+      ),
+    aes(
+      y = prop
+    ),
+    shape = 2
+  ) +
   geom_point(
     size = 1.5
   ) +
@@ -320,6 +420,56 @@ plot_pred_val_social <-
   ) +
   theme_classic()
 
+plot_pred_val_prop_social <- 
+  ggplot(newdata_val_social,
+         aes(
+           y = pred,
+           x = d,
+           color = condition,
+           group = condition
+         )) +
+  geom_point(
+    data = data_bif_social %>% 
+      group_by(condition, d) %>% 
+      summarise(
+        prop = mean(bif)
+      ),
+    aes(
+      y = prop
+    ),
+    shape = 2
+  ) +
+  geom_point(
+    size = 1.5
+  ) +
+  geom_line(
+    linewidth = 1
+  ) +
+  geom_vline(
+    xintercept = 0,
+    linetype   = "dashed"
+  ) +
+  scale_x_continuous(
+    breaks = seq(0, 1.75, .25)
+  ) +
+  scale_y_continuous(
+    breaks = seq(0, 1, .1),
+    limits = c(0, 1)
+  ) +
+  scale_color_manual(
+    values = c(
+      "#88527F",
+      "#7EB09B"
+    )
+  ) +
+  labs(
+    y     = "Predicted probability of abstract choice",
+    x     = "Valence difference of response options (d)",
+    color = "Condition",
+    title = "Social Distance (Paradigmatic Replication)"
+  ) +
+  theme_classic()
+
 # Likelihood distance
 
 ## Create new data for predictions
@@ -376,8 +526,60 @@ plot_pred_val_likelihood <-
   ) +
   theme_classic()
 
+plot_pred_val_prop_likelihood <- 
+  ggplot(newdata_val_likelihood,
+         aes(
+           y = pred,
+           x = d,
+           color = condition,
+           group = condition
+         )) +
+  geom_point(
+    data = data_bif_likelihood %>% 
+      group_by(condition, d) %>% 
+      summarise(
+        prop = mean(bif)
+      ),
+    aes(
+      y = prop
+    ),
+    shape = 2
+  ) +
+  geom_point(
+    size = 1.5
+  ) +
+  geom_line(
+    linewidth = 1
+  ) +
+  geom_vline(
+    xintercept = 0,
+    linetype   = "dashed"
+  ) +
+  scale_x_continuous(
+    breaks = seq(0, 1.75, .25)
+  ) +
+  scale_y_continuous(
+    breaks = seq(0, 1, .1),
+    limits = c(0, 1)
+  ) +
+  scale_color_manual(
+    values = c(
+      "#88527F",
+      "#7EB09B"
+    )
+  ) +
+  labs(
+    y     = "Predicted probability of abstract choice",
+    x     = "Valence difference of response options (d)",
+    color = "Condition",
+    title = "Likelihood Distance (Paradigmatic Replication)"
+  ) +
+  theme_classic()
+
 
 # Combine plots
+
+## Model predictions
 
 val_grid <- plot_grid(plot_pred_val_temporal,
                       plot_pred_val_spatial,
@@ -392,5 +594,23 @@ save_plot("figures/climr_bif-valence-predictions.png",
 
 save_plot("reports/figures/climr_bif-valence-predictions.png",
           val_grid,
+          base_height = 8,
+          base_width  = 10)
+
+## With raw proportions
+
+val_prop_grid <- plot_grid(plot_pred_val_prop_temporal,
+                           plot_pred_val_prop_spatial,
+                           plot_pred_val_prop_social,
+                           plot_pred_val_prop_likelihood,
+                           nrow = 2)
+
+save_plot("figures/climr_bif-valence-predictions-with-prop.png",
+          val_prop_grid,
+          base_height = 8,
+          base_width  = 10)
+
+save_plot("reports/figures/climr_bif-valence-predictions-with-prop.png",
+          val_prop_grid,
           base_height = 8,
           base_width  = 10)

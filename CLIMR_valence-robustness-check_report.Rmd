@@ -97,3 +97,10 @@ summary(glmm_likelihood_bif_val)
 ```{r}
 summary(glmm_likelihood_bif_int)
 ```
+
+# Predictions from Retained Models, with Raw Proportions
+
+```{r}
+knitr::include_graphics("figures/climr_bif-valence-predictions-with-prop.png")
+```
+

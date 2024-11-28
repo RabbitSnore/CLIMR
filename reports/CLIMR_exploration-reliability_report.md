@@ -2,7 +2,7 @@ Construal Level International Multilab Replication (CLIMR) Project:
 Reliability analysis for the Behavior Identification Form (BIF)
 ================
 CLIMR Team
-2024-11-08
+2024-11-28
 
 # Liberman & Trope (1998, Study 1)
 

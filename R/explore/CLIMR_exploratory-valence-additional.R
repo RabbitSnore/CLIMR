@@ -261,3 +261,44 @@ lrt_val_likelihood_full       <- anova(glmm_likelihood_bif_base_full,
                                        glmm_likelihood_bif_int_full, 
                                        test = "LRT")
 
+# Analysis of temporal distance interaction ------------------------------------
+
+# A visual inspection of a plot of the interaction between valence differences
+# and temporal distance suggests that the effect may not be robust to the
+# removal of the item with the smallest valence difference.
+
+# Temporal
+
+glmm_temporal_bif_base_rem <- glmer(bif 
+                                    ~ condition 
+                                    + (1|lab:sub) 
+                                    + (1|lab) 
+                                    + (1|item), 
+                                    family = binomial(link = "logit"), 
+                                    data   = data_bif_temporal %>% 
+                                      filter(d != min(d)))
+
+glmm_temporal_bif_val_rem  <- glmer(bif 
+                                    ~ condition 
+                                    + d 
+                                    + (1|lab:sub) 
+                                    + (1|lab) 
+                                    + (1|item), 
+                                    family = binomial(link = "logit"), 
+                                    data   = data_bif_temporal %>% 
+                                      filter(d != min(d)))
+
+glmm_temporal_bif_int_rem  <- glmer(bif 
+                                    ~ condition 
+                                    * d 
+                                    + (1|lab:sub) 
+                                    + (1|lab) 
+                                    + (1|item), 
+                                    family = binomial(link = "logit"), 
+                                    data   = data_bif_temporal %>% 
+                                      filter(d != min(d)))
+
+lrt_val_temporal_rem       <- anova(glmm_temporal_bif_base_rem, 
+                                    glmm_temporal_bif_val_rem, 
+                                    glmm_temporal_bif_int_rem, 
+                                    test = "LRT")

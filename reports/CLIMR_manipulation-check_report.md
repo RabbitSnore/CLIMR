@@ -1,7 +1,7 @@
 CLIMR Supplemental Analysis Report: Manipulation Checks
 ================
 CLIMR Team
-2024-11-08
+2024-11-28
 
 # Meta-Analytic Models
 
@@ -37,20 +37,20 @@ meta_mc_spatial
 ```
 
     ## 
-    ## Random-Effects Model (k = 76; tau^2 estimator: REML)
+    ## Random-Effects Model (k = 78; tau^2 estimator: REML)
     ## 
-    ## tau^2 (estimated amount of total heterogeneity): 0.1786 (SE = 0.0544)
-    ## tau (square root of estimated tau^2 value):      0.4226
-    ## I^2 (total heterogeneity / total variability):   56.18%
-    ## H^2 (total variability / sampling variability):  2.28
+    ## tau^2 (estimated amount of total heterogeneity): 0.1588 (SE = 0.0490)
+    ## tau (square root of estimated tau^2 value):      0.3985
+    ## I^2 (total heterogeneity / total variability):   54.57%
+    ## H^2 (total variability / sampling variability):  2.20
     ## 
     ## Test for Heterogeneity:
-    ## Q(df = 75) = 176.2363, p-val < .0001
+    ## Q(df = 77) = 175.8486, p-val < .0001
     ## 
     ## Model Results:
     ## 
     ## estimate      se     zval    pval   ci.lb   ci.ub      
-    ##   1.2120  0.0673  18.0191  <.0001  1.0802  1.3438  *** 
+    ##   1.2228  0.0634  19.2901  <.0001  1.0986  1.3471  *** 
     ## 
     ## ---
     ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1

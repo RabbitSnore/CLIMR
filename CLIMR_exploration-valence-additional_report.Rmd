@@ -1,5 +1,5 @@
 ---
-title: "Construal Level International Multilab Replication (CLIMR) Project: Robustness Tests Accounting for Valence Differences in the Response Options for the Items on the Behavior Identification Form (BIF), with random slopes for labs and BIF items"
+title: "Construal Level International Multilab Replication (CLIMR) Project: Robustness Tests Accounting for Valence Differences in the Response Options for the Items on the Behavior Identification Form (BIF) -- (1) random slopes for labs and BIF items, (2) for the Full BIF Scale, and (3) Item Removal for the Interaction Observed for the Temporal Distance Experiment"
 author: "CLIMR Team"
 date: "`r Sys.Date()`"
 output:
@@ -150,3 +150,20 @@ summary(glmm_likelihood_bif_val_full)
 summary(glmm_likelihood_bif_int_full)
 ```
 
+# Temporal Distance: Removing Item with Smallest Valence Difference
+
+```{r}
+lrt_val_temporal_rem
+```
+
+```{r}
+summary(glmm_temporal_bif_base_rem)
+```
+
+```{r}
+summary(glmm_temporal_bif_val_rem)
+```
+
+```{r}
+summary(glmm_temporal_bif_int_rem)
+```

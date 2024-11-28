@@ -2,7 +2,7 @@ Construal Level International Multilab Replication (CLIMR) Project:
 Exploration of Influential Cases
 ================
 CLIMR Team
-2024-11-08
+2024-11-28
 
 # Overview of Cook’s Distances
 
