@@ -514,3 +514,11 @@ summary(glmm_likelihood_bif_int)
     ## condtndstnt -0.137              
     ## d           -0.861  0.097       
     ## cndtndstnt:  0.108 -0.782 -0.124
+
+# Predictions from Retained Models, with Raw Proportions
+
+``` r
+knitr::include_graphics("figures/climr_bif-valence-predictions-with-prop.png")
+```
+
+<img src="figures/climr_bif-valence-predictions-with-prop.png" width="3000" />
