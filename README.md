@@ -137,3 +137,5 @@ hoc analyses of the data.
 - [Reanalysis of Data from Previous CLT Research](reports/CLIMR_exploration-past-data_report.md)
 - [Potential Moderating Effect of the Analysis-Holism Scale](reports/CLIMR_exploration-ahs_report.md)
 - [Potential Moderating Effect of Positive and Negative Affect](reports/CLIMR_exploration-panas_report.md)
+- [Influence of Actual Distance on Effect of Spatial Distance](reports/CLIMR_exploration-actual-distance.md)
+- [Potential Differences of Effect of Temporal Distance Across (Actual) Time](reports/CLIMR_exploration-actual-time.md)
