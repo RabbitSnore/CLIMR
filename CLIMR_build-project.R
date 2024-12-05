@@ -281,12 +281,16 @@ source("./R/explore/CLIMR_exploratory-data-wrangling.R")
 
 source("./R/explore/CLIMR_exploratory-country-language.R")
 source("./R/explore/CLIMR_exploratory-manipulation-checks.R")
+# Note that these analyses are computationally intensive. They can take several
+# minutes to calculate.
 source("./R/explore/CLIMR_exploratory-valence-additional.R")
 source("./R/explore/CLIMR_exploratory-reliability.R")
 source("./R/explore/CLIMR_exploratory-bif-items.R")
 source("./R/explore/CLIMR_exploratory-influence.R")
 source("./R/explore/CLIMR_exploratory-past-data.R")
 source("./R/explore/CLIMR_exploratory-ahs-panas.R")
+source("./R/explore/CLIMR_exploratory-actual-distance.R")
+source("./R/explore/CLIMR_exploratory-time.R")
 
 # Leaflet map of effects
 
@@ -339,6 +343,8 @@ climr_report("CLIMR_exploration-influence_report.Rmd")
 climr_report("CLIMR_exploration-past-data_report.Rmd")
 climr_report("CLIMR_exploration-ahs_report.Rmd")
 climr_report("CLIMR_exploration-panas_report.Rmd")
+climr_report("CLIMR_exploration-actual-distance_report.Rmd")
+climr_report("CLIMR_exploration-actual-time_report.Rmd")
 
 # Validation and pretest reports
 

@@ -1,0 +1,45 @@
+---
+title: "Construal Level International Multilab Replication (CLIMR) Project: Influence of Actual Distance on the Spatial Distance Effect"
+author: "CLIMR Team"
+date: "`r Sys.Date()`"
+output:
+  html_document:
+    theme: darkly
+    toc: yes
+    toc_float: yes
+    keep_md: true
+  pdf_document:
+    toc: yes
+knit: (function(input_file, encoding) {
+    rmarkdown::render(input_file, rmarkdown::github_document(html_preview = FALSE), encoding = encoding, output_dir = "./reports/")
+  })
+---
+
+# Does the actual distance between the cities used in the spatial distance manipulation influence the effect of the manipulation on the BIF?
+
+```{r}
+lrt_km_spatial
+```
+
+```{r}
+summary(glmm_spatial_km_base)
+```
+
+```{r}
+summary(glmm_spatial_km_add)
+```
+
+```{r}
+summary(glmm_spatial_km_int)
+```
+
+# Does the actual distance between the cities used in the spatial distance manipulation influence the strength of the spatial distance manipulation?
+
+```{r}
+meta_spatial_mc_km
+```
+
+```{r}
+knitr::include_graphics("figures/climr_spatial-actual-distance-cause-size.png")
+```
+

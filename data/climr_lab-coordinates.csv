@@ -1,47 +1,76 @@
 ﻿affiliation,lab,lat,long,distant_location,lat_distant,long_distant
-University of Gothenburg,SE_01,57.689,11.954,Kiruna,68.228,20.037
+University of Vienna,AT_01,48.213,16.36,Voralberg,47.28,9.859
+Copenhagen Business School,AT_02,48.213,16.36,Bregenz,47.501,9.737
+University of Vienna,AT_03,48.214,16.358,Bregenz,47.501,9.737
 Macquarie University,AU_01,-33.774,151.113,Perth,-31.938,115.86
 Australian Catholic University,AU_02,-33.838,151.204,Sydney,-33.87,151.192
-University of Vienna,AT_01,48.213,16.36,Voralberg,47.28,9.859
+"UNSW, School of Medicine and Psychology",AU_03,-35.283,149.114,Perth,-31.947,115.841
+University of New South Wales,AU_04,-33.917,151.231,Perth,-31.947,115.841
+University of Bihac,BA_01,44.814,15.869,,,
 Catholic University of Louvain (UCLouvain),BE_01,50.669,4.616,Arlon,49.687,5.806
 University of Brasília,BR_01,-15.763,-47.871,,,
 Carleton University,CA_01,45.387,-75.696,Toronto,43.649,-79.378
 University of British Columbia,CA_02,49.313,-123.229,Halifax,44.651,-63.588
 University of Waterloo,CA_03,43.472,-80.545,Vancouver,49.281,-123.107
-Aarhus University,DK_01,56.166,10.2,Rønne,55.102,14.706
-Australian Catholic University,AT_02,55.683,12.529,Bregenz,47.501,9.737
-University Grenoble Alpes,FR_01,45.192,5.768,Lilles,50.624,3.07
+University of Basel,CH_01,47.562,7.576,Coire,46.852,9.534
+Shandong Youth University of Political Science,CN_01,36.671,117.24,Changsha,28.239,112.956
+"The Chinese University of Hong Kong, Shenzhen",CN_02,22.718,114.255,Beijing,39.912,116.41
+Xi'an Jiaotong University,CN_03,34.252,108.983,Fuzhou,26.082,119.297
 University of Kassel,DE_01,51.325,9.508,München,48.138,11.571
 Ludwig-Maximilians-Universität München,DE_02,48.151,11.579,Hamburg,53.553,10.007
 Saarland University,DE_03,49.255,7.041,Rostock,54.094,12.102
 Leuphana University Lüneburg,DE_04,53.229,10.401,München,48.138,11.571
 University of Tübingen,DE_05,48.525,9.06,Flensburg,54.795,9.455
-University of Hong Kong,HK_01,22.283,114.137,"Harbin, Heilongjiang province",45.768,126.648
-University of Limerick,IE_01,52.674,-8.572,Sligo,54.277,-8.476
-Chieti-Pescara University,IT_01,42.369,14.15,Aosta,45.736,7.314
-Japan Women's University,JP_01,35.718,139.721,,,
-University of Groningen,NL_01,53.219,6.563,Maastricht,50.853,5.697
-University of Amsterdam,NL_02,52.356,4.956,Maastricht,50.853,5.697
-"Alex Ekwueme Federal University Ndufu-Alike, Nigeria",NG_01,6.14,8.141,Lagos,6.525,3.386
-University of the Philippines - Diliman,PH_01,14.654,121.069,Tawi-Tawi,5.203,119.983
-SWPS University of Social Sciences and Humanities,PL_01,52.248,21.066,Szczecin,53.431,14.561
-Universidade de Lisboa (University of Lisbon),PT_01,38.753,-9.158,,,
-"University of Belgrade, Faculty of Philosophy",RS_01,44.818,20.458,Vranja,44.919,19.768
-James Cook University,SG_01,-18.807,146.735,Tuas,1.295,103.628
-"Faculty of Arts, Pavol Jozef Šafárik University in Košice",SK_01,48.721,21.251,Bratislava,48.148,17.117
+Leuphana University Lüneburg ,DE_06,53.228,10.405,Freiburg im Breisgau,47.997,7.837
+Hochschule Düsseldorf ,DE_07,49.018,12.08,Flensburg,54.795,9.455
+Aarhus University,DK_01,56.166,10.2,Rønne,55.102,14.706
 University of Granada,ES_01,37.184,-3.6,La Coruña,43.127,-8.457
 University of Salamanca,ES_02,40.961,-5.666,Barcelona,41.388,2.199
 Universidad Autonoma de Madrid,ES_04,40.547,-3.694,Santa Cruz de Tenerife,28.466,-16.252
+University Grenoble Alpes,FR_01,45.192,5.768,Lilles,50.624,3.07
+"Bayes Business School, City University of London",GB_01,51.522,-0.09,Glasgow,55.864,-4.247
+"University of Greenwich, UK",GB_02,51.498,-0.005,Birmingham,52.48,-1.912
+Lancaster University,GB_03,54.01,-2.788,Inverness,57.478,-4.224
+Swansea University,GB_04,51.611,-3.98,,,
+Durham University,GB_06,54.765,-1.578,Falmouth,50.153,-5.067
+University of Hong Kong,HK_01,22.283,114.137,"Harbin, Heilongjiang province",45.768,126.648
+University of Limerick,IE_01,52.674,-8.572,Sligo,54.277,-8.476
+Ben-Gurion University,IL_01,31.262,34.8,Kiryat Shmona,33.208,35.572
+Chieti-Pescara University,IT_01,42.369,14.15,Aosta,45.736,7.314
+Departmento of Human Sciences,IT_02,45.438,11.002,Palermo,38.115,13.383
+"University of Rome ""La Sapienza""",IT_03,41.904,12.515,Palermo,38.115,13.383
+Japan Women's University,JP_01,35.718,139.721,,,
+Universidad Autonoma Metropolitana,MX_01,19.304,-99.103,Tijuana,32.512,-117.022
+Guanajuato University,MX_02,21.061,-101.572,,,
+University of Nottingham Malaysia,MY_01,2.944,101.873,Kuala Lumpur,3.148,101.713
+HELP University,MY_02,3.152,101.671,Kota Kinabalu,5.983,116.078
+"Alex Ekwueme Federal University Ndufu-Alike, Nigeria",NG_01,6.14,8.141,Lagos,6.525,3.386
+University of Groningen,NL_01,53.219,6.563,Maastricht,50.853,5.697
+University of Amsterdam,NL_02,52.356,4.956,Maastricht,50.853,5.697
+Maastricht University,NL_03,50.836,5.716,Groningen,53.219,6.573
+Vrije Universiteit Amsterdam,NL_04,52.334,4.867,Maastricht,50.853,5.697
+University of Canterbury,NZ_01,-43.524,172.585,Auckland,-36.844,174.78
+University of the Philippines - Diliman,PH_01,14.654,121.069,Tawi-Tawi,5.203,119.983
+SWPS University of Social Sciences and Humanities,PL_01,52.248,21.066,Szczecin,53.431,14.561
+Polish Academy of Sciences,PL_03,52.238,21.033,,,
+SWPS University,PL_04,52.251,21.066,Suwałki,54.111,22.9368
+Universidade de Lisboa (University of Lisbon),PT_01,38.753,-9.158,,,
+ISAP Instituto Universitario,PT_02,38.712,-9.126,,,
+"University of Belgrade, Faculty of Philosophy",RS_01,44.818,20.458,Vranja,44.919,19.768
+University of Gothenburg,SE_01,57.689,11.954,Kiruna,68.228,20.037
 Linköping University,SE_02,58.398,15.576,Kiruna,67.856,20.221
 Linnaeus University,SE_03,56.855,14.83,Kiruna,67.856,20.221
+James Cook University,SG_01,1.3157,103.875,Tuas,1.295,103.628
+"Faculty of Arts, Pavol Jozef Šafárik University in Košice",SK_01,48.721,21.251,Bratislava,48.148,17.117
 Istinye University,TR_01,41.015,28.906,Kars,40.6,43.22
 Muş Alparslan University,TR_02,38.77,41.427,Edirne,41.678,26.552
 Middle East Technical University,TR_03,39.89,32.78,Hakkari,37.592,43.839
-"Bayes Business School, City University of London",GB_01,51.522,-0.09,Glasgow,55.864,-4.247
-"University of Greenwich, UK",GB_02,51.498,-0.005,Birmingham,52.48,-1.912
+Sabanci University,TR_04,40.891,29.378,Van,38.501,43.376
+Izmir Bakircay University,TR_05,38.582,26.964,Van,38.501,43.376
+Marmara University,TR_06,40.988,29.053,Kars,40.6,43.22
 Boğaziçi University & London School of Economics and Political Science,TR_07,51.514,-0.116,Erzurum,39.906,41.268
-Lancaster University,GB_03,54.01,-2.788,Inverness,57.478,-4.224
-Swansea University,GB_04,51.611,-3.98,,,
+Chung Yuan Christian University,TW_01,24.959,121.241,Dongsha Islands,20.705,116.84
+National Tsing Hua University,TW_02,24.796,120.997,Dongsha Islands,20.705,116.84
 University of Utah,US_01,40.929,-111.803,Boston,42.366,-71.062
 Northern Illinois University,US_02,41.934,-88.774,Miami,25.759,-80.186
 The Pennsylvania State University,US_03,40.798,-77.859,Seattle,47.609,-122.322
@@ -57,39 +86,10 @@ Western Kentucky University,US_12,36.986,-86.454,San Jose,37.337,-121.857
 University of Maryland ,US_13,38.989,-76.943,Anchorage,61.231,-149.578
 Gonzaga University,US_14,47.668,-117.403,Atlanta,33.755,-84.379
 Kent State University,US_15,41.151,-81.35,,,
-University of Bihac,BA_01,44.814,15.869,,,
-Leuphana University Lüneburg ,DE_06,53.228,10.405,Freiburg im Breisgau,47.997,7.837
-Universidad Autonoma Metropolitana,MX_01,19.304,-99.103,Tijuana,32.512,-117.022
-Polish Academy of Sciences,PL_03,52.238,21.033,,,
-Durham University,GB_06,54.765,-1.578,Falmouth,50.153,-5.067
-Maastricht University,NL_03,50.836,5.716,Groningen,53.219,6.573
 University of Pennsylvania,US_16,39.95,-75.199,San Francisco,37.776,-122.401
-University of Basel,CH_01,47.562,7.576,Coire,46.852,9.534
 Wesleyan University,US_17,41.555,-72.656,Los Angeles,34.061,-118.171
-University of Canterbury,NZ_01,-43.524,172.585,Auckland,-36.844,174.78
 Michigan State University,US_18,42.731,-84.475,Los Angeles,34.061,-118.171
-Sabanci University,TR_04,40.891,29.378,Van,38.501,43.376
-Vrije Universiteit Amsterdam,NL_04,52.334,4.867,Maastricht,50.853,5.697
-Shandong Youth University of Political Science,CN_01,36.671,117.24,Changsha,28.239,112.956
-Izmir Bakircay University,TR_05,38.582,26.964,Van,38.501,43.376
-Hochschule Düsseldorf ,DE_07,49.018,12.08,Flensburg,54.795,9.455
-"UNSW, School of Medicine and Psychology",AU_03,-35.283,149.114,Perth,-31.947,115.841
 North Central College,US_19,41.776,-88.143,Los Angeles,34.061,-118.171
-Marmara University,TR_06,40.988,29.053,Kars,40.6,43.22
-University of New South Wales,AU_04,-33.917,151.231,Perth,-31.947,115.841
-ISAP Instituto Universitario,PT_02,38.712,-9.126,,,
-Guanajuato University,MX_02,21.061,-101.572,,,
-Chung Yuan Christian University,TW_01,24.959,121.241,Dongsha Islands,20.705,116.84
-"The Chinese University of Hong Kong, Shenzhen",CN_02,22.718,114.255,Beijing,39.912,116.41
-Departmento of Human Sciences,IT_02,45.438,11.002,Palermo,38.115,13.383
-University of Nottingham Malaysia,MY_01,2.944,101.873,Kuala Lumpur,3.148,101.713
-National Tsing Hua University,TW_02,24.796,120.997,Dongsha Islands,20.705,116.84
-HELP University,MY_02,3.152,101.671,Kota Kinabalu,5.983,116.078
-Xi'an Jiaotong University,CN_03,34.252,108.983,Fuzhou,26.082,119.297
-Ben-Gurion University,IL_01,31.262,34.8,Kiryat Shmona,33.208,35.572
 Bucknell University,US_20,40.955,-76.885,Atlanta,33.755,-84.379
-University of Vienna,AT_03,48.214,16.358,Bregenz,47.501,9.737
 San Francisco State University,US_21,37.723,-122.479,,,
 The Ohio State University,US_22,39.998,-83.016,Los Angeles,34.061,-118.171
-"University of Rome ""La Sapienza""",IT_03,41.904,12.515,Palermo,38.115,13.383
-SWPS University,PL_04,52.251,21.066,Suwałki,54.111,22.9368

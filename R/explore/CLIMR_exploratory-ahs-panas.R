@@ -515,4 +515,3 @@ glmm_likelihood_panas_val  <- glmer(bif
 lrt_panas_val_likelihood <- anova(glmm_likelihood_panas_add, 
                                   glmm_likelihood_panas_val, 
                                   test = "LRT")
-
