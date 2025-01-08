@@ -2,7 +2,7 @@ CLIMR Supplemental Analysis Report: Spatial Distance Online Location
 Check Failures Removed
 ================
 CLIMR Team
-2024-11-28
+2025-01-07
 
 # Primary Analysis
 
@@ -13,18 +13,18 @@ meta_spatial_loc
     ## 
     ## Random-Effects Model (k = 75; tau^2 estimator: REML)
     ## 
-    ## tau^2 (estimated amount of total heterogeneity): 0.0000 (SE = 0.0160)
-    ## tau (square root of estimated tau^2 value):      0.0021
+    ## tau^2 (estimated amount of total heterogeneity): 0.0000 (SE = 0.0161)
+    ## tau (square root of estimated tau^2 value):      0.0013
     ## I^2 (total heterogeneity / total variability):   0.00%
     ## H^2 (total variability / sampling variability):  1.00
     ## 
     ## Test for Heterogeneity:
-    ## Q(df = 74) = 74.2484, p-val = 0.4700
+    ## Q(df = 74) = 75.7637, p-val = 0.4213
     ## 
     ## Model Results:
     ## 
     ## estimate      se    zval    pval    ci.lb   ci.ub    
-    ##   0.0543  0.0388  1.4009  0.1612  -0.0217  0.1303    
+    ##   0.0588  0.0388  1.5153  0.1297  -0.0173  0.1349    
     ## 
     ## ---
     ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
@@ -33,8 +33,8 @@ meta_spatial_loc
 bt_spatial_loc
 ```
 
-    ##        diff    ci_lower ci_upper
-    ## 1 0.1457853 -0.05818138 0.349752
+    ##        diff    ci_lower  ci_upper
+    ## 1 0.1577395 -0.04629101 0.3617701
 
 # Comprehension Check Failures Removed
 
@@ -45,18 +45,18 @@ meta_spatial_loc_comp
     ## 
     ## Random-Effects Model (k = 75; tau^2 estimator: REML)
     ## 
-    ## tau^2 (estimated amount of total heterogeneity): 0.0008 (SE = 0.0218)
-    ## tau (square root of estimated tau^2 value):      0.0283
-    ## I^2 (total heterogeneity / total variability):   0.53%
-    ## H^2 (total variability / sampling variability):  1.01
+    ## tau^2 (estimated amount of total heterogeneity): 0.0028 (SE = 0.0223)
+    ## tau (square root of estimated tau^2 value):      0.0530
+    ## I^2 (total heterogeneity / total variability):   1.83%
+    ## H^2 (total variability / sampling variability):  1.02
     ## 
     ## Test for Heterogeneity:
-    ## Q(df = 74) = 79.6390, p-val = 0.3062
+    ## Q(df = 74) = 80.2545, p-val = 0.2895
     ## 
     ## Model Results:
     ## 
     ## estimate      se    zval    pval    ci.lb   ci.ub    
-    ##   0.0520  0.0448  1.1608  0.2457  -0.0358  0.1398    
+    ##   0.0552  0.0452  1.2208  0.2222  -0.0334  0.1438    
     ## 
     ## ---
     ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
@@ -66,7 +66,7 @@ bt_spatial_loc_comp
 ```
 
     ##        diff    ci_lower  ci_upper
-    ## 1 0.1409837 -0.09707043 0.3790378
+    ## 1 0.1495619 -0.09055671 0.3896806
 
 # Modality Moderation
 
@@ -74,13 +74,13 @@ bt_spatial_loc_comp
 meta_spatial_loc_mode_Q$QM
 ```
 
-    ## [1] 0.02221284
+    ## [1] 0.2075604
 
 ``` r
 meta_spatial_loc_mode_Q$QMp
 ```
 
-    ## [1] 0.8815223
+    ## [1] 0.6486863
 
 ``` r
 meta_spatial_loc_mode
@@ -90,21 +90,21 @@ meta_spatial_loc_mode
     ## Mixed-Effects Model (k = 75; tau^2 estimator: REML)
     ## 
     ## tau^2 (estimated amount of residual heterogeneity):     0.0000 (SE = 0.0163)
-    ## tau (square root of estimated tau^2 value):             0.0015
+    ## tau (square root of estimated tau^2 value):             0.0009
     ## I^2 (residual heterogeneity / unaccounted variability): 0.00%
     ## H^2 (unaccounted variability / sampling variability):   1.00
     ## 
     ## Test for Residual Heterogeneity:
-    ## QE(df = 73) = 74.2262, p-val = 0.4380
+    ## QE(df = 73) = 75.5561, p-val = 0.3958
     ## 
     ## Test of Moderators (coefficients 1:2):
-    ## QM(df = 2) = 1.9847, p-val = 0.3707
+    ## QM(df = 2) = 2.5036, p-val = 0.2860
     ## 
     ## Model Results:
     ## 
     ##                 estimate      se    zval    pval    ci.lb   ci.ub    
-    ## modalitylab       0.0508  0.0455  1.1156  0.2646  -0.0384  0.1400    
-    ## modalityonline    0.0637  0.0741  0.8604  0.3896  -0.0815  0.2089    
+    ## modalitylab       0.0475  0.0462  1.0277  0.3041  -0.0430  0.1379    
+    ## modalityonline    0.0863  0.0718  1.2031  0.2289  -0.0543  0.2270    
     ## 
     ## ---
     ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1

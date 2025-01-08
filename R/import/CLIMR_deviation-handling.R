@@ -217,6 +217,14 @@ raw <- raw %>%
 #   "70"
 # )
 
+# TR_05: Test cases ------------------------------------------------------------
+
+# TR_05 reported testing the experiment and using "Climr-gaye" in the ethnicity
+# field.
+
+raw <- raw %>% 
+  filter(ethnicity != "Climr-gaye"  | is.na(ethnicity))
+
 # Duplicated participant IDs ---------------------------------------------------
 
 # Some labs reported accidentally reusing some participant ID values These

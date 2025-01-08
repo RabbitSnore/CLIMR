@@ -1,5 +1,5 @@
 ---
-title: "Construal Level International Multilab Replication (CLIMR) Project: Analysis of Analysis-Holism Scale (AHS) and Positive and Negative Affect (PANAS)"
+title: "Construal Level International Multilab Replication (CLIMR) Project: Analysis of Analysis-Holism Scale (AHS)"
 author: "CLIMR Team"
 date: "`r Sys.Date()`"
 output:
@@ -88,3 +88,10 @@ summary(glmm_likelihood_ahs_add)
 ```{r}
 summary(glmm_likelihood_ahs_int)
 ```
+
+# Visualization of Predicted Probabilities
+
+```{r}
+knitr::include_graphics("figures/climr_bif-ahs-predictions.png")
+```
+

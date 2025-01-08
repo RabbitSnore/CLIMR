@@ -1,7 +1,7 @@
 CLIMR Supplemental Analysis Report: Online vs. In-Lab Modality
 ================
 CLIMR Team
-2024-11-28
+2025-01-07
 
 # Meta-Analytic Models
 
@@ -11,13 +11,13 @@ CLIMR Team
 meta_temporal_mode_Q$QM
 ```
 
-    ## [1] 0.05405519
+    ## [1] 0.1744949
 
 ``` r
 meta_temporal_mode_Q$QMp
 ```
 
-    ## [1] 0.8161515
+    ## [1] 0.6761476
 
 ``` r
 meta_temporal_mode
@@ -26,22 +26,22 @@ meta_temporal_mode
     ## 
     ## Mixed-Effects Model (k = 79; tau^2 estimator: REML)
     ## 
-    ## tau^2 (estimated amount of residual heterogeneity):     0.0134 (SE = 0.0230)
-    ## tau (square root of estimated tau^2 value):             0.1157
-    ## I^2 (residual heterogeneity / unaccounted variability): 8.53%
+    ## tau^2 (estimated amount of residual heterogeneity):     0.0134 (SE = 0.0229)
+    ## tau (square root of estimated tau^2 value):             0.1156
+    ## I^2 (residual heterogeneity / unaccounted variability): 8.52%
     ## H^2 (unaccounted variability / sampling variability):   1.09
     ## 
     ## Test for Residual Heterogeneity:
-    ## QE(df = 77) = 93.9483, p-val = 0.0918
+    ## QE(df = 77) = 93.7847, p-val = 0.0938
     ## 
     ## Test of Moderators (coefficients 1:2):
-    ## QM(df = 2) = 3.3172, p-val = 0.1904
+    ## QM(df = 2) = 3.4847, p-val = 0.1751
     ## 
     ## Model Results:
     ## 
     ##                 estimate      se    zval    pval    ci.lb   ci.ub    
-    ## modalitylab       0.0860  0.0542  1.5881  0.1123  -0.0201  0.1922    
-    ## modalityonline    0.0717  0.0804  0.8917  0.3725  -0.0859  0.2293    
+    ## modalitylab       0.0952  0.0549  1.7358  0.0826  -0.0123  0.2028  . 
+    ## modalityonline    0.0538  0.0783  0.6869  0.4921  -0.0996  0.2072    
     ## 
     ## ---
     ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
@@ -52,13 +52,13 @@ meta_temporal_mode
 meta_spatial_mode_Q$QM
 ```
 
-    ## [1] 0.06134941
+    ## [1] 0.01313943
 
 ``` r
 meta_spatial_mode_Q$QMp
 ```
 
-    ## [1] 0.8043757
+    ## [1] 0.9087405
 
 ``` r
 meta_spatial_mode
@@ -67,22 +67,22 @@ meta_spatial_mode
     ## 
     ## Mixed-Effects Model (k = 77; tau^2 estimator: REML)
     ## 
-    ## tau^2 (estimated amount of residual heterogeneity):     0.0000 (SE = 0.0154)
-    ## tau (square root of estimated tau^2 value):             0.0018
-    ## I^2 (residual heterogeneity / unaccounted variability): 0.00%
+    ## tau^2 (estimated amount of residual heterogeneity):     0.0000 (SE = 0.0153)
+    ## tau (square root of estimated tau^2 value):             0.0026
+    ## I^2 (residual heterogeneity / unaccounted variability): 0.01%
     ## H^2 (unaccounted variability / sampling variability):   1.00
     ## 
     ## Test for Residual Heterogeneity:
-    ## QE(df = 75) = 71.5092, p-val = 0.5929
+    ## QE(df = 75) = 71.5574, p-val = 0.5913
     ## 
     ## Test of Moderators (coefficients 1:2):
-    ## QM(df = 2) = 1.4674, p-val = 0.4801
+    ## QM(df = 2) = 1.4192, p-val = 0.4918
     ## 
     ## Model Results:
     ## 
     ##                 estimate      se    zval    pval    ci.lb   ci.ub    
-    ## modalitylab       0.0508  0.0455  1.1156  0.2646  -0.0384  0.1400    
-    ## modalityonline    0.0310  0.0656  0.4721  0.6368  -0.0977  0.1596    
+    ## modalitylab       0.0475  0.0462  1.0277  0.3041  -0.0430  0.1380    
+    ## modalityonline    0.0384  0.0638  0.6025  0.5469  -0.0866  0.1634    
     ## 
     ## ---
     ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
@@ -93,13 +93,13 @@ meta_spatial_mode
 meta_social_mode_Q$QM
 ```
 
-    ## [1] 4.960906
+    ## [1] 2.719788
 
 ``` r
 meta_social_mode_Q$QMp
 ```
 
-    ## [1] 0.02592662
+    ## [1] 0.09911117
 
 ``` r
 meta_social_mode
@@ -108,22 +108,22 @@ meta_social_mode
     ## 
     ## Mixed-Effects Model (k = 77; tau^2 estimator: REML)
     ## 
-    ## tau^2 (estimated amount of residual heterogeneity):     0.0068 (SE = 0.0175)
-    ## tau (square root of estimated tau^2 value):             0.0822
-    ## I^2 (residual heterogeneity / unaccounted variability): 5.67%
-    ## H^2 (unaccounted variability / sampling variability):   1.06
+    ## tau^2 (estimated amount of residual heterogeneity):     0.0095 (SE = 0.0181)
+    ## tau (square root of estimated tau^2 value):             0.0975
+    ## I^2 (residual heterogeneity / unaccounted variability): 7.80%
+    ## H^2 (unaccounted variability / sampling variability):   1.08
     ## 
     ## Test for Residual Heterogeneity:
-    ## QE(df = 75) = 79.9689, p-val = 0.3259
+    ## QE(df = 75) = 82.2849, p-val = 0.2641
     ## 
     ## Test of Moderators (coefficients 1:2):
-    ## QM(df = 2) = 50.0969, p-val < .0001
+    ## QM(df = 2) = 46.3635, p-val < .0001
     ## 
     ## Model Results:
     ## 
     ##                 estimate      se     zval    pval    ci.lb    ci.ub      
-    ## modalitylab      -0.3252  0.0477  -6.8110  <.0001  -0.4188  -0.2316  *** 
-    ## modalityonline   -0.1356  0.0705  -1.9253  0.0542  -0.2737   0.0024    . 
+    ## modalitylab      -0.3114  0.0490  -6.3534  <.0001  -0.4075  -0.2153  *** 
+    ## modalityonline   -0.1708  0.0697  -2.4491  0.0143  -0.3075  -0.0341    * 
     ## 
     ## ---
     ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
@@ -134,13 +134,13 @@ meta_social_mode
 meta_likelihood_mode_Q$QM
 ```
 
-    ## [1] 0.8573304
+    ## [1] 0.4263143
 
 ``` r
 meta_likelihood_mode_Q$QMp
 ```
 
-    ## [1] 0.3544868
+    ## [1] 0.513803
 
 ``` r
 meta_likelihood_mode
@@ -149,22 +149,22 @@ meta_likelihood_mode
     ## 
     ## Mixed-Effects Model (k = 76; tau^2 estimator: REML)
     ## 
-    ## tau^2 (estimated amount of residual heterogeneity):     0.0105 (SE = 0.0180)
-    ## tau (square root of estimated tau^2 value):             0.1024
-    ## I^2 (residual heterogeneity / unaccounted variability): 8.74%
+    ## tau^2 (estimated amount of residual heterogeneity):     0.0113 (SE = 0.0182)
+    ## tau (square root of estimated tau^2 value):             0.1064
+    ## I^2 (residual heterogeneity / unaccounted variability): 9.37%
     ## H^2 (unaccounted variability / sampling variability):   1.10
     ## 
     ## Test for Residual Heterogeneity:
-    ## QE(df = 74) = 87.1923, p-val = 0.1401
+    ## QE(df = 74) = 87.6706, p-val = 0.1324
     ## 
     ## Test of Moderators (coefficients 1:2):
-    ## QM(df = 2) = 1.1374, p-val = 0.5663
+    ## QM(df = 2) = 0.7023, p-val = 0.7039
     ## 
     ## Model Results:
     ## 
-    ##                 estimate      se     zval    pval    ci.lb   ci.ub    
-    ## modalitylab      -0.0041  0.0485  -0.0839  0.9332  -0.0991  0.0910    
-    ## modalityonline    0.0757  0.0712   1.0632  0.2877  -0.0638  0.2152    
+    ##                 estimate      se    zval    pval    ci.lb   ci.ub    
+    ## modalitylab       0.0026  0.0493  0.0521  0.9585  -0.0941  0.0992    
+    ## modalityonline    0.0583  0.0697  0.8364  0.4029  -0.0784  0.1950    
     ## 
     ## ---
     ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1

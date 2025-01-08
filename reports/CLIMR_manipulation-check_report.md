@@ -1,7 +1,7 @@
 CLIMR Supplemental Analysis Report: Manipulation Checks
 ================
 CLIMR Team
-2024-11-28
+2025-01-07
 
 # Meta-Analytic Models
 

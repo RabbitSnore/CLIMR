@@ -515,3 +515,135 @@ glmm_likelihood_panas_val  <- glmer(bif
 lrt_panas_val_likelihood <- anova(glmm_likelihood_panas_add, 
                                   glmm_likelihood_panas_val, 
                                   test = "LRT")
+
+# Visualizations ---------------------------------------------------------------
+
+# Temporal distance
+
+## Create new data for predictions
+
+newdata_ahs_temporal <- expand.grid(
+  condition = c("close", "distant"), 
+  ahs_mean  = unique(data_bif_temporal$ahs_mean)
+) %>% 
+  filter(complete.cases(.))
+
+## Create predictions
+
+newdata_ahs_temporal$pred <- predict(glmm_temporal_ahs_int,
+                                     newdata = newdata_ahs_temporal,
+                                     re.form = NA,
+                                     type    = "response")
+
+newdata_ahs_temporal$ahs_mean <- newdata_ahs_temporal$ahs_mean - min(newdata_ahs_temporal$ahs_mean) + 1
+
+plot_pred_ahs_temporal <- 
+  ggplot(newdata_ahs_temporal,
+         aes(
+           y = pred,
+           x = ahs_mean,
+           color = condition,
+           group = condition
+         )) +
+  geom_line(
+    linewidth = 1
+  ) +
+  geom_vline(
+    xintercept = abs(min(data_bif_temporal$ahs_mean, na.rm = TRUE)) + 1,
+    linetype   = "dashed"
+  ) +
+  scale_x_continuous(
+    limits = c(1, 7),
+    breaks = 1:7
+  ) +
+  scale_y_continuous(
+    breaks = seq(0, 1, .1),
+    limits = c(0, 1)
+  ) +
+  scale_color_manual(
+    values = c(
+      "#88527F",
+      "#7EB09B"
+    )
+  ) +
+  labs(
+    y     = "Predicted probability of abstract choice",
+    x     = "Analysis-Holism Scale",
+    color = "Condition",
+    title = "Liberman & Trope (1998, Study 1)"
+  ) +
+  theme_classic()
+
+# Spatial distance
+
+## Create new data for predictions
+
+newdata_ahs_spatial <- expand.grid(
+  condition = c("close", "distant"), 
+  ahs_mean  = unique(data_bif_spatial$ahs_mean)
+) %>% 
+  filter(complete.cases(.))
+
+## Create predictions
+
+newdata_ahs_spatial$pred <- predict(glmm_spatial_ahs_add,
+                                    newdata = newdata_ahs_spatial,
+                                    re.form = NA,
+                                    type    = "response")
+
+newdata_ahs_spatial$ahs_mean <- newdata_ahs_spatial$ahs_mean - min(newdata_ahs_spatial$ahs_mean) + 1
+
+plot_pred_ahs_spatial <- 
+  ggplot(newdata_ahs_spatial,
+         aes(
+           y = pred,
+           x = ahs_mean,
+           color = condition,
+           group = condition
+         )) +
+  geom_line(
+    linewidth = 1
+  ) +
+  geom_vline(
+    xintercept = abs(min(data_bif_spatial$ahs_mean, na.rm = TRUE)) + 1,
+    linetype   = "dashed"
+  ) +
+  scale_x_continuous(
+    limits = c(1, 7),
+    breaks = 1:7
+  ) +
+  scale_y_continuous(
+    breaks = seq(0, 1, .1),
+    limits = c(0, 1)
+  ) +
+  scale_color_manual(
+    values = c(
+      "#88527F",
+      "#7EB09B"
+    )
+  ) +
+  labs(
+    y     = "Predicted probability of abstract choice",
+    x     = "Analysis-Holism Scale",
+    color = "Condition",
+    title = "Fujita et al. (2006, Study 1)"
+  ) +
+  theme_classic()
+
+# Combine plots
+
+## Model predictions
+
+ahs_grid <- plot_grid(plot_pred_ahs_temporal,
+                      plot_pred_ahs_spatial,
+                      nrow = 1)
+
+save_plot("figures/climr_bif-ahs-predictions.png",
+          ahs_grid,
+          base_height = 4,
+          base_width  = 10)
+
+save_plot("reports/figures/climr_bif-ahs-predictions.png",
+          ahs_grid,
+          base_height = 4,
+          base_width  = 10)

@@ -3,7 +3,7 @@ Analysis of BIF Response Option Valence Differences in Past Data –
 Sánchez et al (2021)
 ================
 CLIMR Team
-2024-11-28
+2025-01-07
 
 # Re-Analysis of Sánchez et al (2021) BIF data
 
@@ -62,9 +62,9 @@ summary(glmm_sanchez_bif_int)
     ## 
     ## Fixed effects:
     ##              Estimate Std. Error z value Pr(>|z|)    
-    ## (Intercept)  -0.99400    0.22966  -4.328 1.50e-05 ***
+    ## (Intercept)  -0.99397    0.22966  -4.328 1.50e-05 ***
     ## condition2    0.06001    0.12609   0.476   0.6341    
-    ## d             1.23352    0.24971   4.940 7.82e-07 ***
+    ## d             1.23350    0.24970   4.940 7.81e-07 ***
     ## condition2:d  0.23907    0.11609   2.059   0.0395 *  
     ## ---
     ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
@@ -113,14 +113,14 @@ summary(glmm_sanchez_bif_base)
     ## 
     ## Fixed effects:
     ##             Estimate Std. Error z value Pr(>|z|)   
-    ## (Intercept)  0.01765    0.14239   0.124  0.90135   
-    ## condition2   0.25595    0.08273   3.094  0.00198 **
+    ## (Intercept)  0.01765    0.14233   0.124  0.90131   
+    ## condition2   0.25595    0.08271   3.094  0.00197 **
     ## ---
     ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
     ## 
     ## Correlation of Fixed Effects:
     ##            (Intr)
-    ## condition2 -0.291
+    ## condition2 -0.290
 
 ``` r
 summary(glmm_sanchez_bif_val)
@@ -146,15 +146,15 @@ summary(glmm_sanchez_bif_val)
     ## 
     ## Fixed effects:
     ##             Estimate Std. Error z value Pr(>|z|)    
-    ## (Intercept) -1.09166    0.22499  -4.852 1.22e-06 ***
-    ## condition2   0.25597    0.08272   3.094  0.00197 ** 
-    ## d            1.35146    0.24337   5.553 2.80e-08 ***
+    ## (Intercept) -1.09165    0.22503  -4.851 1.23e-06 ***
+    ## condition2   0.25596    0.08272   3.094  0.00197 ** 
+    ## d            1.35146    0.24342   5.552 2.82e-08 ***
     ## ---
     ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
     ## 
     ## Correlation of Fixed Effects:
     ##            (Intr) cndtn2
-    ## condition2 -0.187       
+    ## condition2 -0.186       
     ## d          -0.888  0.003
 
 # Reanalysis of Grinfeld et al (2024, Study 2C) BIF data
@@ -199,14 +199,14 @@ summary(glmm_grinfeld_bif_val)
     ## 
     ## Random effects:
     ##  Groups   Name        Variance Std.Dev.
-    ##  workerId (Intercept) 6.4985   2.5492  
+    ##  workerId (Intercept) 6.4986   2.5492  
     ##  item     (Intercept) 0.1494   0.3866  
     ## Number of obs: 2500, groups:  workerId, 100; item, 25
     ## 
     ## Fixed effects:
     ##                       Estimate Std. Error z value Pr(>|z|)    
-    ## (Intercept)            -1.4711     0.4431  -3.320 0.000901 ***
-    ## conditionhypothetical   1.7253     0.5341   3.230 0.001237 ** 
+    ## (Intercept)            -1.4711     0.4431  -3.320  0.00090 ***
+    ## conditionhypothetical   1.7254     0.5341   3.230  0.00124 ** 
     ## d                       1.6295     0.2695   6.047 1.48e-09 ***
     ## ---
     ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
@@ -236,7 +236,7 @@ summary(glmm_grinfeld_bif_base)
     ## 
     ## Scaled residuals: 
     ##     Min      1Q  Median      3Q     Max 
-    ## -7.4891 -0.4025  0.1193  0.4387  5.4404 
+    ## -7.4891 -0.4025  0.1193  0.4387  5.4403 
     ## 
     ## Random effects:
     ##  Groups   Name        Variance Std.Dev.
@@ -246,8 +246,8 @@ summary(glmm_grinfeld_bif_base)
     ## 
     ## Fixed effects:
     ##                       Estimate Std. Error z value Pr(>|z|)   
-    ## (Intercept)            -0.1346     0.4020  -0.335  0.73769   
-    ## conditionhypothetical   1.7260     0.5344   3.230  0.00124 **
+    ## (Intercept)            -0.1346     0.4020  -0.335  0.73775   
+    ## conditionhypothetical   1.7260     0.5343   3.230  0.00124 **
     ## ---
     ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
     ## 
@@ -279,10 +279,10 @@ summary(glmm_grinfeld_bif_int)
     ## 
     ## Fixed effects:
     ##                         Estimate Std. Error z value Pr(>|z|)    
-    ## (Intercept)              -1.3578     0.4619  -2.940  0.00329 ** 
-    ## conditionhypothetical     1.5073     0.5922   2.545  0.01092 *  
+    ## (Intercept)              -1.3578     0.4620  -2.939  0.00329 ** 
+    ## conditionhypothetical     1.5073     0.5923   2.545  0.01094 *  
     ## d                         1.4925     0.3129   4.770 1.84e-06 ***
-    ## conditionhypothetical:d   0.2758     0.3254   0.847  0.39676    
+    ## conditionhypothetical:d   0.2758     0.3254   0.847  0.39682    
     ## ---
     ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
     ## 
@@ -290,4 +290,4 @@ summary(glmm_grinfeld_bif_int)
     ##             (Intr) cndtnh d     
     ## cndtnhyptht -0.647              
     ## d           -0.558  0.236       
-    ## cndtnhypth:  0.285 -0.433 -0.510
+    ## cndtnhypth:  0.286 -0.433 -0.510

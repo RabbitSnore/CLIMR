@@ -2,7 +2,7 @@ Construal Level International Multilab Replication (CLIMR) Project:
 Reliability analysis for the Behavior Identification Form (BIF)
 ================
 CLIMR Team
-2024-11-28
+2025-01-07
 
 # Liberman & Trope (1998, Study 1)
 
@@ -189,31 +189,31 @@ bif_alpha_spatial
     ##    g  F1*  F2*  F3* 
     ## 1.89 0.00 0.55 0.31 
     ## 
-    ## general/max  3.44   max/min =   195.46
+    ## general/max  3.43   max/min =   195.56
     ## mean percent general =  0.76    with sd =  0.31 and cv of  0.4 
     ## Explained Common Variance of the general factor =  0.69 
     ## 
     ## The degrees of freedom are 42  and the fit is  0.05 
-    ## The number of observations was  2972  with Chi Square =  149.51  with prob <  5.7e-14
+    ## The number of observations was  2971  with Chi Square =  149.49  with prob <  5.7e-14
     ## The root mean square of the residuals is  0.02 
     ## The df corrected root mean square of the residuals is  0.03
     ## RMSEA index =  0.029  and the 10 % confidence intervals are  0.024 0.035
-    ## BIC =  -186.36
+    ## BIC =  -186.37
     ## 
     ## Compare this with the adequacy of just a general factor and no group factors
     ## The degrees of freedom for just the general factor are 65  and the fit is  0.11 
-    ## The number of observations was  2972  with Chi Square =  321.25  with prob <  1.4e-35
+    ## The number of observations was  2971  with Chi Square =  321.15  with prob <  1.5e-35
     ## The root mean square of the residuals is  0.03 
     ## The df corrected root mean square of the residuals is  0.04 
     ## 
     ## RMSEA index =  0.036  and the 10 % confidence intervals are  0.033 0.04
-    ## BIC =  -198.55 
+    ## BIC =  -198.64 
     ## 
     ## Measures of factor score adequacy             
     ##                                                  g   F1*  F2*   F3*
     ## Correlation of scores with factors            0.83  0.04 0.75  0.52
     ## Multiple R square of scores with factors      0.69  0.00 0.56  0.27
-    ## Minimum correlation of factor score estimates 0.39 -1.00 0.12 -0.46
+    ## Minimum correlation of factor score estimates 0.39 -1.00 0.13 -0.46
     ## 
     ##  Total, General and Subset omega for each subset
     ##                                                  g  F1*  F2*  F3*
@@ -256,31 +256,31 @@ bif_alpha_spatial
     ##    g  F1*  F2*  F3* 
     ## 1.89 0.00 0.55 0.31 
     ## 
-    ## general/max  3.44   max/min =   195.46
+    ## general/max  3.43   max/min =   195.56
     ## mean percent general =  0.76    with sd =  0.31 and cv of  0.4 
     ## Explained Common Variance of the general factor =  0.69 
     ## 
     ## The degrees of freedom are 42  and the fit is  0.05 
-    ## The number of observations was  2972  with Chi Square =  149.51  with prob <  5.7e-14
+    ## The number of observations was  2971  with Chi Square =  149.49  with prob <  5.7e-14
     ## The root mean square of the residuals is  0.02 
     ## The df corrected root mean square of the residuals is  0.03
     ## RMSEA index =  0.029  and the 10 % confidence intervals are  0.024 0.035
-    ## BIC =  -186.36
+    ## BIC =  -186.37
     ## 
     ## Compare this with the adequacy of just a general factor and no group factors
     ## The degrees of freedom for just the general factor are 65  and the fit is  0.11 
-    ## The number of observations was  2972  with Chi Square =  321.25  with prob <  1.4e-35
+    ## The number of observations was  2971  with Chi Square =  321.15  with prob <  1.5e-35
     ## The root mean square of the residuals is  0.03 
     ## The df corrected root mean square of the residuals is  0.04 
     ## 
     ## RMSEA index =  0.036  and the 10 % confidence intervals are  0.033 0.04
-    ## BIC =  -198.55 
+    ## BIC =  -198.64 
     ## 
     ## Measures of factor score adequacy             
     ##                                                  g   F1*  F2*   F3*
     ## Correlation of scores with factors            0.83  0.04 0.75  0.52
     ## Multiple R square of scores with factors      0.69  0.00 0.56  0.27
-    ## Minimum correlation of factor score estimates 0.39 -1.00 0.12 -0.46
+    ## Minimum correlation of factor score estimates 0.39 -1.00 0.13 -0.46
     ## 
     ##  Total, General and Subset omega for each subset
     ##                                                  g  F1*  F2*  F3*

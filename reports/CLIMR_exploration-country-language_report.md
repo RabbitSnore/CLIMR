@@ -2,7 +2,7 @@ Construal Level International Multilab Replication (CLIMR) Project:
 Exploration of Country and Language as Random Effects
 ================
 CLIMR Team
-2024-11-28
+2025-01-07
 
 # Liberman & Trope (1998, Study 1)
 

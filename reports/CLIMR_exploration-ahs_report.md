@@ -1,9 +1,8 @@
 Construal Level International Multilab Replication (CLIMR) Project:
-Analysis of Analysis-Holism Scale (AHS) and Positive and Negative Affect
-(PANAS)
+Analysis of Analysis-Holism Scale (AHS)
 ================
 CLIMR Team
-2024-11-28
+2025-01-07
 
 # Analysis-Holism Scale
 
@@ -50,14 +49,14 @@ summary(glmm_temporal_ahs_base)
     ## 
     ## Fixed effects:
     ##                  Estimate Std. Error z value Pr(>|z|)  
-    ## (Intercept)      -0.13981    0.15819  -0.884   0.3768  
-    ## conditiondistant  0.08434    0.03769   2.238   0.0252 *
+    ## (Intercept)      -0.13985    0.15822  -0.884   0.3768  
+    ## conditiondistant  0.08433    0.03769   2.238   0.0252 *
     ## ---
     ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
     ## 
     ## Correlation of Fixed Effects:
     ##             (Intr)
-    ## condtndstnt -0.118
+    ## condtndstnt -0.119
 
 ``` r
 summary(glmm_temporal_ahs_add)
@@ -84,7 +83,7 @@ summary(glmm_temporal_ahs_add)
     ## 
     ## Fixed effects:
     ##                  Estimate Std. Error z value Pr(>|z|)  
-    ## (Intercept)      -0.13992    0.15817  -0.885   0.3764  
+    ## (Intercept)      -0.13990    0.15829  -0.884   0.3768  
     ## conditiondistant  0.08422    0.03769   2.235   0.0254 *
     ## ahs_mean          0.01100    0.03322   0.331   0.7405  
     ## ---
@@ -92,7 +91,7 @@ summary(glmm_temporal_ahs_add)
     ## 
     ## Correlation of Fixed Effects:
     ##             (Intr) cndtnd
-    ## condtndstnt -0.118       
+    ## condtndstnt -0.119       
     ## ahs_mean    -0.001 -0.009
 
 ``` r
@@ -113,17 +112,17 @@ summary(glmm_temporal_ahs_int)
     ## 
     ## Random effects:
     ##  Groups  Name        Variance Std.Dev.
-    ##  lab:sub (Intercept) 0.76106  0.8724  
+    ##  lab:sub (Intercept) 0.76107  0.8724  
     ##  lab     (Intercept) 0.08608  0.2934  
     ##  item    (Intercept) 0.44052  0.6637  
     ## Number of obs: 55237, groups:  lab:sub, 2908; lab, 78; item, 19
     ## 
     ## Fixed effects:
     ##                           Estimate Std. Error z value Pr(>|z|)  
-    ## (Intercept)               -0.13941    0.15824  -0.881   0.3783  
-    ## conditiondistant           0.08414    0.03766   2.234   0.0255 *
-    ## ahs_mean                   0.07263    0.04533   1.602   0.1091  
-    ## conditiondistant:ahs_mean -0.12954    0.06491  -1.996   0.0460 *
+    ## (Intercept)               -0.13942    0.15821  -0.881   0.3782  
+    ## conditiondistant           0.08415    0.03766   2.234   0.0255 *
+    ## ahs_mean                   0.07262    0.04533   1.602   0.1091  
+    ## conditiondistant:ahs_mean -0.12954    0.06492  -1.996   0.0460 *
     ## ---
     ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
     ## 
@@ -176,8 +175,8 @@ summary(glmm_spatial_ahs_base)
     ## 
     ## Fixed effects:
     ##                  Estimate Std. Error z value Pr(>|z|)    
-    ## (Intercept)       0.70275    0.19284   3.644 0.000268 ***
-    ## conditiondistant  0.04458    0.04034   1.105 0.269085    
+    ## (Intercept)       0.70275    0.19313   3.639 0.000274 ***
+    ## conditiondistant  0.04458    0.04034   1.105 0.269131    
     ## ---
     ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
     ## 
@@ -205,13 +204,13 @@ summary(glmm_spatial_ahs_add)
     ##  Groups  Name        Variance Std.Dev.
     ##  lab:sub (Intercept) 0.76535  0.8748  
     ##  lab     (Intercept) 0.06363  0.2523  
-    ##  item    (Intercept) 0.46202  0.6797  
+    ##  item    (Intercept) 0.46198  0.6797  
     ## Number of obs: 38336, groups:  lab:sub, 2949; lab, 78; item, 13
     ## 
     ## Fixed effects:
     ##                  Estimate Std. Error z value Pr(>|z|)    
-    ## (Intercept)       0.69960    0.19291   3.626 0.000287 ***
-    ## conditiondistant  0.04859    0.04024   1.208 0.227233    
+    ## (Intercept)       0.69960    0.19311   3.623 0.000292 ***
+    ## conditiondistant  0.04859    0.04024   1.207 0.227254    
     ## ahs_mean          0.14369    0.03504   4.101 4.11e-05 ***
     ## ---
     ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
@@ -247,10 +246,10 @@ summary(glmm_spatial_ahs_int)
     ## 
     ## Fixed effects:
     ##                           Estimate Std. Error z value Pr(>|z|)    
-    ## (Intercept)                0.69897    0.19280   3.625 0.000289 ***
-    ## conditiondistant           0.04795    0.04021   1.192 0.233090    
+    ## (Intercept)                0.69898    0.19286   3.624  0.00029 ***
+    ## conditiondistant           0.04795    0.04021   1.192  0.23308    
     ## ahs_mean                   0.20285    0.04787   4.237 2.26e-05 ***
-    ## conditiondistant:ahs_mean -0.12438    0.06859  -1.813 0.069775 .  
+    ## conditiondistant:ahs_mean -0.12438    0.06859  -1.813  0.06978 .  
     ## ---
     ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
     ## 
@@ -298,13 +297,13 @@ summary(glmm_social_ahs_base)
     ##  Groups  Name        Variance Std.Dev.
     ##  lab:sub (Intercept) 0.85440  0.9243  
     ##  lab     (Intercept) 0.04728  0.2174  
-    ##  item    (Intercept) 0.21206  0.4605  
+    ##  item    (Intercept) 0.21207  0.4605  
     ## Number of obs: 72276, groups:  lab:sub, 2892; lab, 78; item, 25
     ## 
     ## Fixed effects:
     ##                  Estimate Std. Error z value Pr(>|z|)    
-    ## (Intercept)      -0.38144    0.09947  -3.835 0.000126 ***
-    ## conditiondistant -0.27608    0.03844  -7.182 6.87e-13 ***
+    ## (Intercept)      -0.38143    0.09936  -3.839 0.000124 ***
+    ## conditiondistant -0.27608    0.03844  -7.182 6.85e-13 ***
     ## ---
     ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
     ## 
@@ -337,9 +336,9 @@ summary(glmm_social_ahs_add)
     ## 
     ## Fixed effects:
     ##                  Estimate Std. Error z value Pr(>|z|)    
-    ## (Intercept)      -0.38265    0.09957  -3.843 0.000122 ***
-    ## conditiondistant -0.27530    0.03842  -7.166 7.72e-13 ***
-    ## ahs_mean          0.06294    0.03327   1.892 0.058523 .  
+    ## (Intercept)      -0.38266    0.09944  -3.848 0.000119 ***
+    ## conditiondistant -0.27530    0.03841  -7.167 7.65e-13 ***
+    ## ahs_mean          0.06293    0.03327   1.892 0.058537 .  
     ## ---
     ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
     ## 
@@ -374,10 +373,10 @@ summary(glmm_social_ahs_int)
     ## 
     ## Fixed effects:
     ##                           Estimate Std. Error z value Pr(>|z|)    
-    ## (Intercept)               -0.38291    0.09945  -3.850 0.000118 ***
-    ## conditiondistant          -0.27526    0.03840  -7.169 7.55e-13 ***
-    ## ahs_mean                   0.11398    0.04646   2.453 0.014159 *  
-    ## conditiondistant:ahs_mean -0.10212    0.06492  -1.573 0.115712    
+    ## (Intercept)               -0.38290    0.09943  -3.851 0.000118 ***
+    ## conditiondistant          -0.27526    0.03839  -7.169 7.54e-13 ***
+    ## ahs_mean                   0.11398    0.04647   2.453 0.014175 *  
+    ## conditiondistant:ahs_mean -0.10212    0.06493  -1.573 0.115774    
     ## ---
     ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
     ## 
@@ -428,8 +427,8 @@ summary(glmm_likelihood_ahs_base)
     ## 
     ## Fixed effects:
     ##                   Estimate Std. Error z value Pr(>|z|)
-    ## (Intercept)      -0.002011   0.265274  -0.008    0.994
-    ## conditiondistant  0.048543   0.041234   1.177    0.239
+    ## (Intercept)      -0.002008   0.265301  -0.008    0.994
+    ## conditiondistant  0.048543   0.041236   1.177    0.239
     ## 
     ## Correlation of Fixed Effects:
     ##             (Intr)
@@ -460,9 +459,9 @@ summary(glmm_likelihood_ahs_add)
     ## 
     ## Fixed effects:
     ##                   Estimate Std. Error z value Pr(>|z|)
-    ## (Intercept)      -0.003367   0.265420  -0.013    0.990
-    ## conditiondistant  0.050381   0.041240   1.222    0.222
-    ## ahs_mean          0.054605   0.036161   1.510    0.131
+    ## (Intercept)      -0.003353   0.265315  -0.013    0.990
+    ## conditiondistant  0.050382   0.041240   1.222    0.222
+    ## ahs_mean          0.054606   0.036161   1.510    0.131
     ## 
     ## Correlation of Fixed Effects:
     ##             (Intr) cndtnd
@@ -494,10 +493,10 @@ summary(glmm_likelihood_ahs_int)
     ## 
     ## Fixed effects:
     ##                            Estimate Std. Error z value Pr(>|z|)
-    ## (Intercept)               -0.003286   0.265236  -0.012    0.990
-    ## conditiondistant           0.050384   0.041239   1.222    0.222
-    ## ahs_mean                   0.051468   0.049229   1.045    0.296
-    ## conditiondistant:ahs_mean  0.006698   0.071271   0.094    0.925
+    ## (Intercept)               -0.003279   0.265742  -0.012    0.990
+    ## conditiondistant           0.050382   0.041241   1.222    0.222
+    ## ahs_mean                   0.051463   0.049235   1.045    0.296
+    ## conditiondistant:ahs_mean  0.006714   0.071279   0.094    0.925
     ## 
     ## Correlation of Fixed Effects:
     ##             (Intr) cndtnd ahs_mn
