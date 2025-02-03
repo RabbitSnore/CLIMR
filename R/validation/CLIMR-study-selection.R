@@ -48,7 +48,7 @@ selection %>%
     against_theory                                 = sum(exclusion_fine == 7, na.rm = TRUE),
     included                                       = sum(included, na.rm = TRUE),
     "Studies screened for eligibility"             = N,
-    "Measure failed validation"                    = N - validation,
+    "Failed validation of measure"                 = N - validation,
     "Perceptual measure"                           = N - validation - perceptual,
     "Previous unsuccessful replication"            = N - validation - perceptual - previous_replication,
     "Design issues or retracted"                   = N - validation - perceptual - previous_replication - design,
@@ -66,7 +66,7 @@ exclusion_long <- exclusion_table %>%
   ) %>% 
   mutate(
     excluded = case_when(                        
-      criterion == "Measure failed validation"                    ~ validation, 
+      criterion == "Failed validation of measure"                 ~ validation, 
       criterion == "Perceptual measure"                           ~ perceptual,                          
       criterion == "Previous unsuccessful replication"            ~ previous_replication,           
       criterion == "Design issues or retracted"                   ~ design,                  
@@ -95,7 +95,7 @@ exclusion_long <- exclusion_table %>%
 exclusion_long$criterion <- ordered(exclusion_long$criterion, 
                                      levels = rev(c(
                                        "Studies screened for eligibility",                           
-                                       "Measure failed validation",                   
+                                       "Failed validation of measure",                   
                                        "Perceptual measure",                          
                                        "Previous unsuccessful replication",           
                                        "Design issues or retracted",                  

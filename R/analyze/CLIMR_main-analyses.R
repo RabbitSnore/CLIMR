@@ -18,7 +18,7 @@ original <- read.csv("./data/CLT_original.csv")
 ## Study colors
 
 liberman_1998_color  <- "#37392E"
-fujita_2006_color    <- "#B9E28C"
+fujita_2006_color    <- "#7DC431"
 social_color         <- "#A47C79"
 likelihood_color     <- "#19647E"
 

@@ -191,7 +191,7 @@ ggplot(detectable_effects,
   ) +
   labs(
     x = "Detectable Standardized Mean Difference (80% Power)",
-    y = "Count",
+    y = "Number of Studies",
     title = "Existing Literature's Ability to Detect Effects"
   ) +
   theme_classic()
@@ -284,7 +284,7 @@ ggplot(detection_power_temporal,
   ) +
   labs(
     x     = "Power to Detect Replication Effect Estimate",
-    y     = "Count",
+    y     = "Number of Studies",
     title = "Temporal (Liberman & Trope, 1998, Study 1)"
   ) +
   theme_classic()
@@ -316,7 +316,7 @@ detection_plot_spatial <-
   ) +
   labs(
     x     = "Power to Detect Replication Effect Estimate",
-    y     = "Count",
+    y     = "Number of Studies",
     title = "Spatial (Fujita et al., 2006, Study 1)"
   ) +
   theme_classic()
@@ -348,7 +348,7 @@ detection_plot_social <-
   ) +
   labs(
     x     = "Power to Detect Replication Effect Estimate",
-    y     = "Count",
+    y     = "Number of Studies",
     title = "Social (paradigmatic replication)"
   ) +
   theme_classic()
@@ -380,7 +380,7 @@ detection_plot_likelihood <-
   ) +
   labs(
     x     = "Power to Detect Replication Effect Estimate",
-    y     = "Count",
+    y     = "Number of Studies",
     title = "Likelihood (paradigmatic replication)"
   ) +
   theme_classic()

@@ -323,7 +323,7 @@ manhattan_rma_bif_temporal <-
     labels = str_remove(item_effects_temporal$item, "bif_")
   ) +
   labs(
-    title = "Liberman & Trope (1998, Study 1)",
+    title = "Temporal (Liberman & Trope, 1998, Study 1)",
     y     = "Effect size",
     x     = "Item"
   ) +
@@ -358,7 +358,7 @@ manhattan_rma_bif_spatial <-
     labels = str_remove(item_effects_spatial$item, "bif_")
   ) +
   labs(
-    title = "Fujita et al. (2006, Study 1)",
+    title = "Spatial (Fujita et al., 2006, Study 1)",
     y     = "Effect size",
     x     = "Item"
   ) +
@@ -393,7 +393,7 @@ manhattan_rma_bif_social <-
     labels = str_remove(item_effects_social$item, "bif_")
   ) +
   labs(
-    title = "Social Distance (Paradigmatic Replication)",
+    title = "Social (Paradigmatic Replication)",
     y     = "Effect size",
     x     = "Item"
   ) +
@@ -428,7 +428,7 @@ manhattan_rma_bif_likelihood <-
     labels = str_remove(item_effects_likelihood$item, "bif_")
   ) +
   labs(
-    title = "Likelihood Distance (Paradigmatic Replication)",
+    title = "Likelihood (Paradigmatic Replication)",
     y     = "Effect size",
     x     = "Item"
   ) +

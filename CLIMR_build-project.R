@@ -277,6 +277,8 @@ source("./R/analyze/CLIMR_valence-analyses.R")
 
 # Additional exploratory analyses
 
+source("./R/calculate/CLIMR_calculate-descriptives.R")
+
 source("./R/explore/CLIMR_exploratory-data-wrangling.R")
 
 source("./R/explore/CLIMR_exploratory-country-language.R")
@@ -291,6 +293,7 @@ source("./R/explore/CLIMR_exploratory-past-data.R")
 source("./R/explore/CLIMR_exploratory-ahs-panas.R")
 source("./R/explore/CLIMR_exploratory-actual-distance.R")
 source("./R/explore/CLIMR_exploratory-time.R")
+source("./R/explore/CLIMR_exploratory-duration.R")
 
 # Leaflet map of effects
 
@@ -345,6 +348,7 @@ climr_report("CLIMR_exploration-ahs_report.Rmd")
 climr_report("CLIMR_exploration-panas_report.Rmd")
 climr_report("CLIMR_exploration-actual-distance_report.Rmd")
 climr_report("CLIMR_exploration-actual-time_report.Rmd")
+climr_report("CLIMR_exploration-duration_report.Rmd")
 
 # Validation and pretest reports
 

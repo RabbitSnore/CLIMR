@@ -2,7 +2,7 @@ Construal Level International Multilab Replication (CLIMR) Project: Main
 Analysis Report
 ================
 CLIMR Team
-2025-01-07
+2025-02-03
 
 # Main Figure
 
@@ -46,6 +46,14 @@ bt_temporal
     ##        diff   ci_lower ci_upper
     ## 1 0.3184154 0.01095177 0.625879
 
+``` r
+predict(meta_temporal)
+```
+
+    ## 
+    ##    pred     se  ci.lb  ci.ub   pi.lb  pi.ub 
+    ##  0.0798 0.0393 0.0027 0.1569 -0.1278 0.2875
+
 ## Fujita et al. (2006, Study 1)
 
 ``` r
@@ -77,6 +85,14 @@ bt_spatial
 
     ##        diff    ci_lower  ci_upper
     ## 1 0.1107636 -0.08502635 0.3065536
+
+``` r
+predict(meta_spatial)
+```
+
+    ## 
+    ##    pred     se   ci.lb  ci.ub   pi.lb  pi.ub 
+    ##  0.0410 0.0370 -0.0315 0.1135 -0.0317 0.1136
 
 ## Social Distance (Paradigmatic Replication)
 
@@ -110,6 +126,14 @@ bt_social
     ##       diff  ci_lower   ci_upper
     ## 1 -1.38679 -1.785142 -0.9884379
 
+``` r
+predict(meta_social)
+```
+
+    ## 
+    ##     pred     se   ci.lb   ci.ub   pi.lb   pi.ub 
+    ##  -0.2680 0.0393 -0.3450 -0.1911 -0.4606 -0.0755
+
 ## Likelihood Distance (Paradigmatic Replication)
 
 ``` r
@@ -141,6 +165,14 @@ bt_likelihood
 
     ##        diff    ci_lower  ci_upper
     ## 1 0.0636951 -0.09380308 0.2211933
+
+``` r
+predict(meta_likelihood)
+```
+
+    ## 
+    ##    pred     se   ci.lb  ci.ub   pi.lb  pi.ub 
+    ##  0.0314 0.0397 -0.0463 0.1091 -0.1875 0.2504
 
 # Arboretum
 

@@ -2,7 +2,7 @@ Construal Level International Multilab Replication (CLIMR) Project:
 Analysis of Analysis-Holism Scale (AHS)
 ================
 CLIMR Team
-2025-01-07
+2025-02-03
 
 # Analysis-Holism Scale
 
@@ -503,3 +503,11 @@ summary(glmm_likelihood_ahs_int)
     ## condtndstnt -0.077              
     ## ahs_mean    -0.004  0.021       
     ## cndtndstn:_  0.003  0.001 -0.679
+
+# Visualization of Predicted Probabilities
+
+``` r
+knitr::include_graphics("figures/climr_bif-ahs-predictions.png")
+```
+
+<img src="figures/climr_bif-ahs-predictions.png" width="3000" />

@@ -2,7 +2,7 @@ Construal Level International Multilab Replication (CLIMR) Project:
 Power Analysis Report
 ================
 CLIMR Team
-2025-01-07
+2025-02-03
 
 # Power Figure
 
