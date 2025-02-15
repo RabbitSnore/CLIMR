@@ -29,7 +29,7 @@ bif_alpha_likelihood <- psych::alpha(bif_rel_likelihood)
 
 # Omega
 
-bif_alpha_temporal   <- psych::omega(bif_rel_temporal)
-bif_alpha_spatial    <- psych::omega(bif_rel_spatial)
-bif_alpha_social     <- psych::omega(bif_rel_social)
-bif_alpha_likelihood <- psych::omega(bif_rel_likelihood)
+bif_omega_temporal   <- psych::omega(bif_rel_temporal)
+bif_omega_spatial    <- psych::omega(bif_rel_spatial)
+bif_omega_social     <- psych::omega(bif_rel_social)
+bif_omega_likelihood <- psych::omega(bif_rel_likelihood)
