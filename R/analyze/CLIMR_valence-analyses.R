@@ -205,7 +205,7 @@ plot_pred_val_temporal <-
     y     = "Predicted probability of abstract choice",
     x     = "Valence difference of response options (d)",
     color = "Condition",
-    title = "Liberman & Trope (1998, Study 1)"
+    title = "Temporal (Liberman & Trope, 1998, Study 1)"
   ) +
   theme_classic()
 
@@ -255,7 +255,7 @@ plot_pred_val_prop_temporal <-
     y     = "Predicted probability of abstract choice",
     x     = "Valence difference of response options (d)",
     color = "Condition",
-    title = "Liberman & Trope (1998, Study 1)"
+    title = "Temporal (Liberman & Trope, 1998, Study 1)"
   ) +
   theme_classic()
 
@@ -310,7 +310,7 @@ plot_pred_val_spatial <-
     y     = "Predicted probability of abstract choice",
     x     = "Valence difference of response options (d)",
     color = "Condition",
-    title = "Fujita et al. (2006, Study 1)"
+    title = "Spatial (Fujita et al., 2006, Study 1)"
   ) +
   theme_classic()
 
@@ -360,7 +360,7 @@ plot_pred_val_prop_spatial <-
     y     = "Predicted probability of abstract choice",
     x     = "Valence difference of response options (d)",
     color = "Condition",
-    title = "Fujita et al. (2006, Study 1)"
+    title = "Spatial (Fujita et al., 2006, Study 1)"
   ) +
   theme_classic()
 
@@ -416,7 +416,7 @@ plot_pred_val_social <-
     y     = "Predicted probability of abstract choice",
     x     = "Valence difference of response options (d)",
     color = "Condition",
-    title = "Social Distance (Paradigmatic Replication)"
+    title = "Social (Paradigmatic Replication)"
   ) +
   theme_classic()
 
@@ -466,7 +466,7 @@ plot_pred_val_prop_social <-
     y     = "Predicted probability of abstract choice",
     x     = "Valence difference of response options (d)",
     color = "Condition",
-    title = "Social Distance (Paradigmatic Replication)"
+    title = "Social (Paradigmatic Replication)"
   ) +
   theme_classic()
 
@@ -522,7 +522,7 @@ plot_pred_val_likelihood <-
     y     = "Predicted probability of abstract choice",
     x     = "Valence difference of response options (d)",
     color = "Condition",
-    title = "Likelihood Distance (Paradigmatic Replication)"
+    title = "Likelihood (Paradigmatic Replication)"
   ) +
   theme_classic()
 
@@ -572,7 +572,7 @@ plot_pred_val_prop_likelihood <-
     y     = "Predicted probability of abstract choice",
     x     = "Valence difference of response options (d)",
     color = "Condition",
-    title = "Likelihood Distance (Paradigmatic Replication)"
+    title = "Likelihood (Paradigmatic Replication)"
   ) +
   theme_classic()
 
