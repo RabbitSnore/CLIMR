@@ -25,7 +25,15 @@ simulation_mode    <- FALSE
 # set to TRUE. Only set this to FALSE if you are loading raw data or are
 # simulating data.
 
-read_precleaned    <- FALSE
+read_precleaned    <- TRUE
+
+# Download raw data
+
+# When this parameter is set to TRUE, the raw data will be downloaded from OSF.
+# Most users are recommended to use the pre-cleaned data, rather than the raw
+# data.
+
+download_raw       <- FALSE
 
 # This parameter controls whether the "export version" of the data should be
 # produced after loading and cleaning the raw data. Generally, this parameter
@@ -63,7 +71,7 @@ create_map         <- FALSE
 # This parameter should be set to TRUE if you want to generate the progress
 # tracker figure.
 
-progress_tracker   <- TRUE
+progress_tracker   <- FALSE
 
 # Install/restore packages
 

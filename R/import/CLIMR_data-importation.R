@@ -4,6 +4,30 @@
 
 ################################################################################
 
+# Download raw data ------------------------------------------------------------
+
+# Create raw directory if it does not already exist
+
+if (!dir.exists("data/raw")) {
+  
+  dir.create("data/raw")
+  
+}
+
+# Download and unzip data
+
+if (download_raw == TRUE) {
+  
+  osf_retrieve_file("67c9f13fe78898d7dbc9c762") %>% 
+    osf_download(path = "./data/",
+                 conflicts = "overwrite")
+  
+  unzip("data/climr_raw-data.zip", 
+        overwrite = TRUE,
+        exdir = "data/raw/")
+  
+}
+
 # Load raw data ----------------------------------------------------------------
 
 # This section of code is designed for use with the raw data downloaded directly
@@ -170,11 +194,21 @@ if (read_precleaned == FALSE) {
 
 # Import pre-cleaned data ------------------------------------------------------
 
-## Main data
+# Download pre-cleaned data
+
+if (!file.exists("./data/climr_complete-data.rds")) {
+  
+  osf_retrieve_file("67c9f11a74308c9e2bfd8554") %>% 
+    osf_download(path = "./data/",
+                 conflicts = "overwrite")
+  
+}
+
+# Load pre-cleaned data
 
 if (read_precleaned == TRUE) {
   
-  raw <- read.csv("./data/climr_complete-data.csv") # Replace with direct OSF download
+  raw <- read_rds("./data/climr_complete-data.rds")
   
 }
 
@@ -223,7 +257,7 @@ likelihood <- likelihood_raw[, sapply(likelihood_raw,
 
 if (write_data == TRUE) {
   
-  write.csv(raw, "./data/climr_complete_data.csv", row.names = FALSE)
+  write_rds(raw, "./data/climr_complete_data.rds")
 
 }
 

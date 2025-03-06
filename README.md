@@ -68,6 +68,11 @@ what you are doing.
 Additional supplemental materials are available on the Open Science Framework:
 https://osf.io/ra3dp/
 
+By default, running this script will download a pre-cleaned version of the data.
+This version of the data is considerably more convenient to work with than the
+raw data. If you want to access the raw data, it can be found on OSF or
+automatically downloaded using the parameters in `CLIMR_build-project.R`.
+
 ### Technical Information for Reproducibility
 
 The CLIMR project analysis code was built using R 4.3.2. The packages required
