@@ -89,7 +89,7 @@ forest_plot <- function(replication_data,
       color = study_color
     ) +
     scale_size_manual(
-      values = c(4, 4, 1.2)
+      values = c(1.5, 1.5, 1)
     ) +
     scale_shape_manual(
       values = c(18, 18, 15)
@@ -206,10 +206,10 @@ forest_plot_lor <- function(replication_data, meta_analysis, org_lor, org_ci_low
       color = study_color
     ) +
     scale_size_manual(
-      values = c(4, 4, 1.2)
+      values = c(2, 2, 1.2)
     ) +
     scale_shape_manual(
-      values = c(18, 18, 15)
+      values = c(18, 1, 15)
     ) +
     geom_errorbarh(
       height = .50,

@@ -196,7 +196,7 @@ if (read_precleaned == FALSE) {
 
 # Download pre-cleaned data
 
-if (!file.exists("./data/climr_complete-data.rds")) {
+if (!file.exists("./data/climr_complete_data.rds")) {
   
   osf_retrieve_file("67c9f11a74308c9e2bfd8554") %>% 
     osf_download(path = "./data/",
@@ -208,7 +208,7 @@ if (!file.exists("./data/climr_complete-data.rds")) {
 
 if (read_precleaned == TRUE) {
   
-  raw <- read_rds("./data/climr_complete-data.rds")
+  raw <- read_rds("./data/climr_complete_data.rds")
   
 }
 
