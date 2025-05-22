@@ -302,6 +302,7 @@ source("./R/explore/CLIMR_exploratory-ahs-panas.R")
 source("./R/explore/CLIMR_exploratory-actual-distance.R")
 source("./R/explore/CLIMR_exploratory-time.R")
 source("./R/explore/CLIMR_exploratory-duration.R")
+source("./R/explore/CLIMR_exploratory-data-quality.R")
 
 # Leaflet map of effects
 
@@ -357,6 +358,7 @@ climr_report("CLIMR_exploration-panas_report.Rmd")
 climr_report("CLIMR_exploration-actual-distance_report.Rmd")
 climr_report("CLIMR_exploration-actual-time_report.Rmd")
 climr_report("CLIMR_exploration-duration_report.Rmd")
+climr_report("CLIMR_exploration-data-quality_report.Rmd")
 
 # Validation and pretest reports
 

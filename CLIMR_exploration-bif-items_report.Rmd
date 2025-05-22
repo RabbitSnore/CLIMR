@@ -85,3 +85,24 @@ item_effects_likelihood
 ```{r}
 meta_likelihood_bif_item
 ```
+
+# Effects calculated meta-analytically, with all items included
+
+```{r}
+knitr::include_graphics("figures/climr_bif-items-rma-full.png")
+```
+
+## Meta-analytic models
+
+```{r}
+meta_temporal_bif_item_full
+```
+
+```{r}
+meta_spatial_bif_item
+```
+
+```{r}
+meta_likelihood_bif_item
+```
+

@@ -2,7 +2,7 @@ Construal Level International Multilab Replication (CLIMR) Project:
 Analysis of Analysis-Holism Scale (AHS)
 ================
 CLIMR Team
-2025-02-03
+2025-05-22
 
 # Analysis-Holism Scale
 

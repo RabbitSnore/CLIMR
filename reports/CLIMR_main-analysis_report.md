@@ -2,7 +2,7 @@ Construal Level International Multilab Replication (CLIMR) Project: Main
 Analysis Report
 ================
 CLIMR Team
-2025-02-03
+2025-05-22
 
 # Main Figure
 

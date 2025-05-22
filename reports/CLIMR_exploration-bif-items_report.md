@@ -2,7 +2,7 @@ Construal Level International Multilab Replication (CLIMR) Project:
 Exploration of Item-Level Effects on the BIF
 ================
 CLIMR Team
-2025-02-03
+2025-05-22
 
 # Overview
 
@@ -261,6 +261,138 @@ item_effects_likelihood
     ## 9 bif_25  0.0206 -0.0518  0.0930
 
 ## Meta-Analytic Approach
+
+``` r
+meta_likelihood_bif_item
+```
+
+    ## 
+    ## Multivariate Meta-Analysis Model (k = 702; method: REML)
+    ## 
+    ## Variance Components:
+    ## 
+    ##             estim    sqrt  nlvls  fixed        factor 
+    ## sigma^2    0.0176  0.1328     78     no  lab_modality 
+    ## 
+    ## Test for Residual Heterogeneity:
+    ## QE(df = 693) = 779.9094, p-val = 0.0119
+    ## 
+    ## Test of Moderators (coefficients 1:9):
+    ## QM(df = 9) = 7.2821, p-val = 0.6078
+    ## 
+    ## Model Results:
+    ## 
+    ##             estimate      se     zval    pval    ci.lb   ci.ub    
+    ## itembif_01    0.0215  0.0405   0.5313  0.5952  -0.0578  0.1008    
+    ## itembif_07    0.0242  0.0405   0.5983  0.5496  -0.0551  0.1036    
+    ## itembif_08    0.0790  0.0405   1.9492  0.0513  -0.0004  0.1585  . 
+    ## itembif_09    0.0288  0.0405   0.7121  0.4764  -0.0505  0.1082    
+    ## itembif_11    0.0347  0.0405   0.8585  0.3906  -0.0446  0.1141    
+    ## itembif_12   -0.0158  0.0405  -0.3906  0.6961  -0.0952  0.0636    
+    ## itembif_18    0.0162  0.0406   0.3988  0.6901  -0.0633  0.0957    
+    ## itembif_22   -0.0428  0.0405  -1.0591  0.2895  -0.1221  0.0364    
+    ## itembif_25    0.0121  0.0405   0.2982  0.7655  -0.0672  0.0914    
+    ## 
+    ## ---
+    ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+# Effects calculated meta-analytically, with all items included
+
+``` r
+knitr::include_graphics("figures/climr_bif-items-rma-full.png")
+```
+
+<img src="figures/climr_bif-items-rma-full.png" width="1800" />
+
+## Meta-analytic models
+
+``` r
+meta_temporal_bif_item_full
+```
+
+    ## 
+    ## Multivariate Meta-Analysis Model (k = 1967; method: REML)
+    ## 
+    ## Variance Components:
+    ## 
+    ##             estim    sqrt  nlvls  fixed        factor 
+    ## sigma^2    0.0165  0.1285     79     no  lab_modality 
+    ## 
+    ## Test for Residual Heterogeneity:
+    ## QE(df = 1942) = 2013.1124, p-val = 0.1275
+    ## 
+    ## Test of Moderators (coefficients 1:25):
+    ## QM(df = 25) = 187.7436, p-val < .0001
+    ## 
+    ## Model Results:
+    ## 
+    ##             estimate      se     zval    pval    ci.lb    ci.ub      
+    ## itembif_01    0.0049  0.0400   0.1234  0.9018  -0.0735   0.0834      
+    ## itembif_02    0.0999  0.0401   2.4893  0.0128   0.0212   0.1786    * 
+    ## itembif_03    0.0118  0.0401   0.2933  0.7693  -0.0669   0.0905      
+    ## itembif_04   -0.0506  0.0401  -1.2627  0.2067  -0.1292   0.0279      
+    ## itembif_05   -0.1636  0.0401  -4.0824  <.0001  -0.2421  -0.0851  *** 
+    ## itembif_06   -0.0371  0.0401  -0.9260  0.3544  -0.1157   0.0415      
+    ## itembif_07    0.0537  0.0400   1.3411  0.1799  -0.0248   0.1321      
+    ## itembif_08    0.0381  0.0402   0.9465  0.3439  -0.0408   0.1170      
+    ## itembif_09   -0.0010  0.0402  -0.0245  0.9804  -0.0797   0.0778      
+    ## itembif_10    0.2272  0.0403   5.6327  <.0001   0.1481   0.3062  *** 
+    ## itembif_11    0.2442  0.0405   6.0300  <.0001   0.1649   0.3236  *** 
+    ## itembif_12   -0.0794  0.0400  -1.9828  0.0474  -0.1579  -0.0009    * 
+    ## itembif_13   -0.0355  0.0400  -0.8872  0.3750  -0.1139   0.0429      
+    ## itembif_14   -0.0397  0.0400  -0.9905  0.3219  -0.1181   0.0388      
+    ## itembif_15   -0.0796  0.0400  -1.9874  0.0469  -0.1580  -0.0011    * 
+    ## itembif_16   -0.0866  0.0400  -2.1627  0.0306  -0.1650  -0.0081    * 
+    ## itembif_17    0.0166  0.0400   0.4140  0.6789  -0.0619   0.0950      
+    ## itembif_18   -0.0382  0.0401  -0.9547  0.3397  -0.1168   0.0403      
+    ## itembif_19   -0.0027  0.0400  -0.0682  0.9456  -0.0812   0.0757      
+    ## itembif_20   -0.0790  0.0400  -1.9726  0.0485  -0.1574  -0.0005    * 
+    ## itembif_21    0.0939  0.0402   2.3372  0.0194   0.0152   0.1726    * 
+    ## itembif_22    0.2271  0.0403   5.6398  <.0001   0.1482   0.3061  *** 
+    ## itembif_23    0.0278  0.0401   0.6934  0.4881  -0.0508   0.1064      
+    ## itembif_24    0.0904  0.0400   2.2570  0.0240   0.0119   0.1689    * 
+    ## itembif_25   -0.0977  0.0400  -2.4397  0.0147  -0.1762  -0.0192    * 
+    ## 
+    ## ---
+    ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+``` r
+meta_spatial_bif_item
+```
+
+    ## 
+    ## Multivariate Meta-Analysis Model (k = 1018; method: REML)
+    ## 
+    ## Variance Components:
+    ## 
+    ##             estim    sqrt  nlvls  fixed        factor 
+    ## sigma^2    0.0107  0.1035     79     no  lab_modality 
+    ## 
+    ## Test for Residual Heterogeneity:
+    ## QE(df = 1005) = 1033.1191, p-val = 0.2623
+    ## 
+    ## Test of Moderators (coefficients 1:13):
+    ## QM(df = 13) = 9.3174, p-val = 0.7486
+    ## 
+    ## Model Results:
+    ## 
+    ##             estimate      se     zval    pval    ci.lb   ci.ub    
+    ## itembif_02    0.0474  0.0391   1.2122  0.2254  -0.0292  0.1240    
+    ## itembif_04    0.0033  0.0390   0.0847  0.9325  -0.0731  0.0797    
+    ## itembif_05    0.0676  0.0390   1.7337  0.0830  -0.0088  0.1440  . 
+    ## itembif_07    0.0044  0.0390   0.1126  0.9104  -0.0720  0.0808    
+    ## itembif_09    0.0047  0.0390   0.1192  0.9051  -0.0718  0.0811    
+    ## itembif_10    0.0656  0.0392   1.6706  0.0948  -0.0114  0.1425  . 
+    ## itembif_12   -0.0079  0.0394  -0.2013  0.8405  -0.0852  0.0693    
+    ## itembif_14    0.0515  0.0389   1.3232  0.1858  -0.0248  0.1277    
+    ## itembif_16   -0.0271  0.0390  -0.6948  0.4872  -0.1036  0.0494    
+    ## itembif_19    0.0149  0.0391   0.3806  0.7035  -0.0617  0.0915    
+    ## itembif_20    0.0090  0.0395   0.2268  0.8206  -0.0684  0.0864    
+    ## itembif_22    0.0022  0.0391   0.0557  0.9556  -0.0745  0.0789    
+    ## itembif_23    0.0346  0.0390   0.8872  0.3750  -0.0418  0.1110    
+    ## 
+    ## ---
+    ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 ``` r
 meta_likelihood_bif_item

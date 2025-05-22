@@ -76,6 +76,32 @@ item_lab_effects_likelihood <- data_bif_likelihood %>%
   ) %>% 
   filter(abs(d) != Inf)
 
+# Calculate effects at the lab level, no items excluded
+
+item_lab_effects_temporal_full <- data_bif_temporal_full %>% 
+  group_by(lab_modality, item) %>% 
+  summarise(
+    d   = d_calc(1, condition, bif, "distant", "close")$d,
+    var = d_calc(1, condition, bif, "distant", "close")$var
+  ) %>% 
+  filter(abs(d) != Inf) # Remove cases that are not calculable
+
+item_lab_effects_spatial_full <- data_bif_spatial_full %>% 
+  group_by(lab_modality, item) %>% 
+  summarise(
+    d   = d_calc(1, condition, bif, "distant", "close")$d,
+    var = d_calc(1, condition, bif, "distant", "close")$var
+  ) %>% 
+  filter(abs(d) != Inf)
+
+item_lab_effects_likelihood_full <- data_bif_likelihood_full %>% 
+  group_by(lab_modality, item) %>% 
+  summarise(
+    d   = d_calc(1, condition, bif, "distant", "close")$d,
+    var = d_calc(1, condition, bif, "distant", "close")$var
+  ) %>% 
+  filter(abs(d) != Inf)
+
 # Meta-analytic models ---------------------------------------------------------
 
 meta_temporal_bif_item <- rma.mv(yi = d,
@@ -147,6 +173,65 @@ effects_lab_bif_item <- data.frame(
     meta_likelihood_bif_item$ci.ub
   )
 )
+
+# No BIF items excluded
+
+meta_temporal_bif_item_full <- rma.mv(yi = d,
+                                     V  = var,
+                                     random = list(
+                                       ~ 1 | lab_modality
+                                     ),
+                                     mods = ~ item - 1,
+                                     data = item_lab_effects_temporal_full)
+
+meta_spatial_bif_item_full <- rma.mv(yi = d,
+                                    V  = var,
+                                    random = list(
+                                      ~ 1 | lab_modality
+                                    ),
+                                    mods = ~ item - 1,
+                                    data = item_lab_effects_spatial_full)
+
+meta_likelihood_bif_item_full <- rma.mv(yi = d,
+                                        V  = var,
+                                        random = list(
+                                          ~ 1 | lab_modality
+                                        ),
+                                        mods = ~ item - 1,
+                                        data = item_lab_effects_likelihood_full)
+
+
+effects_lab_bif_item_full <- data.frame(
+  distance = c(
+    rep("temporal", length(meta_temporal_bif_item_full$beta)),
+    rep("spatial", length(meta_spatial_bif_item_full$beta)),
+    rep("likelihood", length(meta_likelihood_bif_item_full$beta))
+  ),
+  item = str_remove(
+    c(
+      rownames(meta_temporal_bif_item_full$beta),
+      rownames(meta_spatial_bif_item_full$beta),
+      rownames(meta_likelihood_bif_item_full$beta)
+    ),
+    "itembif_"
+  ),
+  d = c(
+    meta_temporal_bif_item_full$beta,
+    meta_spatial_bif_item_full$beta,
+    meta_likelihood_bif_item_full$beta
+  ),
+  ci_lb = c(
+    meta_temporal_bif_item_full$ci.lb,
+    meta_spatial_bif_item_full$ci.lb,
+    meta_likelihood_bif_item_full$ci.lb
+  ),
+  ci_ub = c(
+    meta_temporal_bif_item_full$ci.ub,
+    meta_spatial_bif_item_full$ci.ub,
+    meta_likelihood_bif_item_full$ci.ub
+  )
+)
+
 
 # Visualizations ---------------------------------------------------------------
 
@@ -449,3 +534,125 @@ save_plot("./figures/climr_bif-items-rma.png",
 save_plot("./reports/figures/climr_bif-items-rma.png",
           manhattan_rma_bif_grid,
           base_height = 12, base_width = 6)
+
+# Visualizations: All BIF Items ------------------------------------------------
+
+manhattan_rma_bif_temporal_full <- 
+  ggplot(effects_lab_bif_item_full %>% 
+           filter(distance == "temporal"),
+         aes(
+           x    = item,
+           y    = d,
+           ymin = ci_lb,
+           ymax = ci_ub
+         )) +
+  geom_hline(
+    linetype   = "dashed",
+    yintercept = 0 
+  ) +
+  geom_point(
+    color = liberman_1998_color
+  ) +
+  geom_errorbar(
+    width     = .33,
+    linewidth = 1,
+    color = liberman_1998_color
+  ) +
+  scale_y_continuous(
+    limits = c(-.40, .40),
+    breaks = round(seq(-.40, .40, .05), 2)
+  ) +
+  scale_x_discrete(
+    labels = str_remove(item_lab_effects_temporal_full$item, "bif_")
+  ) +
+  labs(
+    title = "Temporal (Liberman & Trope, 1998, Study 1)",
+    y     = "Effect size",
+    x     = "Item"
+  ) +
+  theme_classic()
+
+manhattan_rma_bif_spatial_full <- 
+  ggplot(effects_lab_bif_item_full %>% 
+           filter(distance == "spatial"),
+         aes(
+           x    = item,
+           y    = d,
+           ymin = ci_lb,
+           ymax = ci_ub
+         )) +
+  geom_hline(
+    linetype   = "dashed",
+    yintercept = 0 
+  ) +
+  geom_point(
+    color = fujita_2006_color
+  ) +
+  geom_errorbar(
+    width     = .33,
+    linewidth = 1,
+    color = fujita_2006_color
+  ) +
+  scale_y_continuous(
+    limits = c(-.40, .40),
+    breaks = round(seq(-.40, .40, .05), 2)
+  ) +
+  scale_x_discrete(
+    labels = str_remove(item_lab_effects_spatial_full$item, "bif_")
+  ) +
+  labs(
+    title = "Spatial (Fujita et al., 2006, Study 1)",
+    y     = "Effect size",
+    x     = "Item"
+  ) +
+  theme_classic()
+
+manhattan_rma_bif_likelihood_full <- 
+  ggplot(effects_lab_bif_item_full %>% 
+           filter(distance == "likelihood"),
+         aes(
+           x    = item,
+           y    = d,
+           ymin = ci_lb,
+           ymax = ci_ub
+         )) +
+  geom_hline(
+    linetype   = "dashed",
+    yintercept = 0 
+  ) +
+  geom_point(
+    color = likelihood_color
+  ) +
+  geom_errorbar(
+    width     = .33,
+    linewidth = 1,
+    color = likelihood_color
+  ) +
+  scale_y_continuous(
+    limits = c(-.40, .40),
+    breaks = round(seq(-.40, .40, .05), 2)
+  ) +
+  scale_x_discrete(
+    labels = str_remove(item_lab_effects_likelihood_full$item, "bif_")
+  ) +
+  labs(
+    title = "Likelihood (Paradigmatic Replication)",
+    y     = "Effect size",
+    x     = "Item"
+  ) +
+  theme_classic()
+
+manhattan_rma_bif_grid_full <- plot_grid(
+  manhattan_rma_bif_temporal_full,
+  manhattan_rma_bif_spatial_full,
+  manhattan_rma_bif_likelihood_full,
+  nrow = 3
+)
+
+save_plot("./figures/climr_bif-items-rma-full.png",
+          manhattan_rma_bif_grid_full,
+          base_height = 9, base_width = 6)
+
+save_plot("./reports/figures/climr_bif-items-rma-full.png",
+          manhattan_rma_bif_grid_full,
+          base_height = 9, base_width = 6)

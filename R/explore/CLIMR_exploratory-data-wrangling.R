@@ -6,6 +6,15 @@
 
 # Data wrangling for exploration -----------------------------------------------
 
+# Retrieve ISO country information
+
+iso_countries <- read_csv("https://raw.githubusercontent.com/lukes/ISO-3166-Countries-with-Regional-Codes/master/all/all.csv")
+
+colnames(iso_countries) <- str_replace_all(colnames(iso_countries), "-", "_")
+
+region_data <- iso_countries %>% 
+  select(alpha_2, region)
+
 # Lab languages
 
 lab_languages <- raw %>% 

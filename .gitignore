@@ -44,6 +44,8 @@ reports/*.html
 /notes/*
 /notes/
 
+/data/*.zip
+/data/*.rds
 /data/validation/*
 /data/raw/*
 /data/climr_test_data.csv

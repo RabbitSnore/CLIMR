@@ -144,3 +144,4 @@ hoc analyses of the data.
 - [Potential Moderating Effect of Positive and Negative Affect](reports/CLIMR_exploration-panas_report.md)
 - [Influence of Actual Distance on Effect of Spatial Distance](reports/CLIMR_exploration-actual-distance_report.md)
 - [Potential Differences of Effect of Temporal Distance Across (Actual) Time](reports/CLIMR_exploration-actual-time_report.md)
+- [Assessment of Data Quality Based on Comprehension Checks](reports/CLIMR_exploration-data-quality_report.md)

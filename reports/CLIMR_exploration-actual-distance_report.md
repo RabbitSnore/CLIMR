@@ -2,7 +2,7 @@ Construal Level International Multilab Replication (CLIMR) Project:
 Influence of Actual Distance on the Spatial Distance Effect
 ================
 CLIMR Team
-2025-02-03
+2025-05-22
 
 # Does the actual distance between the cities used in the spatial distance manipulation influence the effect of the manipulation on the BIF?
 

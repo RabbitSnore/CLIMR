@@ -2,9 +2,11 @@ Construal Level International Multilab Replication (CLIMR) Project:
 Exploration of Country and Language as Random Effects
 ================
 CLIMR Team
-2025-02-03
+2025-05-22
 
 # Liberman & Trope (1998, Study 1)
+
+## Country
 
 ``` r
 meta_temporal_country
@@ -63,6 +65,8 @@ ranef_temporal_country
     ## TW -1.721642e-09 1.885977e-05 -3.696619e-05 3.696274e-05
     ## US  1.142905e-09 1.885977e-05 -3.696332e-05 3.696561e-05
 
+## Language
+
 ``` r
 meta_temporal_language
 ```
@@ -108,7 +112,34 @@ ranef_temporal_language
     ## zh-hans -1.299310e-09 1.058969e-05 -2.075670e-05 2.075410e-05
     ## zh-hant -5.401420e-10 1.058969e-05 -2.075594e-05 2.075486e-05
 
+## Removing Samples that Used Non-Primary Language
+
+``` r
+meta_temporal_nonprime
+```
+
+    ## 
+    ## Random-Effects Model (k = 76; tau^2 estimator: REML)
+    ## 
+    ## tau^2 (estimated amount of total heterogeneity): 0.0131 (SE = 0.0191)
+    ## tau (square root of estimated tau^2 value):      0.1145
+    ## I^2 (total heterogeneity / total variability):   10.40%
+    ## H^2 (total variability / sampling variability):  1.12
+    ## 
+    ## Test for Heterogeneity:
+    ## Q(df = 75) = 91.8934, p-val = 0.0899
+    ## 
+    ## Model Results:
+    ## 
+    ## estimate      se    zval    pval    ci.lb   ci.ub    
+    ##   0.0751  0.0412  1.8212  0.0686  -0.0057  0.1559  . 
+    ## 
+    ## ---
+    ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
 # Fujita et al. (2006, Study 1)
+
+## Country
 
 ``` r
 meta_spatial_country
@@ -167,6 +198,8 @@ ranef_spatial_country
     ## TW -2.026859e-10 7.015751e-06 -1.375082e-05 1.375042e-05
     ## US  2.046544e-10 7.015751e-06 -1.375042e-05 1.375082e-05
 
+## Language
+
 ``` r
 meta_spatial_language
 ```
@@ -212,7 +245,34 @@ ranef_spatial_language
     ## zh-hans  1.437132e-10 6.116946e-06 -1.198885e-05 1.198914e-05
     ## zh-hant -1.552376e-10 6.116946e-06 -1.198915e-05 1.198884e-05
 
+## Removing Samples that Used Non-Primary Language
+
+``` r
+meta_spatial_nonprime
+```
+
+    ## 
+    ## Random-Effects Model (k = 76; tau^2 estimator: REML)
+    ## 
+    ## tau^2 (estimated amount of total heterogeneity): 0.0000 (SE = 0.0157)
+    ## tau (square root of estimated tau^2 value):      0.0017
+    ## I^2 (total heterogeneity / total variability):   0.00%
+    ## H^2 (total variability / sampling variability):  1.00
+    ## 
+    ## Test for Heterogeneity:
+    ## Q(df = 75) = 71.8922, p-val = 0.5803
+    ## 
+    ## Model Results:
+    ## 
+    ## estimate      se    zval    pval    ci.lb   ci.ub    
+    ##   0.0441  0.0381  1.1560  0.2477  -0.0307  0.1188    
+    ## 
+    ## ---
+    ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
 # Social Distance (Paradigmatic Replication)
+
+## Country
 
 ``` r
 meta_social_country
@@ -271,6 +331,8 @@ ranef_social_country
     ## TW  0.005371835 0.09326585 -0.17742587 0.18816954
     ## US  0.109122612 0.06837048 -0.02488106 0.24312629
 
+## Language
+
 ``` r
 meta_social_language
 ```
@@ -316,7 +378,34 @@ ranef_social_language
     ## zh-hans -0.016623672 0.08649964 -0.18615986 0.15291251
     ## zh-hant  0.005621261 0.09452770 -0.17964964 0.19089216
 
+## Removing Samples that Used Non-Primary Language
+
+``` r
+meta_social_nonprime
+```
+
+    ## 
+    ## Random-Effects Model (k = 76; tau^2 estimator: REML)
+    ## 
+    ## tau^2 (estimated amount of total heterogeneity): 0.0006 (SE = 0.0162)
+    ## tau (square root of estimated tau^2 value):      0.0246
+    ## I^2 (total heterogeneity / total variability):   0.53%
+    ## H^2 (total variability / sampling variability):  1.01
+    ## 
+    ## Test for Heterogeneity:
+    ## Q(df = 75) = 78.5760, p-val = 0.3663
+    ## 
+    ## Model Results:
+    ## 
+    ## estimate      se     zval    pval    ci.lb    ci.ub      
+    ##  -0.2560  0.0388  -6.5944  <.0001  -0.3321  -0.1799  *** 
+    ## 
+    ## ---
+    ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
 # Likelihood Distance (Paradigmatic Replication)
+
+## Country
 
 ``` r
 meta_likelihood_country
@@ -374,6 +463,8 @@ ranef_likelihood_country
     ## TW  1.583919e-11 8.427725e-06 -1.651802e-05 1.651805e-05
     ## US  7.098935e-10 8.427725e-06 -1.651733e-05 1.651875e-05
 
+## Language
+
 ``` r
 meta_likelihood_language
 ```
@@ -417,3 +508,28 @@ ranef_likelihood_language
     ## tr       1.380657e-10 6.777573e-06 -1.328366e-05 1.328394e-05
     ## zh-hans -5.058581e-10 6.777573e-06 -1.328430e-05 1.328329e-05
     ## zh-hant  1.080138e-11 6.777573e-06 -1.328379e-05 1.328381e-05
+
+## Removing Samples that Used Non-Primary Language
+
+``` r
+meta_likelihood_nonprime
+```
+
+    ## 
+    ## Random-Effects Model (k = 75; tau^2 estimator: REML)
+    ## 
+    ## tau^2 (estimated amount of total heterogeneity): 0.0147 (SE = 0.0193)
+    ## tau (square root of estimated tau^2 value):      0.1213
+    ## I^2 (total heterogeneity / total variability):   11.64%
+    ## H^2 (total variability / sampling variability):  1.13
+    ## 
+    ## Test for Heterogeneity:
+    ## Q(df = 74) = 89.9327, p-val = 0.1003
+    ## 
+    ## Model Results:
+    ## 
+    ## estimate      se    zval    pval    ci.lb   ci.ub    
+    ##   0.0391  0.0417  0.9380  0.3482  -0.0426  0.1207    
+    ## 
+    ## ---
+    ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1

@@ -2,7 +2,7 @@ Construal Level International Multilab Replication (CLIMR) Project:
 Analysis of Positive and Negative Affect (PANAS)
 ================
 CLIMR Team
-2025-02-03
+2025-05-22
 
 # Positive and Negative Affect (PANAS)
 
@@ -536,7 +536,8 @@ summary(glmm_social_panas_val_int)
 
     ## Generalized linear mixed model fit by maximum likelihood (Laplace Approximation) ['glmerMod']
     ##  Family: binomial  ( logit )
-    ## Formula: bif ~ condition * panas_pos + condition * panas_neg + condition *      d + (1 | lab:sub) + (1 | lab) + (1 | item)
+    ## Formula: bif ~ condition * panas_pos + condition * panas_neg + condition *  
+    ##     d + (1 | lab:sub) + (1 | lab) + (1 | item)
     ##    Data: data_bif_social %>% filter(complete.cases(panas_pos, panas_neg))
     ## 
     ##      AIC      BIC   logLik deviance df.resid 
@@ -582,7 +583,8 @@ summary(glmm_social_panas_val_int_3)
 
     ## Generalized linear mixed model fit by maximum likelihood (Laplace Approximation) ['glmerMod']
     ##  Family: binomial  ( logit )
-    ## Formula: bif ~ condition * panas_pos + condition * panas_neg + condition *      d * panas_pos + (1 | lab:sub) + (1 | lab) + (1 | item)
+    ## Formula: bif ~ condition * panas_pos + condition * panas_neg + condition *  
+    ##     d * panas_pos + (1 | lab:sub) + (1 | lab) + (1 | item)
     ##    Data: data_bif_social %>% filter(complete.cases(panas_pos, panas_neg))
     ## Control: glmerControl(optimizer = "bobyqa")
     ## 

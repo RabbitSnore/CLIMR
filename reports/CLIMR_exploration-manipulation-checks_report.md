@@ -3,7 +3,7 @@ Exploration of Manipulation Check Effect Sizes (Cause Sizes) vs. Outcome
 Effect Sizes
 ================
 CLIMR Team
-2025-02-03
+2025-05-22
 
 # Overview
 

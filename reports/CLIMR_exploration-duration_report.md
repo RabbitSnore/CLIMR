@@ -2,7 +2,7 @@ Construal Level International Multilab Replication (CLIMR) Project:
 Analysis of Study Duration as a Moderator
 ================
 CLIMR Team
-2025-02-03
+2025-05-22
 
 # Study Duration
 
